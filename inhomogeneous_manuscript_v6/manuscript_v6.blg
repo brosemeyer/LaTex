@@ -8,45 +8,45 @@ Database file #2: ./mybib.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--can't use both author and editor fields in nmr_abragam
-You've used 45 entries,
+You've used 41 entries,
             3368 wiz_defined-function locations,
-            1501 strings with 20846 characters,
-and the built_in function-call counts, 33708 in all, are:
-= -- 1898
-> -- 1219
-< -- 175
-+ -- 1015
-- -- 298
-* -- 4668
-:= -- 3581
-add.period$ -- 45
-call.type$ -- 45
-change.case$ -- 183
-chr.to.int$ -- 47
-cite$ -- 46
-duplicate$ -- 2976
-empty$ -- 2732
-format.name$ -- 747
-if$ -- 6356
+            1471 strings with 20015 characters,
+and the built_in function-call counts, 31312 in all, are:
+= -- 1745
+> -- 1161
+< -- 164
++ -- 975
+- -- 284
+* -- 4357
+:= -- 3307
+add.period$ -- 41
+call.type$ -- 41
+change.case$ -- 167
+chr.to.int$ -- 43
+cite$ -- 42
+duplicate$ -- 2758
+empty$ -- 2526
+format.name$ -- 703
+if$ -- 5895
 int.to.chr$ -- 2
-int.to.str$ -- 46
-missing$ -- 468
-newline$ -- 150
-num.names$ -- 135
-pop$ -- 739
+int.to.str$ -- 42
+missing$ -- 433
+newline$ -- 138
+num.names$ -- 123
+pop$ -- 680
 preamble$ -- 1
-purify$ -- 180
+purify$ -- 164
 quote$ -- 0
-skip$ -- 1292
+skip$ -- 1203
 stack$ -- 0
-substring$ -- 1172
-swap$ -- 2470
-text.length$ -- 150
+substring$ -- 1076
+swap$ -- 2302
+text.length$ -- 143
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 266
+type$ -- 242
 warning$ -- 1
-while$ -- 136
+while$ -- 124
 width$ -- 0
-write$ -- 469
+write$ -- 429
 (There was 1 warning)

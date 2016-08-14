@@ -1,4 +1,4 @@
-\begin{thebibliography}{45}
+\begin{thebibliography}{41}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname bibnamefont\endcsname\relax
   \def\bibnamefont#1{#1}\fi
@@ -336,6 +336,12 @@
   \bibinfo{journal}{Physica} \textbf{\bibinfo{volume}{16}}, \bibinfo{pages}{601
   } (\bibinfo{year}{1950}), ISSN \bibinfo{issn}{0031-8914}.
 
+\bibitem[{\citenamefont{Martin and Annett}(1998)}]{PhysRevB.57.8709}
+\bibinfo{author}{\bibfnamefont{A.~M.} \bibnamefont{Martin}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.~F.} \bibnamefont{Annett}},
+  \bibinfo{journal}{Phys. Rev. B} \textbf{\bibinfo{volume}{57}},
+  \bibinfo{pages}{8709} (\bibinfo{year}{1998}).
+
 \bibitem[{\citenamefont{Franz and Te\ifmmode \check{s}\else
   \v{s}\fi{}anovi\ifmmode~\acute{c}\else
   \'{c}\fi{}}(1998)}]{PhysRevLett.80.4763}
@@ -344,35 +350,6 @@
   \v{s}\fi{}anovi\ifmmode~\acute{c}\else \'{c}\fi{}}}, \bibinfo{journal}{Phys.
   Rev. Lett.} \textbf{\bibinfo{volume}{80}}, \bibinfo{pages}{4763}
   (\bibinfo{year}{1998}).
-
-\bibitem[{\citenamefont{Casalbuoni and Nardulli}(2004)}]{RevModPhys.76.263}
-\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Casalbuoni}} \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Nardulli}},
-  \bibinfo{journal}{Rev. Mod. Phys.} \textbf{\bibinfo{volume}{76}},
-  \bibinfo{pages}{263} (\bibinfo{year}{2004}).
-
-\bibitem[{\citenamefont{Buzdin}(2005)}]{RevModPhys.77.935}
-\bibinfo{author}{\bibfnamefont{A.~I.} \bibnamefont{Buzdin}},
-  \bibinfo{journal}{Rev. Mod. Phys.} \textbf{\bibinfo{volume}{77}},
-  \bibinfo{pages}{935} (\bibinfo{year}{2005}).
-
-\bibitem[{\citenamefont{Matsumoto and Sigrist}(1999)}]{JPSJ.68.3120}
-\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Matsumoto}} \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Sigrist}},
-  \bibinfo{journal}{Journal of the Physical Society of Japan}
-  \textbf{\bibinfo{volume}{68}}, \bibinfo{pages}{3120} (\bibinfo{year}{1999}).
-
-\bibitem[{\citenamefont{Martin and Annett}(1998)}]{PhysRevB.57.8709}
-\bibinfo{author}{\bibfnamefont{A.~M.} \bibnamefont{Martin}} \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{J.~F.} \bibnamefont{Annett}},
-  \bibinfo{journal}{Phys. Rev. B} \textbf{\bibinfo{volume}{57}},
-  \bibinfo{pages}{8709} (\bibinfo{year}{1998}).
-
-\bibitem[{\citenamefont{Takahashi and Nitta}(2013)}]{PhysRevLett.110.131601}
-\bibinfo{author}{\bibfnamefont{D.~A.} \bibnamefont{Takahashi}}
-  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Nitta}},
-  \bibinfo{journal}{Phys. Rev. Lett.} \textbf{\bibinfo{volume}{110}},
-  \bibinfo{pages}{131601} (\bibinfo{year}{2013}).
 
 \bibitem[{\citenamefont{Covaci et~al.}(2010)\citenamefont{Covaci, Peeters, and
   Berciu}}]{PhysRevLett.105.167006}
