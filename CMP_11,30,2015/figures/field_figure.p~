@@ -1,0 +1,52 @@
+reset
+unset multiplot
+set term postscript color enhanced eps font "Helvetica" 30
+set format "%8.1f"
+set key noautotitle
+set output 'Fig_field.eps'
+
+set xrange[-1:1]
+set yrange[0:2]
+unset xtics
+unset ytics
+unset xlabel
+unset ylabel
+unset border
+
+set multi
+
+set arrow from 0.5,0.25 to 0.5,2 lw 3
+set arrow from 0.65,0.25 to 0.99,0.25 lw 3 
+set arrow from 0.65,0.25 to 0.65,0.7 lw 3 
+set arrow from 0.5,0.2 to 1.1,0.2 lw 3 lc rgb 'blue'
+set arrow from 0.55,0.25 to 0.55,0.85 lw 3 lc rgb 'olive'
+set label 'H_{0}' at 0.53,1.65
+set label '{/Symbol d} H_{/Symbol \136}' at 0.9,0.33
+set label '{/Symbol d} H_{||}' at 0.67,0.55
+set label '{/Symbol d} M_{/Symbol \136} = {/Symbol c}_{/Symbol \136}{/Symbol d} H_{/Symbol \136}' at 0.5,0.1 tc rgb 'blue'
+set label '{/Symbol d} M_{||} = {/Symbol c}_{||}{/Symbol d} H_{||}' at 0.58,0.8 tc rgb 'olive'
+
+
+set arrow from -1,1.2 to -0.7,1.8 lc rgb 'red' lw 6
+set arrow from -0.7,1.2 to -0.7,1.8 lt 3 lc rgb 'olive' lw 3
+set arrow from -1,1.2 to -0.7,1.2 lt 3 lc rgb 'blue' lw 3
+set label '{/Symbol I}' at -0.95,1.6 tc rgb 'red'
+set label '{/Symbol I}_{/Symbol \136}' at -0.95,1.1 tc rgb 'blue'
+set label '{/Symbol I}_{||}' at -0.65,1.5 tc rgb 'olive'
+
+set arrow from -0.2,0.4 to 0.1,0.8 lc rgb 'black' lw 6
+set arrow from 0.1,0.4 to 0.1,0.8 lt 3 lc rgb 'olive' lw 3
+set arrow from -0.2,0.4 to 0.1,0.4 lt 3 lc rgb 'blue' lw 3
+set label 'S(r)' at -0.07,0.52 tc rgb 'black'
+set label 'S_{/Symbol \136}' at -0.15,0.3 tc rgb 'blue'
+set label 'S_{||}' at 0.15,0.6 tc rgb 'olive'
+
+set arrow from -0.83,1.53 to -0.07,0.6
+set label 'r' at -0.38,0.9
+
+set label '{/Symbol H}_{hf||} {/Symbol \265} {/Symbol \362} dr I_{||}A_{||}(r)S_{||}' tc rgb 'olive' at -0.5	, 1.2
+set label '{/Symbol H}_{hf{/Symbol \136}} {/Symbol \265} {/Symbol \362} dr I_{/Symbol \136}A_{/Symbol \136}(r)S_{/Symbol \136}' tc rgb 'blue' at -1.1, 0.65
+plot 0 lc rgb 'white'
+
+unset multi
+unset output

@@ -1,0 +1,30 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\title{vector dependent magnetism near domain wall}
+\author{Ben Rosemeyer}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\begin{abstract}
+\end{abstract}
+
+\section{Derivation of equation}
+\section{characteristic wave vectors for position from wall}
+\section{steapness of domain wall}
+\section{andreev coherence in SNS structures (where N is a ferromagnet)}
+\section{tight binding susceptibility near interface?}
+\section{Zeeman Field?}
+\section{self consistent delta near interface}
+\section{superconductor ferromagnet interfaces (experimental results)}
+
+
+
+
+
+\end{document}

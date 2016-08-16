@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\begin{document}
+\title{Spin Susceptibility Calculation for the Inhomogeneous Superconducting state}
+\author{Ben Rosemeyer}
+\date{\today}
+\maketitle
+
+
+\section*{Spin Susceptibility}
+Calculation of the spin susceptibility yields (see other inhomogeneous write-up):
+\begin{align*}
+\chi(x,x')=-\mu_e\sum\limits_{s,s',p,k}\sigma^\beta_{ss'}\sigma^\alpha_{s's}\bigg[\frac{(f_{ks}-f_{ps'})u^*_p(x')u_p(x)u_k(x')u^*_k(x)}{\omega_{ks}-\omega_{ps'}} \\
+-\frac{(1-f_{ps'}-f_{k-s})u^*_p(x')u_p(x)v^*_k(x')v_k(x)}{\omega_{ps'}+\omega_{k-s}} \\
++\frac{(-1+f_{p-s'}+f_{ks})v_p(x')v^*_p(x)u_k(x')u^*_k(x)}{\omega_{p-s'}+\omega_{ks}} \\
++\frac{(f_{p-s'}-f_{k-s})v_p(x')v^*_p(x)v^*_k(x')v_k(x)}{\omega_{p-s'}-\omega_{k-s}}\bigg] \\
++ss'\sigma^\beta_{ss'}\sigma^\alpha_{-s-s'}\bigg[-\frac{(1-f_{k-s}-f_{ps'})u^*_k(x')v_k(x)v^*_p(x')u_p(x)}{\omega_{ps'}+\omega_{k-s}} \\
++\frac{(f_{k-s}-f_{p-s'})u^*_k(x')v_k(x)v^*_p(x)u_p(x')}{\omega_{p-s'}-\omega_{k-s}} \\
++\frac{(f_{ps'}-f_{ks})u^*_k(x)v_k(x')v^*_p(x')u_p(x)}{\omega_{ks}-\omega_{ps'}} \\
++\frac{(-1+f_{ks}+f_{p-s'})u^*_k(x)v_k(x')v^*_p(x)u_p(x')}{\omega_{ks}+\omega_{p-s'}}\bigg]
+\end{align*}
+
+In the absence of applied field and for zero temperature this reduces to:
+\begin{align*}
+\chi(x,x')=2\mu_e\sum\limits_{p,k}\frac{u^*_p(x')u_p(x)v^*_k(x')v_k(x)}{\omega_{p}+\omega_{k}} \\
++\frac{u^*_k(x)u_k(x')v^*_p(x)v_p(x')}{\omega_{p}+\omega_{k}} \\
+-\frac{u^*_k(x')v_k(x)v^*_p(x')u_p(x)}{\omega_{p}+\omega_{k}} \\
+-\frac{u^*_k(x)v_k(x')v^*_p(x)u_p(x')}{\omega_{k}+\omega_{p}}
+\end{align*}
+ 
+To continue toward the simplified equation for $\chi$ we must write the sum over p and k as an integral over energies $E_1$ and $E_2$ with density of states $N(E) = E/\sqrt{E^2 - \Delta^2}$
+
+\begin{align*}
+\chi(x,x')=2\mu_e\int\limits_{E_1, E_2, \phi_1, \phi_2}N(E_1)N(E_2) \\
+\frac{u^*_1(x')u_1(x)v^*_2(x')v_2(x)
++u^*_2(x)u_2(x')v^*_1(x)v_1(x')
+-u^*_2(x')v_2(x)v^*_1(x')u_1(x)
+-u^*_2(x)v_2(x')v^*_1(x)u_1(x')}{E_1+E_2}
+\end{align*}
+
+We proceed by writting the Bogolioubov amplitudes u and v as plane wave solutions to the Bogolioubov-DeGenne equations \\
+$u_E(x)=\sqrt{(1+(p_{x}^2-1)/E)/2} e^{ip_{x}x}$ \\
+$v_E(x)=\sqrt{(1-(p_{x}^2-1)/E)/2} e^{ip_{x}x}$ \\
+Here we use the notation $p_x$ to mean the momentum p obtained from quasiparticle with energy $E$ using the dispersion at position x. That is to say for x in the superconductor, $E=\sqrt{(p^2-1)**2 + \Delta^2}$ and in the normal state, $E=abs(p^2-1)$.
+
+\begin{align*}
+\chi(x,x')=2\mu_e\int\limits_{E_1, E_2, \phi_1, \phi_2}\frac{N(E_1)N(E_2)}{E_1+E_2} \\
+\bigg((u_{1,x'}u_{1,x}v_{2,x'}v_{2,x}-u_{2,x'}v_{2,x}v_{1,x'}u_{1,x})\exp[i(-k_{1,x'}x'+k_{1,x}x-k_{2,x'}x'+k_{2,x}x)] \\
++(u_{2,x}u_{2,x'}v_{1,x}v_{1,x'}-u_{2,x}v_{2,x'}v_{1,x}u_{1,x'})\exp[i(-k_{1,x}x+k_{1,x'}x'-k_{2,x}x+k_{2,x'}x')]\bigg)
+\end{align*}
+
+Now we exchange coordinates x and x' for the center of mass $R=(x+x')/2$ and relative $r=x-x'$ coordinates and set $R=0$ without loss of generality.
+
+\begin{align*}
+\chi(R=0,r)=2\mu_e\int\limits_{E_1, E_2, \phi_1, \phi_2}\frac{N(E_1)N(E_2)}{E_1+E_2} \\
+\bigg((u_{1,-r/2}u_{1,r/2}v_{2,-r/2}v_{2,r/2}-u_{2,-r/2}v_{2,r/2}v_{1,-r/2}u_{1,r/2})\exp[i(+k_{1,-r/2}r+k_{1,r/2}r+k_{2,-r/2}r+k_{2,r/2}r)/2] \\
++(u_{2,r/2}u_{2,-r/2}v_{1,r/2}v_{1,-r/2}-u_{2,r/2}v_{2,-r/2}v_{1,r/2}u_{1,-r/2})\exp[i(-k_{1,r/2}r-k_{1,-r/2}r-k_{2,r/2}r-k_{2,-r/2}r)/2]\bigg)
+\end{align*}
+
+For the first pass we will calculate in the homogeneous limit which allows us to neglect the positional subscript (r/2, -r/2).
+
+\begin{align*}
+\chi(R=0,r)=2\mu_e\int\limits_{E_1, E_2, \phi_1, \phi_2}\frac{N(E_1)N(E_2)}{E_1+E_2} \\
+\bigg((u_{1}^2v_{2}^2-u_{2}v_{2}v_{1}u_{1})\exp[i(+k_{1}r+k_{1}r+k_{2}r+k_{2}r)/2] \\
++(u_{2}^2v_{1}^2-u_{2}v_{2}v_{1}u_{1})\exp[i(-k_{1}r-k_{1}r-k_{2}r-k_{2}r)/2]\bigg)
+\end{align*}
+
+Writting with the real and imaginary parts:
+\begin{align*}
+\chi(R=0,r)=4\mu_e\int\limits_{E_1, E_2, \phi_1, \phi_2}\frac{N(E_1)N(E_2)}{E_1+E_2} \\
+\bigg((u_{1}v_{2}-u_{2}v_{1})^2 \cos((k_{1}+k_{2})r) \\ 
++ i (u_{1}^2v_{2}^2-u_{2}^2v_{1}^2) \sin((k_{1}+k_{2})r)\bigg)
+\end{align*}
+
+
+% Now we can preform an FT in the relative coordinate $\chi(q) = \int\limits_r \chi(r)e^{iqr}$. To reduce the dimensionality of $\chi(r)$ we assume that the sample is homogeneous in the $\hat{y}$ direction and that the variation between superconducting and normal states is only in the $\hat{x}$ direction. This allows us to preform the FT along the $\hat{y}$ direction.
+ 
+% \begin{align*}
+% \chi(R=0,x)=2\mu_e\int\limits_{E_1, E_2, \phi_1}\frac{N(E_1)N(E_2)}{E_1+E_2} \\
+% \bigg((u_{1,-x/2}u_{1,x/2}v_{2,-x/2}v_{2,x/2}-u_{2,-x/2}v_{2,x/2}v_{1,-x/2}u_{1,x/2})\exp[i(+k_{1,-x/2}x+k_{1,x/2}x+k_{2,-x/2}x+k_{2,x/2}x)/2] \\
+% +(u_{1,x/2}u_{1,-x/2}v_{2,x/2}v_{2,-x/2}-u_{1,x/2}v_{1,-x/2}v_{2,x/2}u_{2,-x/2})\exp[i(-k_{1,x/2}x-k_{1,-x/2}x-k_{2,x/2}x-k_{2,-x/2}x)/2]\bigg)
+% \end{align*}
+% Where $k_1$ and $k_2$ are now the x projections of the momentum.
+\end{document}

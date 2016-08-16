@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\begin{document}
+\title{Spin Susceptibility Calculation for the Inhomogeneous Superconducting state}
+\author{Ben Rosemeyer}
+\date{\today}
+\maketitle
+
+
+\section*{Spin Susceptibility}
+The presence of a magnetic field introduces a potential for particles with spin $V=-\vec{m}\cdot\vec{H}$. The magnetization due to this potential is given by $M_\alpha(t)=-i\int\limits_{-\infty}^t <[m_\alpha(t),V(t')]>dt'$, and the magnetic susceptibility is $\chi_{\alpha,\beta}(x,x',t)=i\int\limits_{-\infty}^t<[m_\alpha(x,t),m_\beta(x',t')]>dt'$. The magnetic moment is given by $m_\alpha(x,t)=\mu_e\sum\limits_{s,s'} \sigma^{\alpha}_{s,s'}\psi^\dagger_s(x,t) \psi_{s'}(x,t)$ (Mahan). Now we can proceed to calculate the susceptibitily. In the case of uniform time, we can assume that the product $m_\alpha(x,t),m_\beta(x',t')$ is a function of $\tau=t-t'$. In this limit we get:
+
+\begin{align*}
+\chi_{\alpha,\beta}(x,x',0)&=i\int\limits_{-\infty}^0<[m_\alpha(x,t),m_\beta(x',0)]>dt' \\ 
+&=-i\mu_e^2\sum\limits_{s,s',t,t'}\sigma^{\beta}_{s,s'}\sigma^{\alpha}_{t,t'}\int\limits_{-\infty}^t dt <[\psi^\dagger_{s}(x',0) \psi_{s'}(x',0),\psi^\dagger_{t}(x,t) \psi_{t'}(x,t)]>
+\end{align*}
+
+From now on we will use the s and s' subscripts to denote the spin for the (x',0) coordinates while the t and t' subscripts denote the spin for the (x,t) coordinates so that $\psi^\dagger_{s}=\psi^\dagger_{s}(x',0)$ and $\psi^\dagger_{t}=\psi^\dagger_{t}(x,t)$. The correlation function inside the integral evaluates as follows.
+
+\begin{align*}
+<[\psi^\dagger_{s} \psi_{s'},\psi^\dagger_{t} \psi_{t'}]>=&<\psi^\dagger_{s} \psi_{s'}\psi^\dagger_{t} \psi_{t'}>-<\psi^\dagger_{t} \psi_{t'}\psi^\dagger_{s} \psi_{s'}> \\
+=&<\psi^\dagger_{s}\psi_{s'}><\psi^\dagger_{t}\psi_{t'}>-<\psi^\dagger_{s}\psi^\dagger_{t}><\psi_{s'}\psi_{t'}> \\ 
+&+<\psi^\dagger_{s}\psi_{t'}><\psi_{s'}\psi^\dagger_{t}>-<\psi^\dagger_{t}\psi_{t'}><\psi^\dagger_{s}\psi_{s'}> \\ 
+&+<\psi^\dagger_{t}\psi^\dagger_{s}><\psi_{t'}\psi_{s'}>-<\psi^\dagger_{t}\psi_{s'}><\psi_{t'}\psi^\dagger_{s}> \\
+=&-<\psi^\dagger_{s}\psi^\dagger_{t}><\psi_{s'}\psi_{t'}>+<\psi^\dagger_{s}\psi_{t'}><\psi_{s'}\psi^\dagger_{t}> \\ 
+&+<\psi^\dagger_{t}\psi^\dagger_{s}><\psi_{t'}\psi_{s'}>-<\psi^\dagger_{t}\psi_{s'}><\psi_{t'}\psi^\dagger_{s}> \\
+\end{align*}
+
+To evaluate these various correlation functions we use the Bogoliubov representation for the field operators $\psi_s=\sum\limits_k \gamma_{sk}(t)u_k(x)-s\gamma_{-sk}^\dagger(t)v^*_{k}(x)=\sum\limits_k \Gamma_{sk}(x,t)-\Gamma_{-sk}^\dagger(x,t)$, where $s=\pm1$ (+ for spin up, - for spin down), $u_k(x)$ and $v_k(x)$ are complex functions and the $\gamma$'s are operators. (NOTE: k$\neq$momentum as in the homogeneous case) We find the time dependence of the $\gamma$ operators via the Heisenberg representation, $\frac{d}{dt}\gamma_{sk}=\frac{i}{\hbar}[H,\gamma_{sk}]=\frac{-i\epsilon_{sk}}{\hbar}\gamma_{sk}$ and $\frac{d}{dt}\gamma^\dagger_{sk}=\frac{i\epsilon_{sk}}{\hbar}\gamma^\dagger_{sk}$. The $\gamma$ operators also obey fermionic anticommutation relations ${\gamma^\dagger_{n\alpha}, \gamma_{m\beta}}=\delta_{\alpha\beta}\delta{nm}$, ${\gamma_{n\alpha},\gamma_{m\beta}}=0$
+
+\begin{equation*}
+\gamma_{sk}(t)=\gamma_{sk}e^{-i\omega_{sk}t}\quad\quad \gamma^\dagger_{sk}(t)=\gamma^\dagger_{sk}e^{i\omega_{sk}t}
+\end{equation*}
+
+Finally, we note that in the Bogoliubov representation the only operators are the $\gamma$'s, so they are the only things that contribute to the correlations. The correlation relations for the $\gamma$'s are:
+
+\begin{equation*}
+<\gamma^\dagger_{\alpha k}\gamma_{\beta p}>=\delta_{pk}\delta_{\alpha \beta}f(\epsilon_{\alpha k}) \quad\quad <\gamma_{\alpha k}\gamma_{\beta p}>=<\gamma^\dagger_{\alpha k}\gamma^\dagger_{\beta p}>=0
+\end{equation*}
+
+Where $f(\epsilon_{\alpha k})=f_{\alpha k}$ is the fermi function(De Gennes). Using the definition of $\Gamma$ and omitting the time bit, we can deduce the following rules:
+
+\begin{equation*}
+<\Gamma^\dagger_{\alpha k}\Gamma_{\beta p}>=\delta_{pk}\delta_{\alpha \beta}f(\epsilon_{\alpha k})u^*_k u_p \quad <\Gamma^\dagger_{\alpha k}\Gamma_{-\beta p}>=\beta\delta_{pk}\delta_{\alpha \beta}f(\epsilon_{\alpha k})u^*_k v_p \quad <\Gamma^\dagger_{-\alpha k}\Gamma_{-\beta p}>=\alpha\beta\delta_{pk}\delta_{\alpha \beta}f(\epsilon_{\alpha k})v^*_k v_p
+\end{equation*}
+
+Going back to the sum of wick contractions, and dropping the quantum number subscript on the $\Gamma$'s:
+
+\begin{align*}
+<[\psi^\dagger_{s} \psi_{s'},\psi^\dagger_{t} \psi_{t'}]>=&-(-<\Gamma^\dagger_{s}\Gamma_{-t}>-<\Gamma_{-s}\Gamma^\dagger_{t}>)(-<\Gamma_{s'}\Gamma^\dagger_{-t'}>-<\Gamma^\dagger_{-s'}\Gamma_{t'}>) \\ &+(<\Gamma^\dagger_{s}\Gamma_{t'}>+<\Gamma_{-s}\Gamma^\dagger_{-t'}>)(<\Gamma_{s'}\Gamma^\dagger_{t}>+<\Gamma^\dagger_{-s'}\Gamma_{-t}>) \\ 
+&+(-<\Gamma^\dagger_{t}\Gamma_{-s}>-<\Gamma_{-t}\Gamma^\dagger_{s}>)(-<\Gamma_{t'}\Gamma^\dagger_{-s'}>-<\Gamma^\dagger_{-t'}\Gamma_{s'}>) \\
+&-(<\Gamma^\dagger_{t}\Gamma_{s'}>+<\Gamma_{-t}\Gamma^\dagger_{-s'}>)(<\Gamma_{t'}\Gamma^\dagger_{s}>+<\Gamma^\dagger_{-t'}\Gamma_{-s}>)
+\end{align*}
+
+\begin{align*}
+=\delta_{st'}\delta_{s't}&\bigg[[T^*_{ks}f_{ks}u_k(x')u^*_k(x)+T_{k-s}(1-f_{k-s})v^*_k(x')v_k(x)][T_{ps'}(1-f_{ps'})u^*_p(x')u_p(x)+T^*_{p-s'}f_{p-s'}v_p(x')v^*_p(x)] \\ 
+&-[T_{ks'}f_{ks'}u_k(x)u^*_k(x')+T^*_{k-s'}(1-f_{k-s'})v^*_k(x)v_k(x')] [T^*_{ks}(1-f_{ps})u^*_p(x)u_p(x')+T_{p-s}f_{p-s}v_p(x)v^*_p(x')]\bigg] \\ 
++ss'\delta_{s-t}\delta_{s'-t'}&\bigg[[T_{k-s}(1-f_{k-s})u^*_k(x')v_k(x)-T^*_{ks}f_{ks}v_k(x')u^*_k(x)][T_{ps'}(1-f_{ps'})v^*_p(x')u_p(x)-T^*_{p-s'}f_{p-s'}u_p(x')v^*_p(x)] \\ 
+&+ [T_{k-s}f_{k-s}v_k(x)u^*_k(x')-T^*_{ks}(1-f_{ks})u^*_k(x)v_k(x')][T^*_{p-s'}(1-f_{p-s'})v^*_p(x)u_p(x')-T_{ps'}f_{ps'}u_p(x)v^*_p(x')]\bigg]
+\end{align*}
+
+Where $T_{ks}=e^{-i\omega_{ks}t}$ which carries the time dependence from the $\gamma$ operators. Now we can carry out the time integration. When doing so, one must multiply the integrand by $e^{\delta t}$ to ensure convergence of the integral, then take the limit $\delta\rightarrow\infty$. The result is that the terms appearing in the denominator have an additional $+\delta$ which we will omit for now.
+
+\begin{align*}
+\delta_{st'}\delta_{s't}\bigg[\frac{(f_{ks}-f_{ps'})u^*_p(x')u_p(x)u_k(x')u^*_k(x)}{i\omega_{ks}-i\omega_{ps'}}
++\frac{(1-f_{ps'}-f_{k-s})u^*_p(x')u_p(x)v^*_k(x')v_k(x)}{-i\omega_{ps'}-i\omega_{k-s}} \\
++\frac{(-1+f_{p-s'}+f_{ks})v_p(x')v^*_p(x)u_k(x')u^*_k(x)}{i\omega_{p-s'}+i\omega_{ks}}
++\frac{(f_{p-s'}-f_{k-s})v_p(x')v^*_p(x)v^*_k(x')v_k(x)}{i\omega_{p-s'}-i\omega_{k-s}}\bigg] \\
++ss'\delta_{s-t}\delta_{s'-t'}\bigg[\frac{(1-f_{k-s}-f_{ps'})u^*_k(x')v_k(x)v^*_p(x')u_p(x)}{-i\omega_{ps'}-i\omega_{k-s}}
++\frac{(f_{k-s}-f_{p-s'})u^*_k(x')v_k(x)v^*_p(x)u_p(x')}{i\omega_{p-s'}-i\omega_{k-s}} \\
++\frac{(f_{ps'}-f_{ks})u^*_k(x)v_k(x')v^*_p(x')u_p(x)}{i\omega_{ks}-i\omega_{ps'}}
++\frac{(-1+f_{ks}+f_{p-s'})u^*_k(x)v_k(x')v^*_p(x)u_p(x')}{i\omega_{ks}+i\omega_{p-s'}}\bigg]
+\end{align*}
+
+The susceptibility is then:
+
+\begin{align*}
+\chi_{\alpha\beta}(x,x')=-\mu_e\sum\limits_{s,s',p,k}\sigma^\beta_{ss'}\sigma^\alpha_{s's}\bigg[\frac{(f_{ks}-f_{ps'})u^*_p(x')u_p(x)u_k(x')u^*_k(x)}{\omega_{ks}-\omega_{ps'}-i\delta} \\
+-\frac{(1-f_{ps'}-f_{k-s})u^*_p(x')u_p(x)v^*_k(x')v_k(x)}{\omega_{ps'}+\omega_{k-s}+i\delta} \\
++\frac{(-1+f_{p-s'}+f_{ks})v_p(x')v^*_p(x)u_k(x')u^*_k(x)}{\omega_{p-s'}+\omega_{ks}-i\delta} \\
++\frac{(f_{p-s'}-f_{k-s})v_p(x')v^*_p(x)v^*_k(x')v_k(x)}{\omega_{p-s'}-\omega_{k-s}-i\delta}\bigg] \\
++ss'\sigma^\beta_{ss'}\sigma^\alpha_{-s-s'}\bigg[-\frac{(1-f_{k-s}-f_{ps'})u^*_k(x')v_k(x)v^*_p(x')u_p(x)}{\omega_{ps'}+\omega_{k-s}+i\delta} \\
++\frac{(f_{k-s}-f_{p-s'})u^*_k(x')v_k(x)v^*_p(x)u_p(x')}{\omega_{p-s'}-\omega_{k-s}-i\delta} \\
++\frac{(f_{ps'}-f_{ks})u^*_k(x)v_k(x')v^*_p(x')u_p(x)}{\omega_{ks}-\omega_{ps'}-i\delta} \\
++\frac{(-1+f_{ks}+f_{p-s'})u^*_k(x)v_k(x')v^*_p(x)u_p(x')}{\omega_{ks}+\omega_{p-s'}-i\delta}\bigg]
+\end{align*}
+
+\section*{Bogoliubov-De Gennes Equations}
+We have calculated the magnetic spin susceptibitily in the Bogoliubov representation which involves the $\gamma$ operators and complex functions of space $u(x)$ and $v(x)$. Becuase this choice diagonalizes the Hamiltonian the $\gamma$'s consipire to give Fermi distribution functions and their time integration results in the energy's in denominator. We are left to find the explicit form of the $u$'s and $v$'s which we can calculate self consistently along with the superconducting order parameter(De Gennes).
+
+To proceed we start with the electronic superconducting Hamiltonian (without the presence of a magnetic field).
+
+\begin{equation*}
+\mathcal{H}=\sum\limits_{\alpha}\int d^3x \psi^\dagger_\alpha\bigg[\frac{\vec{p}^2}{2m}+U(x)\bigg]\psi_\alpha-\frac{1}{2}\sum\limits_{\alpha\beta}\int d^3x d^3x' \psi^\dagger_\alpha(x)\psi^\dagger_\beta(x') V(x,x')\psi_\beta(x')\psi_\alpha(x)
+\end{equation*}
+
+The term $U(x)$ is some potential which could discribe a contact potential at the interface, or a band mismatch on either side of the interface. From here we can rewrite the second term in the mean field limit.
+
+\begin{align*}
+\mathcal{H}_{eff} = \mathcal{H}_0 + \mathcal{H}_1 \\
+\mathcal{H}_0=\sum\limits_{\alpha}\int d^3x \psi^\dagger_\alpha\bigg[\mathcal{H}_e+U(x)\bigg]\psi_\alpha \\
+\mathcal{H}_1=\int d^3x d^3x' [\Delta(x,x')\psi^\dagger_1(x)\psi^\dagger_{-1}(x')+\Delta(x,x')^* \psi_{-1}(x')\psi_1(x)]
+\end{align*}
+
+Where we have introduced the superconducting order parameter $\Delta(x,x')$. Now we compute the commutator $[\mathcal{H}_{eff},\psi]$ using the anticommutation relations for $\psi$.
+
+\begin{align*}
+[\psi_1(x),\mathcal{H}_{eff}]=(\mathcal{H}_e+U(x))\psi_1+\int d^3x' \Delta(x,x')\psi^\dagger_{-1}(x') \\
+[\psi_{-1}(x),\mathcal{H}_{eff}]=(\mathcal{H}_e+U(x))\psi_{-1}-\int d^3x' \Delta(x,x')\psi^\dagger_{1}(x')
+\end{align*}
+
+Now we use the definition of $\psi$ in the Bogoliubov representation and the commutation relations for $\gamma$ with $\mathcal{H}_{eff}$ to find the left hand side of the previous equations. We get, for each mode k:
+
+\begin{align*}
+\epsilon\gamma_{1}(t)u(x)+\epsilon\gamma^\dagger_{-1}v^*(x)=(\mathcal{H}_e+U(x))(\gamma_{1}(t)u(x)-\gamma^\dagger_{-1}(t)v^*(x))+\int d^3x' \Delta(x,x')(\gamma^\dagger_{-1}(t)u^*(x')+\gamma_{1}(t)v(x')) \\
+\epsilon\gamma_{-1}(t)u(x)-\epsilon\gamma^\dagger_{1}v^*(x)=(\mathcal{H}_e+U(x))(\gamma_{-1}(t)u(x)+\gamma^\dagger_{1}(t)v^*(x))-\int d^3x' \Delta(x,x')(\gamma^\dagger_{1}(t)u^*(x')-\gamma_{-1}(t)v(x))
+\end{align*}
+
+Since $\gamma$ and $\gamma^\dagger$ are linearly independent we can equate like terms to get two equations from each of the two previous expressions. They turn out to be equivalent:
+
+\begin{align*}
+\epsilon_ku_k(x)=(\mathcal{H}_e+U(x))u_k(x)+\int d^3x'\Delta(x,x')v_k(x') \\
+\epsilon_kv_k(x)=-(\mathcal{H}_e^*+U(x)) v_k(x)+\int d^3x'\Delta^*(x,x')u_k(x')
+\end{align*}
+
+Here we note that $\mathcal{H}^*_e=\mathcal{H}_e$ as long as there is no applied field. These are the Bogoliubov-De Genne equations for an inhomogenious superconductor and are equivalent to an integral eigen-equation $\epsilon_k\left (\begin{array}{c} u_k \\ v_k \end{array}\right)=\hat{\Omega}\left (\begin{array}{c} u_k \\ v_k \end{array}\right)$. We can use these to calculate $\Delta$ and $U(x)$ self consistently. 
+
+
+\end{document}

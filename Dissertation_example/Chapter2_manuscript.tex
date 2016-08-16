@@ -1,0 +1,53 @@
+%\author{Lucas Tarr \& Dana Longcope}
+%\affil{Department of Physics, Montana State University, Bozeman, Montana 59717}
+\chapter{Calculating energy storage due to topological changes in emerging active region NOAA 11112}\label{ch:ar11112}
+\begin{manuscriptauths}
+  Manuscript in Chapter 2
+  \newline
+  \newline
+  Author: Lucas A. Tarr
+  \newline
+  \newline
+  Contributions: Conceived and implemented study design.  Wrote first draft.
+  \newline
+  \newline
+  Co--Author: Dana W. Longcope
+  \newline
+  \newline
+  Contributions: Helped to conceive study.  Provided feedback of analysis and comments on drafts of the manuscript.
+\end{manuscriptauths}
+\pagebreak
+  
+\begin{manuscriptinfo}
+  \noindent Lucas A. Tarr and Dana W. Longcope\\
+  The Astrophysical Journal\\
+  Status of Manuscript:\\
+  \uline{\phantom{5eM}}Prepared for submission to a peer--reviewed journal\\
+  \uline{\phantom{5eM}}Officially submitted to a peer--reviewed journal\\
+  \uline{\phantom{5eM}}Accepted by a peer--reviewed journal\\
+  %% THIS PAPER WAS ALREADY PUBLISHED, SO THE ``x'' GOES ON THE FOLLOWING LINE:
+  \uline{\phantom{5eM}}\makebox[0pt]{\hspace{-2em}x}Published in a peer--reviewed journal\\
+  \newline
+  \newline
+  Published April, 2012, ApJ 749, 64
+\end{manuscriptinfo}
+% \addcontentsline{toc}{section}{Abstract}
+%% AND THEN THE REST OF THE PAPER, AS NORMAL:
+
+\begin{abstract}
+   The Minimum Current Corona (MCC) model provides a way to estimate stored coronal energy using the number of field lines connecting regions of positive and negative photospheric flux.  This information is quantified by the net flux connecting pairs of opposing regions in a connectivity matrix.  Changes in the coronal magnetic field, due to processes such as magnetic reconnection, manifest themselves as changes in the connectivity matrix.  However, the connectivity matrix will also change when flux sources emerge or submerge through the photosphere, as often happens in active regions.  We have developed an algorithm to estimate the changes in flux due to emergence and submergence of magnetic flux sources.  These estimated changes must be accounted for in order to quantify storage and release of magnetic energy in the corona.  To perform this calculation over extended periods of time, we must additionally have a consistently labeled connectivity matrix over the entire observational time span.  We have therefore developed an automated tracking algorithm to generate a consistent connectivity matrix as the photospheric source regions evolve over time.  We have applied this method to NOAA Active Region 11112, which underwent a GOES M--2.9 class flare around 19:00 on Oct.$16\tothe{th}$, 2010, and calculated a lower bound on the free magnetic energy buildup of $\sim 8.25 \times 10^{30}$ergs over 3 days.
+ \end{abstract}
+ 
+
+\section{\label{sec:intro2}Introduction}
+ 
+ It is now widely believed that solar flares are powered by magnetic energy which had been stored in the corona through slow stressing applied from the photospheric boundary.  In an idealized model the energy builds up as the coronal magnetic field responds without resistance (every field line line--tied and unbroken).  The flare then occurs as coronal reconnection exchanges those field line footpoints to achieve a lower energy state.  In this process, the footpoints are changed by the reconnection, but the vertical photospheric field in which the field lines are anchored is not.  The potential field from this fixed photospheric field has the minimum magnetic energy possible.  The maximum energy available for release is the amount by which the initial field exceeds this potential field energy, called the {\em free energy}. 
+
+And so forth and applesauce.
+ 
+%%% APPARENTLY I DEFINED A ``subacknowledgements'' ENVIRONMENT??
+  \subacknowledgements
+  Graham Barnes graciously provided code for producing the potential field connectivity matrices using a Monte Carlo algorithm with Bayesian estimates, as described in .  Development of the code was supported by the Air Force Office of Scientific Research under contract FA9550-06-C-0019.  We also thank our Summer 2010 REU student Johanna Bridge for her work in assessing the performance of the automatic tracking algorithms.  This work was supported by NASA LWS.
+
+  
+Don't end, just stop.

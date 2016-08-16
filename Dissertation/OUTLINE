@@ -1,0 +1,43 @@
+INTRODUCTION
+	Hamiltonian for SC and Magnetism
+	Pauli paramagnetism
+		DOS
+		enhanced DOS for sc (and inhomogeneous case?)
+	RPA susceptibility
+	homogeneous susceptibility derivation (BdG)
+		limit for Del -> 0, T -> 0
+	inhomogeneous susceptibility derivation (BdG)
+CeCoIn5
+	Experiments
+		with field and orientations of field
+		with pressure
+		with doping
+	Movement of fermi surface
+		enhanced density of states
+		number of introduced holes
+HOMOGENEOUS ITINERANT (no M)
+	ideal vectors
+	enhancement results
+	T-H phase diagram
+	various Delta
+	self consistent delta with magnetism???
+HOMOGENEOUS TIGHT BINDING
+	self consistent delta with magnetism (replicate kato T-H diagram for their Q)
+	consider different Q's
+	add J degree of freedom (T-H-J phase diagram)
+HOMOGENEOUS CORNELL EXPERIMENTAL DISPERSION?
+
+INHOMOGENEOUS SUSCEPTIBILITY??
+
+CONCLUSIONS
+	SC and Magnetism can and do coexist
+	enhancement of DOS from SC plays key role
+	Other directions
+		localized magnetic moment interaction vs non local
+		more inhomogeneous stuff
+		3d calculations for CeCoIn5
+		
+
+	
+
+	

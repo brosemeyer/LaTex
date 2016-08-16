@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\begin{document}
+\title{Self Consistent Calculation of $\Delta$ for Pauli Limited Superconductors}
+\author{Ben Rosemeyer}
+\date{\today}
+\maketitle
+
+At zero temperature the equation for $\Delta$ is:
+\begin{equation}
+\Delta_{\bf k}=-\frac{1}{2} \sum\limits_{\bf l} \frac{\Delta_{\bf l} V_{\bf k \bf l}}{E_{\bf l}} \quad (Tinkham)
+\end{equation}
+At finitie temperature the equation in:
+\begin{equation}
+\Delta_{\bf k}=-\frac{1}{4} \sum\limits_{\bf l} \frac{\Delta_{\bf l} V_{\bf k \bf l}}{E_{\bf l}}(\tanh((E_{\bf k}+\mu_e H)/2T)+\tanh((E_{\bf k}-\mu_e H)/2T)) \quad (Tinkham)
+\end{equation}
+Where we have used $E_{\bf l}=\sqrt{ (\epsilon_{\bf l}-\mu)^2 +\Delta_{\bf l}^2}$ and $\epsilon_{\bf l}$ is the free particle energy. Now we assume some momentum space (relative coordinate) profile for the BCS potential $V_{\bf k \bf l}=-V \Gamma_{\bf k} \Gamma_{\bf l}$ and $\Delta_{\bf k}=\Delta_{T,H}\Gamma_{\bf k}$. With this definition we can rewrite equations 1 and 2:
+\begin{align}
+1=\frac{V}{2} \sum\limits_{\bf l} \frac{\Gamma_{\bf l}^2}{E_{\bf l}} \\
+1=\frac{V}{4} \sum\limits_{\bf l} \frac{\Gamma_{\bf l}^2}{E_{\bf l}}(\tanh((E_{\bf k}+\mu_e H)/2T)+\tanh((E_{\bf k}-\mu_e H)/2T))
+\end{align}
+
+To compute the free energy we use the self consistent equation for $\Delta$ (equation 2), but write it as the differential of free energy with $\Delta^*$, because the self consistent $\Delta$ minimizes the free energy.
+
+\begin{equation}
+\frac{dF}{d\Delta^*}=0=\Delta_{\bf k}+\frac{1}{4} \sum\limits_{\bf l} \frac{\Delta_{\bf l} V_{\bf k \bf l}}{E_{\bf l}}(\tanh((E_{\bf k}+\mu_e H)/2T)+\tanh((E_{\bf k}-\mu_e H)/2T))
+\end{equation}
+Since equality must hold for all values of $\bf k$ we can drop the $\Gamma_{\bf k}$. Integrating this equation yields the free energy relative to the normal state.
+\begin{equation}
+F_{SC}-F_N=\int\limits_0^{\Delta_{B,T}} d\Delta \bigg(\Delta-\frac{V}{4} \sum\limits_{\bf l} \frac{\Delta \Gamma_{\bf l}^2}{E_{\bf l}}(\tanh((E_{\bf k}+\mu_e H)/2T)+\tanh((E_{\bf k}-\mu_e H)/2T))\bigg)
+\end{equation}
+Where $\Delta_{B,T}$ is the self consistent value of $\Delta$ calculated from equation 2
+
+\section*{S wave}
+For S wave superconductors the momentum space profile $\Gamma_{\bf k}=1$. We now can relate the zero field transition temperature to the value of $\Delta$ ($\Delta_{00}$) at zero field and temperature by solving equation 4 for $H=0$, $\Delta=0$ and $T=T_c$ along with equation 3.
+\begin{align}
+1=V N_0 \int \limits_0^{\epsilon_m}\frac{d\xi}{\sqrt{\Delta_{00}^2+\xi^2}}=VN_0 \sinh^{-1}\frac{\epsilon_m}{\Delta_{00}}
+\end{align}
+\begin{align}
+1=V N_0\int\limits_0^{\epsilon_m} \frac{d\xi}{\xi}\tanh(\xi/2T)=VN_0 \ln\bigg[ \frac{2e^{\gamma}\epsilon_m}{\pi T_c}\bigg]
+\end{align}
+Where $\gamma=0.57721$ is the Euler–Mascheroni constant. In the weak coupling limit ($VN_0>>1$) we arrive at $\frac{\Delta_{00}}{T_c}=\frac{pi}{e^{\gamma}}=1.764$
+
+\section*{D wave}
+D wave superconductors have a $x^2-y^2$ ($\Gamma_{\bf k}=\cos(2\theta_k)$)or $xy$ ($\Gamma_{\bf k}=\sin(2\theta_k)$) symmetry. The solutions to equations three and four are now:
+\begin{equation}
+1=\frac{VN_0}{2}\ln\bigg[\frac{4\epsilon_m}{\Delta_{00}e^{1/2}}\bigg]
+\end{equation}
+\begin{equation}
+1=\frac{VN_0}{2} \ln\bigg[ \frac{2e^\gamma \epsilon_m}{\pi T_c}\bigg]
+\end{equation}
+Where we have taken the  limit of $\epsilon_m>>\Delta_{00}$ to do the $\theta$ integral in equation 3 we arrive at the solution $\frac{\Delta_{00}}{T_c}=2.1397$
+
+\section*{Sharp D wave}
+For a "Sharp" D wave order parameter we assume that the order parameter still has $x^2-y^2$ or $xy$ symmetry, but instead of using sine or cosine we use a polynomial of degree n:
+\begin{align}
+\Gamma_{\bf k}=-\bigg(\theta_{\bf k}\frac{4}{\pi}-1\bigg)^n+1 \\
+\Gamma_{\bf k}=\bigg(\theta_{\bf k}\frac{4}{\pi}-3\bigg)^n-1 \\
+\Gamma_{\bf k}=-\bigg(\theta_{\bf k}\frac{4}{\pi}-5\bigg)^n+1 \\
+\Gamma_{\bf k}=\bigg(\theta_{\bf k}\frac{4}{\pi}-7\bigg)^n-1 
+\end{align}
+\end{document}

@@ -1,0 +1,301 @@
+\documentclass[aps,prl,twocolumn,showpacs,amsmath,amssymb]{revtex4-1}
+%\documentclass[aps,prl,twocolumn,showpacs,preprintnumbers,amsmath,amssymb,citeautoscript]{revtex4-1}
+%\documentclass[prl,showpacs,amssymb,amsmath,twocolumn]{revtex4-1}
+%%%%%%%%%%%%
+\usepackage{bookmath} % definitions and shortcuts
+%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{color}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\cecoin}{CeCoIn$_5$} 
+\def\opp#1{{\overline{ #1}}}
+
+
+\bibliographystyle{apsrev4-1}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+\begin{document}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+\title{Electronic Spin Susceptibility Enhancement in Pauli Limited Unconventional Superconductors}
+
+\author{Ben Rosemeyer}
+\author{Anton~B.~Vorontsov}
+
+\affiliation{Department of Physics, Montana State University, Montana 59717, USA}
+
+\date{\today}
+
+\begin{abstract}
+%
+%
+\end{abstract} 
+
+%\pacs{74.20.Rp,74.25.Dw, \dots} % \red{MORE?,DIFFERENT?} }
+
+%74.20.Rp 	Pairing symmetries (other than s-wave) 
+%74.25.Dw 	Superconductivity phase diagrams 
+
+
+\maketitle
+
+\section{Hamiltonian}
+
+
+The matrix representation($\mathcal{H} = \bar{\Psi}\mathcal{\hat{H}} \Psi$) of the Hamiltonian of interest is:
+
+
+\begin{widetext}
+\bea
+\label{eq:modelH} 
+\mathcal{\hat H} = \left(
+	\begin{array}{cccc} \xi_{\vk-} \vsigma^0-e_z \vsigma^z & \Delta_{\vk-}(i\vsigma^y) & m^*_\vq(\vsigma^m)^\dagger & 0 \\ 
+				       -\Delta^*_{\vk-}(i\vsigma^y) & -(\xi_{-\vk-} \vsigma^0-e_z \vsigma^z) & 0 & -m^*_\vq\big((\vsigma^m)^T\big)^\dagger \\ 
+				       m_\vq \vsigma^m & 0 & \xi_{\vk+} \vsigma^0-e_z \vsigma^z & \Delta_{\vk+}(i\vsigma^y) \\ 
+				       0 & -m_\vq(\vsigma^m)^T & -\Delta^*_{\vk+}(i\vsigma^y) & -(\xi_{-\vk+} \vsigma^0-e_z \vsigma^z)
+	\end{array}
+\right)
+\eea
+\end{widetext}
+\begin{widetext}
+\bea
+\label{eq:modelPsi} 
+\Psi^\dagger= \left[
+	\begin{array}{cccccccc} c^\dagger_{\vk-\uparrow}, & c^\dagger_{\vk-\downarrow}, & c_{-\vk-\uparrow}, & c_{-\vk-\downarrow}, & c^\dagger_{\vk+\uparrow}, & c^\dagger_{\vk+\downarrow}, & c_{-\vk+\uparrow}, & c_{-\vk+\downarrow} \\ 
+	\end{array}
+\right]
+\eea
+\end{widetext}
+Where $\vk\pm = \vk \pm \vq/2$, and $\vsigma^i$ are the pauli spin matricies with $\vsigma^0 = \mathcal{I}$ and $\vsigma^m = \vsigma \cdot \hat m$. The Zeeman energy splitting for electons is $e_z = \mu_e H_0$, with a resulting spectral gap of $2e_z$. Now we fix the magnetic response to be transverse to the large applied field $H_0$, so that $\vsigma^m = \vsigma^x$, which is degenerate with $\vsigma^m = \vsigma^y$. The eigenvalues of this matrix can be found by finding the roots of the characteristic polynomial:
+
+\bea
+\label{eq:ploly} 
+\lambda^4 + p \lambda^2 + q \lambda + r = 0
+\eea
+
+where we have used the following definitions
+
+\bea
+\label{eq:modelDefs} 
+p = -(\Sigma_{\vk-}^2 + \Sigma_{\vk+}^2) \\
+q = \pm2e_z(E^2_{\vk-} - E^2_{\vk+}) \\
+r = E^2_{\vk-}E^2_{\vk+} - 2m^2 E_q^2 + m^4 \\
+\Sigma^2_\vk = \xi^2 + \Delta_\vk^2 + e_z^2 + m_q^2 \\
+E^2_\vk = \xi^2_\vk + \Delta^2_\vk - e_z^2 \\
+E^2_\vq = \xi_{\vk-}\xi_{\vk+} +\Delta_{\vk-}\Delta_{\vk+} - e_z^2
+\eea
+
+The corresponding eigenvectors are:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{widetext}
+\bea
+\Psi^+= \left[
+	\begin{array}{c} 
+		\Delta_{\vk+} + \frac{ (-(\Delta_{\vk-}\Delta_{\vk+} - m_\vq^2)  - (-e_z-\xi_{\vk-}-\lambda)(e_z-\xi_{\vk+}-\lambda))(e_z +\xi_{\vk+} -\lambda)}{\Delta_{\vk+}(-e_z-\xi_{\vk-}-\lambda) + \Delta_{\vk-}(e_z+\xi_{\vk+}-\lambda)} \\
+		0 \\
+		0 \\
+		- \frac{\Delta_{\vk-}(-e_z^2+\Delta^2_{\vk+} +\xi^2_{\vk+}+2e_z\lambda-\lambda^2) - \Delta_{\vk+}m^2_\vq }     {\Delta_{\vk+}(-e_z-\xi_{\vk-}-\lambda) + \Delta_{\vk-}(e_z+\xi_{\vk+}-\lambda)} \\
+		0 \\
+		\frac{ m_\vq\big[(\Delta_{\vk-}\Delta_{\vk+} - m_\vq^2)  + (-e_z-\xi_{\vk-}-\lambda)(e_z-\xi_{\vk+}-\lambda)\big]}     {\Delta_{\vk+}(-e_z-\xi_{\vk-}-\lambda) + \Delta_{\vk-}(e_z+\xi_{\vk+}-\lambda)} \\
+		m_\vq \\
+		0
+	\end{array}
+\right]
+\eea
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bea
+\Psi^-= \left[
+	\begin{array}{c} 
+		0 \\
+		-\Delta_{\vk+} - \frac{ (-(\Delta_{\vk-}\Delta_{\vk+} - m_\vq^2)  - (e_z-\xi_{\vk-}-\lambda)(-e_z-\xi_{\vk+}-\lambda))(-e_z +\xi_{\vk+} -\lambda)}{\Delta_{\vk+}(e_z-\xi_{\vk-}-\lambda) + \Delta_{\vk-}(-e_z+\xi_{\vk+}-\lambda)} \\
+		 -\frac{\Delta_{\vk-}(-e_z^2+\Delta^2_{\vk+} +\xi^2_{\vk+}-2e_z\lambda-\lambda^2) - \Delta_{\vk+}m^2_\vq  }{\Delta_{\vk+}(e_z-\xi_{\vk-}-\lambda) + \Delta_{\vk-}(-e_z+\xi_{\vk+}-\lambda)} \\
+		0 \\
+		\frac{ -m_\vq\big[(\Delta_{\vk-}\Delta_{\vk+} - m_\vq^2)  + (e_z-\xi_{\vk-}-\lambda)(-e_z-\xi_{\vk+}-\lambda)\big]}{\Delta_{\vk+}(e_z-\xi_{\vk-}-\lambda) + \Delta_{\vk-}(-e_z+\xi_{\vk+}-\lambda)} \\
+		0 \\
+		0 \\
+		m_\vq 
+	\end{array}
+\right]
+\eea
+\end{widetext}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+For $q = 2e_z(E^2_{\vk-}-E^2_{\vk+})$ and $q = -2e_z(E^2_{\vk-}-E^2_{\vk+})$ respectively, where $\lambda_i$ is a root of the corresponding polynomial from (\ref{eq:poly}).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{widetext}
+\bea
+\psi_i^+= \left[
+	\begin{array}{c} 
+		\Delta_{\vk+} - \frac{ (E^2_\vq- m_\vq^2 +e_z(\xi_{\vk+}-\xi_{\vk-})  +\lambda_i(\xi_{\vk+}+\xi_{\vk-})+\lambda_i^2)(\xi_{\vk+}+e_z -\lambda_i)}{\Delta_{\vk-}(\xi_{\vk+}+e_z-\lambda_i)-\Delta_{\vk+}(\xi_{\vk-}+e_z+\lambda_i) } \\
+		- \frac{\Delta_{\vk-}(E^2_{\vk+}+2e_z\lambda_i-\lambda_i^2) - \Delta_{\vk+}m^2_\vq }     {\Delta_{\vk-}(\xi_{\vk+}+e_z-\lambda_i)-\Delta_{\vk+}(\xi_{\vk-}+e_z+\lambda_i) } \\
+		\frac{ m_\vq\big[E^2_\vq- m_\vq^2  + e_z(\xi_{\vk+}-\xi_{\vk-}) +\lambda_i(\xi_{\vk+}+\xi_{\vk-})+\lambda_i^2\big]}     {\Delta_{\vk-}(\xi_{\vk+}+e_z-\lambda_i)-\Delta_{\vk+}(\xi_{\vk-}+e_z+\lambda_i) } \\
+		m_\vq 
+	\end{array}
+\right]
+\eea
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bea
+\psi^-= \left[
+	\begin{array}{c} 
+		-\Delta_{\vk+} + \frac{ (E_\vq- m_\vq^2  - e_z(\xi_{\vk+}-\xi_{\vk-})+\lambda_i(\xi_{\vk+}+\xi_{\vk-})+\lambda_i^2))(\xi_{\vk+}-e_z -\lambda_i)}{\Delta_{\vk-}(\xi_{\vk+}-e_z-\lambda_i)-\Delta_{\vk+}(\xi_{\vk-}-e_z+\lambda_i) } \\
+		 -\frac{\Delta_{\vk-}(E^2_{\vk+}-2e_z\lambda_i-\lambda_i^2) - \Delta_{\vk+}m^2_\vq  }{\Delta_{\vk-}(\xi_{\vk+}-e_z-\lambda_i)-\Delta_{\vk+}(\xi_{\vk-}-e_z+\lambda_i) } \\
+		-\frac{ m_\vq\big[E^2_\vq- m_\vq^2  - e_z(\xi_{\vk+}-\xi_{\vk-}) +\lambda_i(\xi_{\vk+}+\xi_{\vk-})+\lambda_i^2\big]}{\Delta_{\vk-}(\xi_{\vk+}-e_z-\lambda_i)-\Delta_{\vk+}(\xi_{\vk-}-e_z+\lambda_i) } \\
+		m_\vq 
+	\end{array}
+\right]
+\eea
+\end{widetext}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+These vectors can be written as two different sets of four vectors corresponding to the basis states
+
+\bea
+ \left[
+	\begin{array}{cccc} c^\dagger_{\vk-\uparrow},  & c_{-\vk-\downarrow},  & c^\dagger_{\vk+\downarrow}, & c_{-\vk+\uparrow} \\ 
+	\end{array}
+\right] 
+\eea
+and
+\bea
+\left[
+	\begin{array}{cccccccc}  c^\dagger_{\vk-\downarrow}, & c_{-\vk-\uparrow},  & c^\dagger_{\vk+\uparrow},  & c_{-\vk+\downarrow} \\ 
+	\end{array}
+\right]
+\eea
+
+Now we can write the matrix which transforms to these new basis states $\Gamma = \{\Psi_i^+, \Psi_i^-\}$,  $\mathcal{D}\Psi = \Gamma$ with operators $\gamma^{\pm}_{\vk, i}$:
+
+
+\bea
+\mathcal{D}^+= \left[
+	\begin{array}{c} 
+		(\psi_1^+)^\dagger \\
+		(\psi_2^+)^\dagger \\
+		(\psi_3^+)^\dagger \\
+		(\psi_4^+)^\dagger 
+	\end{array}
+\right] \quad,\quad\quad\quad
+\mathcal{D}^-= \left[
+	\begin{array}{c} 
+		(\psi_1^-)^\dagger \\
+		(\psi_2^-)^\dagger \\
+		(\psi_3^-)^\dagger \\
+		(\psi_4^-)^\dagger 
+	\end{array}
+\right]
+\eea
+
+\bea
+ \left[
+	\begin{array}{cccc} \gamma^\dagger_{\vk-1},  & \gamma_{-\vk-2},  & \gamma^\dagger_{\vk+3}, & \gamma_{-\vk+4} \\ 
+	\end{array}
+\right] 
+\eea
+and
+\bea
+\left[
+	\begin{array}{cccc}  \gamma^\dagger_{\vk-1}, & \gamma_{-\vk-2},  & \gamma^\dagger_{\vk+3},  & \gamma_{-\vk+4} \\ 
+	\end{array}
+\right]
+\eea
+
+
+By computing the inverse of $\mathcal{D}$ we can find the old operators in terms of the new to use in the self consistent calculation for $\Delta$ and $m_\vq$.
+
+
+
+We also wish to calculate the free energy (F) in this new mixed state $F= -T ln(Z)$ where $Z$ is the partition function for the diagnol Hamiltonian ($\mathcal{H} = \sum\limits_{i} \lambda_i \gamma^\dagger_i\gamma_i$):
+\bea
+Z &    = Tr\bigg( e^{-\beta(\mathcal{H} - \mu N)} \bigg) \\
+	 & \Pi_{\vk,i} \bigg(  1 +  e^{-\beta\lambda_{\vk, i}} \bigg) \\
+F &= -T \sum\limits_{\vk,i} ln\big(1 + e^{-\beta\lambda_{\vk,i}}\big)
+\eea
+
+
+
+\section{Characteristic Polynomial}
+ - Add and subtract $\lambda^2 u + u^2/4$
+ \bea
+ \lambda^4 + p\lambda^2 +q\lambda+r \\
+ = (\lambda^2 + \frac{u}{2})^2 - ( (u-p)\lambda^2 -q\lambda +(\frac{u^2}{4} - r)) \\
+ = (\lambda^2 + \frac{u}{2})^2 - (u-p)\bigg{(}\lambda^2 -\frac{q}{u-p}\lambda +\frac{\frac{u^2}{4} - r}{u-p}\bigg{)} \\
+  = (\lambda^2 + \frac{u}{2})^2 - (u-p)\bigg{(}\lambda^2 -\frac{q}{u-p}\lambda +\frac{\frac{u^2}{4} - r}{u-p}\bigg{)} 
+ \eea
+ 
+ \bea
+ P = (\lambda^2 + \frac{u}{2}) \\
+ Q = \sqrt{u-p} \bigg( \lambda -\frac{q}{2(u-p)}\bigg)
+  \eea
+  Which requires
+  \bea
+  \frac{q}{2(u-p)} = \sqrt{ \frac{u^2/4-r}{u-p}} \\
+  q^2/4 = (u-p)(u^2/4-r)  \\
+  q^2/4 = u^3/4 -pu^2/4 -ru +rp \\
+  0 = u^3-pu^2 -4ru +(4rp-q^2)
+  \eea
+ Now we get $\lambda^4 + p \lambda^2 + q \lambda + r = (P+Q)(P-Q)  = P^2 - Q^2$ for a certain $u$ which satisfies the resolvent cubic (above, only need one root)
+ We can find the solutions to the cubic exactly by the following method: \\
+ 1)	write above as $u^3 + c_2 u^2 + c_1 u + c_0$ \\
+ 	$c2 = -p$ \\
+	$c1 = -4r$\\
+	$c0 = 4rp - q^2$\\
+ 2)	define $u = z-c_2/3$ to get $z^2 + a_1z = a_0$ \\
+	$ a_1 = c_1 -  c_2^2/3$ \\
+	$a_0  = c_1c_2/3 - c_0 - 2c_2^3/27$ \\
+ 3)	define $ z = w - a_1/(3w)$ to get $(w^3)^2 - a_0w^3 - a_1^3/27 = 0$ \\
+ The solutions to w are:
+ \bea
+ w = \sqrt[3]{\frac{a_0}{2} \pm \sqrt{\bigg(\frac{a_0}{2}\bigg)^2  + \frac{a_1^3}{27} }}
+ \eea
+ The corresponding solutions to u are:
+ \bea
+ u = w - a_1/(3w) - c_2/3
+ \eea
+ 
+ 
+% The solutions come from the cubic formula:
+% \bea
+% u_1 = -a_2/3 + (S + T) \\
+% u_{2,3} =-a_2/3-\frac{1}{2}(S+T)\pm\frac{i\sqrt{3}}{2}(S-T)
+% \eea
+% with the definitions:
+ 
+% \bea
+% S = \sqrt[3]{R+\sqrt{D}} \\
+% T = \sqrt[3]{R-\sqrt{D}} \\
+% D = Q^3 +R^2 \\
+% R = \frac{9a_2a_1-27a_0-2a_2}{54} \\
+% Q = \frac{3a_1-a_2^2}{9}
+% \eea
+%\bea
+%a_2 = -p \\
+%a_1 = -4r \\
+%a_0 = 4pr-q^2
+%\eea
+
+Plug in u and solve for roots of $P\pm Q$:
+%\bea
+%\lambda^2 \pm \sqrt{u-p}\lambda + \frac{1}{2}\bigg(u \mp\frac{q}{\sqrt{u-p}}\bigg) \\
+%\lambda = \pm\frac{\sqrt{u-p}}{2} \{\pm\} \sqrt{ \frac{u-p}{4} -\frac{1}{2}\bigg(u \pm\frac{q}{\sqrt{u-p}}\bigg)}
+%\eea
+\bea
+\lambda^2 \pm \sqrt{u-p}\lambda + \frac{1}{2}\bigg(u \mp{\sqrt{u^2-4r}}\bigg) \\
+\lambda = \pm\frac{\sqrt{u-p}}{2} \{\pm\} \sqrt{ \frac{|u-p|}{4} -\frac{1}{2}\bigg(u \pm\sqrt{u^2-4r}\bigg)}
+\eea
+
+
+
+ %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\bibliography{mybib}
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+\end{document}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%

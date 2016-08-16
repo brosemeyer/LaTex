@@ -1,0 +1,33 @@
+#!/bin/bash
+
+FILE=$1
+cp ${FILE}.tex paper.tex
+FILE=paper
+FILEtex=${FILE}.tex
+FILEdvi=${FILE}.dvi
+FILEps=${FILE}.ps
+FILEpdf=${FILE}.pdf
+
+if [ -n "$1" ]  # not empty string of in-line argument $1
+then 
+	latex ${FILE}
+
+	if [ -n "$2" ]  # not empty string of in-line argument $2
+	then 
+	  if [ "$2" == "2" ] # run second time
+	    then latex ${FILE}
+	  fi
+
+	  if [ "$2" == "bib" ] # run bibliography 
+	    then
+		echo "running bibliography"
+		bibtex ${FILE}
+		latex ${FILE}
+		latex ${FILE}
+	  fi
+	fi
+
+	dvipdf ${FILE}
+else echo "Input tex file (w/o extension .tex)"
+fi
+

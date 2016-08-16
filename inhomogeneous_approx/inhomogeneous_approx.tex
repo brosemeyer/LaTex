@@ -1,0 +1,370 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bookmath} % definitions and shortcuts
+\begin{document}
+\title{Spin Susceptibility Approximation}
+\author{Ben Rosemeyer}
+\date{\today}
+\maketitle
+
+\section*{susceptibility}
+The susceptibility is the two point correlation function
+\be 
+\label{eq:sus_def}
+\chi_{_{\alpha\beta}}(\vx,\vx',\omega) = i\mu_B^2\int dt \quad e^{i\omega t}\langle [S_\alpha(\vx,t), S_\beta(\vx',0)]\theta(t) \rangle \\
+\ee
+$\vS(\vx,t) = \sum_{\mu\nu} \Psi_\mu^\dagger(\vx,t) \vsigma_{\mu\nu} \Psi_\nu(\vx,t)$ is the spin operator, and $\theta(t)$ is the Heaviside function.
+
+In the Bogoliubov basis
+\be
+\label{eq:BdG_trans}
+\psi_{\vx\mu} = \sum\limits_{\vn} u_{\vn}(\vx)\gamma_{\vn\mu} - (i\sigma^y)_{\mu\nu}v^*_{\vn}(\vx)\gamma^\dagger_{\vn\nu}
+\ee
+And
+%\be
+%\begin{split}
+%\label{eq:sus}
+%\chi_{_{xx}}(\vx,\vx',\omega) = \frac{2\mu_B^2}{\chi_{_0}} \sum\limits_{\vn\vn'\mu}\bigg[&u^*_{\vn}(\vx)u_{\vn'}(\vx)[v_{\vn}(\vx')v^*_{\vn'}(\vx') + u_{\vn}(\vx')u^*_{\vn'}(\vx')] \Pi_{\vn\vn'\mu\bmu}^{++}(\omega) \\
+%	+&v_{\vn}(\vx)v^*_{\vn'}(\vx)[u^*_{\vn}(\vx')u_{\vn'}(\vx') + v^*_{\vn}(\vx')v_{\vn'}(\vx')] \Pi_{\vn\vn'\mu\bmu}^{--}(\omega) \\
+%    +&u^*_{\vn}(\vx)v^*_{\vn'}(\vx)[- v_{\vn}(\vx')u_{\vn'}(\vx') + u_{\vn}(\vx')v_{\vn'}(\vx')] \Pi_{\vn\vn'\mu\mu}^{+-}(\omega) \\ 	
+%    +&v_{\vn}(\vx)u_{\vn'}(\vx)[- u^*_{\vn}(\vx')v^*_{\vn'}(\vx') + v^*_{\vn}(\vx')u^*_{\vn'}(\vx')] \Pi_{\vn\vn'\mu\mu}^{-+}(\omega) \bigg] 
+%\end{split}
+%\ee
+\bea
+\label{eq:sus}
+\chi_{_{xx}}(\vx,\vx',\omega) = \frac{2\mu_B^2}{\chi_{_0}} \sum\limits_{\vn\vn'\mu}\bigg[[&A_{\vn\vn'}(\vx)A_{\vn\vn'}^*(\vx') \Pi_{\vn\vn'\mu\bmu}^{++}(\omega) \\
+    +&C_{\vn\vn'}(\vx,\vx') \Pi_{\vn\vn'\mu\mu}^{+-}(\omega) \\ 	
+    +&C_{\vn\vn'}^*(\vx,\vx') \Pi_{\vn\vn'\mu\mu}^{+-}(-\omega) \bigg] 
+\eea
+$A_{\vn\vn'}(\vx) = u^*_{\vn}(\vx)u_{\vn'}(\vx)+v^*_{\vn}(\vx)v_{\vn'}(\vx)$\\
+$C_{\vn\vn'}(\vx,\vx') = u^*_{\vn}(\vx)v^*_{\vn'}(\vx)[- v_{\vn}(\vx')u_{\vn'}(\vx') + u_{\vn}(\vx')v_{\vn'}(\vx')]$
+
+$\bmu$ denotes spin state opposite to $\mu$, and 
+\be
+\label{eq:fermi_factor}
+\Pi_{\vn\vn'\mu\nu}^{\pm\pm}(\omega) = \frac{f^{\pm}_{\vn \mu} - f^{\mp}_{\vn' \nu}}{\omega+(\pm)\epsilon_{\vn \mu}-(\pm)\epsilon_{\vn' \nu}}
+\ee
+The energies $\epsilon_{\vn \mu} = \epsilon_{\vn} -\sigma^z_{\mu\mu}\mu_B H$, and we use only $\epsilon_{\vn}>=0$
+ 
+\section*{Andreev Approximation}
+We can approximate the amplitudes u and v by the Andreev Approximation 
+\bea
+u_{\vn}(\vx) = \tilde{u}_{\vn}(\vx)e^{ik_f\hk\cdot\vx} \\
+v_{\vn}(\vx) = \tilde{v}_{\vn}(\vx)e^{ik_f\hk\cdot\vx}
+\eea
+The BdG equations are for $\vn = (n,\hk)$
+\be
+\label{eq:BdG_mat_andreev}
+\epsilon_{\vn} \left( \begin{array}{cc}
+\tilde{u}_{\vn}  \\ 
+\tilde{v}_{\vn}
+\end{array} \right)
+=\left( \begin{array}{cc}
+-iv_f\hk\cdot{\bf\nabla} & \Delta(\vx) \\
+\Delta^*(\vx) & iv_f\hk\cdot{\bf\nabla} \end{array} \right)
+ \left( \begin{array}{cc}
+\tilde{u}_{\vn}  \\ 
+\tilde{v}_{\vn}
+\end{array} \right)
+\ee
+and the energies $\epsilon_{\vn} = \epsilon_{\vn\mu} + \sigma(\mu)\mu_B H$ from the Zeeman energy. When solved for a region where $\Delta$ is constant one finds solutions for $\vkappa = \vkappa_{\vn}$
+\be
+\left( \begin{array}{cc}
+\tilde{u}_{\vn}  \\ 
+\tilde{v}_{\vn}
+\end{array} \right)
+\propto\left( \begin{array}{cc}
+\frac{\Delta_{\hk}}{\epsilon_{\vn} - v_f(\vkappa\cdot\hk)}  \\ 
+1
+\end{array} \right) e^{i\vkappa \cdot\vx}
+\ee
+And 
+\be
+v_f^2(\vkappa\cdot\hk)^2 = \epsilon^2_{\vn} -|\Delta_{\hk}|^2 
+\ee
+We define $\kappa=\frac{1}{v_f|\hat{\kappa}\cdot\hk|}\sqrt{|\epsilon^2_{\vn} -|\Delta_{\hk}|^2|}$,  and because $\epsilon_{\vn}^2 -|\Delta_{\hk}|^2$ is real, $\vkappa$ can be purely real ($\epsilon>|\Delta_{\hk}|$ FREE STATES) 
+\be
+\left( \begin{array}{cc}
+\tilde{u}_{\vn}  \\ 
+\tilde{v}_{\vn}
+\end{array} \right)
+\propto\left( \begin{array}{cc}
+\frac{\Delta_{\hk}}{\epsilon_{\vn} - sgn(\hat{\kappa}\cdot\hk)\sqrt{\epsilon^2_{\vn} -|\Delta_{\hk}|^2 }}  \\ 
+1
+\end{array} \right) e^{i\vkappa \cdot\vx}
+\Rightarrow\sqrt{\frac{|\Delta_{\hk}|}{2\epsilon_{\vn}}}\left( \begin{array}{cc}
+e^{\frac{1}{2}\sigma\theta_{\vn}+\frac{i}{2}\phi_{\hk}}  \\ 
+e^{-\frac{1}{2}\sigma\theta_{\vn}-\frac{i}{2}\phi_{\hk}}
+\end{array} \right) e^{i\kappa \hat{\kappa}\cdot\vx}
+ = \psi^{p/h} e^{i\kappa\hat{\kappa}\cdot\vx}
+\ee
+Where $\theta_{\vn}= \cosh^{-1}(\epsilon_{\vn}/|\Delta_{\hk}|)$ and $\sigma = sgn(\hat{\kappa}\cdot\hk)$. The states can be properly normalized as plane waves describing particles ($\sigma=+1$) or holes ($\sigma=-1$). Alternatively, $\vkappa$ can be purely imaginary ($\epsilon<|\Delta_{\hk}|$ BOUND STATES)
+\be
+\left( \begin{array}{cc}
+\tilde{u}_{\vn}  \\ 
+\tilde{v}_{\vn}
+\end{array} \right)
+\propto\left( \begin{array}{cc}
+\frac{\Delta_{\hk}}{\epsilon_{\vn} - i\, sgn(\hat{\kappa}\cdot\hk)\sqrt{|\Delta_{\hk}|^2-\epsilon^2_{\vn} }}  \\ 
+1
+\end{array} \right) e^{i\vkappa \cdot\vx}
+\Rightarrow A_{\vn}\left( \begin{array}{cc}
+e^{\frac{i}{2}\sigma\theta'_{\vn}+\frac{i}{2}\phi_{\hk}}  \\ 
+e^{-\frac{i}{2}\sigma\theta'_{\vn}-\frac{i}{2}\phi_{\hk}}
+\end{array} \right) e^{-\kappa \hat{\kappa}\cdot\vx}
+=\Phi^{p/h}e^{-\kappa \hat{\kappa}\cdot\vx}
+\ee
+Where now $\theta'_{\vn} = \cos^{-1}(\epsilon_{\vn}/|\Delta_{\hk}|)$. $\phi_{\hk}$ is the order parameter phase and is a function of $\hat{k}$ and $\vx$. {\bf NOTE, the $\vx$ phase dependence cancels out of the susceptibility}. These states are decaying exponentials which must be normalized over some volume. 
+
+\section*{1D Domain Wall}
+We can apply these solutions to a DW in one dimension which requires proper boundary conditions for the wavefunctions at the interface. For a transparent interface we can use continuity and we see that there are 4 solutions for a given energy above the gap for a given trajectory $\pm\hat{p}$ and $\hat{p}$ is from left to right across DW. Along that direction we define the coordinate $s$ which is positive on the right side of DW
+\bea
+& LEFT\,\,SIDE & RIGHT\,\, SIDE \\
+Right\,\,moving\,\, particle\,\,\Psi^{++}_{\hp,k}\,\,(e^{ip_f s}) & \psi^p_L e^{iks} + r\psi^h_L e^{-iks} &  t\psi^p_R e^{iks} \\
+Right\,\, moving\,\, hole\,\,\Psi^{-+}_{\hp,k}\,\,(e^{-ip_f s}) & \psi^h_L e^{iks} + r\psi^p_L e^{-iks} &  t\psi^h_R e^{iks} \\
+Left\,\, moving\,\, particle\,\,\Psi^{--}_{\hp,k}\,\,(e^{-ip_f s}) & t\psi^p_L e^{-iks} &  \psi^p_R e^{-iks} + r\psi^h_R e^{iks} \\
+Left\,\, moving\,\, hole\,\,\Psi^{+-}_{\hp,k}\,\,(e^{ip_f s}) & t\psi^h_L e^{-iks} &  \psi^h_R e^{-iks} + r\psi^p_R e^{iks}
+\eea
+$s$ is the coordinate along a particular trajectory and is positive to the right. $r$ and $t$ are the reflection and transmission coefficients respectively. The subscripts denote the left ($L$) or right ($R$) side of the DW where the OP phase is $\phi_{L/R}$
+
+Solving for the reflection and transmission coefficients we find for the right moving particle and left moving hole
+\bea
+r_+ = -\frac{i \sin(\phi/2)}{\sinh(\theta+i\phi/2)} \\
+t_+ = \frac{\sinh(\theta)}{\sinh(\theta+i\phi2)}
+\eea
+$\phi = \phi_R-\phi_L$, and for the left moving particle and right moving hole we simply exchange $\phi\rightarrow -\phi$ in the above expressions ($r_+ t_+ \rightarrow r_- t_-$). Also, it can be shown that $|r_{\pm}|^2 + |t_{\pm}|^2 = 1$
+
+We can do similarly build solutions for states which are below the gap, requiring that they do not exponentially grow.
+
+\bea
+& LEFT\,\,SIDE & RIGHT\,\, SIDE \\
+Right\,\,moving\,\,\Phi^{+}_{\hp,k}\,\, (e^{ip_f s}) & \Phi^h_L e^{ks} &  \Phi^p_R e^{-ks} \\
+Left\,\, moving\,\,\Phi^{-}_{\hp,k}\,\,(e^{-ip_f s}) & \Phi^p_L e^{ks} &  \Phi^h_R e^{-ks}
+\eea
+For the right/left mover we find $\theta'_n = \mp\phi/2$ which is the condition for finding the bound state energy(ies).
+
+It can be shown that the right moving bound states are orthogonal to right moving particle and left moving hole solutions, while the left moving bound states are orthogonal to the left moving particle and right moving hole.
+
+\section*{Local Density of States}
+The local density of states can be written as
+\bea
+N(\epsilon,\vx) = \sum\limits_{\vn} |\Psi_{\vn}(\vx)|^2\delta(\epsilon-\epsilon_{\vn}) = \sum\limits_{\hp,k} |\Psi_{\vn}(\vx)|^2\delta(\epsilon-\epsilon_{\vn}) \\
+ = \int\limits_{-\pi/2}^{\pi/2} d\theta_{\hp} \int dk |\Psi_{\hp k}^{\mu\nu}(\vx)|^2\delta(\epsilon-\epsilon_{\hp,k}) 
+\eea
+
+Along a particular trajectory we have (summation over $\mu,\nu$ is implied)
+\bea
+N_{\hp}(E,s) =\int dk |\Psi_{\hp k}^{\mu\nu}(\vx)|^2\delta(E-\epsilon_{\hp,k}) =\int d\epsilon\bigg|\frac{d\epsilon}{dk}\bigg|^{-1} |\Psi_{\hp k}^{\mu\nu}(\vx)|^2\delta(E-\epsilon)
+\eea
+
+For the right side of the DW and for energies above the gap we get
+\bea
+N_{\hp}(E,s) =4\int d\epsilon\bigg|\frac{d\epsilon}{dk}\bigg|^{-1} \bigg(1+\frac{\Delta}{2\epsilon}\big( Re[r_+ e^{i2ks}]+Re[r_- e^{i2ks}]  \big)\bigg)\delta(E-\epsilon) \\
+=4\int d\epsilon\bigg|\frac{d\epsilon}{dk}\bigg|^{-1} \bigg(1-\frac{\Delta\sin^2(\phi/2) \cosh(\theta)}{\epsilon|\sinh(\theta+i\phi/2)|^2} \cos(2ks)\bigg)\delta(E-\epsilon) \\
+=4\int d\epsilon\bigg|\frac{d\epsilon}{dk}\bigg|^{-1} \bigg(1-\frac{\Delta\sin^2(\phi/2) \cosh(\theta)}{\epsilon[\sinh^2(\theta) + \sin^2(\phi/2)]} \cos(2ks)\bigg)\delta(E-\epsilon)
+\eea
+
+for a $\phi=\pi$ phase difference
+\bea
+N_{\hp}(\epsilon,s) =  \frac{|\epsilon|}{\sqrt{\epsilon^2-|\Delta_{\hp}|^2}}\bigg(1-\frac{|\Delta_{\hp}|^2}{\epsilon^2} \cos(2ks)\bigg)
+\eea
+and we used $\epsilon=\sqrt{(v_fk)^2 + \Delta^2}$, $\frac{d\epsilon}{dk} = v_fk/\epsilon=\sqrt{\epsilon^2-\Delta^2}/\epsilon$
+\section*{Application to Susceptibility}
+For the Andreev reflected states we use quantum numbers $\vn = (\hk,\epsilon,\sigma)$ for the trajectory, energy and particle/hole ($\sigma = \pm$) respectively. For states above the cut-off $\Lambda$ we have $u_{\vn}(\vx) = \delta_{\sigma,+}e^{i\vk\cdot\vx}$, $v_{\vn} = \delta_{\sigma,-}e^{i\vk\cdot\vx}$, $\vk = \hk \sqrt{1+\sigma\epsilon}$
+
+Writing the difference from the normal state, for both $\epsilon<\Lambda$ and $\epsilon'<\Lambda$ we get 
+\bea
+\delta\chi_{_{xx}}(\vq,\vR,\omega) = \frac{2\mu_B^2}{\chi_{_0}} \sum\limits_{\vn\vn'\mu}\bigg[&\delta(-p_f(\hk-\hk')-\vq)[\tilde{A}_{\vn\vn'}(\vR)\tilde{A}_{\vn\vn'}^*(\vR) - \delta_{\sigma,+}\delta_{\sigma',+} - \delta_{\sigma,-}\delta_{\sigma',-} ]\Pi_{\vn\vn'\mu\bmu}^{++}(\omega) \\
+    +&\delta(-p_f(\hk+\hk')-\vq)[\tilde{C}_{\vn\vn'}(\vR,\vR) - \delta_{\sigma,+}\delta_{\sigma',-}]\Pi_{\vn\vn'\mu\mu}^{+-}(\omega) \\ 	
+    +&\delta(p_f(\hk+\hk')-\vq)[\tilde{C}_{\vn\vn'}^*(\vR,\vR) - \delta_{\sigma,+}\delta_{\sigma',-}]\Pi_{\vn\vn'\mu\mu}^{+-}(-\omega) \bigg] 
+\eea
+If $\epsilon<\Lambda$ and $\epsilon'>\Lambda$
+\bea
+\delta\chi_{_{xx}}(\vq,\vR,\omega) = \frac{2\mu_B^2}{\chi_{_0}} \sum\limits_{\vn\vn'\mu}\bigg[&\delta(-(p_f\hk-\vk')-\vq)[|\tilde{u}_{\vn}(\vR)|^2\delta_{\sigma',+} + |\tilde{v}_{\vn}(\vR)|^2\delta_{\sigma',-}  - \delta_{\sigma,+}\delta_{\sigma',+} - \delta_{\sigma,-}\delta_{\sigma',-} ]\Pi_{\vn\vn'\mu\bmu}^{++}(\omega) \\
+    +&\delta(-(p_f\hk+\vk')-\vq)[|\tilde{u}_{\vn}(\vR)|^2\delta_{\sigma',-} - \delta_{\sigma,+}\delta_{\sigma',-}]\Pi_{\vn\vn'\mu\mu}^{+-}(\omega) \\ 	
+    +&\delta((p_f\hk+\vk')-\vq)[|\tilde{u}_{\vn}(\vR)|^2\delta_{\sigma',-} - \delta_{\sigma,+}\delta_{\sigma',-}]\Pi_{\vn\vn'\mu\mu}^{+-}(-\omega) \bigg] 
+\eea
+Finally, if $\epsilon>\Lambda$ and $\epsilon'<\Lambda$
+\bea
+\delta\chi_{_{xx}}(\vq,\vR,\omega) = \frac{2\mu_B^2}{\chi_{_0}} \sum\limits_{\vn\vn'\mu}\bigg[&\delta(-(\vk-p_f\hk')-\vq)[|\tilde{u}_{\vn'}(\vR)|^2\delta_{\sigma,+} + |\tilde{v}_{\vn'}(\vR)|^2\delta_{\sigma,-}  - \delta_{\sigma,+}\delta_{\sigma',+} - \delta_{\sigma,-}\delta_{\sigma',-} ]\Pi_{\vn\vn'\mu\bmu}^{++}(\omega) \\
+    +&\delta(-(\vk+p_f\hk')-\vq)[|\tilde{v}_{\vn'}(\vR)|^2\delta_{\sigma,+} - \delta_{\sigma,+}\delta_{\sigma',-}]\Pi_{\vn\vn'\mu\mu}^{+-}(\omega) \\ 	
+    +&\delta((\vk+p_f\hk')-\vq)[|\tilde{v}_{\vn'}(\vR)|^2\delta_{\sigma,+} - \delta_{\sigma,+}\delta_{\sigma',-}]\Pi_{\vn\vn'\mu\mu}^{+-}(-\omega) \bigg] 
+\eea
+In the above expression, we can switch the summations $\vn\leftrightarrow\vn'$ and combine with the middle so that for $\epsilon<\Lambda$ and $\epsilon'>\Lambda$
+\bea
+\delta\chi_{_{xx}}(\vq,\vR,\omega) = \frac{2\mu_B^2}{\chi_{_0}} \sum\limits_{\vn\vn'\mu}\bigg[&\delta(-(p_f\hk-\vk')-\vq)[|\tilde{u}_{\vn}(\vR)|^2\delta_{\sigma',+} + |\tilde{v}_{\vn}(\vR)|^2\delta_{\sigma',-}  - \delta_{\sigma,+}\delta_{\sigma',+} - \delta_{\sigma,-}\delta_{\sigma',-} ][\Pi_{\vn\vn'\mu\bmu}^{++}(\omega) + \Pi_{\vn\vn'\mu\bmu}^{++}(-\omega)] \\
+    +&\delta(-(p_f\hk+\vk')-\vq)[|\tilde{u}_{\vn}(\vR)|^2\delta_{\sigma',-} +|\tilde{v}_{\vn}(\vR)|^2\delta_{\sigma',+}- 2\delta_{\sigma,+}\delta_{\sigma',-}]\Pi_{\vn\vn'\mu\mu}^{+-}(\omega) \\ 	
+    +&\delta((p_f\hk+\vk')-\vq)[|\tilde{u}_{\vn}(\vR)|^2\delta_{\sigma',-} + |\tilde{v}_{\vn}(\vR)|^2\delta_{\sigma',+}- 2\delta_{\sigma,+}\delta_{\sigma',-}]\Pi_{\vn\vn'\mu\mu}^{+-}(-\omega) \bigg] 
+\eea
+Combining the last two terms
+\bea
+\delta\chi_{_{xx}}(\vq,\vR,\omega) = \frac{2\mu_B^2}{\chi_{_0}} \sum\limits_{\vn\vn'\mu}\bigg[&\delta(-(p_f\hk-\vk')-\vq)[|\tilde{u}_{\vn}(\vR)|^2\delta_{\sigma',+} + |\tilde{v}_{\vn}(\vR)|^2\delta_{\sigma',-}  - \delta_{\sigma,+}\delta_{\sigma',+} - \delta_{\sigma,-}\delta_{\sigma',-} ] \\
+*&[\Pi_{\vn\vn'\mu\bmu}^{++}(\omega) + \Pi_{\vn\vn'\mu\bmu}^{++}(-\omega)] \\
+    +&[|\tilde{u}_{\vn}(\vR)|^2\delta_{\sigma',-} +|\tilde{v}_{\vn}(\vR)|^2\delta_{\sigma',+}- 2\delta_{\sigma,+}\delta_{\sigma',-}]\\
+*&[\delta(-(p_f\hk+\vk')-\vq)\Pi_{\vn\vn'\mu\mu}^{+-}(\omega)+\delta((p_f\hk+\vk')-\vq)\Pi_{\vn\vn'\mu\mu}^{+-}(-\omega)] \bigg] 
+\eea
+
+It's convenient to write the wave functions as right and left movers for each $\hp$
+\bea
+\Psi_{\hp,k}^+ = e^{ip_f\hp\cdot\vx}\begin{cases}\psi^\sigma_L e^{i \sigma k \hp\cdot\vx} + r_\sigma \psi^{-\sigma}_L e^{-i\sigma k \hp\cdot\vx} & x<0 \\
+t_\sigma \psi^\sigma_R e^{i\sigma k \hp\cdot\vx} & x>0\end{cases}
+\eea
+\bea
+\Psi_{\hp,k}^- = e^{ip_f\hp\cdot\vx}\begin{cases}t_\sigma \psi^{-\sigma}_L e^{-i\sigma k \hp\cdot\vx} & x<0 \\
+\psi^{-\sigma}_R e^{-i \sigma k \hp\cdot\vx} + r_\sigma \psi^{\sigma}_R e^{i\sigma k \hp\cdot\vx} & x>0\end{cases}
+\eea
+Where $\sigma = sgn(\hp\cdot\hat{x})$. The amplitudes are $\Psi^{\pm}_{\hp k} = (u^\pm_{\hp k}, v^\pm_{\hp k})^T$
+\bea
+u_{\hp k}^+(\vx) =\sqrt{\frac{\epsilon_{\hp k}}{2\Delta_{\hp}}} \begin{cases}e^{i\phi_{\hp L}/2}[e^{\sigma\theta_{\hp k}/2} e^{i \vp_{\sigma}\cdot\vx} + r_\sigma e^{-\sigma\theta_{\hp k}/2} e^{i\vp_{-\sigma}\cdot\vx}] & x<0\\
+t_\sigma e^{i\phi_{\hp R}/2}e^{\sigma\theta_{\hp k}/2} e^{i\vp_{\sigma}\cdot\vx} & x>0
+\end{cases}
+ \\
+u_{\hp k}^-(\vx) =\sqrt{\frac{\epsilon_{\hp k}}{2\Delta_{\hp}}} \begin{cases}t_\sigma e^{i\phi_{\hp L}/2}e^{-\sigma\theta_{\hp k}/2} e^{i\vp_{-\sigma}\cdot\vx} & x<0 \\
+e^{i\phi_{\hp R}/2}[e^{-\sigma\theta_{\hp k}/2} e^{i\vp_{-\sigma}\cdot\vx} + r_\sigma e^{\sigma\theta_{\hp k}/2} e^{i\vp_{\sigma}\cdot\vx}] & x>0
+\end{cases}
+\eea
+\bea
+v_{\hp k}^+(\vx) =\sqrt{\frac{\epsilon_{\hp k}}{2\Delta_{\hp}}} \begin{cases}e^{-i\phi_{\hp L}/2}[e^{-\sigma\theta_{\hp k}/2} e^{i\vp_{\sigma}\cdot\vx} + r_\sigma e^{\sigma\theta_{\hp k}/2} e^{i\vp_{-\sigma}\cdot\vx}] & x<0 \\
+t_\sigma e^{-i\phi_{\hp R}/2}e^{-\sigma\theta_{\hp k}/2} e^{i\vp_{\sigma}\cdot\vx} & x>0
+\end{cases}
+ \\
+v_{\hp k}^-(\vx) =\sqrt{\frac{\epsilon_{\hp k}}{2\Delta_{\hp}}} \begin{cases}t_\sigma e^{-i\phi_{\hp L}/2}e^{\sigma\theta_{\hp k}/2} e^{i\vp_{-\sigma}\cdot\vx} & x<0 \\
+e^{-i\phi_{\hp R}/2}[e^{\sigma\theta_{\hp k}/2} e^{i\vp_{-\sigma}\cdot\vx} + r_\sigma e^{-\sigma\theta_{\hp k}/2} e^{i\vp_{\sigma}\cdot\vx}] & x>0
+\end{cases}
+\eea
+$\vp_{\sigma} = (p_f + \sigma k)\hp$
+
+Now we can plug the new amplitudes into $\chi$ (NOTE we will drop the $\tilde{*}$ for convenience). For parts of the sum that involve both $\vn$ and $\vn'$ states which are below the cut-off $\Lambda$ but with energy above $\Delta$ we have (FF = Free-Free)
+\be
+\begin{split}
+\label{eq:sus_andreev_ff}
+\chi^{FF}_{_{xx}}(\vr,\vR,\omega) = \frac{2\mu_B^2}{\chi_{_0}} \sum\limits_{\vn\vn'\mu}\bigg
+    [&\frac{|\Delta_{\hk}||\Delta_{\hk'}|[C_{\vn\vn'} + D_{\vn\vn'}]}{\epsilon_{\vn}\epsilon_{\vn'}} \Pi_{\vn\vn'\mu\bmu}^{++}(\omega) \\
+	+&\frac{|\Delta_{-\hk}||\Delta_{-\hk'}|[C_{-\vn-\vn'} + D_{-\vn-\vn'}]}{\epsilon_{-\vn}\epsilon_{-\vn'}} \Pi_{-\vn-\vn'\mu\bmu}^{--}(\omega) \\
+    +&\frac{|\Delta_{\hk}||\Delta_{-\hk'}|[-C_{\vn-\vn'} + D_{\vn-\vn'}]}{\epsilon_{\vn}\epsilon_{-\vn'}} \Pi_{\vn-\vn'\mu\mu}^{+-}(\omega) \\ 	
+    +&\frac{|\Delta_{-\hk}||\Delta_{\hk'}|[-C_{-\vn\vn'} + D_{-\vn\vn'}]}{\epsilon_{-\vn}\epsilon_{\vn'}} \Pi_{-\vn\vn'\mu\mu}^{-+}(\omega) \bigg] \\
+    &*e^{-i[k_f(\hk - \hk') + \kappa\hat{\kappa} - \kappa'\hat{\kappa}']\cdot\vr}
+\end{split}
+\ee
+Where $C_{\vn\vn'} = e^{-i(Im[\theta_{\vn}]-Im[\theta_{\vn'}]+\phi_{\hk}-\phi_{\hk'})}$ and $D_{\vn\vn'} = e^{Re[\theta_{\vn}]+Re[\theta_{\vn'}]}$. State $-\vn=(\kappa,-\hk),\,\,-\hat{\kappa}$ and similarly for $-\vn'$
+
+For parts of the sum which have state $\vn$ above the gap and $\vn'$ below (FB = Free-Bound)
+\be
+\begin{split}
+\label{eq:sus_andreev_fb}
+\chi^{FB}_{_{xx}}(\vr,\vR,\omega) = \frac{2\mu_B^2}{\chi_{_0}} \sum\limits_{\vn\vn'\mu}\bigg
+    [&\frac{|\Delta_{\hk}||A_{\vn'}|^2[C_{\vn\vn'} + D_{\vn\vn'}]}{\epsilon_{\vn}} \Pi_{\vn\vn'\mu\bmu}^{++}(\omega) \\
+	+&\frac{|\Delta_{-\hk}||A_{-\vn'}|^2[C_{-\vn-\vn'} + D_{-\vn-\vn'}]}{\epsilon_{-\vn}} \Pi_{-\vn-\vn'\mu\bmu}^{--}(\omega) \\
+    +&\frac{|\Delta_{\hk}||A_{-\vn'}|^2[-C_{\vn-\vn'} + D_{\vn-\vn'}]}{\epsilon_{\vn}} \Pi_{\vn-\vn'\mu\mu}^{+-}(\omega) \\ 	
+    +&\frac{|\Delta_{-\hk}||A_{\vn'}|^2[-C_{-\vn\vn'} + D_{-\vn\vn'}]}{\epsilon_{-\vn}} \Pi_{-\vn\vn'\mu\mu}^{-+}(\omega) \bigg] \\
+    &*e^{-i[k_f(\hk - \hk') + \kappa\hat{\kappa}]\cdot\vr}e^{-\kappa'(\hat{\kappa}'_1\cdot\vx+\hat{\kappa}'_2\cdot\vx')}
+\end{split}
+\ee
+Here, state $-\vn=(\kappa,-\hk),\,\, -\hat{\kappa}$ and $-\vn'=(\kappa',-\hk'),\,\, +\hat{\kappa}'$. 
+
+The reason for including $\hat{\kappa}'_1$ \emph{and} $\hat{\kappa}'_2$ is that the $\vn'$ states are sampled at $\vx$ and $\vx'$ which are \emph{different} positions and may require opposite signs of $\hat{\kappa}$ in order to ensure that the states decay. For example if there is a DW at $\vx=0$, and we calculate $\chi$ at the DW, then $\vx'=-\vx$ and $\hat{\kappa}'_1=-\hat{\kappa}'_2$.  
+
+Lastly, if both states are below the gap (BB = Bound-Bound)
+\be
+\begin{split}
+\label{eq:sus_andreev_bb}
+\chi^{BB}_{_{xx}}(\vr,\vR,\omega) = \frac{2\mu_B^2}{\chi_{_0}} \sum\limits_{\vn\vn'\mu}\bigg
+    [&|A_{\vn}|^2|A_{\vn'}|^2[C_{\vn\vn'} + D_{\vn\vn'}] \Pi_{\vn\vn'\mu\bmu}^{++}(\omega) \\
+	+&|A_{-\vn}|^2|A_{-\vn'}|^2[C_{-\vn-\vn'} + D_{-\vn-\vn'}] \Pi_{-\vn-\vn'\mu\bmu}^{--}(\omega) \\
+    +&|A_{\vn}|^2|A_{-\vn'}|^2[-C_{\vn-\vn'} + D_{\vn-\vn'}] \Pi_{\vn-\vn'\mu\mu}^{+-}(\omega) \\ 	
+    +&|A_{-\vn}|^2|A_{\vn'}|^2[-C_{-\vn\vn'} + D_{-\vn\vn'}] \Pi_{-\vn\vn'\mu\mu}^{-+}(\omega) \bigg] \\
+    &*e^{-ik_f(\hk - \hk')\cdot\vr}e^{-\kappa(\hat{\kappa}_1\cdot\vx+\hat{\kappa}_2\cdot\vx')-\kappa'(\hat{\kappa}'_1\cdot\vx+\hat{\kappa}'_2\cdot\vx')}
+\end{split}
+\ee
+With $-\vn=(\kappa,-\hk),\,\, +\hat{\kappa}$ and similarly for $\vn$.
+
+We wish to Fourier Transform the above expressions into relative momentum $\vq$,\\
+$\chi(\vq,\vR) = \int d\vr\,\chi(\vr,\vR) e^{-i\vq\cdot\vr}$, and this brings in a delta function 
+\bea
+\delta[k_f(\hk - \hk') + \kappa\hat{\kappa} - \kappa'\hat{\kappa}' + \vq]&\,\,\, &free-free \\
+\delta[k_f(\hk - \hk') + \kappa\hat{\kappa} + \vq]&\,\,\, &free-bound\,\,\, \hat{\kappa}'_1= \hat{\kappa}'_2\\
+\delta[k_f(\hk - \hk') + \vq]&\,\,\, &bound-bound\,\,\, \hat{\kappa}_1= \hat{\kappa}_2\,\,and\,\,\hat{\kappa}'_1= \hat{\kappa}'_2
+\eea
+
+If $\hat{\kappa}'_1= -\hat{\kappa}'_2$ in FB, and $\hat{\kappa}_1= -\hat{\kappa}_2$ in BB, the delta function becomes smeared by the exponential and we get a Lorentzian (Cauchy) distribution around $k_f(\hk - \hk') + \kappa\hat{\kappa} + \vq=0$ with width $\propto k_f^2/\kappa'$ for FB. $k_f(\hk - \hk') + \vq=0$ and width $\propto k_f^2/(\kappa+\kappa')$ for BB.
+
+\section*{normal state}
+Our goal is to subtract the homogeneous normal state with energies $\xi_{\vn} = k_{\vn}^2/2m^* - \epsilon_f$, $\epsilon_{\vn} = |\xi_{\vn}|$, and amplitudes $u_{\vn}(\vx) = e^{i\vk_{\vn}^+\vx},\quad \xi_{\vn}>0$ and $v_{\vn}(\vx) = e^{-i\vk_{\vn}^-\vx},\quad \xi_{\vn}<0$ with $k_{\vn}^{\pm} = \sqrt{2m(\epsilon_f\pm\epsilon_{\vn})}$
+
+Since the amplitudes have a sharp step in amplitude from $0$ to $1$, it is clear that any terms in \ref{eq:sus} which have a $u$ and a $v$ both with the same index $\vn$ will be zero in the normal state. Therefore, we can re-write \ref{eq:sus} 
+\be
+\begin{split}
+\label{eq:sus2}
+\chi_{_{xx}}(\vx,\vx',\omega) = \frac{2\mu_B^2}{\chi_{_0}} \sum\limits_{\vn\vn'\mu}\bigg[&[S_{\vn\vn'}^{+}(\vx,\vx') + \cU^*_{\vn}\cU_{\vn'}(\vx,\vx')] \Pi_{\vn\vn'\mu\bmu}^{++}(\omega) \\
+	+&[S_{\vn\vn'}^+(\vx',\vx) + \cV_{\vn}\cV_{\vn'}^*(\vx,\vx')] \Pi_{\vn\vn'\mu\bmu}^{--}(\omega) \\
+    +&[- S_{\vn\vn'}^-(\vx,\vx')+ \cU^*_{\vn}\cV^*_{\vn'}(\vx,\vx')] \Pi_{\vn\vn'\mu\mu}^{+-}(\omega) \\ 	
+    +&[- S_{\vn\vn'}^-(\vx',\vx) + \cV_{\vn}\cU_{\vn'}(\vx,\vx')] \Pi_{\vn\vn'\mu\mu}^{-+}(\omega) \bigg] 
+\end{split}
+\ee
+
+The $S$ terms are purely due to the particle-hole nature of superconductivity and vanish in the normal state while the $\cU$, $\cV$ terms survive 
+\bea
+S_{\vn\vn'}^{+}=u^*_{\vn}(\vx)v_{\vn}(\vx')u_{\vn'}(\vx)v^*_{\vn'}(\vx') \\
+S_{\vn\vn'}^{-}=u^*_{\vn}(\vx)v_{\vn}(\vx')v^*_{\vn'}(\vx)u_{\vn'}(\vx')
+\eea
+
+\bea
+\cU_{\vn} = u_{\vn}(\vx)u^*_{\vn}(\vx')\\
+\cV_{\vn} = v_{\vn}(\vx)v^*_{\vn}(\vx')
+\eea
+In the normal state
+\bea
+\cU_{\vn} = e^{ik_{\vn}^+\hk\vr}\\
+\cV_{\vn} = e^{-ik_{\vn}^-\hk\vr}, \epsilon_{\vn}<\epsilon_f
+\eea
+
+\be
+\begin{split}
+\label{eq:sus3}
+\chi^{\cN}_{_{xx}}(\vx,\vx',\omega) = \frac{2\mu_B^2}{\chi_{_0}} \sum\limits_{\vn\vn'\mu}\bigg[
+	 &[e^{-i(k_{\vn}^+\hk-k_{\vn'}^+\hk')\vr}] \Pi_{\vn\vn'\mu\bmu}^{++}(\omega) \\
+	+&[e^{-i(k_{\vn}^-\hk-k_{\vn'}^-\hk')\vr}] \Pi_{\vn\vn'\mu\bmu}^{--}(\omega) \\
+    +&[e^{-i(k_{\vn}^+\hk-k_{\vn'}^-\hk')\vr}] \Pi_{\vn\vn'\mu\mu}^{+-}(\omega) \\ 	
+    +&[e^{-i(k_{\vn}^-\hk-k_{\vn'}^+\hk')\vr}] \Pi_{\vn\vn'\mu\mu}^{-+}(\omega) \bigg] 
+\end{split}
+\ee
+In 2D the normal density of states is a constant $N_f$, and we can split the sum over $\vn$ into integrals over energy $\epsilon=|\xi|$ and momentum direction $\hk$
+\be
+\begin{split}
+\label{eq:sus4}
+\chi^{\cN}_{_{xx}}(\vx,\vx',\omega) = \frac{2\mu_B^2 N_f}{\chi_{_0}} \sum\limits_{\mu}\int d\epsilon d\epsilon' d\hk d\hk' \bigg[&e^{-i(k^+_{\epsilon}\hk-k^+_{\epsilon'}\hk')\vr} \Pi_{\epsilon\epsilon'\mu\bmu}^{++}(\omega) \\
+	+&e^{-i(k^-_{\epsilon}\hk-k^-_{\epsilon'}\hk')\vr} \Pi_{\epsilon\epsilon'\mu\bmu}^{--}(\omega) \\
+    +&e^{-i(k^+_{\epsilon}\hk-k^-_{\epsilon'}\hk')\vr} \Pi_{\epsilon\epsilon'\mu\mu}^{+-}(\omega) \\ 	
+    +&e^{-i(k^-_{\epsilon}\hk-k^+_{\epsilon'}\hk')\vr} \Pi_{\epsilon\epsilon'\mu\mu}^{-+}(\omega) \bigg] 
+\end{split}
+\ee
+Where $\vr = \vx-\vx'$ is the relative coordinate.
+
+\section*{subtract normal state}
+In principle, we can also convert the sum in \ref{eq:sus2} into integrals over energy and momentum direction using the two particle angle resolved density of states $D(\epsilon,\hk;\epsilon',\hk')$
+\be
+\begin{split}
+\label{eq:sus2b}
+\chi^{\cS}_{_{xx}}(\vx,\vx',\omega) = \frac{2\mu_B^2}{\chi_{_0}} \sum\limits_{\mu}\int d\epsilon d\epsilon' d\hk d\hk' D(\epsilon,\hk;\epsilon',\hk')\bigg[&[S_{\epsilon\epsilon'\hk\hk'}^{+}(\vx,\vx') + \cU^*_{\epsilon\hk}\cU_{\epsilon'\hk'}(\vx,\vx')] \Pi_{\epsilon\epsilon'\mu\bmu}^{++}(\omega) \\
+	+&[S_{\epsilon\epsilon'\hk\hk'}^+(\vx',\vx) + \cV_{\epsilon\hk}\cV_{\epsilon'\hk'}^*(\vx,\vx')] \Pi_{\epsilon\epsilon'\mu\bmu}^{--}(\omega) \\
+    +&[- S_{\epsilon\epsilon'\hk\hk'}^-(\vx,\vx')+ \cU^*_{\epsilon\hk}\cV^*_{\epsilon'\hk'}(\vx,\vx')] \Pi_{\epsilon\epsilon'\mu\mu}^{+-}(\omega) \\ 	
+    +&[- S_{\epsilon\epsilon'\hk\hk'}^-(\vx',\vx) + \cV_{\epsilon\hk}\cU_{\epsilon'\hk'}(\vx,\vx')] \Pi_{\epsilon\epsilon'\mu\mu}^{-+}(\omega) \bigg] 
+\end{split}
+\ee
+If we now subtract then normal state \ref{eq:sus4} we get 
+\be
+\begin{split}
+\label{eq:sus_diff}
+\delta\chi_{_{xx}}(\vx,\vx',\omega) = \chi^{\cS}_{_{xx}}(\vx,\vx',\omega)-\chi^{\cN}_{_{xx}}(\vx,\vx',\omega)  \\
+= \chi^{s}_{_{xx}}(\vx,\vx',\omega) \\
++ \frac{2\mu_B^2}{\chi_{_0}} \sum\limits_{\mu}\int d\epsilon d\epsilon' d\hk d\hk' \bigg[&[D(\epsilon,\hk;\epsilon',\hk')\cU^*_{\epsilon\hk}\cU_{\epsilon'\hk'}-N_f e^{-i\big(k^+_{\epsilon}\hk-k^+_{\epsilon'}\hk'\big)\vr}] \Pi_{\epsilon\epsilon'\mu\bmu}^{++}(\omega) \\
+	+&[D(\epsilon,\hk;\epsilon',\hk')\cV_{\epsilon\hk}\cV_{\epsilon'\hk'}^*-N_f e^{-i\big(k^-_{\epsilon}\hk- k^-_{\epsilon'}\hk'\big)\vr}] \Pi_{\epsilon\epsilon'\mu\bmu}^{--}(\omega) \\
+    +&[D(\epsilon,\hk;\epsilon',\hk')\cU^*_{\epsilon\hk}\cV^*_{\epsilon'\hk'}-N_f e^{-i\big(k^+_{\epsilon}\hk-k^-_{\epsilon'}\hk'\big)\vr}] \Pi_{\epsilon\epsilon'\mu\mu}^{+-}(\omega) \\ 	
+    +&[D(\epsilon,\hk;\epsilon',\hk')\cV_{\epsilon\hk}\cU_{\epsilon'\hk'}-N_f e^{-i\big( k^-_{\epsilon}\hk- k^+_{\epsilon'}\hk'\big)\vr}] \Pi_{\epsilon\epsilon'\mu\mu}^{-+}(\omega) \bigg] 
+\end{split}
+\ee
+Where $\chi^{s}_{_{xx}}(\vx,\vx',\omega)$ is from only the $S$ terms of \ref{eq:sus2b}
+\end{document}

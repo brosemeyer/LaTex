@@ -1,0 +1,114 @@
+%% MSUDOC.CLS JUST NEEDS TO BE IN THE SAME FOLDER AS THIS MASTER LEVEL FILE
+\documentclass[final,dissertation]{msudoc} 
+\usepackage{color,graphicx}
+\usepackage{amssymb,amsmath,eurosym,psfrag} 
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage{natbib}
+\usepackage{url}
+%%%%%%%%%%%%
+\usepackage{bookmath} % definitions and shortcuts
+
+\newcommand{\figref}[1]{Figure \ref{#1}}
+\newcommand{\Frac}[2]{\frac{\raisebox{-0.5ex}{\ensuremath{#1}}}{#2}}
+\newcommand{\partials}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\Matrix}[1]{\mathbb{#1}}
+\newcommand{\tothe}[1]{\ensuremath{^{\hbox{\scriptsize #1}}}}
+\newcommand{\order}[1]{\ensuremath{\mathcal{O}(#1)}}
+\newcommand\arcsec{\mbox{$^{\prime\prime}$}}%
+\newcommand\arcdeg{\mbox{$^\circ$}}%
+\newcommand\arcmin{\mbox{$^\prime$}}%
+\newcommand{\csum}{\ensuremath{\textsf{c}\hspace{-0.75em}\sum}}
+\newcommand{\fnc}[1]{\textsf{#1}} % use sans-serif for function/procedure names
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+%\input{/home/tarrl/work/bib/journal_names.tex}
+
+
+%%% FRONT MATTER DATA FIELDS
+\title{Magnetic Consequences of Unconventional and Non-Uniform Superconductors}
+\author{Benjamin Micheal Rosemeyer}
+\authorshort{B. M.~Rosemeyer}
+\degree{Doctor of Philosophy}
+\department{Physics}
+\submissiondate{2016}
+\copyrightyear{2016}
+
+\chair{Dr.~Anton B. Vorontsov}
+\head{Dr.~Yves Idzerda}
+\dean{Dr. ~Karlene A. Hoo}
+
+
+%\nofiles % SEE README.TXT FOR INFO ON THIS AND THE FOLLOWING LINES
+
+%%% ADD THE FOLLOWING TO APPROPRIATE POSITION OF .TOC, .LOT, .LOF FILES: 
+% \par \par \vfil \penalty -\@M \write \m@ne {}\vbox {}\penalty -\@Mi \par \hskip 1em\relax \hfill TABLE OF CONTENTS -- CONTINUED \hfill \hskip 1em\relax \hskip 1em\relax \vspace {.2in} \hskip 1em\relax \par 
+
+%%% MUST ALSO ADD IN THE FIGURE/PAGE HEADINGS FOR THE SECOND PAGE OF .LOT & .LOF FILES:
+% \noindent
+%  {Figure}\hfill{Page}
+%  \par
+%  \vspace{7.5\p@}
+%
+% \par \par \vfil \penalty -\@M \write \m@ne {}\vbox {}\penalty -\@Mi \par \hskip 1em\relax \hfill LIST OF FIGURES -- CONTINUED \hfill \hskip 1em\relax \hskip 1em\relax \vspace {.2in} \hskip 1em\relax \par 
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------------------
+% Front matter
+%----------------------------------------------------------------------------------------------------
+\frontmatter
+\maketitlepage
+\makecopyrightpage
+\makeapprovalpage
+\makepermissionpage
+
+\begin{dedication}
+%  \vspace{4cm}
+  \begin{verse}
+    I dedicate this dissertation to Mumbo Jumbo
+  \end{verse}
+\end{dedication}
+
+\begin{preface}
+  While the research presented in this dissertation is ultimately an attempt to understand basic physical processes in the cosmos, in particular the storage and release of energy by magnetic fields in plasmas, it does have important societal impacts.  It is for this reason that the work was funded, primarily through NASA's Living With a Star (LWS) program and associated missions and grants.  Work presented in the second chapter was supported directly by NASA LWS.  Work in the third and fourth chapter were supported by NASA under contract SP02H3901R from Lockheed--Martin to MSU.  The author also acknowledges the teams responsible for the Helioseismic and Magnetic Imager (HMI) and Atmospheric Imaging Assembly (AIA) instruments onboard the Solar Dynamics Observatory (SDO) and the X--Ray Telescope (XRT) instrument onboard the joint Japanese/US satellite Hinode.  This work would not be possible without the data and support provided by these instruments.
+\end{preface}
+
+\begin{acknowledgements}
+
+  herp derp
+
+\end{acknowledgements}
+
+\maketableofcontents
+\makelistoftables
+\makelistoffigures
+
+\begin{abstract}
+  
+  blerp
+  
+\end{abstract}
+
+\mainmatter
+
+%% HERE IS WHERE YOU INCLUDE YOUR ChapterX.tex files
+\include{Chapter1_NOT_MANUSCRIPT}
+\include{Chapter2_manuscript}
+\include{Chapter3_NOT_manuscript}
+\backmatter
+
+%% I HAD NO APPENDICES.  YOU'RE ON YOUR OWN FOR THAT.  THEY ARE SET UP IN MSUDOC.CLS, THOUGH I'M NOT SURE IF THE FORMAT IS EXACTLY CORRECT.
+
+\bibliographystyle{apsrev}
+{
+  \singlespace
+  \addcontentsline{toc}{chapter}{REFERENCES CITED}
+  \bibliography{/home/ben/School_5_15_2015/MyBib/mybib} % my master bibtex file.
+}
+
+%% NOW WE FINALLY END.
+\end{document}
+
+%% THE END. (IS NEAR.  (IT CAME AND WENT ALREADY; YOU MISSED IT.)).

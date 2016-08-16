@@ -1,0 +1,49 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\title{Thesis Outline}
+\author{Ben Rosemeyer}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Superconducting Order Parameter}
+-Self Consistentcy
+-DOS gap
+-Meisner effect/magnetic incompatibility of gapped DOS
+\section{Electron Magnetism}
+-As susceptibility
+-As part of Hamiltonian (TB)
+\section{CeCoIn_5}
+-phase diagram (T,H,P,Doping)
+-coexistence region
+-DOS near fermi level
+-movement of chemical potential with P/Doping
+-phase diagram of Kato et al
+\section{homogeneous susceptibility with field}
+-favored wave vectors
+-Behavior of prefered vectors with B
+-Phase diagram of sus. enhancement
+-comparison to experiment
+\section{actual Electron structure of CeCoIn_5}
+-Cornell paper on band dispersion
+-phase diagram using kato method with cornell dispersion
+-interband/within band magnetic interactions
+-3D effects
+\section{inhomogeneous (interfaces) superconductivity}
+-proximity effect
+-FFLO state
+-inhomogeneous susceptibility (equations)
+-self consistency (?)
+-superconductor/ferromagnet interfaces
+\section{S-wave near Normal interface}
+-enhanced susceptibility of SC for characteristic (position dependent) wave vectors
+-only within ~coherence length of interface
+-small q enhancements could be seen as ferromagnetic in experiments if confined to length $L<<\pi/q$
+
+\end{document}

@@ -1,0 +1,143 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\begin{document}
+\title{Plane Wave expansion for Superconducting Domain Wall}
+\author{Ben Rosemeyer}
+\date{\today}
+\maketitle
+
+\section*{Abstract}
+Andreev Approximation Vs. Plane Wave Expansion
+
+\section*{Bogoliubov-De Gennes Equations}
+
+We need to find the governing equations for the $u$'s and $v$'s which we can calculate self consistently along with the superconducting order parameter(De Gennes). Normalization of $\tilde{\phi}$ requires $\int dx(|u_k(x)|^2+|v_k(x)|^2)=1$. To proceed we start with the electronic superconducting Hamiltonian (without the presence of a magnetic field) in the mean field limit.
+
+\begin{equation*}
+\mathcal{H}=\sum\limits_{\alpha}\int dx \psi^\dagger_\alpha\bigg[\frac{{p}^2}{2m}+U(x)\bigg]\psi_\alpha-\frac{1}{2}\sum\limits_{\alpha\beta}\int dx dx' \psi^\dagger_\alpha(x)\psi^\dagger_\beta(x') V(x,x')\psi_\beta(x')\psi_\alpha(x)=\mathcal{H}_0+\mathcal{H}_1
+\end{equation*}
+
+From here we can rewrite $\mathcal{H}_1$ as an effective singlet interaction which acts on one particle at a time (ie contains only two operators).
+
+\begin{align*}
+\mathcal{H}_0=\sum\limits_{\alpha}\int dx \psi^\dagger_\alpha\bigg[\mathcal{H}_e+U(x)\bigg]\psi_\alpha \\
+\mathcal{H}_1=\int dx dx' [\Delta(x,x')\psi^\dagger_1(x)\psi^\dagger_{-1}(x')+\Delta(x,x')^* \psi_{-1}(x')\psi_1(x)]
+\end{align*}
+
+Where we have introduced the superconducting order parameter $\Delta(x,x')=V(x,x')<\psi_{-1}(x')\psi_{1}(x)>$. Now we compute the commutator $[\mathcal{H}_{eff},\psi]$ using the anticommutation relations for $\psi$.
+
+\begin{align*}
+[\psi_1(x),\mathcal{H}_ {eff}]=(\mathcal{H}_e+U(x))\psi_1+\int dx' \Delta(x,x')\psi^\dagger_{-1}(x') \\
+[\psi_{-1}(x),\mathcal{H}_{eff}]=(\mathcal{H}_e+U(x))\psi_{-1}-\int dx' \Delta(x,x')\psi^\dagger_{1}(x')
+\end{align*}
+
+Now we use the definition of $\psi_\alpha(x) = u(x)\gamma_\alpha + (i\sigma_2^{\alpha\beta})v(x)\gamma^\dagger_\beta$ which diagonalizes the Hamiltonian and separates the t and x variables. Thus, $\mathcal{H}_{eff}$ acting to find the right on a $\gamma$ gives the energy $\epsilon$
+
+\begin{align*}
+\epsilon\gamma_{1}(t)u(x)+\epsilon\gamma^\dagger_{-1}v^*(x)=(\mathcal{H}_e+U(x))(\gamma_{1}(t)u(x)-\gamma^\dagger_{-1}(t)v^*(x))+\int dx' \Delta(x,x')(\gamma^\dagger_{-1}(t)u^*(x')+\gamma_{1}(t)v(x')) \\
+\epsilon\gamma_{-1}(t)u(x)-\epsilon\gamma^\dagger_{1}v^*(x)=(\mathcal{H}_e+U(x))(\gamma_{-1}(t)u(x)+\gamma^\dagger_{1}(t)v^*(x))-\int dx' \Delta(x,x')(\gamma^\dagger_{1}(t)u^*(x')-\gamma_{-1}(t)v(x))
+\end{align*}
+
+Since $\gamma$ and $\gamma^\dagger$ are linearly independent we can equate like terms to get two equations from each of the two previous expressions. They turn out to be equivalent:
+
+\begin{align*}
+\epsilon_ku_k(x)=(\mathcal{H}_e+U(x))u_k(x)+\int dx'\Delta(x,x')v_k(x') \\
+\epsilon_kv_k(x)=-(\mathcal{H}_e^*+U(x)) v_k(x)+\int dx'\Delta^*(x,x')u_k(x')
+\end{align*}
+
+Here we note that $\mathcal{H}^*_e=\mathcal{H}_e$ as long as there is no oribtal field. These are the Bogoliubov-De Genne equations for an inhomogenious superconductor and an integral eigen-equation $\epsilon_k\left (\begin{array}{c} u_k \\ v_k \end{array}\right)=\hat{\Omega}\left (\begin{array}{c} u_k \\ v_k \end{array}\right)$. 
+
+\section*{Free Energy}
+
+We can use these to calculate $\Delta$ and $U(x)$ self consistently. We first consider the pairing potential to be some average value $V(x,x')=V_0$ and minimize the free energy $F=<\mathcal{H}>-TS$. For the full Hamiltonian we have:
+
+\begin{align*}
+<\mathcal{H}>=\sum\limits_{\alpha}\int dx <\psi^\dagger_\alpha\mathcal{H}_e\psi_\alpha>-\frac{V_0}{2}\sum\limits_{\alpha\beta}\int dx dx' <\psi^\dagger_\alpha(x)\psi^\dagger_\beta(x')\psi_\beta(x')\psi_\alpha(x)> \\
+\end{align*}
+
+The second term can be expanded via Wick contractions:
+
+\begin{align*}
+<\psi^\dagger_\alpha(x)\psi^\dagger_\beta(x')\psi_\beta(x')\psi_\alpha(x)>= <\psi^\dagger_\alpha(x)\psi^\dagger_\beta(x')><\psi_\beta(x')\psi_\alpha(x)> \\ 
+-<\psi^\dagger_\alpha(x)\psi_\beta(x')><\psi^\dagger_\beta(x')\psi_\alpha(x)> \\
++<\psi^\dagger_\alpha(x)\psi_\alpha(x)><\psi^\dagger_\beta(x')\psi_\beta(x')>
+\end{align*}
+
+Now we compute the variation in F:
+
+\begin{align*}
+\delta F=\sum\limits_{\alpha}\int dx \delta[<\psi^\dagger_\alpha\mathcal{H}_e\psi_\alpha>]-V_0\int dx dx'\bigg[\delta[<\psi^\dagger_1(x)\psi^\dagger_{-1}(x')>]<\psi_{-1}(x')\psi_1(x)>+C.C.\bigg] \\
+-\sum\limits_{\alpha}\delta[<\psi^\dagger_\alpha(x)\psi_\alpha(x')>]<\psi^\dagger_\alpha(x')\psi_\alpha(x)>
++\sum\limits_{\alpha\beta}\delta[<\psi^\dagger_\alpha(x)\psi_\alpha(x)>]<\psi^\dagger_\beta(x')\psi_\beta(x')>-T\delta S
+\end{align*}
+
+Now we can compare this variation to the variation in $F_{eff}$ noting that the Bogoliubov formulation diagnolizes $\mathcal{H}_{eff}$. 
+
+\begin{align*}
+0=\delta F_{eff}=\sum\limits_{\alpha}\int dx \delta[<\psi^\dagger_\alpha(\mathcal{H}_e+U(x))\psi_\alpha>] \\
++\int dx dx'\bigg[\Delta(x,x')\delta[<\psi^\dagger_1(x)\psi^\dagger_{-1}(x')>]+\Delta^*(x,x')\delta[<\psi_{-1}(x')\psi_1(x)>]\bigg]-T\delta S
+\end{align*}
+
+Combining the previous two equations so that $\delta F=0$ yields expressions for $U(x)$ and $\Delta$. The equation for $U(x)$ is complicated and we will omit it here. The equation for $\Delta$ is:
+
+\begin{align*}
+\Delta(x,x')=-V_0<\psi_{-1}(x')\psi_1(x)>=V_0<\psi_{1}(x)\psi_{-1}(x')> \\
+=V_0\sum\limits_k[u_k(x')v^*_k(x)(1-f_{-1k})-u_k(x)v^*_k(x')f_{1k}]
+\end{align*}
+
+\section*{Plane Wave Expansion}
+To solve the Bogoliubov equations we may employ numerical techniques. But first we write $\mathcal{H}_e+U(x)= \frac{\hbar^2p^2}{2m}-\epsilon_f$.
+
+\begin{align*}
+\epsilon_ku_k(x)=(-\frac{\hbar^2d^2}{2mdx^2}-\epsilon_f)u_k(x)+\int dx'\Delta(x,x')v_k(x') \\
+\epsilon_kv_k(x)=-(-\frac{\hbar^2d^2}{2mdx^2}-\epsilon_f) v_k(x)+\int dx'\Delta^*(x,x')u_k(x')
+\end{align*}
+
+At this point it is nice to scale things by the Fermi energy and momentum: $x\rightarrow xk_f$, $\epsilon\rightarrow\epsilon/\epsilon_f$, $\Delta\rightarrow\Delta/\epsilon_f$
+We now write the u's and v's as a sum over plane wave states $u(x)=\sum\limits_{q} u_q e^{iqx}$, where $q$ is scaled by $k_f$ as well. After integrating to pick out a particular mode, these into the scaled BdG equations yield
+
+\begin{align*}
+\epsilon u_p=\xi_pu_p+\frac{1}{V}\sum\limits_{{q}}\int dx'\int dx\Delta(x,x')v_q e^{i{q}{x}'} e^{-i{p}{x}}\\
+\epsilon v_p=-\xi_p v_p+\frac{1}{V}\sum\limits_{{q}}\int dx'\int dx\Delta^*(x,x')u_q e^{i{q}{x}'} e^{-i{p}{x}}
+\end{align*}
+
+Where $\xi_p=p^2-1$. 
+
+Now the trick is the integral term which is more enlightening to write in terms of the relative (r=x-x') and center of mass coordinate (R=(x+x')/2). Then the integral term can be written as the Fourier transform of the order parameter in these new coordinates. The OP can also be written in separation of variable form $\Delta(r,R) = \Delta_0 g(r)f(R)$. The g(r) results in the OP symmetery (ie S-wave, D-wave etc) $\Delta_{k}$, and f(R) gives a delta function for homogeneous solution, but in general we write it as $F(q-p)=\int dR \quad  f(R) e^{i(q-p)R}$
+
+\begin{align*}
+\epsilon u_p=\xi_pu_p+\sum\limits_{q}v_q\Delta_{(q+p)/2}F(q-p)\\
+\epsilon v_p=-\xi_p v_p+\sum\limits_{q}u_q\Delta_{(q+p)/2}F(q-p)
+\end{align*}
+
+
+
+
+\section*{Andreev Approximation}
+The Bogoliubov equations can be simplified by making the Andreev Approximation and substituting the chemical potential times the number operator for $U(x)$. In the Andreev Approximation we assume that the functions $u$ and $v$ take the form $u_(x)=\tilde{u}(x)e^{i x}$ ($e^{ix}=e^{ip_f x}$ in unscaled variables) . This approximation assumes that the envelope function $\tilde{u}(x)$ is slow varying on the same scale as $\Delta(R)$. The function $\tilde{u}$ is assumed to be slowly varying while the exponential is fast varying. The Bogoliubov equations then become:
+
+\begin{align*}
+\epsilon\tilde{u}(x)e^{i x}=e^{i x}\bigg(\tilde{u}(x)-i\frac{d}{dx}\tilde{u}(x)-\frac{d^2}{dx^2}\tilde{u}(x)-\tilde{u}(x)\bigg)+\int dx'\Delta(x,x')\tilde{v}(x')e^{i x'} \\
+\epsilon\tilde{v}(x)e^{i x}=-e^{i x}\bigg(\tilde{v}(x)-i\frac{d}{dx}\tilde{v}(x)-\frac{d^2}{dx^2}\tilde{v}(x)-\tilde{v}(x)\bigg)+\int dx'\Delta^*(x,x')\tilde{u}(x')e^{i x'}
+\end{align*}
+
+Now we say that  $i\frac{d}{dx}\tilde{u}(x)>>\frac{d^2}{dx^2}\tilde{u}(x)$.
+\begin{align*}
+\epsilon\tilde{u}(x)e^{i x}=-ie^{i x}\frac{d}{dx}\tilde{u}(x)+\int dx'\Delta(x,x')\tilde{v}(x')e^{i x'} \\
+\epsilon\tilde{v}(x)e^{i x}=ie^{i x}\frac{d}{dx}\tilde{v}(x)+\int dx'\Delta^*(x,x')\tilde{u}(x')e^{i x'}
+\end{align*}
+
+Here we assume the "contact" potential $\Delta(x,x') = \Delta_0 \delta(x-x')$ for S-wave. We also make a plane wave expansion of $\tilde{v}(x) = \sum\limits_{q} \tilde{v}_q e^{iqx}$
+
+\begin{align*}
+\epsilon\tilde{u}_p=p\tilde{u}_p+ \Delta_0\sum\limits_{q}\tilde{v}_q F(q-p) \\
+\epsilon\tilde{v}_p=-p\tilde{v}_p+ \Delta_0\sum\limits_{q}\tilde{u}_q F(q-p)
+\end{align*}
+
+Where $F(q -p)$ is the same as the previous section.
+
+
+\end{document}

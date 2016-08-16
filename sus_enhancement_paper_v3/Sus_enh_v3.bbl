@@ -1,0 +1,150 @@
+\begin{thebibliography}{13}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Bianchi et~al.}(2008)\citenamefont{Bianchi, Kenzelmann,
+  DeBeer-Schmitt, White, Forgan, Mesot, Zolliker, Kohlbrecher, Movshovich,
+  Bauer et~al.}}]{cecoin5_Bianchi}
+\bibinfo{author}{\bibfnamefont{A.~D.} \bibnamefont{Bianchi}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Kenzelmann}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{DeBeer-Schmitt}},
+  \bibinfo{author}{\bibfnamefont{J.~S.} \bibnamefont{White}},
+  \bibinfo{author}{\bibfnamefont{E.~M.} \bibnamefont{Forgan}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Mesot}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Zolliker}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Kohlbrecher}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Movshovich}},
+  \bibinfo{author}{\bibfnamefont{E.~D.} \bibnamefont{Bauer}},
+  \bibnamefont{et~al.}, \bibinfo{journal}{Science}
+  \textbf{\bibinfo{volume}{319}}, \bibinfo{pages}{177} (\bibinfo{year}{2008}),
+  \eprint{http://www.sciencemag.org/content/319/5860/177.full.pdf},
+  \urlprefix\url{http://www.sciencemag.org/content/319/5860/177.abstract}.
+
+\bibitem[{\citenamefont{Kenzelmann et~al.}(2008)\citenamefont{Kenzelmann,
+  Strässle, Niedermayer, Sigrist, Padmanabhan, Zolliker, Bianchi, Movshovich,
+  Bauer, Sarrao et~al.}}]{cecoin5_Kenzelmann}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Kenzelmann}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Strässle}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Niedermayer}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Sigrist}},
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Padmanabhan}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Zolliker}},
+  \bibinfo{author}{\bibfnamefont{A.~D.} \bibnamefont{Bianchi}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Movshovich}},
+  \bibinfo{author}{\bibfnamefont{E.~D.} \bibnamefont{Bauer}},
+  \bibinfo{author}{\bibfnamefont{J.~L.} \bibnamefont{Sarrao}},
+  \bibnamefont{et~al.}, \bibinfo{journal}{Science}
+  \textbf{\bibinfo{volume}{321}}, \bibinfo{pages}{1652} (\bibinfo{year}{2008}),
+  \eprint{http://www.sciencemag.org/content/321/5896/1652.full.pdf},
+  \urlprefix\url{http://www.sciencemag.org/content/321/5896/1652.abstract}.
+
+\bibitem[{\citenamefont{Kenzelmann et~al.}(2010)\citenamefont{Kenzelmann,
+  Gerber, Egetenmeyer, Gavilano, Str\"assle, Bianchi, Ressouche, Movshovich,
+  Bauer, Sarrao et~al.}}]{cecoin5_Kenzelmann2}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Kenzelmann}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Gerber}},
+  \bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Egetenmeyer}},
+  \bibinfo{author}{\bibfnamefont{J.~L.} \bibnamefont{Gavilano}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Str\"assle}},
+  \bibinfo{author}{\bibfnamefont{A.~D.} \bibnamefont{Bianchi}},
+  \bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Ressouche}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Movshovich}},
+  \bibinfo{author}{\bibfnamefont{E.~D.} \bibnamefont{Bauer}},
+  \bibinfo{author}{\bibfnamefont{J.~L.} \bibnamefont{Sarrao}},
+  \bibnamefont{et~al.}, \bibinfo{journal}{Phys. Rev. Lett.}
+  \textbf{\bibinfo{volume}{104}}, \bibinfo{pages}{127001}
+  (\bibinfo{year}{2010}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRevLett.104.127001}.
+
+\bibitem[{\citenamefont{Vorontsov et~al.}(2010)\citenamefont{Vorontsov,
+  Vavilov, and Chubukov}}]{sc_sdw_anton}
+\bibinfo{author}{\bibfnamefont{A.~B.} \bibnamefont{Vorontsov}},
+  \bibinfo{author}{\bibfnamefont{M.~G.} \bibnamefont{Vavilov}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{A.~V.}
+  \bibnamefont{Chubukov}}, \bibinfo{journal}{Phys. Rev. B}
+  \textbf{\bibinfo{volume}{81}}, \bibinfo{pages}{174538}
+  (\bibinfo{year}{2010}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRevB.81.174538}.
+
+\bibitem[{\citenamefont{Yanase and Sigrist}(2011)}]{mag_afm_fflo_sigrist}
+\bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Yanase}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Sigrist}},
+  \bibinfo{journal}{Journal of Physics: Condensed Matter}
+  \textbf{\bibinfo{volume}{23}}, \bibinfo{pages}{094219}
+  (\bibinfo{year}{2011}),
+  \urlprefix\url{http://stacks.iop.org/0953-8984/23/i=9/a=094219}.
+
+\bibitem[{\citenamefont{Martin et~al.}(2005)\citenamefont{Martin, Agosta,
+  Tozer, Radovan, Palm, Murphy, and Sarrao}}]{fflo_pen_depth}
+\bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Martin}},
+  \bibinfo{author}{\bibfnamefont{C.~C.} \bibnamefont{Agosta}},
+  \bibinfo{author}{\bibfnamefont{S.~W.} \bibnamefont{Tozer}},
+  \bibinfo{author}{\bibfnamefont{H.~A.} \bibnamefont{Radovan}},
+  \bibinfo{author}{\bibfnamefont{E.~C.} \bibnamefont{Palm}},
+  \bibinfo{author}{\bibfnamefont{T.~P.} \bibnamefont{Murphy}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.~L.}
+  \bibnamefont{Sarrao}}, \bibinfo{journal}{Phys. Rev. B}
+  \textbf{\bibinfo{volume}{71}}, \bibinfo{pages}{020503}
+  (\bibinfo{year}{2005}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRevB.71.020503}.
+
+\bibitem[{\citenamefont{Kato et~al.}(2011)\citenamefont{Kato, Batista, and
+  Vekhter}}]{sc_afm_kato}
+\bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Kato}},
+  \bibinfo{author}{\bibfnamefont{C.~D.} \bibnamefont{Batista}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{I.}~\bibnamefont{Vekhter}},
+  \bibinfo{journal}{Phys. Rev. Lett.} \textbf{\bibinfo{volume}{107}},
+  \bibinfo{pages}{096401} (\bibinfo{year}{2011}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRevLett.107.096401}.
+
+\bibitem[{\citenamefont{Ikeda et~al.}(2010)\citenamefont{Ikeda, Hatakeyama, and
+  Aoyama}}]{sc_afm_ikeda}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Ikeda}},
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Hatakeyama}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Aoyama}},
+  \bibinfo{journal}{Phys. Rev. B} \textbf{\bibinfo{volume}{82}},
+  \bibinfo{pages}{060510} (\bibinfo{year}{2010}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRevB.82.060510}.
+
+\bibitem[{\citenamefont{Suzuki et~al.}(2011)\citenamefont{Suzuki, Ichioka, and
+  Machida}}]{sdw_vortex}
+\bibinfo{author}{\bibfnamefont{K.~M.} \bibnamefont{Suzuki}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ichioka}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Machida}},
+  \bibinfo{journal}{Phys. Rev. B} \textbf{\bibinfo{volume}{83}},
+  \bibinfo{pages}{140503} (\bibinfo{year}{2011}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRevB.83.140503}.
+
+\bibitem[{\citenamefont{M.~P.~Allan}(2013)}]{cooperPairsCeCoIn5}
+\bibinfo{author}{\bibfnamefont{D.~K. M. J. v. D. A. R. A. P. M. C. P. J. C.~D.}
+  \bibnamefont{M.~P.~Allan}, \bibfnamefont{F.~Massee}},
+  \bibinfo{journal}{arXiv.} \textbf{\bibinfo{volume}{1}}, \bibinfo{pages}{11}
+  (\bibinfo{year}{2013}), \urlprefix\url{http://arxiv.org/abs/1303.4416}.
+
+\bibitem[{\citenamefont{Mahan}(2000)}]{mahan}
+\bibinfo{author}{\bibfnamefont{G.~D.} \bibnamefont{Mahan}},
+  \emph{\bibinfo{title}{Many-Particle Physics}} (\bibinfo{publisher}{Plenum
+  Publishers}, \bibinfo{year}{2000}), \bibinfo{edition}{3rd} ed.
+
+\bibitem[{\citenamefont{Tinkham}(1996)}]{tinkham}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Tinkham}},
+  \emph{\bibinfo{title}{Introduction to Superconductivity}}
+  (\bibinfo{publisher}{McGraw-Hill}, \bibinfo{year}{1996}),
+  \bibinfo{edition}{2nd} ed.
+
+\bibitem[{\citenamefont{Mihaila}(2011)}]{lindhard_fnct}
+\bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Mihaila}},
+  \bibinfo{journal}{arxiv:1111.5337v1}  (\bibinfo{year}{2011}),
+  \urlprefix\url{http://arxiv.org/pdf/1111.5337v1.pdf}.
+
+\end{thebibliography}

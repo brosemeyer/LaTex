@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\begin{document}
+\title{Relaxation Time}
+\author{Ben Rosemeyer}
+\date{\today}
+\maketitle
+
+\section*{Spin Susceptibility}
+The presence of a magnetic field introduces a potential for particles with spin $V=-\vec{m}\cdot\vec{H}$. The magnetization due to this potential is given by $M_\alpha(t)=-i\int\limits_{-\infty}^t <[m_\alpha(t),V(t')]>dt'$, and the magnetic susceptibility is $\chi_{\alpha,\beta}(x,x',t)=i\int\limits_{-\infty}^t<[m_\alpha(x,t),m_\beta(x',t')]>dt'$. The magnetic moment is given by $m_\alpha(x,t)=\mu_e\sum\limits_{s,s'} \sigma^{\alpha}_{s,s'}\psi^\dagger_s(x,t) \psi_{s'}(x,t)$ (Mahan). Now we can proceed to calculate the susceptibitily. In the case of uniform time, we can assume that the product $m_\alpha(x,t),m_\beta(x',t')$ is a function of $\tau=t-t'$. In this limit we get:
+
+\begin{align*}
+\chi_{\alpha,\beta}(x,x',t)&=i\int\limits_{-\infty}^t<[m_\alpha(x,0),m_\beta(x',t')]>dt' \\ 
+&=-i\mu_e^2\sum\limits_{s,s',t,t'}\sigma^{\beta}_{s,s'}\sigma^{\alpha}_{t,t'}\int\limits_{-\infty}^t<[\psi^\dagger_{s}(x',t') \psi_{s'}(x't'),\psi^\dagger_{t}(x,0) \psi_{t'}(x,0)]>
+\end{align*}
+
+
+Using the Bogolioubov transformation and fourier transforming this to momentum and energy phase space we have:
+
+\begin{align*}
+\chi_{xx}(q,\omega) = -\mu_{B} \sum\limits_{s,k} \frac{f_{k,s}-f_{k+q,\bar{s}}}{\omega + E_{k,s} - E_{k+q,\bar{s}} + i\Gamma}(u_k^2 u_{k+q}^2 + u_k v_k u_{k+q} v_{k+q}) \\
+				  - \frac{f_{k,\bar{s}}-f_{k+q,s}}{\omega - E_{k,\bar{s}} + E_{k+q,s} + i\Gamma}(v_k^2 v_{k+q}^2 + u_k v_k u_{k+q} v_{k+q}) \\
+				 +  \frac{1-f_{k,\bar{s}}-f_{k+q,\bar{s}}}{\omega - E_{k,\bar{s}} - E_{k+q,\bar{s}} + i\Gamma}(v_k^2 u_{k+q}^2 - u_k v_k u_{k+q} v_{k+q}) \\
+				 - \frac{1-f_{k,s}-f_{k+q,s}}{\omega + E_{k,s} + E_{k+q,s} + i\Gamma}(u_k^2 v_{k+q}^2 - u_k v_k u_{k+q} v_{k+q})
+\end{align*}
+
+The real part ($\Gamma = 0$) in the $\omega = 0$ limit is:
+
+\begin{align*}
+\chi'_{xx}(q) = -\mu_{B} \sum\limits_{s,k} \frac{f_{k,s}-f_{k+q,\bar{s}}}{E_{k,s} - E_{k+q,\bar{s}} }(u_k u_{k+q} + v_k v_{k+q})^2 
+				 -  \frac{1-f_{k,s}-f_{k+q,s}}{E_{k,s} + E_{k+q,s}}(v_k u_{k+q} - u_k v_{k+q})^2
+\end{align*}
+
+The imaginary part for finite $\omega$ is:
+
+\begin{align*}
+\chi ''_{xx}(q,\omega) = \pi \mu_{B} \sum\limits_{s,k} (f_{k,s}-f_{k+q,\bar{s}})\delta(\omega + E_{k,s} - E_{k+q,\bar{s}})(u_k^2 u_{k+q}^2 + u_k v_k u_{k+q} v_{k+q}) \\
+				  - (f_{k,\bar{s}}-f_{k+q,s})\delta(\omega - E_{k,\bar{s}} + E_{k+q,s} )(v_k^2 v_{k+q}^2 + u_k v_k u_{k+q} v_{k+q}) \\
+				 +  (1-f_{k,\bar{s}}-f_{k+q,\bar{s}})\delta(\omega - E_{k,\bar{s}} - E_{k+q,\bar{s}})(v_k^2 u_{k+q}^2 - u_k v_k u_{k+q} v_{k+q}) \\
+				 -(1-f_{k,s}-f_{k+q,s})\delta(\omega + E_{k,s} + E_{k+q,s})(u_k^2 v_{k+q}^2 - u_k v_k u_{k+q} v_{k+q})
+\end{align*}
+
+Now we use the derived formula for the relaxation time:
+
+\begin{align*}
+\frac{1}{TT_1} \propto \sum\limits_q \bigg[ \frac{\chi '' (q,\omega)}{\omega}\bigg]_{\omega \rightarrow 0}
+\end{align*}
+
+\begin{align*}
+\frac{\chi ''_{xx}(q,\omega)}{\omega} = \pi \mu_{B} \sum\limits_{s,k} \frac{f_{k,s}-f_{k+q,\bar{s}}}{-E_{k,s} + E_{k+q,\bar{s}}}\delta(\omega + E_{k,s} - E_{k+q,\bar{s}})(u_k^2 u_{k+q}^2 + u_k v_k u_{k+q} v_{k+q}) \\
+				  - \frac{f_{k,\bar{s}}-f_{k+q,s}}{E_{k,\bar{s}} - E_{k+q,s}}\delta(\omega - E_{k,\bar{s}} + E_{k+q,s} )(v_k^2 v_{k+q}^2 + u_k v_k u_{k+q} v_{k+q}) \\
+				 +  \frac{1-f_{k,\bar{s}}-f_{k+q,\bar{s}}}{E_{k,\bar{s}} + E_{k+q,\bar{s}}}\delta(\omega - E_{k,\bar{s}} - E_{k+q,\bar{s}})(v_k^2 u_{k+q}^2 - u_k v_k u_{k+q} v_{k+q}) \\
+				 -\frac{1-f_{k,s}-f_{k+q,s}}{-E_{k,s} - E_{k+q,s}}\delta(\omega + E_{k,s} + E_{k+q,s})(u_k^2 v_{k+q}^2 - u_k v_k u_{k+q} v_{k+q})
+\end{align*}
+
+\begin{align*}
+\bigg[\frac{\chi ''_{xx}(q,\omega)}{\omega}\bigg]_{\omega\rightarrow 0} = \pi \mu_{B} \sum\limits_{s,k} -\frac{f_{k,s}-f_{k+q,\bar{s}}}{E_{k,s} - E_{k+q,\bar{s}}}\delta(E_{k,s} - E_{k+q,\bar{s}})(u_k u_{k+q} + v_k v_{k+q})^2 \\
+				 + \frac{1-f_{k,s}-f_{k+q,s}}{E_{k,s} +   E_{k+q,s}}\delta(E_{k,s} + E_{k+q,s})(v_k u_{k+q} - u_k  v_{k+q})^2
+\end{align*}
+
+Now we can plug this into the equation for the relaxation time and change coordinates from (k, q) to (k-q/2, k+q/2) and define $ (k + q/2, k-q/2)=>(k,p)$:
+
+\begin{align*}
+\frac{1}{T T_1} \propto \sum\limits_{s,k,p} -\frac{f_{p,s}-f_{k,\bar{s}}}{E_{p,s} - E_{k,\bar{s}}}\delta(E_{p,s} - E_{k,\bar{s}})(u_{p} u_{k} + v_{p} v_{k})^2 
+				 + \frac{1-f_{p,s}-f_{k,s}}{E_{p,s} +   E_{k,s}}\delta(E_{p,s} + E_{k,s})(v_{p} u_{k} - u_{p}  v_{k})^2
+\end{align*}
+
+\begin{align*}
+\frac{1}{T T_1} \propto -\sum\limits_{s,k,p} \frac{f(E_{p,s})-f(E_{k,\bar{s}})}{E_{p,s} - E_{k,\bar{s}}}\delta(E_{p,s} - E_{k,\bar{s}})(u_{p} u_{k} + v_{p} v_{k})^2 
+				 + \frac{f(E_{p,s})-f(-E_{k,s})}{E_{p,s} -  (- E_{k,s})}\delta(E_{p,s} - (-E_{k,s}))(v_{p} u_{k} - u_{p}  v_{k})^2
+\end{align*}
+
+\begin{align*}
+\frac{1}{T T_1} \propto -\sum\limits_{s} \int k dk d\theta_k p dp d\theta_p \frac{f(E_{p,s})-f(E_{k,\bar{s}})}{E_{p,s} - E_{k,\bar{s}}}\delta(E_{p,s} - E_{k,\bar{s}})(u_{p} u_{k} + v_{p} v_{k})^2 \\
+				 + \frac{f(E_{p,s})-f(-E_{k,s})}{E_{p,s} -  (- E_{k,s})}\delta(E_{p,s} - (-E_{k,s}))(v_{p} u_{k} - u_{p}  v_{k})^2
+\end{align*}
+ Now we wish to transform this integral into energy using the dispersion for quasi-particle energies $E_{p,s} = \sqrt{(|p|^2-1)^2+\Delta_{\theta_p}^2}+s\mu_eH$. We use the Jacobian determinant to preform this transformation:
+ 
+ \begin{align*}
+d E_{p,s} d\theta =  \bigg| det\left( \begin{array}{cc} \frac{dE_{p,s}}{dp} & \frac{dE_{p,s}}{d\theta} \\ \frac{d\theta}{dp} & \frac{d\theta}{d\theta} \end{array}\right) \bigg| dp d\theta \\
+			= \frac{dE_{p,s}}{dp} dp d\theta
+			=\bigg|\frac{2(p^2-1)p}{E_{p,s}-s\mu_eH}\bigg| dp d\theta \\
+\Rightarrow p dp d\theta = \frac{|E_{p,s}-s\mu_eH|}{2\sqrt{(E_{p,s}-s\mu_eH)^2-\Delta_{\theta}^2}} dE_{p,s} d\theta = N(E_{p,s}-s\mu_eH,\theta) dE_{p,s} d\theta
+ \end{align*}
+
+We proceed with the transformation by defining the following variables. In the first term $(E_1, \theta_1) = (E_{p,s}, \theta_p)$, $(E_2, \theta_2)  = (E_{k,\bar{s}},\theta_k)$, and in the second term, $(E_1, \theta_1) = (E_{p,s}, \theta_p)$, $(E_2, \theta_2)  = (E_{k,s},\theta_k)$ 
+
+\begin{align*}
+\frac{1}{T T_1} \propto -\sum\limits_{s} \int d\theta_1 d\theta_2 dE_1 dE_2 \frac{f(E_1)-f(E_2)}{E_1 - E_2}\delta(E_1 - E_2)(u(E_1-sb,\theta_1) u(E_2+sb,\theta_2) + v(E_1-sb,\theta_1) v(E_2+sb,\theta_2))^2N(E_1-sb,\theta_1)N(E_2+sb,\theta_2) \\
+				 + \frac{f(E_1)-f(-E_2)}{E_1 -  (- E_2)}\delta(E_1 - (-E_2))(v(E_1-sb,\theta_1)u(E_2-sb,\theta_2) - u(E_1-sb,\theta_1)  v(E_2-sb,\theta_2))^2N(E_1-sb,\theta_1)N(E_2-sb,\theta_2) 
+\end{align*}
+Now we use the delta functions on the fermi functions and the denominators to get the following (we keep the supscripts on the u's and v's in order to better understand how the coherence factors reduce)
+\begin{align*}
+\frac{1}{T T_1} \propto -\sum\limits_{s} \int d\theta_1 d\theta_2 dE_1 \frac{df}{dE}\bigg|_{E_1}(u_1 u_{2} + v_{1} v_{2})^2N(E_1-sb,\theta_1)N(E_1+sb,\theta_2) \\
+				 + \frac{df}{dE}\bigg|_{E_1}(v_{1} u_{2} - u_{1}  v_{2})^2N(E_1-sb,\theta_1)N(-E_1-sb,\theta_2) \\
+				 = -\sum\limits_{s} \int d\theta_1 d\theta_2 dE_1 \frac{df}{dE}\bigg|_{E_1} N(E_1-sb,\theta_1)N(E_1+sb,\theta_2)\big[(u_1 u_{2} + v_{1} v_{2})^2
+				 + (v_{1} u_{2} - u_{1}  v_{2})^2\big] \\
+				 = -\sum\limits_{s} \int d\theta_1 d\theta_2 dE_1 \frac{df}{dE}\bigg|_{E_1} N(E_1-sb,\theta_1)N(E_1+sb,\theta_2)\big[u_1^2( u_2^2 + v_2^2) + v_1^2( v_2^2 + u_2^2)\big] \\
+				 = -\sum\limits_{s} \int d\theta_1 d\theta_2 dE_1 \frac{df}{dE}\bigg|_{E_1} N(E_1-sb,\theta_1)N(E_1+sb,\theta_2) \\
+				 = -2 \int  dE \frac{df}{dE} \bar{N}(E-b)\bar{N}(E+b)
+\end{align*}
+
+Where we have defined $b = \mu_eH$ and 
+
+\begin{align*}
+\bar{N}(E) = \int d\theta \frac{|E|}{2\sqrt{E^2-\Delta_{\theta}^2}} 
+\end{align*}
+\end{document}

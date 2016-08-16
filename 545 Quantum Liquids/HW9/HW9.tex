@@ -1,0 +1,137 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{bookmath}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\title{HW 9: Physics 545}
+\author{Ben Rosemeyer}
+
+\begin{document}
+
+\maketitle
+
+\section*{1}
+To realize a BEC formation we consider the particle density:
+\bea
+\frac{N}{V}& =& \frac{1}{V}\sum\limits_{\vp} n_{\vp} \\
+&=&\frac{2\pi N_0}{(2\pi\hbar)^2} \int \frac{d\epsilon}{e^{\beta(\epsilon-\mu)} - 1} \\
+&=&\frac{2\pi N_0}{(2\pi\hbar)^2} \int d\epsilon e^{-\beta(\epsilon-\mu)} \sum\limits_{n=0}^\infty e^{-n\beta(\epsilon-\mu)}
+\eea
+Where we have made use of the geometric series. Finishing the integration and noting the change of summation limits we have:
+\bea
+\frac{N}{V}&=&\frac{2\pi N_0}{(2\pi\hbar)^2\beta}  \sum\limits_{n=1}^\infty \frac{e^{n\beta\mu}}{n}
+\eea
+
+For a condensation to form, we require $\mu\rightarrow \epsilon_0$ so that the distribution function diverges for the lowest energy state $\epsilon_0$. In the case of an ideal gas, the energy $\epsilon_\vp = \frac{\vp^2}{2m}$ and the lowest energy state is $\epsilon_0 = 0$ for $\vp = 0$, so we need to consider the limit $\mu\rightarrow 0$
+
+\bea
+\frac{N}{V}\rightarrow \frac{2\pi N_0 k_b T_c}{(2\pi\hbar)^2}  \sum\limits_{n=1}^\infty \frac{1}{n}
+\eea
+
+Here we can see that the sum at the end is the Riemann zeta function $\zeta(1)\rightarrow \infty$. Thus, there can be no BEC formation at finite temperatures becuase it doesn't conserve the number of particles.
+
+\section*{2a}
+
+We can write the state in Fock space as:
+\be
+|.. 0 .. 2 .. 0 .. \rangle
+\ee
+Where we understand that the 0's describe the absence of quasiparticles at that momentum, and the 2 denotes the $\vp\neq0$ occupation number.
+
+The occupation number of particles is defined through the particle operators ($\ha^\dagger_{\vk}, \ha_{\vk}$), which intern defined in terms of the quasiparticle operators ($\hat{b}^\dagger_{\vk}, \hat{b}_{\vk}$):
+\bea
+n_{\vk} = \langle \ha^\dagger_{\vk} \ha_{\vk} \rangle &=& \langle (u_{\vk}\hat{b}^\dagger_{\vk} + v_{\vk}\hat{b}_{-\vk}) (u_{\vk}\hat{b}_{\vk} + v_{\vk}\hat{b}^\dagger_{-\vk}) \rangle \\
+&=& \langle u_{\vk}^2\hat{b}^\dagger_{\vk}\hat{b}_{\vk} + v_{\vk}^2\hat{b}_{-\vk}\hat{b}^\dagger_{-\vk} + u_{\vk}v_{\vk}\hat{b}^\dagger_{\vk}\hat{b}^\dagger_{-\vk} + u_{\vk}v_{\vk}\hat{b}_{-\vk}\hat{b}_{\vk}\rangle
+\eea
+
+The last two terms evaluate to zero becuase they have an excitations at $-\vk$ and $\vk$ and the resulting inner product gives 0. The second term we can write using the commutation relations for Bosons $\hat{b}_{-\vk}\hat{b}^\dagger_{-\vk} = \hat{b}^\dagger_{-\vk}\hat{b}_{-\vk} + 1$, and the first term gives the occupation number of the excited $\vp$ state only. The occupation number of particles is:
+
+\bea
+n_{\vk} = 2 u_{\vp}^2 \delta_{\vp,\vk} + 2 v_{-\vp}^2 \delta_{-\vp,\vk} + v_{\vk}^2
+\eea
+
+We can write the number of particles in the condensate by invoking particle conservation of $n_{tot}$ with the number in the condensate $n_0$ and in the tail of the distribution $\sum\limits_{\vk\neq 0} n_{\vk}$:
+\bea
+n_{tot} &=& n_0 + \sum\limits_{\vk\neq 0} n_{\vk} \\
+&=& n_0 + 2(u_{\vp}^2  + v_{-\vp}^2) +  \frac{g_s}{(2\pi\hbar)^3}\int d^3\vk \quad v^2_{\vk}
+\eea
+
+Where $g_s=2S+1$ is the spin degeneracy. The integral is evaluated as follows:
+\bea
+&&\int d^3\vk \quad v^2_{\vk} \\
+ &=& 4\sqrt{2}m^{3/2}\pi \int d\epsilon \sqrt{\epsilon} \sinh^2(\theta_\epsilon) \\
+&=& 2\sqrt{2}m^{3/2}\pi \int d\epsilon \sqrt{\epsilon} \bigg[ \cosh(2\theta_\epsilon) - 1 \bigg] \\
+&=& 2\sqrt{2}m^{3/2}\pi g^{3/2}\int\limits_1^\infty dx \sqrt{x-1} \bigg[ \frac{1}{2}\bigg(\sqrt{\frac{x-1}{x+1}} + \sqrt{\frac{x+1}{x-1}}\bigg) - 1 \bigg] \\
+&=& 2\sqrt{2}m^{3/2}\pi g^{3/2}\int\limits_1^\infty dx \sqrt{g} \bigg[ \frac{x - \sqrt{x^2 - 1}}{\sqrt{x + 1}} \bigg] \\
+&=& 2\sqrt{2}m^{3/2}\pi g^{3/2} \bigg[ 2x\sqrt{x + 1}\bigg|_1^\infty - 2\int\limits_1^\infty dx \sqrt{x+1} - \int\limits_1^\infty dx \sqrt{x - 1} \bigg] \\
+&=& \frac{8\pi}{3} (m g)^{3/2}
+\eea
+Where we used the following relations:
+$\coth(2\theta_\epsilon) = -(\epsilon/g + 1) = -x$, $g = \frac{4\pi f_0 N}{mV}$, $\coth^{-1}(-x) = ln\bigg[ \sqrt{\frac{x-1}{x+1}}\bigg]$
+
+If we plug this back into the number conservation equation:
+
+\bea
+n_{tot} &=& n_0 + \frac{\epsilon^0_{\vp} + g}{\sqrt{\epsilon^{02}_{\vp} + 2g\epsilon^0_{\vp}}} +  \frac{g_s}{3\pi^2\hbar^3}(m g)^{3/2} \\
+n_{tot} &=& n_0 + \frac{\epsilon^0_{\vp} + g}{\epsilon_{\vp}} +  \frac{g_s}{3\pi^2\hbar^3}(m g)^{3/2} \\
+&=& n_{condensate}  + n_{particle\,excitations}  +  n_{gs\,\,interactions}
+\eea
+
+Where $\epsilon_{\vp} = \sqrt{\epsilon^{02}_{\vp} + 2g\epsilon^0_{\vp}}$. In the ground state there are no particle excitations and the total number is 
+\be
+n_{tot,\,gs} = n_0 +  n_{gs\,\,interactions}
+\ee
+Thus, in the excited state, the number of particles in the condensate is: 
+\be
+n_{0 excited} = n_{tot,\,gs} - \frac{\epsilon^0_{\vp} + g}{\epsilon_{\vp}}
+\ee
+
+\section*{2b}
+The particle current in terms of the particle operators is:
+\bea
+\vj(\vr) = \frac{\hbar}{i2m} \sum\limits_{\vk\vk'}\ha^\dagger_{\vk} \ha_{\vk'}\int d\vx \quad e^{-i\vk\cdot\vx}\bigg[\frac{\partial}{\partial \vx}\delta(\vx-\vr)  + \delta(\vx-\vr)\frac{\partial}{\partial \vx}  \bigg]e^{i\vk'\cdot\vx}
+\eea
+The second term is easy with the $\delta$ function, and the first is done using integration by parts:
+\bea
+\vj(\vr) = \frac{\hbar}{2m} \sum\limits_{\vk\vk'}\ha^\dagger_{\vk} \ha_{\vk'}  e^{-i(\vk-\vk')\cdot\vx}[\vk  + \vk']
+\eea
+
+Now we just take the average value using the state vector defined earlier:
+\bea
+\langle\vj(\vr)\rangle &=& \frac{\hbar}{2m} \sum\limits_{\vk\vk'}\langle\ha^\dagger_{\vk} \ha_{\vk'} \rangle e^{-i(\vk-\vk')\cdot\vx}[\vk  + \vk'] \\
+\langle\vj(\vr)\rangle &=& \frac{\hbar}{m} \sum\limits_{\vk}(2 u_{\vp}^2 \delta_{\vp,\vk} + 2 v_{-\vp}^2 \delta_{-\vp,\vk} + v_{\vk}^2)\vk \\
+&=& \frac{2\hbar\vp}{m} (u_{\vp}^2 - v_{-\vp}^2) \\
+&=& \frac{2\hbar\vp}{m} = 2\hbar \vv_{\vp}
+\eea
+Where we used $u_{\vp}^2 - v_{-\vp}^2 = 1$ and the symmetry to see that $\sum\limits_{\vk}v_{\vk}^2 \vk = 0$
+
+This is the same as the regular particle picture using the Schrodinger equation in which we expect a particle current $\hbar \vv_\vp$ for each excitation at momentum $\vp$
+
+\section*{3}
+The dynamics of the system will be dominated by the transition of particles from (to) the condensate to (from) the tail of the distribution if the change increases (decreases) the interaction $f_0$. As we have seen in the problem above, in the absence of quasiparticle excitations, the distribution of particles NOT in the condensate is $n_{\vk} = v^2_{\vk}$.
+
+At the instant of the change ($t=0$) in interaction parameter from $f_0 \rightarrow F_0$, the distribution is out of equilibrium and we can write the deviations:
+
+\bea
+\delta n_{\vk}(t=0) = v^2_{\vk,F_0} - v^2_{\vk,f_0} \\
+\delta n_{0}(t=0) = -\sum\limits_{\vk} (v^2_{\vk,F_0} - v^2_{\vk,f_0})\propto f_0^{3/2} - F_0^{3/2} 
+\eea
+
+The quasiparticles will either be excited out of the condensate to a momentum state $\vk$ ($F_0 > f_0$):
+\be
+\delta \epsilon_{\vk,0} = \frac{|\vk|}{2m}\sqrt{(2G)^2 + \vk^2}
+\ee
+or from a momentum state to the condensate ($F_0 < f_0$)
+\be
+\delta\epsilon_{0,\vk} = -\frac{|\vk|}{2m}\sqrt{(2g)^2 + \vk^2}
+\ee
+
+The specifics amplitudes of these transitions (initial i to final n) would be determined using time dependent perturbation theory:
+\bea
+c_{i\rightarrow n}(t) =c_n^{(0)} + c_n^{(1)}(t) + ... \\
+c_n^{(0)} = \delta_{in} \\
+c_n^{(1)}(t) = -\frac{i}{\hbar}\int\limits_0^t dt'\quad \langle n|i \rangle e^{i(\omega_i-\omega_n)t'}
+\eea
+\end{document}

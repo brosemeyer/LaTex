@@ -1,0 +1,183 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{bookmath}
+\usepackage{amsmath}
+\title{HW 4: Physics 545}
+\author{Ben Rosemeyer}
+
+\begin{document}
+
+\maketitle
+
+\section*{1a}
+The linearized transport equation for a given mode $(\omega,\vq)$, is given with a collision integral
+\be
+I_\vp = \frac{1}{\tau}(\delta n_\vp-\frac{\delta n^0}{\delta \epsilon_p}(\nu_0-\nu_1 P_1(\hq\cdot\hp)))
+\ee
+Where the $\nu$'s are defined as 
+$\delta n_\vp = \frac{\delta n^0}{\delta \epsilon_p}\nu_{\hp} = \frac{\delta n^0}{\delta \epsilon_p}\sum\limits_l \nu_l P_l(\hq\cdot\hp)$
+\bea
+(s - \hq\cdot\hp)\nu_l P_l(\hq\cdot\hp)- \hq\cdot\hp\int \frac{d\Omega_{\hp'}}{4\pi}F^s_l \nu_{l'} P_l(\hp'\cdot\hp)P_{l'}(\hq\cdot\hp') - \hq\cdot\hp U = -iI_\vp/qv_f \\
+(s - \hq\cdot\hp)\nu_l P_l(\hq\cdot\hp)- \hq\cdot\hp\frac{F^s_l \nu_l}{2l+1} P_l(\hq\cdot\hp) - \hq\cdot\hp U = -iI_\vp/qv_f
+\eea
+Now we can use the identity for Legendre polynomials $xP_l(x) = \frac{l+1}{2l+1}P_{l+1}(x) + \frac{l}{2l+1}P_{l-1}(x)$, $x = \hq\cdot\hp$
+\bea
+s \nu_lP_l(x) - \nu_l\bigg(1 + \frac{F^s_l}{2l+1}\bigg)\bigg[ \frac{l+1}{2l+1}P_{l+1}(x) + \frac{l}{2l+1}P_{l-1}(x)\bigg] - \hq\cdot\hp U = -iI_\vp/qv_f
+\eea
+If we exploit the orthogonality of Legendre polynomials we can get for each mode l:
+%\bea
+%s \nu_l - \bigg[ \frac{l}{2l-1}\nu_{l-1}\bigg(1 + \frac{F^s_{l-1}}{2l-1}\bigg) + \frac{l+1}{2l+3}\nu_{l+1}\bigg(1 + \frac{F^s_{l+1}}{2l+3}\bigg)\bigg]  = (2l+1) (-iI_l + U\delta_{l1}/3)
+%\eea
+\bea
+\nu_l - \frac{1}{s}\bigg[ \frac{l}{2l-1}\nu_{l-1}\bigg(1 + \frac{F^s_{l-1}}{2l-1}\bigg) + \frac{l+1}{2l+3}\nu_{l+1}\bigg(1 + \frac{F^s_{l+1}}{2l+3}\bigg) + U\delta_{l1}\bigg]    = -iI_l
+\eea
+Where $I_l = \frac{1}{\omega\tau}(\nu_l - (\nu_0\delta_{l0} - \nu_1\delta_{l1})$ and we note that $I_0 = I_1 = 0$.
+\section*{1b}
+writing this explicitly for $l=0...3$, assuming that $F^s_{l>2} = 0$
+\bea
+\nu_0 - \frac{1}{3s}\nu_{1}\bigg(1 + \frac{F^s_{1}}{3}\bigg)  = 0 \\
+\nu_1 - \frac{1}{s}\bigg[ \nu_{0}\bigg(1 + F^s_{0}\bigg) + \frac{2}{5}\nu_{2}\bigg(1 + \frac{F^s_{2}}{5}\bigg) + U\bigg]  = 0 \\
+\nu_2 - \frac{1}{s}\bigg[ \frac{2\nu_{1}}{3}\bigg(1 + \frac{F^s_{1}}{3}\bigg) + \frac{3}{7}\nu_{3}\bigg]  = -\frac{i\nu_2}{\omega\tau} \\
+ \nu_3 - \frac{1}{s}\bigg[ \frac{3\nu_{2}}{5}\bigg(1 + \frac{F^s_{2}}{5}\bigg) + \frac{4}{9}\nu_{4}\bigg]  = -\frac{i\nu_3}{\omega\tau}
+\eea
+
+
+We can show the particle conservation equation is the same as equation 6.
+\bea
+\dot{n(r,t)} + \nabla\vj(r,t) = 0 \\
+\int\frac{d^3p}{(2\pi\hbar)^3} \bigg[-i\omega\delta n_\vp + i\vq\cdot\vv_p(1+F^s_1/3)\delta n_\vp\bigg] = 0 \\
+\int\frac{d^3p}{(2\pi\hbar)^3} \delta(\epsilon_\vp - \epsilon_f)\bigg[s\nu_l P_l(\hp\cdot\hq) - P_1(\hp\cdot\hq)(1+F^s_1/3)\nu_l P_l(\hp\cdot\hq)\bigg] = 0 \\ 
+s\nu_0 - \frac{1}{3}\nu_1(1+F^s_1/3) = 0
+\eea
+
+We can also show that the momentum conservation equation is the same as equation 7:
+\be
+\dot{g_i} + \nabla_j\mathcal{\pi}_{ij} + n(r,t)\nabla_i U = 0
+\ee
+Where $\dot{g_i} = m \dot{j_i} = -i\omega\frac{N_0}{3}m v_f (1+F^s_1/3)q_i\nu_1 = -iN_0 \frac{q_i}{3}p_f\omega\nu_1$. In the last step we use the relation for $m^*/m$. And we use the notation $q_i = \hq\cdot\hat{i}$ and note $q_iq_i = 1$. Now we must find $\nabla_j\mathcal{\pi}_{ij}$:
+\bea
+\nabla_j\mathcal{\pi}_{ij} =iN_0 q\nu_lq_jv_fp_f\int\frac{d\Omega_p}{4\pi} p_i p_j \bigg[P_l(\hp\cdot\hq) + F^s_{l'}\int\frac{d\Omega_{p'}}{4\pi} P_{l'}(\hp'\cdot\hp) P_{l}(\hp\cdot\hq)\bigg] \\
+=iN_0 q v_f p_f\nu_l[1 + F^s_{l}/(2l+1)]\bigg\{q_j\int\frac{d\Omega_p}{4\pi} p_i p_j P_l(\hp\cdot\hq)\bigg\} 
+\eea
+
+From HW 3 we know how to get the term in curly brackets, and that only the $l=0$ and $l=2$ terms survive:
+\be
+l=0:\quad q_j\int\frac{d\Omega_p}{4\pi} p_i p_j = q_i/3
+\ee
+for l=2 (summation over j, k, l implied in first term):
+\bea
+q_j\int\frac{d\Omega_p}{4\pi} p_i p_j P_l(\hp\cdot\hq)  = \frac{1}{2}\int\frac{d\Omega_p}{4\pi} p_i p_j (3q_kp_kq_lp_l - 1) \\
+ = \frac{q_j}{2} \bigg(\frac{3}{15}q_kq_l(\delta_{ij}\delta_{kl}  + \delta_{ik}\delta{jl} + \delta_{il}\delta{jk})- \delta_{ij}/3\bigg) \\
+  = \frac{q_j}{2}\bigg(\frac{3}{15}(\delta_{ij}  + 2q_iq_j)- \delta_{ij}/3\bigg) \\
+    = \frac{q_j}{2}\bigg(-\frac{2}{15}\delta_{ij}  + \frac{6}{15}q_iq_j\bigg) \\
+  = \frac{2}{15}q_i
+\eea
+
+The last term is the external potential, and we only keep $n^0(r,t)$ for linear response to perturbation $U$:
+
+\bea
+n(r,t)\nabla_i U = n^0(r,t) iqq_i U \\
+ = iqq_i U\bigg\{\int\frac{d^3p}{(2\pi\hbar)^3} \frac{1}{e^{(\epsilon_p-\epsilon_f)/T} + 1}  \bigg\}
+\eea
+The bracketed term is evaluated at $T=0$
+\bea
+\int\frac{d^3p}{(2\pi\hbar)^3} \frac{1}{e^{(\epsilon_p-\epsilon_f)/T} + 1} = \frac{N_0}{\sqrt{\epsilon_f}}\int\limits_0^{\epsilon_f} d\epsilon \sqrt{\epsilon} = \frac{2}{3} N_0 \epsilon_f = \frac{1}{3}N_0v_fp_f
+\eea
+
+Plugging all this into the momentum equation and canceling $N_0$ and $p_f$ everywhere: 
+
+\bea
+-i\frac{q_i}{3}\omega\nu_1 + iq v_f \nu_0[1 + F^s_{0}]q_i/3 + i q v_f\nu_2[1 + F^s_{2}/5]\frac{2}{15}q_i + i  q v_f q_i U/3 = 0 \\
+s\nu_1 - \nu_0[1 + F^s_{0}] - \nu_2[1 + F^s_{2}/5]\frac{2}{5} - U = 0
+\eea
+\section*{1c}
+It is convenient to define $G_n = (1+F^s_n/(2n+1))/(2n+1)$ so the equations can be written:
+\bea
+\nu_0 - \frac{G_1}{s}\nu_{1}  = 0 \\
+\nu_1 - \frac{1}{s}[ G_0\nu_{0} + 2G_2\nu_{2} + U]  = 0 \\
+\nu_2 - \frac{1}{s}[ 2G_1\nu_{1} + \frac{3}{7}\nu_{3}]  = -\frac{i\nu_2}{\omega\tau} \\
+ \nu_3 - \frac{1}{s}[3 G_2\nu_{2} + \frac{4}{9}\nu_{4}]  = -\frac{i\nu_3}{\omega\tau}
+\eea
+The $l=0$ equation has an easy solution $\nu_1 = s\nu_0/G_1$.
+To show that we can terminate the series at $l=2$ we solve the $l=2$ equation for $\nu_2$ and plug that result into the $l=3$ equation:
+\bea
+\nu_2 = \frac{2G_1\nu_1 + 3\nu_3/7}{s(1+i/\omega\tau)} = \frac{2s\nu_0 + 3\nu_3/7}{s(1+i/\omega\tau)} \\
+\nu_3 = \frac{3G_2\nu_2 + 4\nu_4/9}{s(1+i/\omega\tau)} = \frac{6G_1G_2\nu_1 + 9G_2\nu_3/7}{s^2(1+i/\omega\tau)^2} +  \frac{4\nu_4/9}{s(1+i/\omega\tau)}
+\eea
+Now we can resolve for $\nu_3$ in the equation above and write out the first few equations for $\nu_l$ in terms of $\nu_0$ and $\nu_{l+1}$ in the limit of $s>>1$
+\bea
+\nu_3 &=& \frac{s[6G_2\nu_0  +  4(1+i/\omega\tau)\nu_4/9]}{s^2(1+i/\omega\tau)^2-9G_2/7} \approx \frac{6G_2\nu_0  +  4(1+i/\omega\tau)\nu_4/9}{s(1+i/\omega\tau)^2} \\
+\nu_2  &=& \frac{2\nu_0}{(1+i/\omega\tau)} + \frac{3\nu_3/7}{s(1+i/\omega\tau)} \\
+\nu_1 &=& s\nu_0/G_1
+\eea
+
+So, in terms of $\nu_0$, we have $\nu_1 \propto s\nu_0$, $\nu_2 \propto \nu_0$, $\nu_3 \propto \nu_0/s$ and for large s, $\nu_3 \rightarrow 0$. Now we can write the equations for $\nu_{l=0..2}$ in matrix form
+
+\be
+\left( \begin{array}{ccc}
+1 & -G_1/s & 0  \\
+-G_0/s & 1 & -2G_2/s \\
+0 & -2G_1/s & 1+i/(\omega\tau)
+\end{array} \right)
+ \left( \begin{array}{ccc}
+\nu_0  \\ 
+\nu_1 \\
+\nu_2
+\end{array} \right) = 
+\left( \begin{array}{ccc}
+0  \\ 
+U/s \\
+0
+\end{array} \right)
+\ee
+We wish to find the normal modes of this system which exist when $U \rightarrow 0$. Thus, we need to find when the determinant of the matrix on the LHS is zero. The result is and equation 
+
+\bea
+(1+i/(\omega\tau)) - 4G_1G_2/s^2 - (1+i/(\omega\tau))G_1G_0/s^2 = 0 \\
+\frac{1}{s} = \frac{qv_f}{\omega}=\sqrt{\frac{(1 + \frac{i}{\omega\tau})}{A + \frac{iB}{\omega\tau}}}
+\eea
+ 
+Where we defined $A = 4G_1G_2 + G_0G_1$ and $B = G_0G_1$.
+
+\section*{1d}
+Now we can Taylor expand the two limits of $\omega\tau$ and drop all terms which are quadratic and above
+
+CASE 1, $1/\omega\tau << 1$, zero sound:
+
+\bea
+\frac{qv_f}{\omega} & = & \sqrt{\frac{1}{A}} \bigg(1 + \frac{i}{\omega\tau}\bigg)^{1/2}\bigg(1 + \frac{iB}{A\omega\tau}\bigg)^{-1/2} \\
+& \approx  & \sqrt{\frac{1}{A}}(1 + \frac{i}{2\omega\tau})(1 - \frac{iB}{2A\omega\tau}) \\
+&  = & \sqrt{\frac{1}{A}}(1 + \frac{i}{2\omega\tau} - \frac{iB}{2A\omega\tau}) 
+\eea
+
+Now we can write out the real and imaginary parts of q for these modes $q = q' + iq''$, and the sound speed ($c_0 = \omega/q'$) 
+
+\bea
+q' = \frac{\omega}{v_f\sqrt{A}} \Rightarrow tempurature\,\, independent \\
+c_0 = v_f\sqrt{A} \\
+q'' = \frac{1}{2\tau v_f\sqrt{A}}\bigg(1 - \frac{B}{A}\bigg) \propto T^2\Rightarrow frequency\,\, independent
+\eea
+
+CASE 2, $\omega\tau << 1$, first sound:
+
+\bea
+\frac{qv_f}{\omega} & = & \sqrt{\frac{1}{B}} \bigg(-i\omega\tau + 1 \bigg)^{1/2}\bigg(-\frac{iA\omega\tau}{B} + 1 \bigg)^{-1/2} \\
+& \approx  & \sqrt{\frac{1}{B}}(1 - \frac{i\omega\tau}{2})(1 + \frac{iA\omega\tau}{2B}) \\
+&  = & \sqrt{\frac{1}{B}}(1 - \frac{i\omega\tau}{2} + \frac{iA\omega\tau}{2B}) 
+\eea
+
+Now we can write out the real and imaginary parts of q and sound speed:
+
+\bea
+q' = \frac{\omega}{v_f\sqrt{B}}\Rightarrow tempurature\,\,independent \\
+c_1 = v_f\sqrt{B} \\
+q'' = \frac{\omega^2\tau}{2 v_f\sqrt{B}}\bigg(\frac{A}{B} - 1\bigg) \propto \frac{\omega^2}{T^2}
+\eea
+
+The sound speeds obey the relation from class:
+\bea
+\frac{c_0^2 -c_1^2}{c_1^2} = (A-B)/B = 4G_1G_2/(G_0G_1) = \frac{4(1+F^2_2/5)}{5(1+F^s_0)}
+\eea
+\end{document}

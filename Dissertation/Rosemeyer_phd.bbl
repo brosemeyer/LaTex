@@ -1,0 +1,99 @@
+\begin{thebibliography}{12}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Cooper}(1956)}]{PhysRev.104.1189}
+\bibinfo{author}{\bibfnamefont{L.~N.} \bibnamefont{Cooper}},
+  \bibinfo{journal}{Phys. Rev.} \textbf{\bibinfo{volume}{104}},
+  \bibinfo{pages}{1189} (\bibinfo{year}{1956}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRev.104.1189}.
+
+\bibitem[{\citenamefont{Thouless}(1960)}]{Thouless1960553}
+\bibinfo{author}{\bibfnamefont{D.~J.} \bibnamefont{Thouless}},
+  \bibinfo{journal}{Annals of Physics} \textbf{\bibinfo{volume}{10}},
+  \bibinfo{pages}{553 } (\bibinfo{year}{1960}), ISSN \bibinfo{issn}{0003-4916},
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/0003491660901226}.
+
+\bibitem[{\citenamefont{Bardeen et~al.}(1957)\citenamefont{Bardeen, Cooper, and
+  Schrieffer}}]{PhysRev.108.1175}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Bardeen}},
+  \bibinfo{author}{\bibfnamefont{L.~N.} \bibnamefont{Cooper}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.~R.}
+  \bibnamefont{Schrieffer}}, \bibinfo{journal}{Phys. Rev.}
+  \textbf{\bibinfo{volume}{108}}, \bibinfo{pages}{1175} (\bibinfo{year}{1957}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRev.108.1175}.
+
+\bibitem[{\citenamefont{de~Gennes}(1966)}]{gen66}
+\bibinfo{author}{\bibfnamefont{P.~G.} \bibnamefont{de~Gennes}},
+  \emph{\bibinfo{title}{Superconductivity of Metals and Alloys}}
+  (\bibinfo{publisher}{Benjamin}, \bibinfo{address}{New York},
+  \bibinfo{year}{1966}).
+
+\bibitem[{\citenamefont{Sigrist and Ueda}(1991)}]{theory_usc}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Sigrist}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Ueda}},
+  \bibinfo{journal}{Rev. Mod. Phys.} \textbf{\bibinfo{volume}{63}},
+  \bibinfo{pages}{239} (\bibinfo{year}{1991}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/RevModPhys.63.239}.
+
+\bibitem[{\citenamefont{Balian and Werthamer}(1963)}]{PhysRev.131.1553}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Balian}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{N.~R.} \bibnamefont{Werthamer}},
+  \bibinfo{journal}{Phys. Rev.} \textbf{\bibinfo{volume}{131}},
+  \bibinfo{pages}{1553} (\bibinfo{year}{1963}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRev.131.1553}.
+
+\bibitem[{\citenamefont{Fulde and Ferrell}(1964)}]{PhysRev.135.A550}
+\bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Fulde}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{R.~A.} \bibnamefont{Ferrell}},
+  \bibinfo{journal}{Phys. Rev.} \textbf{\bibinfo{volume}{135}},
+  \bibinfo{pages}{A550} (\bibinfo{year}{1964}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRev.135.A550}.
+
+\bibitem[{\citenamefont{Larkin and
+  Ovchinnikov}(1965)}]{larkin1965inhomogeneous}
+\bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Larkin}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{I.}~\bibnamefont{Ovchinnikov}},
+  \bibinfo{journal}{Soviet Physics-JETP} \textbf{\bibinfo{volume}{20}},
+  \bibinfo{pages}{762} (\bibinfo{year}{1965}).
+
+\bibitem[{\citenamefont{Casalbuoni and Nardulli}(2004)}]{RevModPhys.76.263}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Casalbuoni}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Nardulli}},
+  \bibinfo{journal}{Rev. Mod. Phys.} \textbf{\bibinfo{volume}{76}},
+  \bibinfo{pages}{263} (\bibinfo{year}{2004}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/RevModPhys.76.263}.
+
+\bibitem[{\citenamefont{Vorontsov et~al.}(2005)\citenamefont{Vorontsov, Sauls,
+  and Graf}}]{PhysRevB.72.184501}
+\bibinfo{author}{\bibfnamefont{A.~B.} \bibnamefont{Vorontsov}},
+  \bibinfo{author}{\bibfnamefont{J.~A.} \bibnamefont{Sauls}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.~J.} \bibnamefont{Graf}},
+  \bibinfo{journal}{Phys. Rev. B} \textbf{\bibinfo{volume}{72}},
+  \bibinfo{pages}{184501} (\bibinfo{year}{2005}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRevB.72.184501}.
+
+\bibitem[{\citenamefont{Machida}(1981)}]{doi:10.1143/JPSJ.50.2195}
+\bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Machida}},
+  \bibinfo{journal}{Journal of the Physical Society of Japan}
+  \textbf{\bibinfo{volume}{50}}, \bibinfo{pages}{2195} (\bibinfo{year}{1981}),
+  \eprint{http://dx.doi.org/10.1143/JPSJ.50.2195},
+  \urlprefix\url{http://dx.doi.org/10.1143/JPSJ.50.2195}.
+
+\bibitem[{\citenamefont{Machida}(1984)}]{raey}
+\bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Machida}},
+  \bibinfo{journal}{Applied Physics A} \textbf{\bibinfo{volume}{35}},
+  \bibinfo{pages}{193} (\bibinfo{year}{1984}), ISSN \bibinfo{issn}{0947-8396},
+  \urlprefix\url{http://dx.doi.org/10.1007/BF00617170}.
+
+\end{thebibliography}

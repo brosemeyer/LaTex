@@ -1,0 +1,36 @@
+\contentsline {chapter}{\numberline {1}\uppercase {Introduction}}{1}
+\contentsline {section}{\numberline {1.1}Historical Background}{1}
+\contentsline {section}{\numberline {1.2}Unconventional and non-uniform Superconductivity}{3}
+\contentsline {section}{\numberline {1.3}Thesis Organization}{6}
+\contentsline {chapter}{\numberline {2}\uppercase {Theory Background}}{8}
+\contentsline {section}{\numberline {2.1}Mysteries of Superconductivity}{8}
+\contentsline {subsection}{\numberline {2.1.1}Attractive Electron Hamiltonian}{8}
+\contentsline {subsection}{\numberline {2.1.2}Mean Field Hamiltonian}{10}
+\contentsline {section}{\numberline {2.2}Uniform State}{12}
+\contentsline {subsection}{\numberline {2.2.1}Hamiltonian}{12}
+\contentsline {subsection}{\numberline {2.2.2}Bogoliubov-de Genne Equations}{14}
+\contentsline {subsection}{\numberline {2.2.3}Spin Structure}{16}
+\contentsline {subsection}{\numberline {2.2.4}Singlet Order Parameter (2D)}{19}
+\contentsline {subsection}{\numberline {2.2.5}Free Energy}{22}
+\contentsline {section}{\numberline {2.3}Electricity and Magnetism in Superconductors}{24}
+\contentsline {subsection}{\numberline {2.3.1}London Equations}{24}
+\contentsline {subsection}{\numberline {2.3.2}Type I vs Type II Superconductors}{24}
+\contentsline {subsection}{\numberline {2.3.3}Vortex State}{24}
+\contentsline {section}{\numberline {2.4}Non-uniform Superconductivity}{25}
+\contentsline {subsection}{\numberline {2.4.1}FFLO}{25}
+\contentsline {subsection}{\numberline {2.4.2}The Domain Wall}{26}
+\contentsline {subsection}{\numberline {2.4.3}Andreev Approximation}{28}
+\contentsline {section}{\numberline {2.5}Coexistence and Linear Response}{31}
+\contentsline {subsection}{\numberline {2.5.1}Coexistent Theories}{33}
+\contentsline {subsection}{\numberline {2.5.2}Spin-Susceptibility}{34}
+\contentsline {subsection}{\numberline {2.5.3}Random Phase Approximation}{34}
+\contentsline {subsection}{\numberline {2.5.4}Spin-Lattice Relaxation}{34}
+\contentsline {section}{\numberline {2.6}Experimental Techniques}{34}
+\contentsline {subsection}{\numberline {2.6.1}Raman scattering}{35}
+\contentsline {subsection}{\numberline {2.6.2}Nuclear Magnetic Resonance}{35}
+\contentsline {subsection}{\numberline {2.6.3}Specific Heat}{35}
+\contentsline {subsection}{\numberline {2.6.4}ARPES}{35}
+\contentsline {chapter}{\numberline {3}\uppercase {Spin Susceptibility in Unconventional Superconductors}}{36}
+\contentsline {chapter}{\numberline {4}\uppercase {Spin Susceptibility and Relaxation Rate in Non-uniform Superconductors}}{37}
+\contentsline {chapter}{\numberline {5}\uppercase {Conclusions}}{38}
+\contentsline {chapter}{REFERENCES CITED}{39}

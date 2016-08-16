@@ -1,0 +1,125 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{bookmath}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\title{HW 11: Physics 545}
+\author{Ben Rosemeyer}
+
+\begin{document}
+
+\maketitle
+
+\section*{1}
+We start by noting the spin structure of the wave function in a slightly different form than given: $\psi = i [\vDelta \cdot \vsigma][\hat{y} \cdot \vsigma]$. This definition lends itself better to solutions of earlier homework.
+
+The average spin is
+\bea
+\langle \vS \rangle &=& \frac{\hbar}{2}\int \frac{d^3k}{(2\pi\hbar)^3} Tr \bigg[\psi(\vk)^\dagger \vsigma \psi(\vk) \bigg] \\
+      &=&\frac{\hbar}{2}\int \frac{d^3k}{(2\pi\hbar)^3} Tr \bigg[[\hat{y} \cdot \vsigma][\vDelta^* \cdot \vsigma] \vsigma [\vDelta \cdot \vsigma][\hat{y} \cdot \vsigma] \bigg] \\
+      &=&\frac{\hbar}{2}\int \frac{d^3k}{(2\pi\hbar)^3} Tr \bigg[[\vDelta^* \cdot \vsigma] \vsigma [\vDelta \cdot \vsigma]\bigg]
+\eea
+
+Where we used the cyclic exchange symmetry of the trace.
+
+Now, using the formula $\sigma_i\sigma_j = \delta_{ij} + 2i\epsilon_{ijk}\sigma_k$, one can write out the above in index notation
+\bea
+\langle \vS_j \rangle &=&\frac{\hbar}{2}\int \frac{d^3k}{(2\pi\hbar)^3} Tr \bigg[\vDelta_i^*\vDelta_k \vsigma_i \vsigma_j \vsigma_k\bigg] \\
+		 &=&\frac{\hbar}{2}\int \frac{d^3k}{(2\pi\hbar)^3} Tr \bigg[\vDelta_i^*\vDelta_k ( \delta_{ij} + 2i\epsilon_{ijn}\sigma_n) \vsigma_k\bigg] \\
+		  &=&\frac{\hbar}{2}\int \frac{d^3k}{(2\pi\hbar)^3} Tr \bigg[\vDelta_i^*\vDelta_k (2i\epsilon_{ijn}\delta_{kn})\bigg] 
+\eea
+
+
+\bea
+\langle \vS \rangle &=&i\hbar \int \frac{d^3k}{(2\pi\hbar)^3} 2[-\vDelta^*\times\vDelta ] 
+\eea
+\section*{2a}
+
+The states in Fock space are  $|00\rangle$, $|11\rangle$, $|01\rangle$, $|10\rangle$. The result after acting with $h_{\vk}$ operator is:
+\bea
+h_{\vk}|00\rangle &=& -\Delta_{\vk} |11\rangle  \\
+h_{\vk}|11\rangle &=& -\Delta^*_{\vk} |00\rangle + 2\xi_{\vk} |11\rangle \\
+h_{\vk}|01\rangle &=& \xi_{\vk}|01\rangle \\
+h_{\vk}|10\rangle &=& \xi_{\vk}|10\rangle
+\eea
+As you say, this proves that these are a complete set and we expect to find 4 eigenstates which are a superposition of these. 
+
+We can immediately write two of these from the last two equations becuase $h_{\vk}$ does not alter these states, and their energies are $\epsilon_{\vk} = \xi_{\vk}$ (spin independent)
+
+The other two states are linear combinations of the Cooper pair $|11\rangle$, and no pair $|00\rangle$ $\psi = A|11\rangle + B|00\rangle$. The resulting equations can be written in matrix form and solved.
+
+\bea
+\epsilon_{\vk}\left(
+\begin{array}{cc}
+ A \\ B 
+\end{array}
+\right) = \left(
+\begin{array}{cc}
+2\xi_{\vk}  & -\Delta^*_{\vk}\\ -\Delta_{\vk} & 0 
+\end{array}
+\right)
+\left(
+\begin{array}{cc}
+ A \\ B 
+\end{array}
+\right)
+\eea
+
+The equation for $\epsilon_{\vk}$ is $\epsilon_{\vk}^2 - 2\xi_{\vk}\epsilon_{\vk} - |\Delta_{\vk}|^2=0$ which has two solutions
+\be
+\epsilon^{\pm}_{\vk} = \xi_{\vk} \pm \sqrt{\xi_{\vk}^2 + |\Delta_{\vk}|^2}
+\ee
+
+We write the un-normalized eigenvectors from the second line of the matrix equation ($B = -\frac{\Delta_{\vk}}{\epsilon^{\pm}_{\vk}} A $)  
+\be
+\psi^{\pm} = A \bigg(|11\rangle - \frac{\Delta_{\vk}}{\epsilon^{\pm}_{\vk}} |00\rangle\bigg)
+\ee
+
+And after normalization:
+\be
+A = \frac{\epsilon^{\pm}_{\vk}}{\sqrt{\big(\epsilon^{\pm}_{\vk}\big)^2 + \Delta_{\vk}^2}}
+\ee
+
+Now we can write these eigenvectors using:
+\bea
+u^{\pm}_{\vk} = -\frac{\Delta_{\vk}}{\sqrt{\big(\epsilon^{\pm}_{\vk}\big)^2 + \Delta_{\vk}^2}} \\
+v^{\pm}_{\vk} = \frac{\epsilon^{\pm}_{\vk}}{\sqrt{\big(\epsilon^{\pm}_{\vk}\big)^2 + \Delta_{\vk}^2}}
+\eea
+\be
+\psi^{\pm} = u^{\pm}_{\vk} |00\rangle + v^{\pm}_{\vk}|11\rangle
+\ee
+
+\section*{2b}
+The state with the lowest energy is $\epsilon^-_{\vk} = \xi_{\vk} - \sqrt{\xi_{\vk}^2 + |\Delta_{\vk}|^2}$ and acting with $b_{\vk\uparrow} = u_{\vk}a_{\vk\uparrow} - v_{\vk}a^\dagger_{-\vk\downarrow}$ does indeed annihilate the BCS ground state $|BCS\rangle = u_{\vk}|00\rangle + v_{\vk} |11\rangle$
+
+\bea
+b_{\vk\uparrow}|BCS\rangle &=& -v_{\vk}u_{\vk}|01\rangle + u_{\vk}v_{\vk} |01\rangle = 0
+\eea
+
+This means that this state is the ground state for these b operators. 
+
+We can define $b_{\vk\downarrow} = u_{\vk}a_{-\vk\downarrow} + v_{\vk}a^\dagger_{\vk\uparrow}$ and use the anti-commutation relations of Fermions to see that:
+
+$a_{-\vk\downarrow}|11\rangle = a_{-\vk\downarrow}a^\dagger_{-\vk\downarrow}a^\dagger_{\vk\uparrow}|00\rangle =-|10\rangle $
+
+And this operator also annihilates the BCS state.
+
+\section*{2c}
+If we combine the above relations we can see that the other eigenstates of Hamiltonian can be written as:
+\bea
+|10\rangle = b^\dagger_{\vk\uparrow}|BCS\rangle	\\
+|01\rangle = b^\dagger_{\vk\downarrow}|BCS\rangle	\\
+u^{+}_{\vk} |00\rangle + v^{+}_{\vk}|11\rangle = b^\dagger_{\vk\uparrow}|BCS\rangle
+\eea
+
+And their excitation energy above the BCS energy $\epsilon^{BCS}_{\vk} = \xi_{\vk} - \sqrt{\xi_{\vk}^2 + |\Delta_{\vk}|^2}$, are:
+\bea
+\sqrt{\xi_{\vk}^2 + |\Delta_{\vk}|^2}	\\
+\sqrt{\xi_{\vk}^2 + |\Delta_{\vk}|^2}	\\
+2\sqrt{\xi_{\vk}^2 + |\Delta_{\vk}|^2}
+\eea
+respectively
+\end{document}
+

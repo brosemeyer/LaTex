@@ -1,0 +1,79 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{bookmath}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\title{HW 7: Physics 545}
+\author{Ben Rosemeyer}
+
+\begin{document}
+
+\maketitle
+
+\section*{1a}
+The real space Yukawa potential is given by:
+\bea
+\Phi(\vr) = & \frac{1}{(2\pi)^3}\int d^3 k \quad e^{i\vk\cdot\vr} \frac{4\pi Q}{k^2+k_0^2} \\
+ & \frac{8\pi^2 Q}{(2\pi)^3}\int\limits_0^\infty d k \quad \frac{k^2}{k^2 + k_0^2}\int\limits_{-1}^1 dx \quad\ e^{ikr x}  \\
+ & \frac{Q}{i2r\pi}\int_{-\infty}^\infty d k \quad \frac{k}{(k + ik_0)(k-ik_0)} \quad\ (e^{ikr} - e^{-ikr})
+\eea
+Where we use the even symmetry of 2 to get 3. Now we can use the complex plane of k to close the integral above (first term) and below (second term) and sum the residues:
+\be
+\Phi(r) = \frac{2\pi i Q}{i2r\pi}\bigg[\frac{ik_0}{2i k_0}e^{-kr } -(-1)\frac{-ik_0}{-2ik_0} e^{-kr} \bigg] 
+\ee
+\be
+\Phi(r) = \frac{Q}{r}e^{-k r}
+\ee
+
+\section*{1b}
+To see the differential equation we can write the fourier representation of the Coulomb law
+\be
+k^2\Phi(k) = 4\pi\rho(\vk)
+\ee
+To get the Yukawa potential we need $\rho(\vk) = Q -\frac{k_0^k}{4\pi} \Phi(k)$ and we have 
+\be
+k^2\Phi(k) + k_0 \Phi(k) = 4\pi Q
+\ee
+We can easily move this back to a real space differential equation 
+\be
+-\nabla^2\Phi(\vr) + k_0 \Phi(\vr) = 4\pi Q \delta(\vr)
+\ee
+
+\section*{2a}
+Homogeneous local charge neutrality implies that the ion and electron number densities satisfy $n_e(\vr) = Zn_i(\vr)$. We can then write the Hartree terms all in terms of $n_e(r)$:
+\bea
+\hat{\nu}_{ee} =& \frac{1}{2}\int d^3r\int d^3 r' n_e(r)n_e(r') \frac{e^2}{|\vr - \vr'|}  \\
+\hat{\nu}_{ii} =& \frac{1}{2}\int d^3r\int d^3 r' n_e(r)n_e(r') \frac{e^2}{|\vr - \vr'|}  \\
+\hat{\nu}_{ei} =& -\int d^3r\int d^3 r' n_e(r)n_e(r') \frac{e^2}{|\vr - \vr'|} 
+\eea
+It's pretty obvious that the sum of these is zero.
+
+\section*{2b}
+We write the sum for $\Sigma(\vk)$ as an integral over $\vp = \vk + \vq$ and use azimuthal symmetry for $\phi$ integral
+\bea
+\Sigma(\vk) &=& -\frac{8\pi e^2}{(2\pi\hbar)^3}\int\limits_0^{p_f} dp \quad p^2 \int\limits_{-1}^1 dx \frac{1}{p^2 + k^2 - 2kpx} \\
+&=& \frac{e^2}{k\pi^2\hbar^3}\int\limits_0^{p_f} dp \quad p \bigg[ln|p-k| - ln|p+k|\bigg] \\
+&=& \frac{e^2}{k\pi^2\hbar^3}\bigg[\int\limits_{-k}^{p_f-k} dp \quad (x+k) ln|x| - \int\limits_{k}^{p_f+k} dp \quad (x-k)ln|x|\bigg]
+\eea
+Now let us write only the term in brackets and combine the integrals noting their intervals and symmetries (if any) and integrate by parts
+\bea
+\bigg[{\bf *}\bigg] = &2k\int\limits_{0}^{p_f-k} dx\,ln|x| - \int\limits_{p_f-k}^{p_f+k} dx \, (x-k)ln|x| \\
+=&2k\bigg[(p_f-k)ln|p_f-k| - (p_f-k)\bigg] \\
+&- \bigg[x(x/2-k)ln|x|_{p_f-k}^{p_f+k} - \int\limits_{p_f-k}^{p_f+k} dx \, (x/2-k)\bigg] \\
+=&2k\bigg[(p_f-k)ln|p_f-k| - (p_f-k)\bigg] \\
+&- \bigg[\frac{1}{2}(p_f^2-k^2)ln|p_f+k| -\frac{1}{2}(p_f-k)(p_f-3k)ln|p_f-k| \\
+&\quad\quad - p_fk +2k^2 )\bigg] \\
+=&-kp_f + \frac{1}{2}(p_f^2-k^2) ln\bigg|\frac{p_f-k}{p_f+k}\bigg|
+\eea
+Now we can write the self energy:
+\be
+\Sigma(k)=\frac{e^2}{\pi^2\hbar^3}\bigg[-p_f + \frac{p_f^2-k^2}{k} ln\bigg|\frac{p_f-k}{p_f+k}\bigg| \bigg]
+\ee
+and it's contribution to the group velocity
+\be
+\delta_k \Sigma(k)=\frac{e^2}{\pi^2\hbar^3}\bigg[-\bigg(\frac{p_f^2}{k^2}+1\bigg) ln\bigg|\frac{p_f-k}{p_f+k}\bigg| + \frac{(p_f+k)^2}{k} \bigg]
+\ee
+Which is indeed divergent for $k = p_f$ because of the  $ln|p_f-k|$ term
+\end{document}

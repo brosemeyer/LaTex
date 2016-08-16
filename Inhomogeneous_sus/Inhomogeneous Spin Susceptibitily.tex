@@ -1,0 +1,407 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\begin{document}
+\title{Spin Susceptibility Calculation for the Inhomogeneous Superconducting state}
+\author{Ben Rosemeyer}
+\date{\today}
+\maketitle
+
+\section*{Abstract}
+CeCoIn$_5$ exhibits a novel state in H-T phase space in which superconductivity coexists with Anti-Ferromagnetism (kenzelman). The Anti-Ferromagnetism is believed to be a spin density wave (Suzuki), but the origin of this phenomenon is still unknown. It is also believed that this state may be a realization of the FFLO state. Here we will calculate the Pauli Spin Susceptibility for the inhomogeneous superconducting state using the Bogoliubov-De Gennes equations and the Andreev approximation.
+
+\section*{Spin Susceptibility}
+The presence of a magnetic field introduces a potential for particles with spin $V=-\vec{m}\cdot\vec{H}$. The magnetization due to this potential is given by $M_\alpha(t)=-i\int\limits_{-\infty}^t <[m_\alpha(t),V(t')]>dt'$, and the magnetic susceptibility is $\chi_{\alpha,\beta}(x,x',t)=i\int\limits_{-\infty}^t<[m_\alpha(x,t),m_\beta(x',t')]>dt'$. The magnetic moment is given by $m_\alpha(x,t)=\mu_e\sum\limits_{s,s'} \sigma^{\alpha}_{s,s'}\psi^\dagger_s(x,t) \psi_{s'}(x,t)$ (Mahan). Now we can proceed to calculate the susceptibitily. In the case of uniform time, we can assume that the product $m_\alpha(x,t),m_\beta(x',t')$ is a function of $\tau=t-t'$. In this limit we get:
+
+\begin{align*}
+\chi_{\alpha,\beta}(x,x',0)&=i\int\limits_{-\infty}^0<[m_\alpha(x,0),m_\beta(x',t')]>dt' \\ 
+&=-i\mu_e^2\sum\limits_{s,s',t,t'}\sigma^{\beta}_{s,s'}\sigma^{\alpha}_{t,t'}\int\limits_{-\infty}^t<[\psi^\dagger_{s}(x',t') \psi_{s'}(x't'),\psi^\dagger_{t}(x,0) \psi_{t'}(x,0)]>
+\end{align*}
+
+From now on we will use the s and s' subscripts to denote the spin for the (x',t') coordinates while the t and t' subscripts denote the spin for the (x,0) coordinates so that $\psi^\dagger_{s}=\psi^\dagger_{s}(x',t')$ and $\psi^\dagger_{t}=\psi^\dagger_{t}(x,0)$. The correlation function inside the integral evaluates as follows.
+
+\begin{align*}
+<[\psi^\dagger_{s} \psi_{s'},\psi^\dagger_{t} \psi_{t'}]>=&<\psi^\dagger_{s} \psi_{s'}\psi^\dagger_{t} \psi_{t'}>-<\psi^\dagger_{t} \psi_{t'}\psi^\dagger_{s} \psi_{s'}> \\
+=&<\psi^\dagger_{s}\psi_{s'}><\psi^\dagger_{t}\psi_{t'}>-<\psi^\dagger_{s}\psi^\dagger_{t}><\psi_{s'}\psi_{t'}> \\ 
+&+<\psi^\dagger_{s}\psi_{t'}><\psi_{s'}\psi^\dagger_{t}>-<\psi^\dagger_{t}\psi_{t'}><\psi^\dagger_{s}\psi_{s'}> \\ 
+&+<\psi^\dagger_{t}\psi^\dagger_{s}><\psi_{t'}\psi_{s'}>-<\psi^\dagger_{t}\psi_{s'}><\psi_{t'}\psi^\dagger_{s}> \\
+=&-<\psi^\dagger_{s}\psi^\dagger_{t}><\psi_{s'}\psi_{t'}>+<\psi^\dagger_{s}\psi_{t'}><\psi_{s'}\psi^\dagger_{t}> \\ 
+&+<\psi^\dagger_{t}\psi^\dagger_{s}><\psi_{t'}\psi_{s'}>-<\psi^\dagger_{t}\psi_{s'}><\psi_{t'}\psi^\dagger_{s}> \\
+\end{align*}
+
+To evaluate these various correlation functions we use the Bogoliubov representation for the field operators $\psi_s=\sum\limits_k \gamma_{sk}(t)u_k(x)-s\gamma_{-sk}^\dagger(t)v^*_{k}(x)=\sum\limits_k \Gamma_{sk}(x,t)-\Gamma_{-sk}^\dagger(x,t)$, where $s=\pm1$ (+ for spin up, - for spin down), $u(x)$ and $v(x)$ are complex functions and the $\gamma$'s are operators. We find the time dependence of the $\gamma$ operators via the Heisenberg representation, $\frac{d}{dt}\gamma_{sk}=\frac{i}{\hbar}[H,\gamma_{sk}]=\frac{-i\epsilon_{sk}}{\hbar}\gamma_{sk}$ and $\frac{d}{dt}\gamma^\dagger_{sk}=\frac{i\epsilon_{sk}}{\hbar}\gamma^\dagger_{sk}$. The $\gamma$ operators also obey fermionic anticommutation relations ${\gamma^\dagger_{n\alpha}, \gamma_{m\beta}}=\delta_{\alpha\beta}\delta{nm}$, ${\gamma_{n\alpha},\gamma_{m\beta}}=0$
+
+\begin{equation*}
+\gamma_{sk}(t)=\gamma_{sk}e^{-i\omega_{sk}t}\quad\quad \gamma^\dagger_{sk}(t)=\gamma^\dagger_{sk}e^{i\omega_{sk}t}
+\end{equation*}
+
+Finally, we note that in the Bogoliubov representation the only operators are the $\gamma$'s, so they are the only things that contribute to the correlations. The correlation relations for the $\gamma$'s are:
+
+\begin{equation*}
+<\gamma^\dagger_{\alpha k}\gamma_{\beta p}>=\delta_{pk}\delta_{\alpha \beta}f(\epsilon_{\alpha k}) \quad\quad <\gamma_{\alpha k}\gamma_{\beta p}>=<\gamma^\dagger_{\alpha k}\gamma^\dagger_{\beta p}>=0
+\end{equation*}
+
+Where $f(\epsilon_{\alpha k})=f_{\alpha k}$ is the fermi function(De Gennes). Using the definition of $\Gamma$ and omitting the time bit, we can deduce the following rules:
+
+\begin{equation*}
+<\Gamma^\dagger_{\alpha k}\Gamma_{\beta p}>=\delta_{pk}\delta_{\alpha \beta}f(\epsilon_{\alpha k})u^*_k u_p \quad <\Gamma^\dagger_{\alpha k}\Gamma_{-\beta p}>=\beta\delta_{pk}\delta_{\alpha \beta}f(\epsilon_{\alpha k})u^*_k v_p \quad <\Gamma^\dagger_{-\alpha k}\Gamma_{-\beta p}>=\alpha\beta\delta_{pk}\delta_{\alpha \beta}f(\epsilon_{\alpha k})v^*_k v_p
+\end{equation*}
+
+Going back to the sum of wick contractions, and dropping the quantum number subscript on the $\Gamma$'s:
+
+\begin{align*}
+<[\psi^\dagger_{s} \psi_{s'},\psi^\dagger_{t} \psi_{t'}]>=&-(-<\Gamma^\dagger_{s}\Gamma_{-t}>-<\Gamma_{-s}\Gamma^\dagger_{t}>)(-<\Gamma_{s'}\Gamma^\dagger_{-t'}>-<\Gamma^\dagger_{-s'}\Gamma_{t'}>) \\ &+(<\Gamma^\dagger_{s}\Gamma_{t'}>+<\Gamma_{-s}\Gamma^\dagger_{-t'}>)(<\Gamma_{s'}\Gamma^\dagger_{t}>+<\Gamma^\dagger_{-s'}\Gamma_{-t}>) \\ 
+&+(-<\Gamma^\dagger_{t}\Gamma_{-s}>-<\Gamma_{-t}\Gamma^\dagger_{s}>)(-<\Gamma_{t'}\Gamma^\dagger_{-s'}>-<\Gamma^\dagger_{-t'}\Gamma_{s'}>) \\
+&-(<\Gamma^\dagger_{t}\Gamma_{s'}>+<\Gamma_{-t}\Gamma^\dagger_{-s'}>)(<\Gamma_{t'}\Gamma^\dagger_{s}>+<\Gamma^\dagger_{-t'}\Gamma_{-s}>)
+\end{align*}
+
+\begin{align*}
+=\delta_{st'}\delta_{s't}&\bigg[[T^*_{ks}f_{ks}u_k(x')u^*_k(x)+T_{k-s}(1-f_{k-s})v^*_k(x')v_k(x)][T_{ps'}(1-f_{ps'})u^*_p(x')u_p(x)+T^*_{p-s'}f_{p-s'}v_p(x')v^*_p(x)] \\ 
+&-[T_{ks'}f_{ks'}u_k(x)u^*_k(x')+T^*_{k-s'}(1-f_{k-s'})v^*_k(x)v_k(x')] [T^*_{ks}(1-f_{ps})u^*_p(x)u_p(x')+T_{p-s}f_{p-s}v_p(x)v^*_p(x')]\bigg] \\ 
++ss'\delta_{s-t}\delta_{s'-t'}&\bigg[[T_{k-s}(1-f_{k-s})u^*_k(x')v_k(x)-T^*_{ks}f_{ks}v_k(x')u^*_k(x)][T_{ps'}(1-f_{ps'})v^*_p(x')u_p(x)-T^*_{p-s'}f_{p-s'}u_p(x')v^*_p(x)] \\ 
+&+ [T_{k-s}f_{k-s}v_k(x)u^*_k(x')-T^*_{ks}(1-f_{ks})u^*_k(x)v_k(x')][T^*_{p-s'}(1-f_{p-s'})v^*_p(x)u_p(x')-T_{ps'}f_{ps'}u_p(x)v^*_p(x')]\bigg]
+\end{align*}
+
+Where $T_{ks}=e^{-i\omega_{ks}t}$ which carries the time dependence from the $\gamma$ operators. Now we can carry out the time integration. When doing so, one must multiply the integrand by $e^{\delta t}$ to ensure convergence of the integral, then take the limit $\delta\rightarrow\infty$. The result is that the terms appearing in the denominator have an additional $+\delta$ which we will omit for now.
+
+\begin{align*}
+\delta_{st'}\delta_{s't}\bigg[\frac{(f_{ks}-f_{ps'})u^*_p(x')u_p(x)u_k(x')u^*_k(x)}{i\omega_{ks}-i\omega_{ps'}}
++\frac{(1-f_{ps'}-f_{k-s})u^*_p(x')u_p(x)v^*_k(x')v_k(x)}{-i\omega_{ps'}-i\omega_{k-s}} \\
++\frac{(-1+f_{p-s'}+f_{ks})v_p(x')v^*_p(x)u_k(x')u^*_k(x)}{i\omega_{p-s'}+i\omega_{ks}}
++\frac{(f_{p-s'}-f_{k-s})v_p(x')v^*_p(x)v^*_k(x')v_k(x)}{i\omega_{p-s'}-i\omega_{k-s}}\bigg] \\
++ss'\delta_{s-t}\delta_{s'-t'}\bigg[\frac{(1-f_{k-s}-f_{ps'})u^*_k(x')v_k(x)v^*_p(x')u_p(x)}{-i\omega_{ps'}-i\omega_{k-s}}
++\frac{(f_{k-s}-f_{p-s'})u^*_k(x')v_k(x)v^*_p(x)u_p(x')}{i\omega_{p-s'}-i\omega_{k-s}} \\
++\frac{(f_{ps'}-f_{ks})u^*_k(x)v_k(x')v^*_p(x')u_p(x)}{i\omega_{ks}-i\omega_{ps'}}
++\frac{(-1+f_{ks}+f_{p-s'})u^*_k(x)v_k(x')v^*_p(x)u_p(x')}{i\omega_{ks}+i\omega_{p-s'}}\bigg]
+\end{align*}
+
+The susceptibility is then:
+
+\begin{align*}
+\chi_{\alpha\beta}(x,x')=-\mu_e\sum\limits_{s,s',p,k}\sigma^\beta_{ss'}\sigma^\alpha_{s's}\bigg[\frac{(f_{ks}-f_{ps'})u^*_p(x')u_p(x)u_k(x')u^*_k(x)}{\omega_{ks}-\omega_{ps'}} \\
+-\frac{(1-f_{ps'}-f_{k-s})u^*_p(x')u_p(x)v^*_k(x')v_k(x)}{\omega_{ps'}+\omega_{k-s}} \\
++\frac{(-1+f_{p-s'}+f_{ks})v_p(x')v^*_p(x)u_k(x')u^*_k(x)}{\omega_{p-s'}+\omega_{ks}} \\
++\frac{(f_{p-s'}-f_{k-s})v_p(x')v^*_p(x)v^*_k(x')v_k(x)}{\omega_{p-s'}-\omega_{k-s}}\bigg] \\
++ss'\sigma^\beta_{ss'}\sigma^\alpha_{-s-s'}\bigg[-\frac{(1-f_{k-s}-f_{ps'})u^*_k(x')v_k(x)v^*_p(x')u_p(x)}{\omega_{ps'}+\omega_{k-s}} \\
++\frac{(f_{k-s}-f_{p-s'})u^*_k(x')v_k(x)v^*_p(x)u_p(x')}{\omega_{p-s'}-\omega_{k-s}} \\
++\frac{(f_{ps'}-f_{ks})u^*_k(x)v_k(x')v^*_p(x')u_p(x)}{\omega_{ks}-\omega_{ps'}} \\
++\frac{(-1+f_{ks}+f_{p-s'})u^*_k(x)v_k(x')v^*_p(x)u_p(x')}{\omega_{ks}+\omega_{p-s'}}\bigg]
+\end{align*}
+
+\section*{Bogoliubov-De Gennes Equations}
+We have calculated the magnetic spin susceptibitily in the Bogoliubov representation which involves the $\gamma$ operators and complex functions of space $u(x)$ and $v(x)$. The $\gamma$ operators, their commutation properties and governing equations are known so that we were able to eliminate them in the final expression for $\chi$. We are left to find the governing equations for the $u$'s and $v$'s which we can calculate self consistently along with the superconducting order parameter(De Gennes). These function were first introduced by Bardeen, Cooper and Schrieffer in their 1957 paper to describe the condensed state $\tilde{\phi}=\sum\limits_k (u_k+v_k a^\dagger_{1k}a^\dagger_{-1-k})\phi_0$, where $\phi_0$ is the vacuum or background state. Normalization of $\tilde{\phi}$ requires $\int dx(|u_k(x)|^2+|v_k(x)|^2)=1$. To proceed we start with the electronic superconducting Hamiltonian (without the presence of a magnetic field) in the mean field limit.
+
+\begin{equation*}
+\mathcal{H}=\sum\limits_{\alpha}\int d^3x \psi^\dagger_\alpha\bigg[\frac{\vec{p}^2}{2m}+U(x)\bigg]\psi_\alpha-\frac{1}{2}\sum\limits_{\alpha\beta}\int d^3x d^3x' \psi^\dagger_\alpha(x)\psi^\dagger_\beta(x') V(x,x')\psi_\beta(x')\psi_\alpha(x)=\mathcal{H}_0+\mathcal{H}_1
+\end{equation*}
+
+The term $U(x)$ destroys and creates one electron in order to conserve the number of particles. From here we can rewrite $\mathcal{H}_1$ as an effective singlet interaction which acts on one particle at a time (ie contains only two operators).
+
+\begin{align*}
+\mathcal{H}_0=\sum\limits_{\alpha}\int d^3x \psi^\dagger_\alpha\bigg[\mathcal{H}_e+U(x)\bigg]\psi_\alpha \\
+\mathcal{H}_1=\int d^3x d^3x' [\Delta(x,x')\psi^\dagger_1(x)\psi^\dagger_{-1}(x')+\Delta(x,x')^* \psi_{-1}(x')\psi_1(x)]
+\end{align*}
+
+Where we have introduced the superconducting order parameter $\Delta(x,x')$. Now we compute the commutator $[\mathcal{H}_{eff},\psi]$ using the anticommutation relations for $\psi$.
+
+\begin{align*}
+[\psi_1(x),\mathcal{H}_{eff}]=(\mathcal{H}_e+U(x))\psi_1+\int d^3x' \Delta(x,x')\psi^\dagger_{-1}(x') \\
+[\psi_{-1}(x),\mathcal{H}_{eff}]=(\mathcal{H}_e+U(x))\psi_{-1}-\int d^3x' \Delta(x,x')\psi^\dagger_{1}(x')
+\end{align*}
+
+Now we use the definition of $\psi$ in the Bogoliubov representation and the commutation relations for $\gamma$ with $\mathcal{H}_{eff}$ to find the left hand side of the previous equations. We get, for each mode k:
+
+\begin{align*}
+\epsilon\gamma_{1}(t)u(x)+\epsilon\gamma^\dagger_{-1}v^*(x)=(\mathcal{H}_e+U(x))(\gamma_{1}(t)u(x)-\gamma^\dagger_{-1}(t)v^*(x))+\int d^3x' \Delta(x,x')(\gamma^\dagger_{-1}(t)u^*(x')+\gamma_{1}(t)v(x')) \\
+\epsilon\gamma_{-1}(t)u(x)-\epsilon\gamma^\dagger_{1}v^*(x)=(\mathcal{H}_e+U(x))(\gamma_{-1}(t)u(x)+\gamma^\dagger_{1}(t)v^*(x))-\int d^3x' \Delta(x,x')(\gamma^\dagger_{1}(t)u^*(x')-\gamma_{-1}(t)v(x))
+\end{align*}
+
+Since $\gamma$ and $\gamma^\dagger$ are linearly independent we can equate like terms to get two equations from each of the two previous expressions. They turn out to be equivalent:
+
+\begin{align*}
+\epsilon_ku_k(x)=(\mathcal{H}_e+U(x))u_k(x)+\int d^3x'\Delta(x,x')v_k(x') \\
+\epsilon_kv_k(x)=-(\mathcal{H}_e^*+U(x)) v_k(x)+\int d^3x'\Delta^*(x,x')u_k(x')
+\end{align*}
+
+Here we note that $\mathcal{H}^*_e=\mathcal{H}_e$ as long as there is no applied field. These are the Bogoliubov-De Genne equations for an inhomogenious superconductor and are equivalent to an integral eigen-equation $\epsilon_k\left (\begin{array}{c} u_k \\ v_k \end{array}\right)=\hat{\Omega}\left (\begin{array}{c} u_k \\ v_k \end{array}\right)$. We can use these to calculate $\Delta$ and $U(x)$ self consistently. We first consider the pairing potential to be some average value $V(x,x')=V_0$ and minimize the free energy $F=<\mathcal{H}>-TS$. For the full Hamiltonian we have:
+
+\begin{align*}
+<\mathcal{H}>=\sum\limits_{\alpha}\int d^3x <\psi^\dagger_\alpha\mathcal{H}_e\psi_\alpha>-\frac{V_0}{2}\sum\limits_{\alpha\beta}\int d^3x d^3x' <\psi^\dagger_\alpha(x)\psi^\dagger_\beta(x')\psi_\beta(x')\psi_\alpha(x)> \\
+\end{align*}
+
+The second term can be expanded via Wick contractions:
+
+\begin{align*}
+<\psi^\dagger_\alpha(x)\psi^\dagger_\beta(x')\psi_\beta(x')\psi_\alpha(x)>= <\psi^\dagger_\alpha(x)\psi^\dagger_\beta(x')><\psi_\beta(x')\psi_\alpha(x)> \\ 
+-<\psi^\dagger_\alpha(x)\psi_\beta(x')><\psi^\dagger_\beta(x')\psi_\alpha(x)> \\
++<\psi^\dagger_\alpha(x)\psi_\alpha(x)><\psi^\dagger_\beta(x')\psi_\beta(x')>
+\end{align*}
+
+Now we compute the variation in F:
+
+\begin{align*}
+\delta F=\sum\limits_{\alpha}\int d^3x \delta[<\psi^\dagger_\alpha\mathcal{H}_e\psi_\alpha>]-V_0\int d^3x d^3x'\bigg[\delta[<\psi^\dagger_1(x)\psi^\dagger_{-1}(x')>]<\psi_{-1}(x')\psi_1(x)>+C.C.\bigg] \\
+-\sum\limits_{\alpha}\delta[<\psi^\dagger_\alpha(x)\psi_\alpha(x')>]<\psi^\dagger_\alpha(x')\psi_\alpha(x)>
++\sum\limits_{\alpha\beta}\delta[<\psi^\dagger_\alpha(x)\psi_\alpha(x)>]<\psi^\dagger_\beta(x')\psi_\beta(x')>-T\delta S
+\end{align*}
+
+Now we can compare this variation to the variation in $F_{eff}$ noting that the Bogoliubov formulation diagnolizes $\mathcal{H}_{eff}$. 
+
+\begin{align*}
+0=\delta F_{eff}=\sum\limits_{\alpha}\int d^3x \delta[<\psi^\dagger_\alpha(\mathcal{H}_e+U(x))\psi_\alpha>] \\
++\int d^3x d^3x'\bigg[\Delta(x,x')\delta[<\psi^\dagger_1(x)\psi^\dagger_{-1}(x')>]+\Delta^*(x,x')\delta[<\psi_{-1}(x')\psi_1(x)>]\bigg]-T\delta S
+\end{align*}
+
+Combining the previous two equations so that $\delta F=0$ yields expressions for $U(x)$ and $\Delta$. The equation for $U(x)$ is complicated and we will omit it here. The equation for $\Delta$ is:
+
+\begin{align*}
+\Delta(x,x')=-V_0<\psi_{-1}(x')\psi_1(x)>=V_0<\psi_{1}(x)\psi_{-1}(x')> \\
+=V_0\sum\limits_k[u_k(x')v^*_k(x)(1-f_{-1k})-u_k(x)v^*_k(x')f_{1k}]
+\end{align*}
+
+\section*{Numerical Solution}
+To solve the Bogoliubov equations we may employ numerical techniques. If we write the term $U(x)$ as minus the chemical potential (ie the fermi energy) times the number operator we find, in the zero field limit:
+
+\begin{align*}
+\epsilon_ku_k(x)=(\frac{p^2}{2m}-\epsilon_f)u_k(x)+\int d^3x'\Delta(x,x')v_k(x') \\
+\epsilon_kv_k(x)=-(\frac{p^2}{2m}-\epsilon_f) v_k(x)+\int d^3x'\Delta^*(x,x')u_k(x')
+\end{align*}
+
+We now write the u's and v's as a sum over the eigenstates of the free particle Hamiltonian $u(\vec{x})=\sum\limits_{\vec{q}} u_q e^{i\vec{q}\cdot\vec{x}}$, where V is the volume of the sample (NOTE: when we add a field we will write them as sums over eigenstates of $H_0-\vec{m}\cdot\vec{H}$). Dropping the k subscript for now and using orthogonality of the states, we have:
+
+\begin{align*}
+\epsilon u_p=\xi_pu_p+\frac{1}{V}\sum\limits_{\vec{q}}\int d^3x'\int d^3x\Delta(x,x')v_q e^{i\vec{q}\cdot\vec{x}'} e^{-i\vec{p}\cdot\vec{x}}\\
+\epsilon v_p=-\xi_p v_p+\frac{1}{V}\sum\limits_{\vec{q}}\int d^3x'\int d^3x\Delta^*(x,x')u_q e^{i\vec{q}\cdot\vec{x}'} e^{-i\vec{p}\cdot\vec{x}}
+\end{align*}
+
+Where $\xi_p=\frac{p^2}{2m}-\epsilon_f$. Now we note that the double integral can be written as the Fourier transform of the order parameter: $\int d^3x'\int d^3x\Delta(x,x') e^{i\vec{q}\cdot\vec{x}'} e^{-i\vec{p}\cdot\vec{x}}=\Delta(p,q)$, $\int d^3x'\int d^3x\Delta^*(x,x') e^{i\vec{q}\cdot\vec{x}'} e^{-i\vec{p}\cdot\vec{x}}=\Delta^*(p,q)$. We can now construct the vectors $\vec{u}=[u_{p1}, u_{p2}, ... , u_{pn}]$ and $\vec{v}=[v_{p1}, v_{p2}, ... , v_{pn}]$, and restor the index k. It is also usefull to divide the equations by $\epsilon_f$ so all the energy scales are on that of the fermi energy.
+
+\begin{align*}
+\epsilon_k \vec{u}_k=\mathcal{\xi}\vec{u}_k+\frac{\Delta_{p,q}}{V}\vec{v}_q\\
+\epsilon_k \vec{v}_k=-\mathcal{\xi}\vec{v}_k+\frac{\Delta^*_{p,q}}{V}\vec{u}_q
+\end{align*}
+
+Here we have defined $\mathcal{\xi}$ as a diagonal matrix with entries equal to the energy of that mode relative to the fermi energy $\mathcal{\xi}_{p,p}=\epsilon_p/\epsilon_f-1$. This set of equations can be expressed as an eigen equation for a block matrix:
+
+\begin{align*} 
+\epsilon_k \left(\begin{array}{c} \vec{u}_k \\ \vec{v}_k \end{array}\right) = \left(\begin{array}{cc} \mathcal{\xi} & \frac{\Delta_{p,q}}{V} \\ \frac{\Delta^*_{p,q}}{V} & -\mathcal{\xi} \end{array}\right)\left(\begin{array}{c} \vec{u}_q \\ \vec{v}_q \end{array}\right)
+\end{align*}
+
+This eigen equation is suitable for numerical computations of the u's and v's which can then be plugged into the equation for $\chi$.
+
+\section*{Uniform Space, 0 Field Limit}
+
+Now we can check to see if this matches previous results for no field and uniform space (Roshen and Ruvalds). To proceed we drop the spin subscripts on $f$ and $\omega$ and evaluate the spin sums. $\sum\limits_{s,s'}\sigma^\alpha_{ss'}\sigma^\beta_{s's}=2\delta_{\alpha\beta}$, and $\sum\limits_{s,s'}\sigma^\alpha_{ss'}\sigma^\beta_{-s-s'}ss'=-2\delta_{\alpha\beta}$. The result is:
+
+\begin{align*}
+\chi_{\alpha\alpha}(x,x',0)=-2\mu_e\sum\limits_{p,k}\bigg[\frac{(f_{k}-f_{p})u^*_p(x')u_p(x)u_k(x')u^*_k(x)}{\omega_{k}-\omega_{p}}
+-\frac{(1-f_{p}-f_{k})u^*_p(x')u_p(x)v^*_k(x')v_k(x)}{\omega_{p}+\omega_{k}} \\
++\frac{(-1+f_{p}+f_{k})v_p(x')v^*_p(x)u_k(x')u^*_k(x)}{\omega_{p}+\omega_{k}} 
++\frac{(f_{p}-f_{k})v_p(x')v^*_p(x)v^*_k(x')v_k(x)}{\omega_{p}-\omega_{k}}\bigg] \\
+-\bigg[-\frac{(1-f_{k}-f_{p})u^*_k(x')v_k(x)v^*_p(x')u_p(x)}{\omega_{p}+\omega_{k}}
++\frac{(f_{k}-f_{p})u^*_k(x')v_k(x)v^*_p(x)u_p(x')}{\omega_{p}-\omega_{k}} \\
++\frac{(f_{p}-f_{k})u^*_k(x)v_k(x')v^*_p(x')u_p(x)}{\omega_{k}-\omega_{p}}
++\frac{(-1+f_{k}+f_{p})u^*_k(x)v_k(x')v^*_p(x)u_p(x')}{\omega_{k}+\omega_{p}}\bigg]
+\end{align*}
+
+Next we will use the case of uniform superconductivity. For each mode, the previous solution to the BG equations reduce to:
+
+\begin{align*}
+\epsilon_k u_p=\xi_p u_p+\Delta v_p \\
+\epsilon_k v_p=-\xi_p v_p+\Delta u_p
+\end{align*}
+
+This decouples the modes. Thus, the $u_k$'s and $v_k$'s go like $u_k(x)=u_ke^{ikx}$ where $u_k$ is real and preform a Fourier Transform wrt $x-x'$ to get $\chi(q)=\int d(x-x')e^{iq(x-x')} \chi(x-x')$. The solution to the eigen equation is:
+
+\begin{align*}
+\epsilon_{k,s}=\sqrt{\Delta^2+\xi_{k,s}^2} \\
+u_{k,s}^2=\frac{1}{2}(1+\frac{\xi_{k,s}}{\epsilon_{k,s}}) \\
+v_{k,s}^2=1-u_{k,s}^2 \\
+u_{k,s}v_{k,s}=\frac{\Delta}{2\epsilon_{k,s}}
+\end{align*}
+
+Note that we only keep the positive eigenvalue which corresponds to free cooper pairs. To include bound states as well we would also use the negative eigenvalue. Continuing with the calculation of $\chi$ we have:
+
+\begin{align*}
+\chi_{\alpha\alpha}(q)=-2\mu_e\sum\limits_{k}\bigg[\frac{(f_{k}-f_{k-q})|u_{k-q}|^2|u_k|^2}{\omega_{k}-\omega_{k-q}}
+-\frac{(1-f_{-k-q}-f_{k})|u_{-k-q}^2|v_k|^2}{\omega_{-k-q}+\omega_{k}} \\
++\frac{(-1+f_{-k+q}+f_{k})|v_{-k+q}|^2|u_k|^2}{\omega_{-k+q}+\omega_{k}} 
++\frac{(f_{k+q}-f_{k})|v_{k+q}|^2|v_k|^2}{\omega_{k+q}-\omega_{k}} \\
++\frac{(1-f_{k}-f_{-k-q})u_kv_kv_{-k-q}u_{-k-q}}{-\omega_{-k-q}-\omega_{k}}
+-\frac{(f_{k}-f_{k+q})u_kv_kv_{k+q}u_{k+q}}{\omega_{k+q}-\omega_{k}} \\
+-\frac{(f_{k-q}-f_{k})u_kv_kv_{k-q}u_{k-q}}{\omega_{k}-\omega_{k-q}}
+-\frac{(-1+f_{k}+f_{-k+q})u_kv_kv_{-k+q}u_{-k+q}}{\omega_{k}+\omega_{-k+q}}\bigg]
+\end{align*}
+
+Now we note that since we are summing over all $k$ we can switch $k$ for $-k$ and visa versa. This allows us to ensure that k has the same sign as $q$ in each term. We then use the fact that all the terms are symmetric under reflection (ie $\omega_k=\omega_{-k}$).
+
+\begin{align*}
+\chi_{\alpha\alpha}(q)=-2\mu_e\sum\limits_{k}\bigg[\frac{(f_{k}-f_{k+q})|u_{k+q}|^2|u_k|^2}{\omega_{k}-\omega_{k+q}}
+-\frac{(1-f_{k+q}-f_{k})|u_{k+q}^2|v_k|^2}{\omega_{k+q}+\omega_{k}} \\
++\frac{(-1+f_{k+q}+f_{k})|v_{k+q}|^2|u_k|^2}{\omega_{k+q}+\omega_{k}} 
++\frac{(f_{k+q}-f_{k})|v_{k+q}|^2|v_k|^2}{\omega_{k+q}-\omega_{k}} \\
++\frac{(1-f_{k}-f_{k+q})u_kv_kv_{k+q}u_{k+q}}{\omega_{k+q}+\omega_{k}}
+-\frac{(f_{k}-f_{k+q})u_kv_kv_{k+q}u_{k+q}}{\omega_{k+q}-\omega_{k}} \\
+-\frac{(f_{k+q}-f_{k})u_kv_kv_{k+q}u_{k+q}}{\omega_{k}-\omega_{k+q}}
+-\frac{(-1+f_{k}+f_{k+q})u_kv_kv_{k+q}u_{k+q}}{\omega_{k}+\omega_{k+q}}\bigg]
+\end{align*}
+
+Collapsing this together yields the same answer as in Roshen and Ruvalds.
+
+\begin{align*}
+\chi_{\alpha\alpha}(q)=-2\mu_e\sum\limits_{k}\bigg[\frac{(f_{k+q}-f_{k})(u_{k+q}u_k+v_{k+q}v_k)^2}{\omega_{k+q}-\omega_{k}}
+-\frac{(1-f_{k+q}-f_{k})(u_{k+q}v_k-v_{k+q}u_k)^2}{\omega_{k+q}+\omega_{k}} \bigg]
+\end{align*}
+
+\section*{Uniform Space}
+For this case we again use the plane wave solution to the Bogoliubov-De Gennes equations, $u_k(x)=u_ke^{ikx}$ where $u_k$ is real and preform a Fourier Transform wrt $x-x'$ to get $\chi(q)=\int d(x-x')e^{iq(x-x')} \chi(x-x')$.
+\begin{align*}
+\chi_{\alpha\beta}(q)=-\mu_e\sum\limits_{s,s',k}\sigma^\beta_{ss'}\sigma^\alpha_{s's}\bigg[\frac{(f_{ks}-f_{k-q s'})|u_{k-q}|^2|u_k|^2}{\omega_{ks}-\omega_{k-q s'}} 
+-\frac{(1-f_{-k-q s'}-f_{k-s})|u_{-k-q}|^2|v_k|^2}{\omega_{-k-q s'}+\omega_{k-s}} \\
++\frac{(-1+f_{-k+q -s'}+f_{ks})|v_{-k+q}|^2|u_k|^2}{\omega_{-k+q -s'}+\omega_{ks}} 
++\frac{(f_{k+q -s'}-f_{k-s})|v_{k+q}|^2|v_k|^2}{\omega_{k+q-s'}-\omega_{k-s}}\bigg] \\
++ss'\sigma^\beta_{ss'}\sigma^\alpha_{-s-s'}\bigg[-\frac{(1-f_{k-s}-f_{-k-q s'})u^*_kv_kv^*_{-k-q}u_{-k-q}}{\omega_{-k-q s'}+\omega_{k-s}} 
++\frac{(f_{k-s}-f_{k+q -s'})u^*_kv_kv^*_{k+q}u_{k+q}}{\omega_{k+q -s'}-\omega_{k-s}} \\
++\frac{(f_{k-q s'}-f_{ks})u^*_kv_kv^*_{k-q}u_{k-q}}{\omega_{ks}-\omega_{k-q s'}} 
+-\frac{(1-f_{ks}-f_{-k+q -s'})u^*_kv_kv^*_{-k+q}u_{-k+q}}{\omega_{ks}+\omega_{-k+q -s'}}\bigg]
+\end{align*}
+Once again we can switch the sign of k so that is has the same sign as q in all the terms and use the symmetry under reflection.
+\begin{align*}
+\chi_{\alpha\beta}(q)=-\mu_e\sum\limits_{s,s',k}\sigma^\beta_{ss'}\sigma^\alpha_{s's}\bigg[\frac{(f_{ks}-f_{k+q s'})|u_{k+q}|^2|u_k|^2}{\omega_{ks}-\omega_{k+q s'}}
+-\frac{(1-f_{k+q s'}-f_{k-s})|u_{k+q}|^2|v_k|^2}{\omega_{k+q s'}+\omega_{k-s}} \\
++\frac{(-1+f_{k+q -s'}+f_{ks})|v_{k+q}|^2|u_k|^2}{\omega_{k+q-s'}+\omega_{ks}}
++\frac{(f_{k+q -s'}-f_{k-s})|v_{k+q}|^2|v_k|^2}{\omega_{k+q-s'}-\omega_{k-s}}\bigg] \\
++ss'\sigma^\beta_{ss'}\sigma^\alpha_{-s-s'}\bigg[-\frac{(1-f_{k-s}-f_{k+q s'})u^*_kv_kv^*_{k+q}u_{k+q}}{\omega_{k+q s'}+\omega_{k-s}} 
++\frac{(f_{k-s}-f_{k+q -s'})u^*_kv_kv^*_{k+q}u_{k+q}}{\omega_{k+q -s'}-\omega_{k-s}} \\
++\frac{(f_{k+q s'}-f_{ks})u^*_kv_kv^*_{k+q}u_{k+q}}{\omega_{ks}-\omega_{k+q s'}} 
+-\frac{(1-f_{ks}-f_{k+q -s'})u^*_kv_kv^*_{k+q}u_{k+q}}{\omega_{ks}+\omega_{k+q -s'}}\bigg]
+\end{align*}
+
+The full solution to the Bogolioubov-De Gennes Equations is
+
+\begin{align*}
+\epsilon_{k,s}=\sqrt{\Delta^2+\xi_{k,s}^2} \\
+u_{k,s}^2=\frac{1}{2}(1+\frac{\xi_{k,s}}{\epsilon_{k,s}}) \\
+v_{k,s}^2=1-u_{k,s}^2 \\
+u_{k,s}v_{k,s}=\frac{\Delta}{2\epsilon_{k,s}}
+\end{align*}
+
+\section*{Oscillating D-wave Order Parameter (FFLO State)}
+Here we consider the case of a d-wave order parameter which oscillates in real space. To proceed we first solve the Bogolioubov-De Gennes by using a plane wave expansion of the u's and v's. As before, the BG equations take the form
+
+\begin{align*}
+\epsilon_k \vec{u}_k=\mathcal{\xi}\vec{u}_k+\frac{\Delta_{p,q}}{V}\vec{v}_q\\
+\epsilon_k \vec{v}_k=-\mathcal{\xi}\vec{v}_k+\frac{\Delta^*_{p,q}}{V}\vec{u}_q
+\end{align*}
+
+Our choice of Delta is $/Delta(\vec{p},\vec{R})=\Delta cos(2\phi_{\vec{p}}) cos(\vec{w}\cdot\vec{R})$ where $\vec{p}$ is the relative momentum and $\vec{R}$ is the center of mass of the cooper pairs. With this choice we can preform the transform to get:
+
+\begin{align*}
+\Delta_{p,q}&=\int d\vec{r} \int d\vec{R} F(\vec{r})cos(\vec{w}\cdot\vec{R})e^{i(q-p)R}e^{i(q+p)r/2} \\
+&=\frac{V\Delta}{2} cos(2\phi_{(q+p)/2})(\delta_{q-p+w}+\delta_{q-p-w})
+\end{align*}
+
+Plugging this into the BG equations, for a given mode p we get:
+
+\begin{align*}
+\epsilon_k u_p=\xi_p u_p+\frac{\Delta}{2} (cos(2\phi_{p-w/2})v_{p-w}+cos(2\phi_{p+w/2})v_{p+w}) \\
+\epsilon_k v_p=-\xi_p v_p+\frac{\Delta^*}{2} (cos(2\phi_{p-w/2})v_{p-w}+cos(2\phi_{p+w/2})v_{p+w})
+\end{align*}
+
+At this point we assume that the wave vector for oscillations of the order parameter is small compared to the Fermi momentum which is where most of the contributions to $\chi$ come from. With this approximation we are left with an equation which decouples the modes and only has two eigenvalues (one plus and one minus as before).
+
+\begin{align*}
+\epsilon_k u_k=\xi_k u_k+\frac{\Delta}{2} (cos(2\phi_{k-w/2})+cos(2\phi_{k+w/2}))v_k \\
+\epsilon_k v_k=-\xi_k v_k+\frac{\Delta^*}{2} (cos(2\phi_{k-w/2})+cos(2\phi_{k+w/2}))v_k
+\end{align*}
+
+The solution (including spin) is:
+
+\begin{align*}
+\epsilon_{k,s}=\sqrt{\frac{\Delta^2}{4} (cos(2\phi_{k-w/2})+cos(2\phi_{k+w/2}))^2+\xi_{k,s}^2} \\
+u_{k,s}^2=\frac{1}{2}(1+\frac{\xi_{k,s}}{\epsilon_{k,s}}) \\
+v_{k,s}^2=1-u_{k,s}^2 \\
+u_{k,s}v_{k,s}=\frac{\Delta (cos(2\phi_{k-w/2})+cos(2\phi_{k+w/2}))}{4\epsilon_{k,s}}
+\end{align*}
+
+Since the modes have decoupled, the u's and v's again go like $u_k(x)=u_k e^{ikx}$ and we can use the equation for $chi$ which we found for the uniform case.
+
+\section*{Zero Tempurature and No Field Limit}
+Now let us return to the general calculation of $\chi$. If we rewrite the expression for $\chi$ without spin splitting we have:
+
+\begin{align*}
+\chi_{\alpha\alpha}(x,x',0)=-2\mu_e\sum\limits_{p,k}\bigg[-\frac{2(1-f_{p}-f_{k})Re[u^*_p(x')u_p(x)v^*_k(x')v_k(x)-u^*_k(x')v_k(x)v^*_p(x')u_p(x)]}{\omega_{p}+\omega_{k}} \\
++\frac{(f_{k}-f_{p})(u^*_p(x')u_k(x')(u_p(x)u^*_k(x)+v_p(x)v^*_k(x))+v_p(x')v^*_k(x')(v^*_p(x)v_k(x)+u^*_p(x)u_k(x))}{\omega_{k}-\omega_{p}}\bigg] \\
+\end{align*}
+
+If we consider the zero temperature case we get:
+
+\begin{align*}
+\chi_{\alpha\alpha}(x,x',0)=4\mu_e\sum\limits_{p,k}\frac{Re[u^*_p(x')u_p(x)v^*_k(x')v_k(x)-u^*_k(x')v_k(x)v^*_p(x')u_p(x)]}{\omega_{p}+\omega_{k}}
+\end{align*}
+
+Now we wish to consider $\chi(\vec{q},R)$ where q is the momentum transform of the relative coordinate $\vec{r}=\vec{x}-\vec{x'}$ and R is the center of mass coordinate $\vec{R}=\frac{1}{2}(\vec{x}+\vec{x}')$. To make the result more condusive to coding we also write the u's and v's as a sum over eigenstates of the Hamiltonian. For the zero field limit these are just plane waves, $u_p(x)=\sum\limits_q u_{p,q} e^{iqx}$. The result is:
+
+\begin{align*}
+\chi_{\alpha\alpha}(r,R,0)=4\mu_e\sum\limits_{p,k,q1,q2,q3,q4}\frac{Re[(u^*_{p,q1}u_{p,q2}v^*_{k,q3}v_{k,q4}-u^*_{k,q1}v_{k,q2}v^*_{p,q3}u_{p,q4})e^{i(q2+q4-q1-q3)R+i(q1+q2+q3+q4)\frac{r}{2}}]}{\omega_{p}+\omega_{k}}
+\end{align*}
+
+\begin{align*}
+\chi_{\alpha\alpha}(r,R,0)=4\mu_e\sum\limits_{p,k,q1,q2,q3,q4}\frac{Re[(u^*_{p,q1}u_{p,q2}v^*_{k,q3}v_{k,q4}-u^*_{k,q1}v_{k,q2}v^*_{p,q3}u_{p,q4})e^{i(q2+q4-q1-q3)R+i(q1+q2+q3+q4)\frac{r}{2}}]}{\omega_{p}+\omega_{k}}
+\end{align*}
+
+The proper transformation for the 2D case is $\chi(q,R,0)=\frac{1}{4L^2}\int\limits_{[-L,L]}\chi(r,R)e^{-iqr}d^2r$:
+
+\begin{align*}
+\chi_{\alpha\alpha}(q,R,0)=2\mu_e\sum\limits_{p,k,q1,q2,q3}& \frac{(u^*_{p,q1}u_{p,q2}v^*_{k,q3}v_{k,2q-q1-q2-q3}-u^*_{k,q1}v_{k,q2}v^*_{p,q3}u_{p,2q-q1-q2-q3})e^{i2(q-q1-q3)R}}{\omega_{p}+\omega_{k}} \\
+ & \frac{(u_{p,q1}u^*_{p,q2}v_{k,q3}v^*_{k,-2q-q1-q2-q3}-u_{k,q1}v^*_{k,q2}v_{p,q3}u^*_{p,-2q-q1-q2-q3})e^{i2(q+q1+q3)R}}{\omega_{p}+\omega_{k}}
+\end{align*}
+
+NOTE: for 1D the transform is $\chi(q,R,0)=\frac{1}{2L}\int\limits_{[-L,L]}\chi(r,R)e^{-iqr}dr$, and for 3D it's
+$\\ \chi(q,R,0)=\frac{1}{8V}\int\limits_{[-L,L]}\chi(r,R)e^{-iqr}d^3r$.
+
+
+
+\section*{Andreev Approximation}
+The Bogoliubov equations can be simplified by making the Andreev Approximation and substituting the chemical potential times the number operator for $U(x)$. In the Andreev Approximation we assume that the functions $u$ and $v$ take the form $u_{p_f}(x)=\tilde{u}_{p_f}(x)e^{ip_f x}$ where $p_f$ is the fermi momentum. This approximation assumes that the dominant contributions come from at or very near the fermi momentum. The function $\tilde{u}_{p_f}$ is assumed to be slowly varying while the exponential is fast varying. The Bogoliubov equations then become:
+
+\begin{align*}
+\epsilon_{p_f}\tilde{u}_{p_f}(x)e^{ip_f x}=e^{ip_f x}\bigg(\frac{|p_f|^2}{2m}\tilde{u}_{p_f}(x)-\frac{ip_f}{m}\nabla\tilde{u}_{p_f}(x)-\frac{\nabla^2}{2m}\tilde{u}_{p_f}(x)-\mu\tilde{u}_{p_f}(x)\bigg)+\int d^3x'\Delta(x,x')\tilde{v}_{p_f}(x')e^{ip_f x'} \\
+\epsilon_{p_f}\tilde{v}_{p_f}(x)e^{ip_f x}=-e^{ip_f x}\bigg(\frac{|p_f|^2}{2m}\tilde{v}_{p_f}(x)-\frac{ip_f}{m}\nabla\tilde{v}_{p_f}(x)-\frac{\nabla^2}{2m}\tilde{v}_{p_f}(x)-\mu\tilde{v}_{p_f}(x)\bigg)+\int d^3x'\Delta^*(x,x')\tilde{u}_{p_f}(x')e^{ip_f x'}
+\end{align*}
+
+Now we say that $\mu=\frac{|p_f|^2}{2m}$ and us the approximation $\frac{ip_f}{m}\nabla\tilde{u}_k(x)>>\frac{\nabla^2}{2m}\tilde{u}_k(x)$ to disregard the $\nabla^2$ terms in favor of the $p_f\nabla$ terms. We further assume that the integral term acts like a Fourier transform from $\Delta(x,x')$ to $\Delta(p_f,R)$ where $p_f$ is the momentum transform of the relative coordinate for the pairs ($\vec{r}=\vec{x}-\vec{x}'$), and R is the center of mass coordinate ($\vec{R}=\frac{1}{2}(\vec{x}+\vec{x}')$). Dropping the subscript f on p, the resulting equations are:
+
+\begin{align*}
+\epsilon_p\tilde{u}_p(R)=-i\vec{v}_p\cdot\nabla\tilde{u}_p(R)+\Delta(p,R)\tilde{v}_p(R) \\
+\epsilon_p\tilde{v}_p(R)=i\vec{v}_p\cdot\nabla\tilde{v}_p(R)+\Delta^*(p,R)\tilde{u}_p(R)
+\end{align*}
+
+To make solutions to these equations more tractable we write $\tilde{u}_p(R)=u_p(R) e^{i\epsilon_p\vec{v}_p\cdot\vec{R}/v_p^2}$ and $\tilde{v}_p(R)=v_p(R) e^{-i\epsilon_p\vec{v}_p\cdot\vec{R}/v_p^2}$. The new functions $u_p(R)$ and $v_p(R)$ are not to be confused with the original u's and v's. To make the notation more compact we can define $\vec{\epsilon}=\epsilon_p\vec{v}_p/v_p^2$. The result is:
+
+\begin{align*}
+0=-\frac{ie^{2i\vec{\epsilon}\cdot \vec{R}}}{\Delta(p,R)}\vec{v}_p\cdot\nabla u_p(R)+v_p(R)\\
+0=\frac{ie^{-2i\vec{\epsilon}\cdot \vec{R}}}{\Delta^*(p,R)}\vec{v}_p\cdot\nabla v_p(R)+u_p(R)
+\end{align*}
+
+Now we can apply the operator $\frac{ie^{-2i\vec{\epsilon}\cdot \vec{R}}}{\Delta^*(p,R)}\vec{v}_p\cdot\nabla$ to the top equation and subtract the two to eliminate $v_p$
+
+\begin{align*}
+0=-\frac{ie^{-2i\vec{\epsilon}\cdot \vec{R}}}{\Delta^*(p,R)}\vec{v}_p\cdot\nabla\frac{ie^{2i\vec{\epsilon}\cdot \vec{R}}}{\Delta(p,R)}\vec{v}_p\cdot\nabla u_p(R)-u_p(R)
+\end{align*}
+
+The prefactors which dot into the differential are complex conjugates of each other. Defining $\vec{Z}_p(\vec{R})=\frac{ie^{2i\vec{\epsilon}\cdot \vec{R}}}{\Delta(p,R)}\vec{v}_p$ yields:
+
+\begin{align*}
+(\vec{Z}_p^*(\vec{R})\cdot\nabla)(\vec{Z}_p(\vec{R})\cdot\nabla) u_p(R)=u_p(R)
+\end{align*}
+
+We can also write this equation in its full form:
+
+\begin{align*}
+\frac{1}{|\Delta(p,R)|^2}\bigg[\frac{2i\epsilon_p}{|v_p|}-\frac{(\hat{p}\cdot\nabla)\Delta(p,R)}{\Delta(p,R)}\bigg](\hat{p}\cdot\nabla)u_p(R)+\frac{(\hat{p}\cdot\nabla)^2}{|\Delta(p,R)|^2}u_p(R)=u_p(R)
+\end{align*}
+
+\end{document}

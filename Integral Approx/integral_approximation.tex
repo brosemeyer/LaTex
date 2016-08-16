@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+%\usepackage{amsmath}
+\usepackage{anyfontsize}
+\usepackage{amsmath}
+
+\begin{document}
+\title{Approximation of Integrals near }
+\author{Ben Rosemeyer}
+\date{\today}
+\maketitle
+
+
+\section*{Superconducting state}
+{\fontsize{8}{7}\selectfont
+\begin{align}
+\delta\chi_{\parallel}({\bf q})=-\frac{1}{\chi_0}\sum\limits_{{\bf k},s} \frac{(f(\epsilon_{k_-s})-f(\epsilon_{k_+s}))(u_{k_+}u_{k-}+v_{k+}v_{k-})^2}{\epsilon_{k_-s}-\epsilon_{k_+s}} 
+-\frac{(1-f(\epsilon_{k_-s})-f(\epsilon_{k_+\bar{s}}))(u_{k_+}v_{k-}-v_{k+}u_{k-})^2}{\epsilon_{k_-s}+\epsilon_{k_+\bar{s}}}-\frac{f(\xi_{k_-s})-f(\xi_{k_+s})}{\xi_{k_-s}-\xi_{k_+s}}
+\end{align}
+\begin{align}
+\delta\chi_{\perp}({\bf q})=-\frac{1}{\chi_0}\sum\limits_{{\bf k},s} \frac{(f(\epsilon_{k_-s})-f(\epsilon_{k_+\bar{s}}))(u_{k_+}u_{k-}+v_{k+}v_{k-})^2}{\epsilon_{k_-s}-\epsilon_{k_+\bar{s}}} 
+-\frac{(1-f(\epsilon_{k_-s})-f(\epsilon_{k_+s}))(u_{k_+}v_{k-}-v_{k+}u_{k-})^2}{\epsilon_{k_-s}+\epsilon_{k_+s}}-\frac{f(\xi_{k_-s})-f(\xi_{k_+\bar{s}})}{\xi_{k_-s}-\xi_{k_+\bar{s}}}
+\end{align}
+}
+
+We make the following assumptions: \framebox{\large$\xi_{k_\pm}=\pm v_f k_x, \quad
+\Delta_{k_\pm}=\pm v_d k_y$}. \\
+The excitation energies are then equal $\epsilon_{k_+}=\epsilon_{k_-}=-\sqrt{v_f^2k_x^2 +v_d^2 k_y^2}$Now we can plug these into the formula for the $u's$ and $v's$.:
+\begin{align*}
+u_{k_\pm}=sgn(\Delta_{k_\pm})\sqrt{\frac{1}{2}\big(1+ \xi_{k_\pm/\epsilon_{k_\pm}}\big)} =sgn(\Delta_{k_\pm})\sqrt{\frac{1}{2}\big(1\pm v_f k_x/\sqrt{v_f^2 k_x^2+v_d^2 k_y^2}\big)} \\
+v_{k_\pm}=\sqrt{\frac{1}{2}\big(1- \xi_{k_\pm/\epsilon_{k_\pm}}\big)} =\sqrt{\frac{1}{2}\big(1\mp v_f k_x/\sqrt{v_f^2 k_x^2+v_d^2 k_y^2}\big)}
+\end{align*}
+Now we can see that $u_{k_+}=sgn(\Delta_{k_+})v_{k_-}$ and $u_{k_-}=sgn(\Delta_{k_-})v_{k_+}$. Plugging these into the formula for $\delta\chi$ causes the first term to be zero:{\large $u_{k_+}u_{k-}+v_{k+}v_{k-}=sgn(\Delta_{k_+})sgn(\Delta_{k_-})v_{k+}v_{k-}+v_{k+}v_{k-}=0$}. \\
+The second term, however survives: \\
+{\large $(u_{k_+}v_{k-}-v_{k+}u_{k-})^2=(sgn(\Delta_{k_+})v_{k_-}^2-sgn(\Delta_{k_-})v_{k+}^2)^2=(v_{k_-}^2+v_{k+}^2 )^2=1$} \\
+So 
+
+{\fontsize{8}{7}\selectfont
+\begin{align}
+\delta\chi_{\parallel}({\bf q})=-\frac{1}{\chi_0}\sum\limits_{{\bf k},s}
+-\frac{1-f(\epsilon_{k_-s})-f(\epsilon_{k_+\bar{s}})}{2\epsilon_{k_+}}-\frac{f(\xi_{k_-s})-f(\xi_{k_+s})}{kq\cos(\theta)}
+\end{align}
+\begin{align}
+\delta\chi_{\perp}({\bf q})=-\frac{1}{\chi_0}\sum\limits_{{\bf k},s}
+-\frac{1-f(\epsilon_{k_-s})-f(\epsilon_{k_+s})}{2\epsilon_{k_-}+2s\mu_e H}-\frac{f(\xi_{k_-s})-f(\xi_{k_+\bar{s}})}{kq\cos(\theta)+2s\mu_e H}
+\end{align}
+}
+Now we need to find the regions of integration for both the normal state component and the superconducting component. The function $1-f(\epsilon_{k_-})-f(\epsilon_{k_+})$ which appears in the superconducting term is approximately equal to 1 in the region near the intersections of the fermi surfaces $\Gamma_{k_+}$ and $\Gamma_{k_-}$. We take advantage of this by switching to and elliptic coordinate system and cut off the integration at some energy $\Lambda$. Now we can write the sums as integrals, using a normalized area of integration ($A/(2\pi\hbar)^2=1$). The superconducting terms are:
+
+\begin{align}
+\sum\limits_{{\bf k},s}\frac{1}{2\epsilon_{k_+}}&=\int dk_xdk_y\frac{1}{\sqrt{v_f^2 k_x^2+v_d^2k_y^2}}=\frac{1}{v_d v_f}\int dx dy\frac{1}{\sqrt{x^2+y^2}}=\frac{2\pi}{v_d v_f}\int\limits_0^{\sqrt{\Lambda}} dr \frac{r}{\sqrt{r^2}} \\
+&=\frac{2\pi\sqrt{\Lambda}}{v_d v_f}
+\end{align}
+
+\begin{align}
+\sum\limits_{{\bf k},s}\frac{1}{2\epsilon_{k_-}+2s\mu_e H} &=\frac{1}{2}\sum\limits_s \int dk_x dk_y \frac{1}{\sqrt{v_f^2 k_x^2+v_d^2 k_y^2}+s\mu_e H} =\frac{1}{2v_d v_f}\sum\limits_s \int dx dy \frac{1}{\sqrt{x^2+y^2}+s\mu_e H}  \\
+&=\frac{\pi}{v_d v_f}\sum\limits_s \int\limits_0^{\sqrt{\Lambda}} dr \frac{r}{r+s\mu_e H}  = \frac{\pi}{v_d v_f}\sum\limits_s\bigg[ r -s\mu_e H \ln |r+s\mu_e H| \bigg]_{r=0}^{\sqrt{\Lambda}} \\
+&= \frac{\pi}{v_d v_f}\sum\limits_s \sqrt{\Lambda} - s\mu_e H \ln |\sqrt{\Lambda}/(s\mu_e H)+1| \\
+&= \frac{2\pi\sqrt{\Lambda}}{v_d v_f} - \frac{\pi}{v_d v_f}\mu_e H \ln\bigg|\frac{\sqrt{\Lambda}+\mu_e H}{-\sqrt{\Lambda}+\mu_e H}\bigg|
+\end{align}
+Now we calculate the normal state components:
+
+\begin{align}
+\sum\limits_{{\bf k},s}\frac{f(\xi_{k_-s})-f(\xi_{k_+s})}{kq\cos(\theta)} &= \sum\limits_{s}\int dk_x dk_y \frac{f(\xi_{k_-s})-f(\xi_{k_+s})}{k_xq}=4 \sum\limits_{s} \int\limits_0^{\sqrt{\Lambda}} dk_x \int\limits_0^{\alpha_{\parallel s} k_x} dk_y \frac{1}{k_xq}\\
+&=4 \sum\limits_{s}  \frac{\alpha_{\parallel s} \sqrt{\Lambda}}{q}
+\end{align}
+\begin{align}
+\sum\limits_{{\bf k},s}\frac{f(\xi_{k_-s})-f(\xi_{k_+\bar{s}})}{kq\cos(\theta)+2s\mu_e H} &= \sum\limits_{s}\int dk_x dk_y \frac{f(\xi_{k_-s})-f(\xi_{k_+\bar{s}})}{k_x q+2s\mu_e H}= 4\sum\limits_{s}\int\limits_0^{\sqrt{\Lambda}} dk_x \int\limits_0^{\alpha_\perp k_x}dk_y \frac{1}{k_x q+2s\mu_e H} \\
+&=(4\alpha_{\perp}/q) \sum\limits_{s} \sqrt{\Lambda}-(2s\mu_e H/q) \ln |\sqrt{\Lambda}/(2s\mu_e H/q)+1|  \\
+&=(8\alpha_{\perp}\sqrt{\Lambda}/q) -(8\mu_e H \alpha_\perp /q^2) \ln\bigg| \frac{\sqrt{\Lambda}+(2\mu_e H/q)}{-\sqrt{\Lambda}+(2\mu_e H/q)}\bigg| 
+\end{align}
+
+\end{document}

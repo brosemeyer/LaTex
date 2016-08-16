@@ -1,0 +1,143 @@
+\documentclass{beamer}
+\usetheme{Boadilla}
+\usepackage[english]{babel}
+%\usepackage{beamerthemesplit}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{multicol}
+\setbeamertemplate{frametitle}{ \bf
+\begin{centering} 
+\insertframetitle 
+\par 
+\end{centering} 
+} 
+
+\newcommand\Fontvi{\fontsize{9}{9}\selectfont}
+\newcommand\Fontvii{\fontsize{4}{4}\selectfont}
+\newcommand\Fontv{\fontsize{11}{11}\selectfont}
+\newcommand\Fontb{\fontsize{20}{20}\selectfont}
+\newcommand\Fontsm{\fontsize{13}{13}\selectfont}
+
+
+\title[Cuprate Superconductivity]{HIGH T$_c$ CUPRATE SUPERCONDUCTIVITY AND THE PSEUDOGAP PHASE}
+\author[brosemeyer@physics.montana.edu]{Ben Rosemeyer \\ \small Advisor: Anton Vorontsov}
+\institute[MSU]{
+\includegraphics[scale=0.2]{MSUlogo.jpg}\\[0.5cm]
+Funded by NSF grant DMR-0954342 \\
+\includegraphics[scale=0.08]{NSFlogo.jpg}	
+}
+\date[MSU CMP Seminar]{\small\today}
+
+
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Outline}
+Fermi Surface Via Quantum Oscillations \\
+-Resonant Ultra Sound (RUS) measurements \\
+-Phase Diagram and Pseudogap Phase \\
+-Competing Phenomenon \\
+	\quad-Charge Density \\
+	\quad-Spin Density \\
+	\quad-Mott Insulator \\
+	\quad-Pseudo Gap \\
+	\quad-Superconductivity \\
+-(Cluster) Dynamical Mean Field Theory
+	%CDW, SDW, PG, SC) \\
+\end{frame}
+
+\begin{frame}
+\frametitle{Quantum Oscillations}
+In a crystal subject to an applied magnetic field, physical properties oscillate \\
+\quad-magnetic moments (De HaasÐvan Alphen effect) \\
+\quad-resistivity (ShubnikovÐDe Haas effect) \\
+\quad-specific heat \\
+\quad-sound attenuation \\
+\end{frame}
+
+\begin{frame}
+\frametitle{Quantum Oscillations}
+These oscillations are due to (electron) Landau Levels \\
+\quad $\Rightarrow$ Quantized cyclotron orbits \\
+\quad\quad$\Psi(x,y,z) = e^{ik_y y + ik_z z}\phi_n(x-x0)$ \\
+\quad\quad$x_0=\frac{\hbar k_y}{m \omega_c}$ \\
+\quad\quad$\omega_c =  qB/m^* \equiv$  electron cyclotron freq. \\
+\quad\quad$\phi_n \equiv$ quantum oscillator \\
+\vspace{1cm}
+\quad\quad$D = Z (2S+1) \frac{\Phi}{\Phi_0}\equiv$Number in Landau Level
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Quantum Oscillations}
+Effective Mass \\
+$m^* =\hbar/2\pi \frac{\delta A_k}{\delta E}$ \\
+$A_k \equiv$ momentum (k) space area of cyclotron orbit
+$\Rightarrow$ k space area is quantized \\
+\quad $dA_k = 2\pi q B/\hbar$ \\
+Extremal orbits "pop" out \\
+\quad$\Delta(1/B) = 2\pi q/\hbar A_{ext}$
+\end{frame}
+
+\begin{frame}
+\frametitle{Quantum Oscillations}
+FREQ $\propto$ extremal cross sectional area of fs perp to field \\
+amptlitude(temp) tells effective mass \\
+amplitude(field angle) tells c axis warping \\
+
+decrease warping as overdope -> critical \\
+nanoscale phase separation ->no more quantum oscillations \\
+no phase separation on cyclotron radius \\
+scattering may be what kills on overdoped region \\
+
+photo
+
+Neck/Belly geometry (quasi-2d fermi surface)? \\
+Yamaji angle $\equiv$ max angle at which you still get closed constant energy surface \\
+\quad $\Rightarrow$ unique signal for different FS shapes \\
+FOR BC TETRAGONAL CRYSTAL \\
+$\Gamma$ line $k_f = k_{00} + k_{01} cos(k_z)$ \\
+\quad $R_w = J_0\bigg[\big(2\pi\Delta F_n/Bcos(\theta)\big)J_{2n}(k_f c tan(\theta)) \bigg]$ \\
+X line $k_f = k_{00} + k_{21} sin(2\phi) cos(k_z)$ \\
+\quad $R_w = J_0\bigg[\big(2\pi\Delta F_n/Bcos(\theta)\big)J_{2n}(k_f c tan(\theta))sin(\phi) \bigg]$ \\
+\end{frame}
+
+\begin{frame}
+\frametitle{RUS}
+Resonant Ultra Sound measurements \\
+$\sigma_i = C_{i,j} \epsilon_j$ \\
+stress = (elastic tensor) strain, i,j = 1,6 \\
+sound velocity $\propto \sqrt{C_{i,j}}$  \\
+$C_{i,j} = \frac{\delta^2 F}{\delta\epsilon_i\delta\epsilon_j}$
+\end{frame}
+
+\begin{frame}
+Thermodynamics \\
+$\Delta F(\epsilon) = F^{sc} - F^N = -N(T-T_c(\epsilon))^2$ \\
+$\Delta C_{i,j} = -2N\frac{\delta T_c}{\delta \epsilon_i}\frac{\delta T_c}{\delta \epsilon_j}$ \\ 
+\hspace{1.5cm}$ - \bigg[2N\frac{\delta^2T_c}{\delta \epsilon_i\delta\epsilon_j}+ 2 \frac{\delta N}{\delta\epsilon_i}\frac{\delta T_c}{\delta\epsilon_j} + 2 \frac{\delta N}{\delta\epsilon_j}\frac{\delta T_c}{\delta\epsilon_i}  \bigg](T_c-T)$ \\
+\hspace{1.5cm}$- \frac{\delta^2N}{\delta\epsilon^2}(T_c-T)^2$ 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{(C)DMFT}
+-Quasipartiles $\Rightarrow$ Low energy excitations \\
+\quad -gapped in SC and PG states
+-Atomic Transitions $\Rightarrow$ High energy excitations \\
+\quad -On-site Coulomb repulsion vs electron hopping
+\quad -Hunds rules
+\quad -Mott physics
+\end{frame}
+
+\begin{frame}
+\frametitle{(C)DMFT}
+
+\end{frame}
+
+\end{document}

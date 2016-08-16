@@ -1,0 +1,48 @@
+reset
+unset multiplot
+set term postscript color enhanced eps font "Helvetica" 30
+set format "%8.1f"
+set key noautotitle
+set output 'sus_connection.eps'
+
+set xrange[-1.29:1.29]
+set yrange[-1.29:1.29]
+unset xtics
+unset ytics
+unset xlabel
+unset ylabel
+unset border
+set size ratio -1
+
+set multi
+set parametric
+set trange[0:2*pi]
+set label '2{/Symbol L}' at 0.85,0.81 tc rgb 'red'
+plot cos(t), sin(t) w l lc rgb 'black' lw 3
+set arrow from 0.9/sqrt(2),0.9/sqrt(2) to 1.1/sqrt(2),1.1/sqrt(2) lc rgb 'red'
+set arrow from 1.1/sqrt(2),1.1/sqrt(2) to 0.9/sqrt(2),0.9/sqrt(2) lc rgb 'red'
+set arrow from -1.0,0.3 to 0.83,-0.39 lc rgb 'olive'
+set arrow from -1.25,0.0 to 0.63,-0.69 lc rgb 'blue'
+set arrow from -1.25,-0.3 to 0.63,-0.99 lc rgb 'black'
+set arrow from 0,0 to 0.97,0.25 lt 3 lc rgb 'black'
+set label 'X@^{/Symbol I}_{nn`}' at -0.3, 0.15 tc rgb 'olive'
+set label 'X@^{/Symbol II}_{nn`}' at -0.3, -0.27 tc rgb 'blue'
+set label 'X@^{/Symbol III}_{nn`}' at -0.3, -0.58 tc rgb 'black'
+set label 'k_f' at 0.5,0.25
+
+plot 1.1*cos(t), 1.1*sin(t) w l lt 2 lc rgb 'red'
+plot 0.9*cos(t), 0.9*sin(t) w l lt 2 lc rgb 'red'
+plot (0.85 + 0.03*cos(t)), (-0.4 + 0.03*sin(t)) lc rgb 'olive'
+plot (-1.0 + 0.03*cos(t)), (0.3 + 0.03*sin(t)) lc rgb 'olive'
+plot (0.65 + 0.03*cos(t)), (-0.7 + 0.03*sin(t)) lc rgb 'blue'
+plot (-1.25 + 0.03*cos(t)), (0.0 + 0.03*sin(t)) lc rgb 'blue'
+plot (0.65 + 0.03*cos(t)), (-1.0 + 0.03*sin(t)) lc rgb 'black'
+plot (-1.25 + 0.03*cos(t)), (-0.3 + 0.03*sin(t)) lc rgb 'black'
+plot "<echo '0.85 -0.4'"   with points ls 7 lc rgb 'olive'
+plot "<echo '-1.0 0.3'"   with points ls 7 lc rgb 'olive'
+plot "<echo '0.65 -0.7'"   with points ls 7 lc rgb 'blue'
+plot "<echo '-1.25 0.0'"   with points ls 7 lc rgb 'blue'
+plot "<echo '0.65 -1,0'"   with points ls 7 lc rgb 'black'
+plot "<echo '-1.25 -0.3'"   with points ls 7 lc rgb 'black'
+unset multi
+unset output

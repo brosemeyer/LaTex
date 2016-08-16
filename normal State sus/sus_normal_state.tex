@@ -1,0 +1,141 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\begin{document}
+\title{Normal State Calculation of Magnetic Susceptibility}
+\author{Ben Rosemeyer}
+\date{\today}
+\maketitle
+
+The normal state susceptibility is given by the Lindhard formula:
+\begin{align*}
+\chi_{\parallel}=-2\mu_e^2\sum\limits_{{\bf k},s} \frac{ f(\epsilon_{{\bf k},s})-f(\epsilon_{{\bf k+q},s})}{ \epsilon_{{\bf k},s}-\epsilon_{{\bf k+q},s}} \\
+\chi_{\perp}=-2\mu_e^2\sum\limits_{{\bf k},s} \frac{ f(\epsilon_{{\bf k},s})-f(\epsilon_{{\bf k+q},\bar{s}})}{ \epsilon_{{\bf k},s}-\epsilon_{{\bf k+q},\bar{s}}}
+\end{align*}
+Where $\epsilon_{{\bf k},s}=k^2/(2m)+s\mu_B H$, and $f(\epsilon)$ is the fermi distribution funciton.
+ 
+ We first proceed with the calculation at zero temperature. We orient our coordinates such that ${\bf q}=q\hat{x}$, and change from ${\bf k}$ and ${\bf k+q}$ to ${\bf k-q}/2$ and ${\bf k+q}/2$. Converting the sums to integrals, and using symmetry about the x and y axes, we have:
+ 
+ \begin{align*}
+ \chi_\parallel=-8\mu_e^2\sum\limits_s \int\limits_0^{\pi/2} d\phi \int k dk  \frac{ f(\epsilon_{{\bf k-q}/2,s})-f(\epsilon_{{\bf k+q}/2,s})}{ -2kq\cos\phi} \\
+  \chi_\perp=-8\mu_e^2\sum\limits_s \int\limits_0^{\pi/2} d\phi \int k dk  \frac{ f(\epsilon_{{\bf k-q}/2,s})-f(\epsilon_{{\bf k+q}/2,\bar{s}})}{ -2kq\cos\phi+2s\mu_B H}
+ \end{align*}
+ Where we have also normalized the 2D area of integration $A/(2\pi \hbar)^2=1$
+ 
+ \section{Parallel}
+ To determine the limits of integration on k, we need to solve the dispersion relation for k when $\epsilon_{{\bf k\pm q}/2,s}=\mu$, the chemical potential. If we normalize the equation by multiplying and dividing it by $k_f^2$, the result is:
+ 
+ \begin{align*}
+ 1=k'^2\pm k'q'\cos\phi+(q'/2)^2+sH'\quad\quad\Rightarrow &k'=\mp \frac{q'\cos\phi}{2} \pm\sqrt{ (q'\cos\phi/2)^2-((q'/2)^2 +sH'-1)} \\
+ {\bf \Rightarrow}&k'=\mp \frac{q'\cos\phi}{2} \pm\sqrt{1-sH'-(q'/2)^2\sin^2\phi}
+ \end{align*}
+ 
+ Where $k'=k/k_f$, $q'=q/k_f$ and $H'=\mu_B H/k_f^2$. Now we consider only the parallel component in three different regions:
+ 
+ \framebox{$q<2\sqrt{1-H'}$}
+ \begin{align*}
+\chi_\parallel&=8\mu_e^2\sum\limits_s \int\limits_0^{\pi/2} d\phi \int\limits_0^{\frac{q'\cos\phi}{2} + \sqrt{1-sH'-(q'/2)^2\sin^2\phi}}dk'  \frac{ 1}{ 2q'\cos\phi}-\int\limits_0^{\frac{-q'\cos\phi}{2} + \sqrt{1-sH'-(q'/2)^2\sin^2\phi}} dk'  \frac{ 1}{ 2q'\cos\phi} \\
+\chi_\parallel&=8\mu_e^2\sum\limits_s \int\limits_0^{\pi/2} d\phi \frac{ q'\cos\phi}{ 2q'\cos\phi} =4\mu_e^2\pi
+ \end{align*}
+ 
+ \framebox{$2\sqrt{1-H'}<q<2\sqrt{1+H'}$}
+ \begin{align*}
+\chi_\parallel&=2\mu_e^2\pi +8\mu_e^2\int\limits_0^{\phi*} d\phi \int\limits_{\frac{q'\cos\phi}{2} - \sqrt{1-H'-(q'/2)^2\sin^2\phi}}^{\frac{q'\cos\phi}{2} + \sqrt{1-H'-(q'/2)^2\sin^2\phi}}dk'  \frac{ 1}{ 2q'\cos\phi} \\
+\chi_\parallel&=2\mu_e^2\pi +\frac{8\mu_e^2}{q'}\int\limits_0^{\phi*} d\phi  \frac{ \sqrt{1-H'-(q'/2)^2\sin^2\phi}}{ \cos\phi} \\
+\chi_\parallel&=2\mu_e^2\pi +\frac{8\mu_e^2}{q'}\int\limits_0^{\sin\phi*} dx  \frac{ \sqrt{1-H'-(q'/2)^2 x^2}}{ 1-x^2}  \\
+\chi_\parallel&=2\mu_e^2\pi +\frac{8\mu_e^2}{q'}\frac{\pi}{4}(q'-\sqrt{q'^2+4H'-4} ) \\
+\chi_\parallel&=4\mu_e^2\pi -2\mu_e^2\pi  \sqrt{1-(1-H')(2/q')^2}  \\
+ \end{align*}
+ 
+ 
+  \framebox{$q>2\sqrt{1+H'}$}
+   \begin{align*}
+\chi_\parallel&=8\mu_e^2\int\limits_0^{\phi*} d\phi \int\limits_{\frac{q'\cos\phi}{2} - \sqrt{1+H'-(q'/2)^2\sin^2\phi}}^{\frac{q'\cos\phi}{2} + \sqrt{1+H'-(q'/2)^2\sin^2\phi}}dk'  \frac{ 1}{ 2q'\cos\phi}  +8\mu_e^2\int\limits_0^{\phi*} d\phi \int\limits_{\frac{q'\cos\phi}{2} - \sqrt{1-H'-(q'/2)^2\sin^2\phi}}^{\frac{q'\cos\phi}{2} + \sqrt{1-H'-(q'/2)^2\sin^2\phi}}dk'  \frac{ 1}{ 2q'\cos\phi} \\
+\chi_\parallel&=\frac{8\mu_e^2}{q'}\frac{\pi}{4}(q'-\sqrt{q'^2-4H'-4} )+\frac{8\mu_e^2}{q'}\frac{\pi}{4}(q'-\sqrt{q'^2+4H'-4} ) \\
+\chi_\parallel&=4\mu_e^2\pi - 2\mu_e^2\pi \sqrt{1-(1+H')(2/q'^2)} -2\mu_e^2\pi \sqrt{q'^2-(1-H')(2/q')^2}  
+ \end{align*}
+  
+  \section{Perpendicular}
+  Now we continue with the perpendicular component. To do this we move the origin such that at $k_x$=0 the s=1 and s=-1 surfaces intersect. The equations for this transformation are:
+ \begin{align*}
+ s=1:\quad\quad k'_x \rightarrow k'_x-q'/2+H'/q', \quad\quad k^2=1-H' \rightarrow k=(q'/2-H'/q')\cos\phi\pm\sqrt{1-H'-(q'/2-H'/q')^2\sin^2\phi} \\
+  s=-1:\quad\quad k'_x \rightarrow k'_x-q'/2-H'/q', \quad\quad k^2=1+H' \rightarrow k=(q'/2+H'/q')\cos\phi\pm\sqrt{1+H'-(q'/2+H'/q')^2\sin^2\phi}
+ \end{align*}
+ For this integration there are two regions:
+ 
+ \framebox{$q'<\sqrt{1+H'}+\sqrt{1-H'}$}
+ \begin{align*}
+ \chi_\perp&=8\mu_e^2 \int\limits_0^{\pi/2} d\phi \int\limits_0^{(q'/2-H'/q')\cos\phi + \sqrt{1-H'-(q'/2-H'/q')^2\sin^2\phi}}dk'  \frac{ 1}{ 2q'\cos\phi} \\
+ &-\int\limits_0^{-(q'/2-H'/q')\cos\phi + \sqrt{1-H'-(q'/2-H'/q')^2\sin^2\phi}} dk'  \frac{ 1}{ 2q'\cos\phi} \\
+ &+\int\limits_0^{(q'/2+H'/q')\cos\phi + \sqrt{1+H'-(q'/2+H'/q')^2\sin^2\phi}} dk'  \frac{ 1}{ 2q'\cos\phi}  \\
+ &-\int\limits_0^{-(q'/2+H'/q')\cos\phi + \sqrt{1+H'-(q'/2+H'/q')^2\sin^2\phi}} dk'  \frac{ 1}{ 2q'\cos\phi} \\
+  \chi_\perp&=(4\mu_e^2/q') \int\limits_0^{\pi/2} d\phi 2(q'/2-H'/q')+2(q'/2+H'/q') \\
+  \chi_\perp&=4\mu_e^2\pi\\
+ \end{align*}
+  
+   \framebox{$q'>\sqrt{1+H'}+\sqrt{1-H'}$}
+    \begin{align*}
+ \chi_\perp&=8\mu_e^2 \int\limits_0^{\phi^*_{1,2}} d\phi \int\limits_{(q'/2-H'/q')\cos\phi - \sqrt{1-H'-(q'/2-H'/q')^2\sin^2\phi}}^{(q'/2-H'/q')\cos\phi + \sqrt{1-H'-(q'/2-H'/q')^2\sin^2\phi}}dk'  \frac{ 1}{ 2q'\cos\phi} \\
+ &+\int\limits_{(q'/2+H'/q')\cos\phi - \sqrt{1+H'-(q'/2+H'/q')^2\sin^2\phi}}^{(q'/2+H'/q')\cos\phi + \sqrt{1+H'-(q'/2+H'/q')^2\sin^2\phi}} dk'  \frac{ 1}{ 2q'\cos\phi}  \\
+  \chi_\perp&=(8\mu_e^2/q') \int\limits_0^{\phi^*_{1}} d\phi   \frac{ \sqrt{1-H'-(q'/2-H'/q')^2\sin^2\phi}}{ \cos\phi} 
+ + \int\limits_0^{\phi^*_{2}} d\phi \frac{  \sqrt{1+H'-(q'/2+H'/q')^2\sin^2\phi}}{ \cos\phi}  \\
+   \chi_\perp&=(8\mu_e^2/q') \int\limits_0^{\sqrt{1-H'}/(q'/2-H'/q')} dx \frac{ \sqrt{1-H'-(q'/2-H'/q')^2x^2}}{ 1-x^2} 
+ +\int\limits_0^{\sqrt{1+H'}/(q'/2+H'/q')} dx \frac{  \sqrt{1+H'-(q'/2+H'/q')^2 x^2}}{ 1-x^2}  \\
+  \chi_\perp&=(8\mu_e^2/q') (\pi/4q')\bigg[(-2H'+q^2-\sqrt{4H'^2-4q'^2+q'^4})+(2H'+q'^2-\sqrt{4H'^2-4q'^2+q'^4})\bigg] \\
+    \chi_\perp&=4\mu_e^2\pi \bigg[1-\sqrt{1+(2H'/q'^2)^2-(2/q')^2}\bigg] \\
+ \end{align*}
+ 
+ \section{Low Temperature Expansion}
+ We now compute the low temperature expansion of $\chi$ for zero field using the Sommerfeld Expansion. We again write the susceptibility:
+ \begin{align*}
+ \chi&=-4\mu_e^2\sum\limits_{\bf k} \frac{ f(\epsilon_k)-f(\epsilon_{k+q})}{\epsilon_k-\epsilon_{k+q}} \\
+ &=-4\mu_e^2\sum\limits_{\bf k} \frac{f(\epsilon_k)}{\epsilon_k-\epsilon_{k+q}} -\frac{f(\epsilon_{k+q})}{\epsilon_k-\epsilon_{k+q}} \\
+  &=-4\mu_e^2\sum\limits_{\bf k} \frac{f(\epsilon_k)}{\epsilon_k-\epsilon_{k+q}} -\frac{f(\epsilon_{k})}{\epsilon_{k-q}-\epsilon_{k}} \\
+ \end{align*}
+  Where we have changed variables in the second term $\bf k \rightarrow k-q$. To find the Sommerfeld expansion we need to convert the integration to energies and add an imaginary part to the denominator which we will take to zero at the end.
+  \begin{align*}
+  \chi&=2\mu_e^2\int\limits_0^{2\pi}d\phi\int \limits_0^{\infty}d\epsilon\bigg[ \frac{1}{2kq\cos\phi+q^2} +\frac{1}{-2kq\cos\phi+q^2} \bigg]f(\epsilon_{k})\\
+   &=(\mu_e^2/q)\int \limits_0^{\infty}d\epsilon f(\epsilon)\int\limits_0^{2\pi}d\phi\bigg[ \frac{1}{\sqrt{\epsilon}\cos\phi+q/2+i\delta/2} +\frac{1}{-\sqrt{\epsilon}\cos\phi+q/2-i\delta/2} \bigg]\\
+    &=(\mu_e^2/q)\int \limits_0^{\infty}d\epsilon \frac{f(\epsilon)}{\sqrt{\epsilon}}\int\limits_0^{2\pi}d\phi\bigg[ \frac{1}{\cos\phi+(q+i\delta)/2\sqrt{\epsilon}} -\frac{1}{\cos\phi-(q-i\delta)/2\sqrt{\epsilon}} \bigg]\\
+  \end{align*}
+  
+
+  Now we turn our attention to the $\phi$ integral, using complex integration around a unit circle in the complex plane ($z=e^{i\phi}$), and defining $a_{\pm}=(q\pm i\delta)/\sqrt{\epsilon}$
+  \begin{align*}
+  &\int\limits_\Gamma \frac{dz}{iz} \bigg[ \frac{1}{(z+1/z)/2+a_+/2} -\frac{1}{(z+1/z)/2-a_- /2} \bigg] \\
+  =&(2/i)\int\limits_\Gamma dz \bigg[ \frac{1}{z^2+a_+z+1} -\frac{1}{z^2-a_-z+1} \bigg] 
+  \end{align*}
+  Using subscript 1(2) to refer to the first (second) term, the poles are:
+  \begin{align*}
+  z_1=-a_+/2\pm\sqrt{(a_+/2)^2-1} \\
+  z_2=a_-/2\pm\sqrt{(a_-/2)^2-1}
+  \end{align*}
+  For $q>2$ the roots which are inside of the unit circle are $z_{1+}$ and $z_{2-}$. However, for $q<2$ we need to carfully consider the magnitude of the poles. With this consideration, one finds that  $|z_{1+}|<1$ and $|z_{2+}|<1$ while  $|z_{1-}|>1$ and $|z_{2-}|>1$. \\[1cm]
+  
+  \framebox{$q<2$}
+   \begin{align*}
+  &(2/i)\int\limits_\Gamma dz \bigg[ \frac{1}{z^2+a_+z+1} -\frac{1}{z^2-a_-z+1} \bigg] \\
+    =&4\pi Res\bigg[ \frac{1}{(z-z_{1+})(z-z_{1-})} -\frac{1}{(z-z_{2+})(z-z_{2-})} \bigg]  \\
+  =&4\pi\bigg[ \frac{1}{z_{1+}-z_{1-}} -\frac{1}{z_{2+}-z_{2-}} \bigg]  \\
+  =&(2\pi)\bigg[ \frac{1}{\sqrt{(a_+/2)^2-1}} -\frac{1}{\sqrt{(a_-/2)^2-1}} \bigg]  \\
+    =&(2\pi)\frac{\sqrt{(a_-/2)^2-1}-\sqrt{(a_+/2)^2-1}}{\sqrt{(a_+/2)^2-1}\sqrt{(a_-/2)^2-1}} \\
+   =&\frac{8\pi}{\sqrt{(q/2)^2/\epsilon-1}}  \\
+    \end{align*}
+
+  \framebox{$q>2$}
+  \begin{align*}
+  &(2/i)\int\limits_\Gamma dz \bigg[ \frac{1}{z^2+a_+z+1} -\frac{1}{z^2-a_-z+1} \bigg] \\
+    =&4\pi Res\bigg[ \frac{1}{(z-z_{1+})(z-z_{1-})} -\frac{1}{(z-z_{2+})(z-z_{2-})} \bigg]  \\
+  =&4\pi\bigg[ \frac{1}{z_{1+}-z_{1-}} -\frac{1}{z_{2-}-z_{2+}} \bigg]  \\
+   =&\frac{4\pi}{\sqrt{(q/2)^2/\epsilon-1}}  \\
+    \end{align*}
+   Now we can insert this into the $\epsilon$ integral and approximate with the Sommerfeld expansion.
+   
+   \begin{align*}
+    \chi &= (4\pi\mu_e^2/q)\int \limits_0^{\infty}d\epsilon \frac{f(\epsilon)}{\sqrt{\epsilon}}\frac{1}{\sqrt{(q/2)^2/\epsilon-1}}\\
+    &= (4\pi\mu_e^2/q)\int \limits_0^{\infty}d\epsilon \frac{f(\epsilon)}{\sqrt{(q/2)^2-\epsilon}}\\
+     &\approx-(8\pi\mu_e^2/q)\sqrt{(q/2)^2-\epsilon} \bigg|_{\epsilon=0}^1+ (\pi^2 T^2/6)(4\pi\mu_e^2/q)\frac{d}{d\epsilon}\bigg[\frac{1}{\sqrt{(q/2)^2-\epsilon}}\bigg]_{\epsilon=1}\\
+       &=(8\pi\mu_e^2/q)\big(q/2-\sqrt{(q/2)^2-1}\big)+ (\pi^2 T^2/6)(4\pi\mu_e^2/q)\frac{d}{d\epsilon}\bigg[\frac{1}{\sqrt{(q/2)^2-\epsilon}}\bigg]_{\epsilon=1}\\
+   \end{align*}
+   
+\end{document}

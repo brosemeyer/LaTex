@@ -1,0 +1,100 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{bookmath}
+\usepackage{amsmath}
+
+\title{HW 3: Physics 545}
+\author{Ben Rosemeyer}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+First we note that for a single excitation at momentum $\vk$ we have $\delta n_\vp = V \delta_{\vp,\vk}$.
+
+To begin with we will find the three quantities as a single sum over the excitations, similar to the class notes which have that result for the current $\vj$. To do this we need only consider the result from the second term in $\bar{\delta n_\vp} = \delta n_\vp - \frac{\partial n^0_\vp}{\partial \epsilon_\vp}\delta\epsilon_\vp$. We also note the lack of all antisymmetric spin interactions so that only the symmetric ones contribute. $P_l(x)$ is the lth Legendre Polynomial and $f^s_l$ is the Fermi Liquid parameter for the symmetric spin interaction in the lth channel.
+
+\section*{Particle Current}
+\bea
+&-\frac{1}{V}\sum\limits_\vp (\nabla_\vp \epsilon^0_\vp)\frac{\partial n^0_\vp}{\partial \epsilon_\vp}\delta\epsilon_\vp \\
+=&-\frac{1}{V}\sum\limits_\vp (\vp/m^*)(-\delta(\xi_\vp)) \frac{2}{V}\sum\limits_{\vp',l} f^s_l P_l(\hat{p}\cdot\hat{p'})\delta n_{\vp'} \\
+=&\frac{1}{V}\sum\limits_{\vp',l}2N_f(p_f/m^*)\delta n_{\vp'} f^s_l\int d\Omega_\vp \hat{p} P_l(\hat{p}\cdot\hat{p'}) \\
+=&\frac{1}{V}\sum\limits_{\vp'}2N_f(p_f/m^*)\delta n_{\vp'} \hat{p'}f^s_1/3 \\
+=&\frac{1}{V}\sum\limits_{\vp'}(\vp'/m^*)\delta n_{\vp'} F^s_1/3
+\eea
+between lines 3 and 4 we used the result from HW 2 to do the solid angle integration, and we define $F^s_l = 2N_f f^s_l$ as a dimensionless Fermi Liquid parameter. Combining this will the first term of $\bar{\delta n_\vp}$ and switching the sum over $\vp'$ to $\vp$ above, we have the result from lecture.
+
+\be
+\vj = \frac{1}{V}\sum\limits_\vp \delta n_{\vp} \frac{\vp}{m^*}(1 + F^s_l/3)
+\ee
+\boxed{\vj = \frac{\vk}{m^*}(1 + F^s_l/3)}
+
+For Galilean invariance we go to the co-moving frame such that the excitation momentum $\vk = 0$. This frame has velocity $\vU = \vk/m$, and the ratio $\frac{m^*}{m} = 1 + F^s_l/3$ from class. plugging in the ratio of $\frac{m^*}{m}$ into $\vj$ yields $\vj = \vU$ and thus we have Galilean Invariance.
+
+\section*{Momentum Current}
+\bea
+&-\frac{1}{V}\sum\limits_\vp p_i\frac{\partial\epsilon^0_\vp}{\partial p_j}\frac{\partial n^0_\vp}{\partial \epsilon_\vp}\delta\epsilon_\vp \\
+=&-\frac{1}{V}\sum\limits_\vp p_i(p_j/m^*)(-\delta(\xi_\vp)) \frac{2}{V}\sum\limits_{\vp',l} f^s_l P_l(\hat{p}\cdot\hat{p'})\delta n_{\vp'} \\
+=&\frac{1}{V}\sum\limits_{\vp',l}2N_f(p_f^2/m^*)\delta n_{\vp'} f^s_l\int d\Omega_\vp (\hat{p}\cdot\hat{i})(\hat{p}\cdot\hat{j}) P_l(\hat{p}\cdot\hat{p'}) \\
+\eea
+
+To do the solid angle integral above, we write the Legendre Polynomial as an expansion of spherical harmonics $P_l(\hat{p}\cdot\hat{p'}) = \frac{4\pi}{2l+1}\sum\limits_{m=-l}^l Y^m_l(\hat{p})Y^{m^*}_l(\hat{p'})$, and also decompose the products $\hat{p}_i\hat{p}_j$ into spherical harmonics:
+\bea
+\hat{p}_x\hat{p}_x = \sin^2(\theta)\cos^2(\phi) = -\frac{4}{30}Y^{0^*}_2 + \frac{1}{3}Y^{0^*}_0 + \frac{1}{30}(Y^{2^*}_2 - Y^{-2^*}_2) \\
+\hat{p}_y\hat{p}_y = \sin^2(\theta)\sin^2(\phi) = -\frac{4}{30}Y^{0^*}_2 + \frac{1}{3}Y^{0^*}_0 - \frac{1}{30}(Y^{2^*}_2 - Y^{-2^*}_2)\\
+\hat{p}_z\hat{p}_z = \cos^2(\theta) = \frac{4}{15}Y^{0^*}_2 + \frac{2}{3}Y^{0^*}_0 \\
+\hat{p}_x\hat{p}_y = \sin^2(\theta)\cos(\phi)\sin(\phi) = \frac{1}{30}(-Y^{2^*}_2 - Y^{-2^*}_2) \\
+\hat{p}_x\hat{p}_z = \sin(\theta)\cos(\theta)\cos(\phi) = \frac{1}{30}(-Y^{1^*}_2 + Y^{-1^*}_2) \\
+\hat{p}_y\hat{p}_z = \sin(\theta)\cos(\theta)\sin(\phi) = \frac{1}{30}(Y^{1^*}_2 + Y^{-1^*}_2) 
+\eea
+
+From these it is easy to see that only the  $l=0$ and $l=2$ Fermi Liquid parameters will survive. After integration of the solid angle using orthogonality of the spherical harmonics we have
+
+\bea
+\hat{p}_x\hat{p}_x: \frac{1}{V}\sum\limits_{\vp'}2N_f(p_f^2/m^*)\delta n_{\vp'} \bigg(-\frac{4}{5*30}Y^{0^*}_2 + \frac{1}{3}Y^{0^*}_0 + \frac{1}{5*30}(Y^{2^*}_2 - Y^{-2^*}_2)\bigg) \\
+\hat{p}_y\hat{p}_y: \frac{1}{V}\sum\limits_{\vp'}2N_f(p_f^2/m^*)\delta n_{\vp'} \bigg(-\frac{4}{5*30}Y^{0^*}_2 + \frac{1}{3}Y^{0^*}_0 - \frac{1}{5*30}(Y^{2^*}_2 - Y^{-2^*}_2)\bigg) \\
+\hat{p}_z\hat{p}_z: \frac{1}{V}\sum\limits_{\vp'}2N_f(p_f^2/m^*)\delta n_{\vp'} \bigg(\frac{4}{5*15}Y^{0^*}_2 + \frac{2}{3}Y^{0^*}_0\bigg) \\
+\hat{p}_x\hat{p}_y: \frac{1}{V}\sum\limits_{\vp'}2N_f(p_f^2/m^*)\delta n_{\vp'}\frac{1}{5*30} (-Y^{2^*}_2 - Y^{-2^*}_2) \\
+\hat{p}_x\hat{p}_z: \frac{1}{V}\sum\limits_{\vp'}2N_f(p_f^2/m^*)\delta n_{\vp'}\frac{1}{5*30}(-Y^{1^*}_2 + Y^{-1^*}_2) \\
+\hat{p}_y\hat{p}_z: \frac{1}{V}\sum\limits_{\vp'}2N_f(p_f^2/m^*)\delta n_{\vp'}\frac{1}{5*30}(Y^{1^*}_2 + Y^{-1^*}_2) 
+\eea
+
+Finally, we can write the spherical harmonic combinations as products of cartesian basis
+
+\bea
+\hat{p}_x\hat{p}_x: \frac{1}{V}\sum\limits_{\vp'}2N_f(p_f^2/m^*)\delta n_{\vp'} \frac{1}{5} (f^s_2\hat{p'}_x\hat{p'}_x - \frac{4(f^s_2-f^s_0)}{15}) \\
+\hat{p}_y\hat{p}_y: \frac{1}{V}\sum\limits_{\vp'}2N_f(p_f^2/m^*)\delta n_{\vp'} \frac{1}{5} (f^s_2\hat{p'}_y\hat{p'}_y - \frac{4(f^s_2-f^s_0)}{15}) \\
+\hat{p}_z\hat{p}_z: \frac{1}{V}\sum\limits_{\vp'}2N_f(p_f^2/m^*)\delta n_{\vp'} \frac{1}{5} (f^s_2\hat{p'}_z\hat{p'}_z - \frac{4(f^s_2-f^s_0)}{15}) \\
+\hat{p}_x\hat{p}_y: \frac{1}{V}\sum\limits_{\vp'}2N_f(p_f^2/m^*)\delta n_{\vp'} \frac{1}{5} (f^s_2\hat{p'}_x\hat{p'}_y) \\
+\hat{p}_x\hat{p}_z: \frac{1}{V}\sum\limits_{\vp'}2N_f(p_f^2/m^*)\delta n_{\vp'} \frac{1}{5} (f^s_2\hat{p'}_x\hat{p'}_z) \\
+\hat{p}_y\hat{p}_z: \frac{1}{V}\sum\limits_{\vp'}2N_f(p_f^2/m^*)\delta n_{\vp'} \frac{1}{5} (f^s_2\hat{p'}_y\hat{p'}_z) 
+\eea
+
+The momentum current for a single excitation is then
+\bea
+\mathcal{\pi}_{xx} = \frac{k_x^2}{m^*} + (p_f^2/m^*) \frac{1}{5} (f^s_2\hat{k}_x\hat{k}_x - \frac{4(f^s_2-f^s_0)}{15}) \\
+\mathcal{\pi}_{yy} = \frac{k_y^2}{m^*} + (p_f^2/m^*) \frac{1}{5} (f^s_2\hat{k}_y\hat{k}_y - \frac{4(f^s_2-f^s_0)}{15}) \\
+\mathcal{\pi}_{zz} = \frac{k_z^2}{m^*} + (p_f^2/m^*) \frac{1}{5} (f^s_2\hat{k}_z\hat{k}_z - \frac{4(f^s_2-f^s_0)}{15}) \\
+\mathcal{\pi}_{xy} = \mathcal{\pi}_{yx} = \frac{k_xk_y}{m^*} + (p_f^2/m^*) \frac{1}{5} (f^s_2\hat{k}_x\hat{k}_y) \\
+\mathcal{\pi}_{xz} = \mathcal{\pi}_{zx} = \frac{k_xk_z}{m^*} + (p_f^2/m^*) \frac{1}{5} (f^s_2\hat{k}_x\hat{k}_z) \\
+\mathcal{\pi}_{yz} = \mathcal{\pi}_{zy} = \frac{k_yk_z}{m^*} + (p_f^2/m^*) \frac{1}{5} (f^s_2\hat{k}_y\hat{k}_z) 
+\eea
+
+
+\section*{Energy Current}
+\bea
+&-\frac{1}{V}\sum\limits_\vp \epsilon^0_\vp(\nabla_\vp \epsilon^0_\vp)\frac{\partial n^0_\vp}{\partial \epsilon_\vp}\delta\epsilon_\vp \\
+=&-\frac{1}{V}\sum\limits_\vp \epsilon^0_\vp(\vp/m^*)(-\delta(\xi_\vp)) \frac{2}{V}\sum\limits_{\vp',l} f^s_l P_l(\hat{p}\cdot\hat{p'})\delta n_{\vp'} \\
+=&\frac{1}{V}\sum\limits_{\vp',l}2N_f\epsilon_f(p_f/m^*)\delta n_{\vp'} f^s_l\int d\Omega_\vp \hat{p} P_l(\hat{p}\cdot\hat{p'}) \\
+=&\frac{1}{V}\sum\limits_{\vp'}2N_f\epsilon_f(p_f/m^*)\delta n_{\vp'} \hat{p'}f^s_1/3 \\
+=&\frac{1}{V}\sum\limits_{\vp'}\epsilon_f(\vp'/m^*)\delta n_{\vp'} F^s_1/3
+\eea
+
+\bea
+\vq = \frac{1}{V}\sum\limits_{\vp}\delta n_{\vp}\frac{\vp}{m^*} \bigg(\epsilon^0_\vp  + \epsilon_f \frac{F^s_1}{3}\bigg)
+\eea
+\boxed{ \vq = \frac{\vk}{m^*}\epsilon_f \bigg(1 + \frac{F^s_1}{3}\bigg) }
+\end{document}

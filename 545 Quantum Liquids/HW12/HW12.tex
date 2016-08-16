@@ -1,0 +1,141 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{bookmath}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\title{HW 12: Physics 545}
+\author{Ben Rosemeyer}
+
+\begin{document}
+
+\maketitle
+
+\section*{1a}
+
+The critical value of $|\psi|(T)$ is found by minimizing the free energy with respect to $\psi^*$ for temperatures below $T_c$.
+
+\bea
+\frac{\partial F}{\partial \psi^*} = a(T-T_c)\psi + \beta \psi^2 \psi^* = 0 \\
+\Rightarrow |\psi|^2 = a(T_c-T)/\beta
+\eea 
+
+The resulting condensation energy per volume is:
+\bea
+\Delta F(|\psi|)/V &/=& -\beta (a(T_c-T)/\beta)^2 + \frac{\beta}{2}(a(T_c-T)/\beta)^2 \\
+	&=& -\frac{a^2(T_c-T)^2}{2\beta}
+\eea
+and the critical field such that the magnetic energy = condensation energy is:
+\bea
+\Delta F(|\psi|) =  - H_c^2/(8\pi) \\
+	H_c =  a|T_c-T|\sqrt{\frac{4\pi}{\beta}}
+\eea
+
+\section*{1b}
+The coherence length $\xi(T)$ and London penetration depth $\lambda(T)$ where defined in class. They appeared as characteristic length coefficients in the differential equations for $\psi$ and $\vA$ respectively.
+
+\bea
+\xi(T) =  \sqrt{\frac{K}{a|T-T_c|}}  \\
+\lambda(T) = \frac{\hbar c}{4e}\sqrt{\frac{\beta}{2\pi K a|T-T_c|}}
+\eea
+
+\section*{1c}
+The equation for $|\psi|$ in a magnetic field is found by the minimization of $F$ w.r.t $\psi^*$
+\bea
+\frac{\partial F}{\partial \psi^*} = 0 \\
+\Rightarrow K\bigg|\frac{\nabla}{i} - \frac{2e}{\hbar c}\vA\bigg|^2\psi + a(T-T_c)\psi + \beta |\psi|^2\psi = 0
+\eea
+
+Up to linear order in $\psi$ this reduces to the Schrodinger eigen-equation for a charged particle in magnetic field with $a(T-T_c)$ acting as the eigen-energy $\epsilon$. 
+
+\be
+a(T-T_c)\psi = -K\bigg|\frac{\nabla}{i} - \frac{2e}{\hbar c}\vA\bigg|^2\psi
+\ee
+
+The solutions to such a problem are the quantized cyclotron orbits (aka Landau levels) $\epsilon_n = (\frac{1}{2} + n)\hbar\omega_c$ and $\omega_c=\frac{eH}{mc}$ is the cyclotron frequency of electrons.
+
+When the lowest energy cyclotron orbit $\epsilon_0$ is smaller than $a(T-T_c)$ this becomes the energetically favorable state and the critical value of field needed for this condition is $H_{c2}$.
+
+\bea
+a(T-T_c) = \frac{\hbar eH_{c2}}{2mc}\\
+\Rightarrow H_{c2}(T) = \frac{2mca|T-T_c|}{\hbar e}
+\eea
+
+\section*{1d}
+
+We are interested in the critical condition $H_{c2}\geq H_c$. When viewed as an equality, this condition means that formation of cyclotron orbits and bulk magnetism is equally favorable and energetically preferred over the condensed superconducting state.
+\bea
+H_{c2}\geq H_c \\
+\Rightarrow\frac{2mc}{\hbar e}\sqrt{\frac{\beta}{4\pi}} \geq 1
+\eea
+
+From part b we can define the Ginzburg-Landau coefficient $\kappa = \lambda(T)/\xi(T)$ and write it in a way which lends itself easily to use the above condition
+
+\be
+\kappa =\frac{1}{\sqrt{2}} \bigg[\frac{2mc}{\hbar e}\sqrt{\frac{\beta}{4\pi}}\bigg]
+\ee
+
+The term in brackets is exactly that which appears in the inequality above so we can write the condition is $\kappa\geq 1/\sqrt{2}$!
+
+\section*{2a}
+The first step in this problem is to determine the coefficients of the two magnetizations $M_x$ and $M_d$, where d denotes the diagonal magnetization $\vM\propto(1,1,1)$. The variation of the free energy wrt $\vM$ is:
+\be
+\frac{\partial F}{\partial\vM} = \sum_{i=xyz} 2a(T-T_c)M_i + 2\beta(\vM\cdot\vM) M_i + 2b(T-T^*)M_i^3
+\ee
+
+For the $M_x$ direction the minimization equation is
+\be
+0=\frac{\partial F}{\partial\vM}\bigg|_{\vM = M_x(1,0,0)} = 2a(T-T_c)M_x + 2\beta M_x^3 + 2b(T-T^*)M_x^3
+\ee
+and the solution for magnetization magnitude is
+\be
+M_x^2 = \frac{-a(T-T_c)}{\beta+b(T-T^*)}
+\ee
+with the restriction $T<T_c$ and $T>T^*-\beta/b$.
+
+
+Similarly, for $\vM = M_d(1,1,1)$, the minimization equation is
+\be
+0=\frac{\partial F}{\partial\vM}\bigg|_{\vM = M_d(1,1,1)} = 3(2a(T-T_c)M_d + 6\beta M_d^3 + 2b(T-T^*)M_d^3)
+\ee
+and the solution for magnetization magnitude is
+\be
+M_d^2 = \frac{-a(T-T_c)}{3\beta+b(T-T^*)} = M_x^2 \frac{\beta+b(T-T^*)}{3\beta+b(T-T^*)}
+\ee
+with restriction $T<T_c$ and $T>T^*-3\beta/b$
+
+To find the energetically favorable orientation one must compare the free energy of both states:
+
+\bea
+F_{M_x} = a(T-T_c)M_x^2/2 =  \frac{-a^2(T-T_c)^2}{2(\beta+b(T-T^*))}  \\
+F_{M_d} = 3a(T-T_c)M_d^2/2 = \frac{-3a^2(T-T_c)^2}{2(3\beta+b(T-T^*))}
+\eea
+The above shows that both magnetizations are favorable over the ground state for $T<T_c$. To find the most favorable we consider their difference
+\bea
+\Delta F &=& F_{M_x}-F_{M_d} = \frac{a^2b(T-T_c)^2(T-T^*)}{(\beta+b(T-T^*))(3\beta+b(T-T^*))}
+\eea
+
+$\Delta F>0$ for $T>T^*$ so the diagonal order is preferred. For $T<T^*$ the ordering along the axis is preferred.
+
+\section*{2b}
+The specific heat jump at $T_c$ for the magnetized state is:
+\bea
+\Delta C = -T\frac{\partial^2 F}{\partial T^2}\bigg|_{T_c} = \frac{3a^2T_c}{3\beta+b(T_c-T^*)}
+\eea
+
+The entropy is $S= -\frac{\partial F}{\partial T}$
+
+\bea
+S_{M_x} = \frac{-a^2(T-T_c)}{2}\bigg[\frac{2(\beta+b(T-T^*)) - b(T-T_c)}{(\beta+b(T-T^*))^2}\bigg] \\
+S_{M_d} = \frac{-3a^2(T-T_c)}{2}\bigg[\frac{2(3\beta+b(T-T^*)) - b(T-T_c)}{(3\beta+b(T-T^*))^2}\bigg]
+\eea
+
+and the jump at $T=T^*$ is:
+\be
+\Delta S = S_{M_x} - S_{M_d}\bigg|_{T^*} = \frac{a^2b(T^*-T_c)^2}{3\beta^2}
+\ee
+
+The latent heat for such a phase transition is $Q = T^*\Delta S$
+\end{document}
+

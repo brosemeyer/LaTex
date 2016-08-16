@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\begin{document}
+\title{Briefs on CeCoIn$_5$ papers}
+\author{Ben Rosemeyer}
+\date{\today}
+\maketitle
+
+\section{Ikeda, Hatekeyama and Aoyama. Antiferromagnetic ordering induced by paramagnetic depairing in unconventional superconductors. Phys. Rev. B, 2010}
+They begin by stating the free energy in zero field and the Hamiltonian they use:
+\begin{align*}
+\mathcal{F}(H=0)=\sum\limits_r \frac{|\Delta(r)|^2}{g}-T ln \bigg[Tr e^{-\mathcal{H}/T} \bigg]\\
+\mathcal{H}=\sum\limits_{\alpha\beta} \bigg[\sum\limits_k c^\dagger_{k\alpha} e_k \delta_{\alpha\beta} c_{k\beta} -\sum\limits_q (m(q) S^\dagger(q) +H.C) +\frac{|m(q)|^2}{U}+\Delta(q)\Psi^\dagger(q)\bigg]
+\end{align*}
+From here they calculate what they call the "normal" and "anomolous" susceptibilities which reduce to the same form as we have (we checked this)
+
+PROS: \\
+-They find enhancement of AFM ordering in the SC phase. \\
+-They say the $\mathcal{O}(|\Delta|^4)$ term in GL theory changes sign which causes the enhancement
+
+CONS: \\
+-They use S-wave order parameter.\\
+-They never really say what dispersion they are using, just that $e_k=-e_{k+Q}+T_c\delta$, $\delta<<1$ \\
+-The q vector of the susceptibility and magnetic order is not well defined \\
+-They don't mention parallel susceptibility \\
+-They find divergent perpendicular susceptibility at T=0 which we have not seen
+
+\section{Suzuki, Ichioka and Machida. Theory of an Inherent Spin- Density-Wave instability due to votices in superconductors with strong pauli effects. Phys Rev. B, 2011}
+They calculate the vortex lattice state by the Eilenberger equations. With strong Pauli effects they see spikes in the K-density of states near the nodal regions . Their calculation is in full 3D and they predict $Q=(0.5\pm\delta q, 0.5\pm\delta q, 0.5)$.
+
+PROS: \\
+-They do explore Q vectors which are near nodal and attempt to find some sort of maximum. \\
+-Their K-density of states seems to be consistent with our picture (ie. spiked near nodes). \\
+-They are fully 3D and consider various orientations of H. \\ 
+-They apparently show that the transition line to the AFM/SC state is positive in T-H diagram.
+
+CONS: \\
+-They don't calculate anything observable or concrete. \\
+-They rely heavily on the vortex lattice for order. \\
+
+
+
+\section{Kato, Batista and Vekhter. Antiferromagnetic order in pauli-limited unconventional superconductors. Phys. Rev. Lett., 2011}
+They use a Hamiltonian with SC and AFM (m $\perp$ H) interactions and a tight binding dispersion $\epsilon_k=2t(\cos k_x +\cos k_y)-\mu$ $\mu/t=0.749$:
+\begin{align*}
+\mathcal{H}=\sum\limits_{k,s} (\epsilon_k-sh)c^\dagger_{ks} c_{ks}-\sum\limits_{k} (\Delta_k c^\dagger_{k1}c^\dagger_{-k-1}+HC)-J\sum\limits_k (m_Q c^\dagger_{k-1}c_{k+Q 1}+H.C.)+|\Delta_0|^2/V+J|m_Q|^2
+\end{align*}
+The Q vector connects nodal points excatly $Q=(\pm0.88\pi,\pm 0.88\pi)$. Then they diagnolize $\mathcal{H}$ (presummably with a Bogolioubov type transformation) and minimize the free energy. They end up with a phase diagram very similar to that of $CeCoIn_5$.
+
+PROS: \\
+-They get a phase diagram which is pretty close. \\
+-They start from a justifiable Hamiltonian. \\
+-The Q vector connects nodal points.
+
+CONS: \\
+-Tight binding is periodic. How did they deal with that/justify it. \\
+-Hamiltonian all ready assumes magnetic interactions. \\
+-Did not explore any other Q vectors. \\
+-Did not consider parallel susceptibility. \\
+
+\section{Yanase and Sigrist. Magnetic Structure of the Antiferromagnetic Fulde Ferrel Larkin Ovchinikov State. J. Phys.: Condens. Matter (2011)}
+They use a hoping model (2D) which includes a Pauli term, up to 3rd nearest neighbor interactions and a d-wave FFLO order parameter . Their Hamiltonian also includes attractive and AFM interactions between sites. They also use the BdG equations, but neglect the AFM contributions. Their order parameter is:
+\begin{align*}
+\Delta(\vec i)=\Delta_{\vec i ,\vec i+\vec a}+\Delta_{\vec i ,\vec i-\vec a}-\Delta_{\vec i ,\vec i+\vec b}-\Delta_{\vec i ,\vec i- \vec b}
+\end{align*}
+Where $\vec a$ and $\vec b$ are lattice unit vectors. Then then calculate the bare susceptibility from the mean field Hamiltonian and assume magnetic interactions $I(i,i)=U$, $I(i,i\pm a)=I(i,i\pm b)=-J/2$, $I=0$ otherwise to get the total susceptibility.
+
+PROS:\\
+-FFLO + D-wave\\
+-They use a hoping model (not sure if this is a pro or con, but it's different from the others)\\
+-easily get spatial magnetic structure for different orientations 
+
+CONS: \\
+-Start by assuming magnetic interaction channel which gives divergent susceptibility \\
+-Zero temperature \\
+-No field dependence \\
+
+
+
+\end{document}

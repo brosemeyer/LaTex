@@ -1,0 +1,33 @@
+# Fdb version 3
+["dvips"] 1403147298 "Inhomogeneous Spin Susceptibitily2.dvi" "Inhomogeneous Spin Susceptibitily2.ps" "Inhomogeneous Spin Susceptibitily2" 1403147299
+  "Inhomogeneous Spin Susceptibitily2.dvi" 1396908640 10484 2767b2b90527dfdd299ba51c97fd92f1 "latex"
+  (generated)
+  "Inhomogeneous Spin Susceptibitily2.ps"
+["latex"] 1396908640 "Inhomogeneous Spin Susceptibitily2.tex" "Inhomogeneous Spin Susceptibitily2.dvi" "Inhomogeneous Spin Susceptibitily2" 1403147299
+  "/etc/texmf/tex/latex/config/graphics.cfg" 1255993321 3328 2584cfe577535f0a08f3a9717b5152ab ""
+  "/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty" 1246382020 5548 21cc890100eeac7a6a792024ef2889eb ""
+  "/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty" 1246382020 13613 9d8ad59dafa33583045d4f2c7f2a4863 ""
+  "/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd" 1246382020 955 d0043fae981c93e583f3f271f791633c ""
+  "/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd" 1246382020 955 ee57f5eb74e91b35bb314e3044c12d81 ""
+  "/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty" 1156703163 3535 ce75ca6de8380293f2081dec8ab08a93 ""
+  "/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty" 1156703163 5453 08b555fa01ef74ce33d74813d74c2362 ""
+  "/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty" 1156703163 79756 c9b39210cd9d3168825ff6f880d43821 ""
+  "/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty" 1156703163 5082 c925b14d21ef5c56597fe90e8e1686ad ""
+  "/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty" 1156703163 3745 bcdc4858c6f7cfeb8e957b4284216414 ""
+  "/usr/share/texmf-texlive/tex/latex/base/article.cls" 1254151887 20571 b8bd218bf2e18b4f5817ee643cd9c515 ""
+  "/usr/share/texmf-texlive/tex/latex/base/size10.clo" 1254151887 9042 248dfba326a1b8733d6bb8e0a3ac1e49 ""
+  "/usr/share/texmf-texlive/tex/latex/graphics/dvips.def" 1156702488 4987 e75a6e083c3e5580593a6e65268b14e5 ""
+  "/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty" 1254151804 14183 42a8fc761b806986eef292369afc2988 ""
+  "/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty" 1156702488 7882 3bd78469d444e8d494e27cfd7ca92719 ""
+  "/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty" 1156702488 2266 7054435e4584a41cf53b0a7ca624d0cb ""
+  "/usr/share/texmf-texlive/tex/latex/graphics/trig.sty" 1156702488 3153 c50e6bd54d2dd3933fc52bcf369bec4a ""
+  "Inhomogeneous Spin Susceptibitily2.aux" 1403147274 8 a94a2480d3289e625eea47cd1b285758 ""
+  "Inhomogeneous Spin Susceptibitily2.tex" 1403147298 4998 31ee7c8cb73463305db415a9770ef611 ""
+  (generated)
+  "Inhomogeneous Spin Susceptibitily2.aux"
+  "Inhomogeneous Spin Susceptibitily2.dvi"
+  "Inhomogeneous Spin Susceptibitily2.log"
+["ps2pdf"] 1403147298 "Inhomogeneous Spin Susceptibitily2.ps" "Inhomogeneous Spin Susceptibitily2.pdf" "Inhomogeneous Spin Susceptibitily2" 1403147299
+  "Inhomogeneous Spin Susceptibitily2.ps" 1403147298 272351 d64faf1939ffc6ce63cb7509f04f6b50 "dvips"
+  (generated)
+  "Inhomogeneous Spin Susceptibitily2.pdf"

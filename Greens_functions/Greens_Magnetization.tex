@@ -1,0 +1,189 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\begin{document}
+\title{Green's Function and Magnitization for Fermions}
+\author{Ben Rosemeyer}
+\date{\today}
+\maketitle
+
+\section*{\bf{Free Particle}}
+
+The finite tepurature Greens function of imaginary time in momentum space for uniform space and time is (eq 3.2.1 Mahan):
+\begin{equation}
+G_{\alpha\beta}(\vec{p},\tau)=-<T\psi_\alpha(\vec{p},\tau) \psi^\dagger_\beta(\vec{p},0)>,\quad \tau\in(-\beta,\beta)
+\end{equation}
+Where $<...>=Tr(e^{-H\beta}...)$.
+For a free particle the hamiltonian operator is:
+\begin{equation}
+H=\sum\limits_{\alpha\beta}\int \frac{d^3p}{(2\pi)^3} \psi^\dagger_\alpha(\vec{p})(H_0-\mu N)\psi_\beta(\vec{p})
+\end{equation}
+Where $H_0$ is the free particle hamiltonian $\mu$ is the chemical potential and N is the number operator. Using the time evolution equation for $\psi_\alpha(\vec{p},\tau)$ and equation 3.2.8 of Mahan:
+\begin{align*}
+G_{\alpha\beta}(\vec{p},\tau)&=-<Te^{\tau H}\psi_\alpha(\vec{p})e^{-\tau H} \psi^\dagger_\beta(\vec{p})> \\ 
+&=-\Theta(\tau)<e^{-\tau\xi(\vec{p})}\psi_\alpha(\vec{p}) \psi^\dagger_\beta(\vec{p})>+\Theta(-\tau)<e^{-\tau\xi(\vec{p})}\psi^\dagger_\beta(\vec{p}) \psi_\alpha(\vec{p})> \\
+&=-\Theta(\tau)e^{-\tau\xi(\vec{p})}<\psi_\alpha(\vec{p}) \psi^\dagger_\beta(\vec{p})>+\Theta(-\tau)e^{-\tau\xi(\vec{p})}<\psi^\dagger_\beta(\vec{p}) \psi_\alpha(\vec{p})>
+\end{align*}
+We can now use the relations $<\psi_\alpha(\vec{p}) \psi^\dagger_\beta(\vec{p})>=(1-n(\vec{p}))\delta_{\alpha\beta}$ and $<\psi^\dagger_\beta(\vec{p}) \psi_\alpha(\vec{p})>=n(\vec{p})\delta_{\alpha\beta}$. Where $n(\vec{p})=(e^{\beta\xi(\vec{p})}+1)^{-1}$. Dropping the spin indicies.
+\begin{equation}
+G(\vec{p},\tau)=-\Theta(\tau)e^{-\tau\xi(\vec{p})}(1-n(\vec{p}))+\Theta(-\tau)e^{-\tau\xi(\vec{p})}n(\vec{p})
+\end{equation}
+The transformation to Matsubara energies is defined as:
+\begin{equation}
+G(\vec{p},\omega_m)=\frac{1}{2}\int\limits_{-\beta}^{\beta}d\tau e^{i\tau\epsilon_m}G(\vec{p},\tau) =\frac{1}{i\omega_m-\xi(\vec{p})}
+\end{equation}
+
+\section*{\bf{Spin Particle in Magnetic Field}}
+We start by taking the $\tau$ derivitive of the Green's function.
+\begin{equation}
+-\frac{\partial}{\partial\tau}G_{\alpha\beta}(\vec{x},\vec{x}',\tau)=\delta(\vec{x}-\vec{x}')\delta(\tau)\delta_{\alpha\beta}-<T[\psi_\alpha(\vec{x},\tau),H] \psi^\dagger_\beta(\vec{x}',0)>
+\end{equation}
+In this case the equation for H is 
+\begin{equation}
+H=\sum\limits_{\gamma\delta}\int d^3x \psi^\dagger_\gamma(\vec{x})(H_0-\mu N-\mu_B \vec{\sigma} \cdot \vec{B})\psi_\delta(\vec{x})=\sum\limits_{\gamma\delta}\int d^3x((\epsilon(\vec{p})-\mu)\delta_{\gamma\delta}-\mu_B \vec{\sigma}_{\gamma\delta} \cdot \vec{B})\psi^\dagger_\gamma(\vec{x})\psi_\delta(\vec{x})
+\end{equation}
+Inserting this into the second term on the right hand side of equation 5 and using the time evolved operator equation yields:
+\begin{equation}
+<Te^{\tau H}\sum\limits_{\gamma\delta}\int d^3x'' ((\epsilon(\vec{p''})-\mu)\delta_{\gamma\delta}-\mu_B \vec{\sigma}_{\gamma\delta} \cdot \vec{B}) [\psi_\alpha(\vec{x}),\psi^\dagger_\gamma(\vec{x''})\psi_\delta(\vec{x''})]e^{-\tau H}\psi^\dagger_\beta(\vec{x}')>
+\end{equation}
+The commutator can be resolved by using the identity $[A,BC]=\{A,B\}C-B\{A,C\}$ and the relations $\{\psi_\alpha(\vec{x}),\psi^\dagger_\gamma(\vec{x'})\}=\delta(\vec{x}-\vec{x'})\delta_{\alpha\gamma}$ and $\{\psi_\alpha(\vec{x}),\psi_\delta(\vec{x'})\}=0$. Thus, equation 7 becomes:
+\begin{equation}
+<T[\psi_\alpha(\vec{x},\tau),H] \psi^\dagger_\beta(\vec{x}',0)>=<Te^{\tau H}\sum\limits_{\delta} ((\epsilon(\vec{p})-\mu)\delta_{\alpha\delta}-\mu_B \vec{\sigma}_{\alpha\delta} \cdot \vec{B})\psi_\delta(\vec{x})e^{-\tau H}\psi^\dagger_\beta(\vec{x}')>
+\end{equation}
+Equation 5 now becomes:
+\begin{equation}
+-\frac{\partial}{\partial\tau}G_{\alpha\beta}(\vec{x},\vec{x}',\tau)=\delta(\vec{x}-\vec{x}')\delta(\tau)\delta_{\alpha\beta}-\sum\limits_{\delta} ((\epsilon(\vec{p})-\mu)\delta_{\alpha\delta}-\mu_B \vec{\sigma}_{\alpha\delta} \cdot \vec{B})<T\psi_\delta(\vec{x},\tau)\psi^\dagger_\beta(\vec{x}')>
+\end{equation}
+The Transformation to momentum space is defined as $G_{\delta\beta}(\vec{p},\vec{p}',\tau)=\int d^3x\int d^3x'G_{\delta\beta}(\vec{x},\vec{x}',\tau)e^{-i\vec{p}\cdot\vec{x}}e^{i\vec{p}'\cdot\vec{x}'}$.
+\begin{equation}
+-\frac{\partial}{\partial\tau}G_{\alpha\beta}(\vec{p},\vec{p}',\tau)=(2\pi)^3\delta(\vec{p}-\vec{p}')\delta(\tau)\delta_{\alpha\beta}+\sum\limits_{\delta} ((\epsilon(\vec{p})-\mu)\delta_{\alpha\delta}-\mu_B \vec{\sigma}_{\alpha\delta} \cdot \vec{B})G_{\delta\beta}(\vec{p},\vec{p}',\tau)
+\end{equation}
+defining $\xi(\vec{p})=\epsilon(\vec{p})-\mu$ and rearranging:
+\begin{equation}
+\sum\limits_\delta(-\frac{\partial}{\partial\tau}-\xi(\vec{p}))\delta_{\alpha\delta}+\mu_B\vec{\sigma}_{\alpha\delta}\cdot\vec{B})G_{\delta\beta}(\vec{p},\vec{p}',\tau)=(2\pi)^3\delta(\vec{p}-\vec{p}')\delta(\tau)\delta_{\alpha\beta}
+\end{equation}
+Transforming this to Matsubara energies:
+\begin{equation}
+\sum\limits_\delta((i\omega_m-\xi(\vec{p}))\delta_{\alpha\delta}+\mu_B\vec{\sigma}_{\alpha\delta}\cdot\vec{B})G_{\delta\beta}(\vec{p},\vec{p}',\omega_m)=\frac{(2\pi)^3}{2}\delta(\vec{p}-\vec{p}')\delta_{\alpha\beta}
+\end{equation}
+Equation 11 is a 2x2 matrix equation of the form, $A*G=\frac{(2\pi)^3}{2}\delta(\vec{p}-\vec{p}')I$. We can invert this to get $G=\frac{(2\pi)^3}{2}\delta(\vec{p}-\vec{p}')A^{-1}$. Setting $\vec{B}=B_0\hat{z}$.
+\begin{equation}
+A=\left( \begin{array}{cc}
+i\omega_m-\xi+\mu_B B_0 & 0 \\
+0 & i\omega_m-\xi(\vec{p})-\mu_BB_0\end{array} \right)=(i\omega_m-\xi(\vec{p}))I+\mu_B\sigma_z\cdot\vec{B}
+\end{equation}
+\begin{equation}
+G(\vec{p},\vec{p}',\omega_m)=\frac{(2\pi)^3}{2}\delta(\vec{p}-\vec{p}')A^{-1}=\frac{(2\pi)^3}{2}\delta(\vec{p}-\vec{p}')\frac{(i\omega_m-\xi(\vec{p}))I-\mu_B\sigma_zB_0}{(i\omega_m-\xi(\vec{p}))^2-\mu_B^2B_0^2}
+\end{equation}
+This leads to defining
+\begin{equation}
+G^0(\vec{p},\tau)=\frac{1}{2}\frac{(i\omega_m-\xi(\vec{p}))I-\mu_B\sigma_zB_0}{(i\omega_m-\xi(\vec{p}))^2-\mu_B^2B_0^2}
+\end{equation}
+This is a diagonal matrix with entries
+\begin{align*}
+G^0_{11}(\vec{p},\tau)=\frac{1}{2}\frac{1}{i\omega_m-\xi(\vec{p})+\mu_BB_0} \\
+G^0_{22}(\vec{p},\tau)=\frac{1}{2}\frac{1}{i\omega_m-\xi(\vec{p})-\mu_BB_0}
+\end{align*}
+
+\section*{\bf{Non-Uniform Magnetic Field}}
+
+Again, we start with the $\tau$ derivitive of the Greens function for uniform time to arrive at
+\begin{equation}
+\sum\limits_\delta\big((-\frac{\partial}{\partial\tau}-\xi(\hat{\vec{p}}))\delta_{\alpha\delta}+\mu_B\vec{\sigma_{\alpha\delta}}\cdot\vec{B}(\vec{x})\big)G_{\delta\beta}(x,x')=\delta(\vec{x}-\vec{x}')\delta(\tau)\delta_{\alpha\beta}
+\end{equation}
+We now wish to transform to momentum space. 
+The first two terms on the left hand side transform simply, but the $\vec{B}(\vec{x})G_{\delta\beta}(x,x')$ term needs to be evaluated. Using $\vec{B}(\vec{x})=B_0\hat{z}+\vec{\delta B}(\vec{x})$:
+\begin{align*}
+\int d^3x\int d^3x'\vec{B}(\vec{x})G_{\delta\beta}(\vec{x},\vec{x}',\tau)e^{-i\vec{p}\cdot\vec{x}}e^{i\vec{p}'\cdot\vec{x}'} \\=\vec{B_0}G_{\delta\beta}(\vec{p},\vec{p}',\tau)+\int d^3x\vec{\delta B}(\vec{x})G_{\delta\beta}(\vec{x},\vec{p}',\tau)e^{-i\vec{p}\cdot\vec{x}}
+\\=\vec{B_0}G_{\delta\beta}(\vec{p},\vec{p}',\tau)+\int d^3x\int \frac{d^3q}{(2\pi)^3}\vec{\delta B}(\vec{q})G_{\delta\beta}(\vec{x},\vec{p}',\tau)e^{-i\vec{p}\cdot\vec{x}}e^{i\vec{q}\cdot\vec{x}} \\=\vec{B_0}G_{\delta\beta}(\vec{p},\vec{p}',\tau)+\int \frac{d^3q}{(2\pi)^3}\vec{\delta B}(\vec{q})G_{\delta\beta}(\vec{p}-\vec{q},\vec{p}',\tau)
+\end{align*}
+If we also transform to Matsubara energies, equation 16 becomes:
+\begin{align*}
+\sum\limits_\delta\big((i\omega_m-\xi(\vec{p}))\delta_{\alpha\delta}+\mu_B\sigma_{z\alpha\delta}B_0\big)G_{\delta\beta}(\vec{p},\vec{p'},\omega_m)+\mu_B\vec{\sigma_{\alpha\delta}}\cdot\int \frac{d^3q}{(2\pi)^3}\vec{\delta B}(\vec{q})G_{\delta\beta}(\vec{p}-\vec{q},\vec{p}',\omega_m) \\ =\frac{(2\pi)^3}{2}\delta(\vec{p}-\vec{p}')\delta_{\alpha\beta}
+\end{align*}
+We can then write the Greens function as a perterbation $G_{\delta\beta}(\vec{p},\vec{p}',\omega_m)=(2\pi)^3G^0_{\delta\beta}(\vec{p},\omega_m)\delta(\vec{p}-\vec{p}')+\delta G_{\delta\beta}(\vec{p},\vec{p}',\omega_m)$. Where $G^0$ is from the uniform field case (equation 15).
+\begin{align*}
+\sum\limits_\delta \big((i\omega_m-\xi(\vec{p}))\delta_{\alpha\delta}+\mu_B\sigma_{z\alpha\delta}\cdot\vec{B_0}\big)\big((2\pi)^3G^0_{\delta\beta}(\vec{p},\vec{p}',\omega_m)+\delta G_{\delta\beta}(\vec{p},\vec{p}',\omega_m)\big)\\+\mu_B\vec{\sigma_{\alpha\delta}}\cdot\vec{\delta B}(\vec{p}-\vec{p}')G^0_{\delta\beta}(\vec{p}',\vec{p}',\omega_m)    +\mu_B\vec{\sigma_{\alpha\delta}}\cdot\int \frac{d^3q}{(2\pi)^3}\vec{\delta B}(\vec{q})\delta G_{\delta\beta}(\vec{p}-\vec{q},\vec{p}',\omega_m)\big)=\frac{(2\pi)^3}{2}\delta(\vec{p}-\vec{p}')\delta_{\alpha\beta}
+\end{align*}
+Keeping only terms up to first order in $\vec{\delta B}(\vec{x})$ and using the result from the uniform field we have:
+\begin{equation}
+\sum\limits_\delta \big((i\omega_m-\xi(\vec{p}))\delta_{\alpha\delta}+\mu_B\vec{\sigma_{\alpha\delta}}\cdot\vec{B_0}\big)\delta G_{\delta\beta}(\vec{p},\vec{p}',\omega_m)+\mu_B\vec{\sigma_{\alpha\delta}}\cdot\vec{\delta B}(\vec{p}-\vec{p}')G^0_{\delta\beta}(\vec{p}',\omega_m)=0
+\end{equation}
+This is a matrix equation of the form $A(\vec{p})*\delta G=-\mu_B\sigma\cdot\vec{\delta B}(\vec{p}-\vec{p}')G^0$ where $A$ is the same matrix as for the uniform field ($G^0=\frac{1}{2}A^{-1}$). The result is:
+\begin{equation}
+\delta G(\vec{p},\vec{p}',\omega_m)=-\frac{\mu_B}{2}G^0(\vec{p},\omega_m)\vec{\sigma}\cdot\vec{\delta B}(\vec{p}-\vec{p'})G^0(\vec{p}',\omega_m)
+\end{equation}
+
+\section*{\bf{Magnetization}}
+The magnetization is defined as $\vec{M}(\vec{x})=\mu_B\sum\limits_{\alpha\beta}<\vec{\sigma_{\beta\alpha}}\psi^\dagger_\beta(\vec{x})\psi_\alpha(\vec{x})>=\mu_B\sum\limits_{\alpha\beta}\vec{\sigma_{\beta\alpha}}G_{\alpha\beta}(\vec{x},\vec{x},\tau=-0i)$. We wish to transform this to momentum space:
+\begin{equation}
+\vec{M}(\vec{x})=\frac{\mu_B}{(2\pi)^6}\sum\limits_{\alpha\beta}\vec{\sigma_{\beta\alpha}}\int d^3p\int d^3p'G_{\alpha\beta}(\vec{p},\vec{p}',\tau=-0i)e^{i(\vec{p}-\vec{p}')\cdot\vec{x}}
+\end{equation}
+\begin{align}
+\vec{M}(\vec{q})&=\frac{\mu_B}{(2\pi)^6}\sum\limits_{\alpha\beta}\vec{\sigma_{\beta\alpha}}\int d^3p\int d^3p'G_{\alpha\beta}(\vec{p},\vec{p}',\tau=-0i)\int d^3x e^{i(\vec{p}-\vec{p}'-\vec{q})\cdot\vec{x}} \\&=\frac{\mu_B}{(2\pi)^6}\sum\limits_{\alpha\beta}\vec{\sigma_{\beta\alpha}}\int d^3p\int d^3p'G_{\alpha\beta}(\vec{p},\vec{p}',\tau=-0i)(2\pi)^3\delta(\vec{p}-\vec{p}'-\vec{q})\\&=\frac{\mu_B}{(2\pi)^3}\sum\limits_{\alpha\beta}\vec{\sigma_{\beta\alpha}}\int d^3pG_{\alpha\beta}(\vec{p},\vec{p}-\vec{q},\tau=-0i)\\&=\mu_B\sum\limits_{\alpha\beta}\vec{\sigma_{\beta\alpha}}\int d^3p(G^0_{\alpha\beta}(\vec{p},\vec{p}-\vec{q},\tau=-0i)+\delta G_{\alpha\beta}(\vec{p},\vec{p}-\vec{q},\tau=-0i)/(2\pi)^3)
+\end{align}
+We can now change to a sum over Matsubara energies ($\omega_m=2\pi(m+1/2)T$) so $\delta G(\vec{p},\tau=-0i)=T\sum\limits_{\omega_m}\delta G(\vec{p},\omega_m)$. If we Consider the ith component of the magentization:
+\begin{align*}
+\vec{M}_i(\vec{q}) & =\mu_BT\sum\limits_{\alpha\beta}\sum\limits_{\omega_m}\int d^3p\bigg[\vec{\sigma}_{i\beta\alpha}G^0_{\alpha\beta}(\vec{p},\omega_m)-\frac{\mu_B}{2(2\pi)^3}\vec{\sigma}_{i\beta\alpha}\sum\limits_{\delta\gamma}\sum\limits_j  G^0_{\alpha\delta}(\vec{p},\omega_m) \vec{\sigma}_{j\delta\gamma}G^0_{\gamma\beta}(\vec{p}-\vec{q},\omega_m)\vec{\delta B}(\vec{q})_j\bigg] \\ &= \vec{M}_0(\vec{p})_i+\sum\limits_j \mathcal{X}(\vec{p})_{ij}\vec{\delta B}(\vec{q})_j
+\end{align*}
+The susceptibility is:
+\begin{equation}
+\mathcal{X}(\vec{q})_{ij}=-\frac{\mu_B^2T}{2(2\pi)^3}\sum\limits_{\alpha\beta\delta\gamma}\sum\limits_{\omega_m}\int d^3p\vec{\sigma}_{i\beta\alpha} G^0_{\alpha\delta}(\vec{p},\omega_m) \vec{\sigma}_{j\delta\gamma}G^0_{\gamma\beta}(\vec{p}-\vec{q},\omega_m)
+\end{equation}
+Since $G^0$ is a diagnol matrix equation 24 can be simplified
+\begin{equation}
+\mathcal{X}(\vec{q})_{ij}=-\frac{\mu_B^2T}{2(2\pi)^3}\sum\limits_{\alpha\beta}\sum\limits_{\omega_m}\int d^3p\vec{\sigma}_{i\beta\alpha} G^0_{\alpha\alpha}(\vec{p},\omega_m) \vec{\sigma}_{j\alpha\beta}G^0_{\beta\beta}(\vec{p}-\vec{q},\omega_m)
+\end{equation}
+We can also do the sum over matsubara energies using complex integration with $z=i\omega_m$, $T\sum\limits_{\omega_m}B(z)=\frac{1}{2i\pi}\int dz B(z)f(z)$ where $f(z)$ is the fermi function $f(\xi)=(e^{\xi/T}+1)^{-1}$. Upon investigation, one finds that the susceptibility tensor is diagonal and that $\mathcal{X}_{xx}=\mathcal{X}_{yy}$. We also can symmetrize the momentum integral.
+%\begin{align*}
+%\mathcal{X}(\vec{q})_{zz}=-\frac{\mu_B^2}{2(2\pi)^3}\int di\omega_m \int d^3p\bigg[G^0_{11}(\vec{p}+\vec{q}/2,\omega_m)G^0_{11}(\vec{p}-\vec{q}/2,\omega_m)+G^0_{22}(\vec{p}+\vec{q}/2,\omega_m)G^0_{22}(\vec{p}-\vec{q}/2,\omega_m)\bigg]f(i\omega) \\ \mathcal{X}(\vec{q})_{xx}=-\frac{\mu_B^2}{2(2\pi)^3}\int di\omega_m \int d^3p\bigg[G^0_{11}(\vec{p}+\vec{q}/2,\omega_m)G^0_{22}(\vec{p}-\vec{q}/2,\omega_m)+G^0_{22}(\vec{p}+\vec{q}/2,\omega_m)G^0_{11}(\vec{p}-\vec{q}/2,\omega_m)\bigg]f(i\omega)
+%\end{align*}
+If we define $\xi_{\pm}=\xi(\vec{p}\pm\vec{q}/2)$ the susceptibility is.
+\begin{align*}
+\mathcal{X}(\vec{q})_{zz}=-\frac{\mu_B^2}{2(2\pi)^3} \int d^3p\bigg[\frac{f(\xi_+-\mu_BB_0)-f(\xi_--\mu_BB_0)+f(\xi_++\mu_BB_0)-f(\xi_-+\mu_BB_0)}{\xi_+-\xi_-}\bigg] \\ \mathcal{X}(\vec{q})_{xx}=-\frac{\mu_B^2}{2(2\pi)^3} \int d^3p\bigg[\frac{f(\xi_+-\mu_BB_0)-f(\xi_-+\mu_BB_0)}{\xi_+-\xi_--2\mu_BB_0}+\frac{f(\xi_++\mu_BB_0)-f(\xi_--\mu_BB_0)}{\xi_+-\xi_-+2\mu_BB_0}\bigg]
+\end{align*}
+
+\section*{\bf{Superconducting Phase}}
+We now assume that our sample is in the uniform superconducting phase (S wave superconductor) with Hamiltonian:
+\begin{align*}
+H=\sum\limits_{\gamma\delta}\int d^3x \psi^\dagger_\gamma(\vec{x})(H_0-\mu N-\mu_B \sigma_z B_0)\psi_\delta(\vec{x})+\frac{1}{2}\int d^3x'V_{\gamma\delta}(\vec{x}-\vec{x}') \psi^\dagger_\alpha(\vec{x}')\psi^\dagger_\gamma(\vec{x})\psi_\delta(\vec{x})\psi_\beta(\vec{x}')
+\end{align*}
+Where $V_{\gamma\delta}(\vec{x}-\vec{x}')$ is the spin dependent attractive superconducting potential. We also must define a new set of Greens functions for the superconducting state:
+\begin{align*}
+G_{\alpha\beta}(\vec{x},\vec{x}',\tau)=-<T\psi_\alpha(\vec{x},\tau)\psi^\dagger_\beta(\vec{x}')> \\
+\bar{G}_{\alpha\beta}(\vec{x},\vec{x}',\tau)=-<T\psi^\dagger_\alpha(\vec{x},\tau)\psi_\beta(\vec{x}')> \\
+F_{\alpha\beta}(\vec{x},\vec{x}',\tau)=-<T\psi_\alpha(\vec{x},\tau)\psi_\beta(\vec{x}')> \\
+\bar{F}_{\alpha\beta}(\vec{x},\vec{x}',\tau)=-<T\psi^\dagger_\alpha(\vec{x},\tau)\psi^\dagger_\beta(\vec{x}')>
+\end{align*}
+In order to proceed we must take the mean field approximation and define the superconducting order parameter $\Delta_{\alpha\beta}(\vec{x},\vec{x}')=V_{\alpha\beta}(\vec{x}-\vec{x}')<\psi_\beta(\vec{x}')\psi_\alpha(\vec{x})>$. The mean field Hamiltonian is:
+\begin{equation}
+H_{mf}=\sum\limits_{\gamma\delta}\int d^3x \psi^\dagger_\gamma(\vec{x})(H_0-\mu N-\mu_B\sigma_z  B_0)\psi_\delta(\vec{x})+\frac{1}{2}\int d^3x'\bigg[\psi^\dagger_\gamma(\vec{x})\psi^\dagger_\delta(\vec{x}')\Delta_{\gamma\delta}(\vec{x},\vec{x}')+\psi_\delta(\vec{x}')\psi_\gamma(\vec{x})\Delta^*_{\delta\gamma}(\vec{x},\vec{x}')\bigg]
+\end{equation}
+To find the Green's function we proceed as before and try to find the commutator $[\psi_\alpha(\vec{x},\tau),H_{mf}]$. We have found the first part of this previously, but need to find $[\psi_\alpha(\vec{x},\tau),V_{sc}]$ and $[\psi^\dagger_\alpha(\vec{x},\tau),V_{sc}]$. Pulling out the time dependence and keeping in mind that $\Delta$ is a fermionic operator:
+\begin{align*}
+[\psi_\alpha(\vec{x}),V_{sc}]&=\frac{1}{2}\sum\limits_{\gamma\delta}\int d^3x'\int d^3x'' \Delta_{\gamma\delta}(\vec{x}',\vec{x}'')[\psi_\alpha(\vec{x}),\psi^\dagger_\gamma(\vec{x}')\psi^\dagger_\delta(\vec{x}'')]+\Delta^*_{\delta\gamma}(\vec{x}',\vec{x}'')[\psi_\alpha(\vec{x}),\psi_\delta(\vec{x}'')\psi_\gamma(\vec{x}')] \\&=\frac{1}{2}\sum\limits_{\gamma\delta}\int d^3x'\delta_{\alpha\gamma}\Delta_{\gamma\delta}(\vec{x},\vec{x}')\psi^\dagger_\delta(\vec{x}')-\delta_{\alpha\delta}\Delta_{\gamma\delta}(\vec{x}',\vec{x})\psi^\dagger_\gamma(\vec{x}') \\ &=\sum\limits_{\delta}\int d^3x'\Delta_{\alpha\delta}(\vec{x},\vec{x}')\psi^\dagger_\delta(\vec{x}') \\ [\psi^\dagger_\alpha(\vec{x}),V_{sc}]&=\sum\limits_{\delta}\int d^3x'\Delta^*_{\alpha\delta}(\vec{x},\vec{x}')\psi_\delta(\vec{x}')
+\end{align*}
+Plugging this into the equation of motion for the Greens function:
+\begin{align*}
+-\frac{\partial}{\partial\tau}G_{\alpha\beta}(\vec{x},\vec{x}',\tau)&=\delta(\vec{x}-\vec{x}')\delta(\tau)\delta_{\alpha\beta}\mathcal{I}_{ph}+\sum\limits_{\delta} ((\epsilon(\vec{p})-\mu)\delta_{\alpha\delta}-\mu_B \sigma_{z\alpha\delta} \vec{B})G_{\delta\beta}(\vec{x},\vec{x}',\tau) \\ & +\sum\limits_{\delta}\int d^3y\Delta_{\alpha\delta}(\vec{x},\vec{y})\bar{F}_{\delta\beta}(\vec{y},\vec{x}',\tau)
+\end{align*} 
+Where $\mathcal{I}_{ph}$ is the identity matrix in particle/hole space. Transforming to momentum and energy space:
+\begin{align*}
+\sum\limits_{\delta}\int \frac{d^3k}{(2\pi)^3}\bigg[ (i\omega_m -\xi(\vec{p}))\delta_{\alpha\delta}+\mu_B \sigma_{z\alpha\delta} B_0)(2\pi)^3\delta(\vec{k}-\vec{p})G_{\delta\beta}(\vec{k},\vec{p}',\omega_m)- \Delta_{\alpha\delta}(\vec{p},\vec{k})\bar{F}_{\delta\beta}(\vec{k},\vec{p}',\omega_m)\bigg] \\ =\frac{(2\pi)^3}{2}\delta(\vec{p}-\vec{p}')\delta_{\alpha\beta}\mathcal{I}_{ph}
+\end{align*}
+If we assume that $\Delta$ is uniform in space (ie. $\Delta(\vec{x},\vec{x}')=\Delta(|\vec{x}-\vec{x}'|)$), and recall that since $\Delta$ is a fermionic operator $\Delta(-\vec{p})=\Delta(\vec{p})$, then the momentum/energy equation is:
+\begin{align*}
+\sum\limits_{\delta}\bigg[ (i\omega_m -\xi(\vec{p}))\delta_{\alpha\delta}+\mu_B \sigma_{z\alpha\delta}B_0)G_{\delta\beta}(\vec{p},\vec{p}',\omega_m)- \Delta_{\alpha\delta}(\vec{p})\bar{F}_{\delta\beta}(\vec{p},\vec{p}',\omega_m)\bigg] &=\frac{(2\pi)^3}{2}\delta(\vec{p}-\vec{p}')\delta_{\alpha\beta}
+\end{align*}
+Working through the rest of the Greens function equations of motion yields a matrix equation (sum over $\delta$ is implied).
+\begin{align*}
+\left(\begin{array}{cc} (i\omega_m-\xi(\vec{p}))\delta_{\alpha\delta}+\mu_B \vec{\sigma}_{z\alpha\delta} B_0 & - \Delta_{\alpha\delta}(\vec{p}) \\ - \Delta^*_{\alpha\delta}(\vec{p}) & (i\omega_m+\xi(\vec{p}))\delta_{\alpha\delta}-\mu_B \sigma_{z\alpha\delta}B_0 \end{array}\right)\left(\begin{array}{cc}G_{\delta\beta}(\vec{p},\vec{p}',\omega_m) & F_{\delta\beta}(\vec{p},\vec{p}',\omega_m) \\ \bar{F}_{\delta\beta}(\vec{p},\vec{p}',\omega_m) & \bar{G}_{\delta\beta}(\vec{p},\vec{p}',\omega_m)\end{array}\right) \\ =\frac{(2\pi)^3}{2}\delta(\vec{p}-\vec{p}')\delta_{\alpha\beta}\mathcal{I}_{ph}
+\end{align*}
+Now we use the same definition of the matrix A as (13), and define $A'=\left( \begin{array}{cc}
+i\omega_m+\xi-\mu_B B_0 & 0 \\
+0 & i\omega_m+\xi(\vec{p})+\mu_BB_0\end{array} \right)$. We also choose the order parameter to be a singlet state which means it has spin structure $\Delta(\vec{p})=\Delta(\vec{p})i\sigma_y$. Using these definitions we can invert the matrix equation to get the superconducting Greens functions.
+\begin{align*}
+G(\vec{p},\vec{p}',\omega_m)&=\frac{(2\pi)^3}{2}\delta(\vec{p}-\vec{p}')\frac{\bigg(i\omega_m-\xi-\frac{|\Delta|^2(i\omega_m+\xi)}{(i\omega_m+\xi)^2-\mu_B^2B_0^2}\bigg)\mathcal{I}-b\bigg(1+\frac{|\Delta|^2}{(i\omega_m+\xi)^2-\mu_B^2B_0^2}\bigg)\sigma_z}{\bigg(i\omega_m-\xi-\frac{|\Delta|^2(i\omega_m+\xi)}{(i\omega_m+\xi)^2-\mu_B^2B_0^2}\bigg)^2-b^2\bigg(1+\frac{|\Delta|^2}{(i\omega_m+\xi)^2-\mu_B^2B_0^2}\bigg)^2} \\ \bar{G}(\vec{p},\vec{p}',\omega_m)&=\frac{(2\pi)^3}{2}\delta(\vec{p}-\vec{p}')\frac{\bigg(i\omega_m+\xi-\frac{|\Delta|^2(i\omega_m-\xi)}{(i\omega_m-\xi)^2-\mu_B^2B_0^2}\bigg)\mathcal{I}+b\bigg(1+\frac{|\Delta|^2}{(i\omega_m-\xi)^2-\mu_B^2B_0^2}\bigg)\sigma_z}{\bigg(i\omega_m+\xi-\frac{|\Delta|^2(i\omega_m-\xi)}{(i\omega_m-\xi)^2-\mu_B^2B_0^2}\bigg)^2-b^2\bigg(1+\frac{|\Delta|^2}{(i\omega_m-\xi)^2-\mu_B^2B_0^2}\bigg)^2} \\ F(\vec{p},\vec{p}',\omega_m)&=\frac{(2\pi)^3\delta(\vec{p}-\vec{p}')\Delta(\vec{p})}{2((i\omega_m-\xi)^2-b^2)(')}\bigg[\bigg(i\omega_m+\xi-\frac{|\Delta|^2(i\omega_m-\xi)}{(i\omega_m-\xi)^2-\mu_B^2B_0^2}\bigg)((i\omega_m-\xi)i\sigma_y-b\sigma_x) \\ &-b\bigg(1+\frac{|\Delta|^2}{(i\omega_m-\xi)^2-\mu_B^2B_0^2}\bigg)((i\omega_m-\xi)\sigma_x-bi\sigma_y)\bigg] \\ \bar{F}(\vec{p},\vec{p}',\omega_m)&=-\frac{(2\pi)^3\delta(\vec{p}-\vec{p}')\Delta^*(\vec{p})}{2((i\omega_m+\xi)^2-b^2)('')}\bigg[\bigg(i\omega_m-\xi-\frac{|\Delta|^2(i\omega_m+\xi)}{(i\omega_m+\xi)^2-\mu_B^2B_0^2}\bigg)((i\omega_m+\xi)i\sigma_y+b\sigma_x) \\ &+b\bigg(1+\frac{|\Delta|^2}{(i\omega_m+\xi)^2-\mu_B^2B_0^2}\bigg)((i\omega_m+\xi)\sigma_x+bi\sigma_y)\bigg]
+\end{align*}
+Where $(')$ and $('')$ is the denominator of $\bar{G}$ and $G$ respectfully.
+\end{document}

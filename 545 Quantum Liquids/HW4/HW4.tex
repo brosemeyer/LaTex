@@ -1,0 +1,67 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{bookmath}
+\usepackage{amsmath}
+\title{HW 4: Physics 545}
+\author{Ben Rosemeyer}
+
+\begin{document}
+
+\maketitle
+
+\section*{1a}
+Using the relaxation time approximation, we can write the Boltzmann equation as:
+\be
+\dot{n_\vp} + (\nabla_\vp \epsilon_\vp)\cdot(\nabla_\vr n_\vp) - (\nabla_\vr \epsilon_\vp)\cdot(\nabla_\vp n_\vp) = -\delta\bar{n}_\vp/\tau_\vp
+\ee
+Where the energies on the LHS are assumed to be that of the non-interacting system and do not depend on position. We are also interested in the static case only. Thus, the first and third terms above become 0 and we are left with
+\bea
+(v_p\hat{p})\cdot(\nabla_\vr n_\vp) = -\delta\bar{n}_\vp/\tau_\vp \\
+= -v_p\frac{\xi_\vp}{T^2}\hat{p}\cdot\nabla T \frac{df}{dx}
+\eea
+Where f(x) is the Fermi function, and $\frac{df}{dx} = \frac{-1}{4\cosh(x/2)}$, $x = \xi/T$. Solving for $\delta\bar{n}_\vp$:
+
+\be
+\delta\bar{n}_\vp = -\frac{\tau_\vp v_\vp\xi_\vp}{4T^2\cosh(\xi_\vp/2T)}\hat{p}\cdot\nabla T
+\ee
+
+\section*{1b}
+using the definition of $A(p)$ in the problem statement we get
+\be
+A(p) = -\frac{\tau_\vp v_\vp\xi_\vp}{4T^2\cosh(\xi_\vp/2T)}
+\ee
+which we assume to be isotropic and only depends on the magnitude of $\vp$. Plugging this into the RHS of the self-consistent collision integral:
+
+\bea
+\frac{2\pi}{\hbar}\int d^3p' \quad |V(\vp-\vp')|^2\delta(\epsilon_\vp - \epsilon_\vp')(\delta\bar{n}_\vp - \delta\bar{n}_{\vp'}) \\
+ = \frac{2\pi N_0}{\hbar}\int \frac{d\Omega_{p'}}{4\pi} d\xi_p \sqrt{\frac{\xi_p + \mu}{\epsilon_f}} \quad |V(\vp-\vp')|^2\delta(\xi_\vp - \xi_\vp')(\delta\bar{n}_\vp - \delta\bar{n}_{\vp'}) \\
+  = \frac{2\pi N_0A(p)}{\hbar}\sqrt{\frac{\xi_p + \mu}{\epsilon_f}}\int \frac{d\Omega_{p'}}{4\pi} \quad |V(p(\hp-\hat{p'}))|^2(\hp\cdot\nabla T - \hat{p'}\cdot \nabla T) \\
+   =  N_0\delta \bar{n}_\vp\sqrt{\frac{\xi_p + \mu}{\epsilon_f}}V_{av}(p)
+\eea
+
+Where we have written the solid angle average of the interaction as $V_{av}(p) = \frac{2\pi}{\hbar}\int \frac{d\Omega_{p'}}{4\pi} \quad |V(p(1-\hp\cdot\hat{p'}))|^2(1 - \hat{p'}\cdot\hp)$ (assuming that the perpendicular bit vanishes), and used the result of 1a to get $\delta\bar{n}_\vp$. We can also sub in the density of states in equilibrium $N(\epsilon_p)=N_0\sqrt{\frac{\xi_p + \mu}{\epsilon_f}}=N_0\sqrt{\frac{\epsilon_p}{\epsilon_f}}$ and finally solve for the relaxation time:
+
+\bea
+\tau_p = (N(\epsilon_p)V_{av}(p))^{-1}
+\eea
+
+\section*{1c}
+The energy current is:
+\bea
+\vq = v_f \int d\xi_p \frac{d\Omega_p}{4\pi}N(\epsilon_p)\hp\xi_p  A(p)\hp\cdot\nabla T \\
+= -\frac{v_f}{4T^2}\int d\xi_p \frac{d\Omega_p}{4\pi} \hp \frac{\xi_p^2  v_p \hp\cdot\nabla T}{V_{av}(p)\cosh(\xi_p/2T)}
+\eea
+
+To do the integral above we must note that the $1/cosh$ bit is strongly peaked at the fermi level and that $v_p \approx v_f$ and $V_{av}(p)\approx V_{av}(p_f) = V_{fs}$ are both nearly constant in this range. We will also use the integral result $\int dx\frac{x^2}{\cosh(x)} = \frac{\pi^2}{6}$. With all this, the $j$th component of $\vq$ is:
+
+\bea
+\vq_j = -\frac{v_f^2}{4V_{fs}T^2}\bigg[\int\frac{d\Omega_p}{4\pi} \hp_j \hp_i\bigg](\delta_i T) \int 2T dx \frac{4T^2x^2}{\cosh(x)} = -\frac{v_f^2T\pi^2}{9V_{fs}}(\delta_j T)
+\eea
+According to the definition:
+\bea
+\vq_j = -\kappa \nabla T \\
+\kappa = \frac{v_f^2T\pi^2}{9V_{fs}}
+\eea
+\end{document}

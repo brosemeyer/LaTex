@@ -1,0 +1,61 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{bookmath}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\title{HW 12: Physics 545}
+\author{Ben Rosemeyer}
+
+\begin{document}
+
+\maketitle
+
+\section*{1a}
+
+\section*{3a}
+The diagonalized Hamiltonian is:
+\be
+\cH = \sum_{\vk,s}E_{\vk s}b_{\vk s}^\dagger b_{\vk s}
+\ee
+and the $b$ operators are defined through the Bogolioubov transformation:
+\bea
+a_{\vk s} = u_{\vk} b_{\vk s} - (i\sigma_y)_{ss'} v^*_{\vk} b^\dagger_{-\vk s'}
+\eea
+which results in the Bogolioubov-de Gennes equations
+\bea
+E_{\vk s}\left(
+\begin{array}{cc}
+ u_{\vk} \\ v_{\vk} 
+\end{array}
+\right) = \left(
+\begin{array}{cc}
+\epsilon_{\vk s}  & \Delta \\ \Delta^* & -\epsilon_{\vk \bar{s}}  
+\end{array}
+\right)
+\left(
+\begin{array}{cc}
+ u_{\vk} \\ v_{\vk} 
+\end{array}
+\right)
+\eea
+Where $\epsilon_{\vk s} = \xi_{\vk} -\mu_B H s$
+The eigenvalues of such an equation are:
+\be
+E_{\vk s} = \sqrt{\xi_{\vk}^2 + |\Delta|^2} -\mu_B H s
+\ee
+\section*{3b}
+The magnetisation  is:
+\bea
+M&=&\mu_B\sum\limits_{\vk,s}\langle a^\dagger_{\vk\uparrow}a_{\vk\uparrow} - a^\dagger_{\vk\downarrow}a_{\vk\downarrow}  \rangle \\
+& =&\mu_B\sum\limits_{\vk,s}\langle (u_{\vk} b_{\vk \uparrow} - v^*_{\vk} b^\dagger_{-\vk \downarrow})^\dagger(u_{\vk} b_{\vk \uparrow} - v^*_{\vk} b^\dagger_{-\vk \downarrow}) - (u_{\vk} b_{\vk \downarrow} + v^*_{\vk} b^\dagger_{-\vk \uparrow})^\dagger (u_{\vk} b_{\vk \downarrow} + v^*_{\vk} b^\dagger_{-\vk \uparrow})  \rangle \\
+& =&\mu_B\sum\limits_{\vk,s} |u_{\vk}|^2 \langle b^\dagger_{\vk \uparrow}b_{\vk \uparrow} - b^\dagger_{\vk \downarrow}b_{\vk \downarrow}\rangle  + |v_{\vk}|^2 \langle b_{-\vk \downarrow}b^\dagger_{-\vk \downarrow}  - b_{-\vk \uparrow}b^\dagger_{-\vk \uparrow}  \rangle \\
+& =&\mu_B\sum\limits_{\vk,s} ( f_{\vk \uparrow} - f_{\vk \downarrow}) 
+\eea
+
+Where we used $|u_{\vk}|^2+ |v_{\vk}|^2=1$
+\section*{3c}
+
+\end{document}
+

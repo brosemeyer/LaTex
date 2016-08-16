@@ -1,0 +1,246 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bookmath}
+\begin{document}
+\title{NMR Relaxation}
+\author{Ben Rosemeyer}
+\date{\today}
+\maketitle
+
+\section*{Moment dynamics}
+In a magnetic field $\vH$, a moment follows the equation of motion 
+\bea
+\frac{d\vm}{dt} = \gamma \vm\times\vH\quad CLASSICAL \\
+\frac{\hbar}{i}\frac{d\vm}{dt} = [\cH,\vm]\quad QUANTUM
+\eea
+If the Hamiltonian $\cH = -\vH\cdot\vm$ then the two equations have the same result. Further, we can go to a rotating frame of reference at  $\vomega$ so that $\frac{d\vm}{dt} = \frac{\partial\vm}{\partial t} + \vomega\times\vm$, and $\frac{\partial\vm}{\partial t}$ is in the rotating frame. 
+
+If we choose $\vH = H_1 \cos(\omega t)\hat{x} - H_1 \sin(\omega t)\hat{y} + H_0\hat{z}$, where $\vomega=-\omega\hat{z}$, then the effective field seen in the rotating frame is $\vH_e = H_1\hat{x'} + (H_0 - \omega/\gamma)\hat{z}$. In the rotating frame we have
+\bea
+\frac{\partial\vm}{\partial t} = \gamma \vm\times\vH_e
+\eea
+Tuning the constant applied field to $H_0 = \omega/\gamma$ results in a simple form $\frac{\partial\vm}{\partial t} = \gamma H_1 \vm\times \hat{x'}$. In a typical NMR experiment $H_0=\omega/\gamma$ is large and initially there is no perturbing field $H_1$ so that $\vm(t=0)=m_0\hat{z}$. When a $H_1$ pulse is turned on ($t=0$) the moment beings to rotate in the $y-z$ plane at frequency $\omega_1=\gamma H_1$ and when the $H_1$ pulse is turned off at time $t=t'$ the moment will be
+\bea
+\vm = \cos(\omega_1 t')\hat{z} + \sin(\omega_1 t')\hat{y}
+\eea
+There are two types of pulses which are widely used; a $\pi$ pulse $\omega_1 t' =\pi$ which flips the spin to $-\hat{z}$, and a $\pi/2$ pulse $\omega_1 t' =\pi/2$ which turns the spin to $\hat{y}$. After applying the pulse of interest the system of spins is probed at various times after $t'$ to measure the rate at which the equilibrium $\vm=m_0\hat{z}$ is recovered.
+
+\section*{Decay types}
+There are two types of decay processes which are described by rates $T_1$ and $T_2$. $T_1$ is the recovery of the component parallel to the constant field $H_0\hat{z}$
+\bea
+\frac{dm_z}{dt} = (m_0-m_z)/T1
+\eea
+$T_2$ is the recovery of the transverse component which is zero in equilibrium.
+\bea
+\frac{dm_\perp}{dt} = -m_\perp/T2
+\eea
+
+\section*{$T_1$ Transition Rate}
+
+A system of non-interacting nuclear moments in a material has an average total energy $U=Tr[ \rho \cH]$. $\rho = e^{-\cH/T_s}/\cZ$ ($\cZ = Tr[ e^{-\cH/T_s}]$). The time derivative of the total energy is
+\be
+\frac{dU}{dt} = \sum\limits_i \frac{d p_i}{d t} E_i = \frac{d U}{d T_s} \frac{d T_s}{d t}
+\ee
+$p_i = e^{-E_i/T_s}/\cZ$ and $T_s$ is the spin temperature. The change in occupation probability 
+\be 
+\frac{d p_i}{d t} = \sum\limits_{j} W_{ji} p_{j} - W_{ij}p_{i}
+\ee
+$W_{ji}$ is the transition probability per time for $j\rightarrow i$. The principle of detail balance assumes that all the terms in the above sum are zero in equilibrium, $\frac{p_i}{p_j} = \frac{W_{ji}}{W_{ij}}$. The LHS of this equation is the ratio of spin occupation probabilities, which can be defined using a spin temperature $T_s$, while the RHS is the ratio of transition rates and is defined in terms of a lattice temperature $T_l$ ($T_s=T_l$ in equilibrium). The idea is that the nuclear spins are in contact with a reservoir at $T_l$, and spin transitions of the nuclei are allowed through energy exchange with the reservoir.
+
+\bea
+\frac{p_i}{p_j} = exp[-(E_i-E_j)/T_s] \\
+\frac{W_{ji}}{W_{ij}} = exp[-(E_i-E_j)/T_l]
+\eea
+
+Using the above relations and expanding the exponentials for small $E/T$, $\frac{dU}{dt}$ to lowest order in energy/temperature is
+\bea
+\frac{dU}{dt} & = & \sum\limits_{ij} E_i \big(e^{(E_i-E_j)/T_s}e^{-(E_i-E_j)/T_l} - 1\big)W_{ij}p_{i} \\
+			  & = & \sum\limits_{ij} E_iW_{ij} \bigg((1+(E_i-E_j)/T_s)(1-(E_i-E_j)/T_l) - 1\bigg)(1-E_i/T_s)/\cZ \\
+			  & = & \frac{\big(1/T_s - 1/T_l\big)}{\cZ}\sum\limits_{ij} W_{ij} E_i(E_i-E_j) \\
+			  & = & \frac{\big(1/T_s - 1/T_l\big)}{2\cZ}\sum\limits_{ij} W_{ij} (E_i-E_j)^2
+\eea
+The last step simply symmetrizes the sum. Additionally, the spin temperature derivative of energy to lowest order is
+\bea
+\frac{dU}{dT_s} &=& \bigg[\sum\limits_i (E_i^2/T_s^2)e^{-E_i/T_s}\bigg]/\cZ - \bigg[\sum\limits_i (E_i/T_s^2) e^{-E_i/T_s}\bigg]\bigg[\sum\limits_i E_i e^{-E_i/T_s}\bigg]/\cZ^2 \\
+			   &=& \bigg[\sum\limits_i (E_i^2/T_s^2)e^{-E_i/T_s}\bigg]/\cZ - \frac{U^2}{T_s^2} \\
+			   &\approx & \frac{1}{T_s^2}\bigg[\sum\limits_i E_i^2\bigg]/\cZ
+\eea
+Note, $Tr[\cH]=0$ for a spin system.
+
+Now equating $\frac{dU}{dt} = \frac{dU}{dT_s} \frac{dT_s}{dt}$
+\bea
+-\frac{1}{T_s^2}\frac{dT_s}{dt} = \frac{d}{dt}\frac{1}{T_s}= \big(1/T_l - 1/T_s\big)\frac{1}{2}\sum\limits_{ij} W_{ij} (E_i-E_j)^2/\bigg[\sum\limits_i E_i^2\bigg] 
+\eea
+
+By expanding the exponentials in $E/T$ we assumed the nuclear spin energies to be much smaller than the thermal energy which is valid for ${}^{13}C$. The gyromagnetic ratio of ${}^{13}C$ is only $\gamma = 6.728284 \times 10^7 \,\frac{rad}{T s}$, producing a Zeeman level splitting of $\hbar\gamma H \approx 1\mu eV$ in a \emph{large} $30$ tesla field. Even at $1K$, the thermal energy $E_T\approx 10^{-4}$ is still 2 orders of magnitude larger.
+
+In the presence of a magnetic field the magnetization and spin temperature are related through Curie-Weiss Law $T_s \propto H/M$ ($T_l \propto H/M_0$ in equilibrium). In this way we can write the rate equation for the magnetization recovery as follows 
+\bea
+\frac{dM}{dt} = (M_0-M)/T_1 \\
+\frac{d}{dt}(1/T_s) = (1/T_l-1/T_s)/T_1
+\eea
+Where $T_1$ is the relaxation rate. Comparing this with the above equation gives
+\be
+\frac{1}{T_1} = \frac{1}{2}\sum\limits_{ij} W_{ij} (E_i-E_j)^2/\bigg[\sum\limits_i E_i^2\bigg]
+\ee
+
+For a spin 1/2 nuclei ($i = \{\uparrow,\downarrow\}$, $E_{\uparrow\downarrow} = \mp E_H$) the above equation reduces to
+\be
+\frac{1}{T_1} = 2(W_{\uparrow\downarrow} + W_{\downarrow\uparrow})
+\ee
+
+In time dependent perturbation theory, $\cH = \cH_0 + \cH_1(t)\Theta(t)$, the time translation operator in the interaction picture is
+\bea
+U(t) = T e^{-\frac{i}{\hbar}\int\limits_{0}^t \cH_1(t')dt'} \\
+|\psi(t)\rangle {}_I = U(t)|\psi(0)\rangle = \sum\limits_n |n\rangle\langle n| U(t)|\psi(0)\rangle \\
+|\psi(t)\rangle {}_I  = e^{-\frac{i}{\hbar}\cH_1 t}|\psi(0)\rangle {}
+\eea
+Where T acts to order the time integrations in the expanded form of the exponential operator.
+
+The probability amplitude of a transition from unperturbed states $I\rightarrow J$ at time t after the perturbation is turned on at $t=0$ is $c_{IJ}(t) = \langle n| U(t)|\psi(0)\rangle$. To first order in the perturbation
+
+\bea
+c_{IJ}(t) = \frac{i}{\hbar}\int\limits_0^t dt'\, \langle J |  \cH^1 |I \rangle \\
+\eea
+
+The most common perturbing Hamiltonian $\cH_1$ is the hyperfine interaction, assuming a sum over repeated indecies $\alpha,\beta \in \{x,y,z\}$, $\cH_1 = \int d\vx I^\alpha(t) S^\beta (\vx,t) A^{\alpha\beta}(\vx)$ where the spatial integration is over electron coordinates (The nuclear moment is considered fixed at the origin), and $S^\beta (\vx,t) = \Psi_\mu^\dagger(\vx,t) \Psi_\nu(\vx,t)\sigma^\beta_{\mu\nu}$ is the electron spin operator and $\Psi_{s'}(\vx,t)$ is the electron field operator (similarly for $I^\alpha(0,t) =I^\alpha(t)$ with nuclear spin operators $\Phi_{\mu}(\vx,t)$). $A^{\alpha\beta}(\vx)$ is the hyperfine matrix element between nuclear spin $\alpha$ and electron spin $\beta$.
+
+Assuming the unperturbed Hamiltonian has separable solutions for the nuclear moments and electrons, (ie nuclear spins and electrons are non-interacting) the matrix element for a particular $in's'\rightarrow jns$ ($(i,n,s)=$(nuclear spin state, electron state, electron spin)) is
+\bea
+M_{in's',jns}(t) = \langle j |  I^\alpha(t) |i \rangle \int d\vx \, A^{\alpha\beta}(\vx)\langle ns| S^\beta(\vx,t) |n's'\rangle
+\eea
+Which gives a probability amplitude
+\bea
+c_{in's',jns}(t) = \frac{i}{\hbar}\int\limits_0^t dt'\, M_{in's',jns}(t')
+\eea
+Then, the probability of a nuclear transition per time is found by summing over all the electron transition probabilities $|c_{in's',jns}(t)|^2$ weighted by the probability of the initial state $p_{n's'}$. In this way, we consider an initial state with probability $p_{n's'}$ coupling to \emph{all} final states $ns$.
+\bea
+W_{ij} &=& \frac{1}{t}\sum\limits_{n's'ns} p_{n's'}|c_{in's',jns}(t)|^2 \\
+	&=& \frac{1}{t}\sum\limits_{nn', ss'} \int d\vx d\vx' \,\, A^{\alpha\beta}(\vx)A^{*\alpha'\beta' }(\vx')  \int\limits_0^t dt'dt'' \langle j |  I^\alpha(t') |i \rangle \langle i |  I^{\alpha'}(t'') |j\rangle\langle ns| S^\beta(\vx,t') |n's'\rangle \langle n's'| S^{\beta'}(\vx',t'') |ns\rangle \\
+	&=&  \frac{1}{t}\int d\vx d\vx' \,\, A^{\alpha\beta}(\vx)A^{*\alpha'\beta' }(\vx')  \int\limits_0^t dt'dt'' \langle j |  I^\alpha(t') |i \rangle \langle i |  I^{\alpha'}(t'') |j\rangle\bigg\langle S^\beta(\vx,t')  S^{\beta'}(\vx',t'') \bigg\rangle \\
+	&=& \langle j |  I^\alpha |i \rangle \langle i |  I^{\alpha'} |j\rangle \int d\vx d\vx' \,\, A^{\alpha\beta}(\vx)A^{*\alpha'\beta' }(\vx')  \int\limits_{-t}^t d\tau \bigg\langle S^\beta(\vx,\tau)S^{\beta'}(\vx',0) \bigg\rangle e^{i\omega \tau} %\\
+	%&=& t \langle j |  I^\alpha |i \rangle \langle i |  I^{\alpha'} |j\rangle\sigma^\beta_{\mu\nu}\sigma^{\beta'}_{\mu'\nu'} \int d\vx d\vx' \,\, A^{\alpha\beta}(\vx)A^{*\alpha'\beta' }(\vx')  \int\limits_{-t}^t d\tau \bigg\langle \Psi_\mu^\dagger(\vx,\tau)\Psi_\nu(\vx,\tau)\Psi_{\mu'}^\dagger(\vx')\Psi_{\nu'}(\vx') \bigg\rangle e^{i\omega \tau}
+\eea
+We have used $1 = \sum\limits_{n's'} |n's'\rangle\langle n's'|$ and introduced $\bigg\langle A \bigg\rangle = \sum\limits_{ns}\langle ns|A|ns\rangle = Tr[\rho A  \big]$ as the thermal average of the unperturbed electron ensemble ($\cH_0$, $\rho = e^{-\beta \cH_0}/\cZ_e$). $\omega = (E_j-E_i)/\hbar$ is the difference of nuclear energy states, and we used the cyclic property of the trace to write the time bit in terms of $\tau = t'-t''$
+
+The integral over electron coordinates can be evaluated using the Fourier transform of the interaction squared $A^{\alpha\beta}(\vx)A^{*\alpha'\beta'}(\vx') = C^{\alpha\beta}_{\alpha'\beta' }(\vr,\vR)$, and defining center of mass and relative coordinates $\vR=(\vx+\vx')/2$ and $\vr = \vx - \vx'$. Additionally, we consider the limit of $t\rightarrow \infty$, which is to say that the perturbation was turned on in the very distant past.
+\bea
+%&&\int d\vr d\vR d\vk d\vk' \,\, A^{\alpha\beta}(\vk)A^{*\alpha'\beta' }(\vk') \cS^{\beta\beta'}(\vr,\vR,\tau)    e^{i(\vk-\vk')\vR}e^{i(\vk+\vk')\vr/2} \\
+W_{ij}&=& \langle j |  I^\alpha |i \rangle \langle i |  I^{\alpha'} |j\rangle\int d\vR d\vq  \,\, C^{\alpha\beta}_{\alpha'\beta' }(\vq,\vR) \cS^{\beta\beta'}(\vq,\vR,\omega) 
+\eea
+$\cS^{\beta\beta}(\vq,\vR,\omega) = \int\limits_{-\infty}^{\infty} d\tau d\vr e^{-i(\vq\vr-\omega \tau)}\bigg\langle S^\beta(\vx,\tau)S^{\beta'}(\vx',0) \bigg\rangle$, and  $C^{\alpha\beta}_{\alpha'\beta' }(\vq,\vR)= \int d\vr e^{-i\vq\vr}A^{\alpha\beta}(\vx)A^{*\alpha'\beta' }(\vx')$.
+
+We now turn to the fluctuation-dissipation theorem to show that $\cS^{\beta\beta'}(\vq,\vR,\omega) = \frac{Im[\chi{\beta\beta'}(\vq,\vR,\omega)]}{1+e^{\omega/T}}$. Which requires the definitions of a few things in linear response (suppressing spatial coordinates).
+\\ 
+
+$X^{\beta\beta'}(t) = i\big\langle [S^\beta(t),S^{\beta'}(0)] \big\rangle$ RESPONSE FUNCTION\\
+
+$\cS^{\beta\beta'}(t) = \big\langle S^\beta(t),S^{\beta'}(0) \big\rangle$ CORRELATION FUNCTION \\
+
+$\chi^{\beta\beta'}(\omega) = \int dt \Theta(t) X^{\beta\beta'}(t) e^{i\omega t}$ RETARDED SUSCEPTIBILITY \\
+
+The response and correlation functions are easily related $X^{\beta\beta'}(t) = i(\cS^{\beta\beta'}(t) - \cS^{\beta'\beta}(-t))$, and the transform of the response function is $X^{\beta\beta'}(\omega) = \int\limits_{-\infty}^\infty\,\, dt e^{i(\omega' t + i\omega'' |t|)} X^{\beta\beta'}(t)$, where $\omega'$ and $\omega''>0$ are the real and imaginary parts of $\omega$ respectively. Using this definition one finds that $X^{\beta\beta'}(\omega) = 2iIm[\chi^{\beta\beta'}(\omega)]$.
+
+We now turn to the correlation function $\cS$ and employ the cyclic nature of the trace to find $\cS^{\beta\beta'}(t) =\cS^{\beta'\beta}(-t-i\beta)$, and if $\cS^{\beta\beta'}(t)$ is analytic for $Im[t]\leq\beta$, then this equality can be transformed $\cS^{\beta\beta'}(\omega) = e^{\beta\omega}\cS^{\beta'\beta}(-\omega)$. Using the relation between $\cS$ and $X$ we find
+\bea
+\cS^{\beta\beta'}(\omega) = e^{\beta\omega}(\cS^{\beta\beta'}(\omega) + iX^{\beta\beta'}(\omega)) \\
+\Rightarrow \cS^{\beta\beta'}(\omega) = \frac{2Im[\chi^{\beta\beta'}(\omega)]}{1-e^{-\beta\omega}}
+\eea
+
+The exponential in the denominator can be expanded for small $\omega$ when the nuclear transitions are small and we arrive at
+
+\bea
+W_{ij}&=& 2T\langle j |  I^\alpha |i \rangle \langle i |  I^{\alpha'} |j\rangle\int d\vR d\vq  \,\, C^{\alpha\beta}_{\alpha'\beta' }(\vq,\vR) \frac{Im[\chi^{\beta\beta'}(\vq,\vR,\omega)]}{\omega}
+\eea
+
+If the transition frequency $\omega$ is sufficiently small, the electron integral $K^{\alpha\beta}_{\alpha'\beta'}(\omega)$ becomes independent of the transition states $i$ and $j$, and $W_{ij} = K^{\alpha\beta}_{\alpha'\beta'} \langle j |  I^\alpha |i \rangle \langle i |  I^{\alpha'} |j\rangle$. In this case, the relaxation rate equation is
+
+\bea
+\frac{1}{T_1} &=& \frac{1}{2}\sum\limits_{ij} W_{ij} (E_i - E_j)^2/\sum\limits_{i} E_i^2 \\ 
+			&=&\frac{K^{\alpha\beta}_{\alpha'\beta'}}{2}\sum\limits_{ij} \langle j |  I^\alpha |i \rangle \langle i |  I^{\alpha'} |j\rangle (E_i - E_j)^2/\sum\limits_{i} E_i^2 \\
+			&=&-\frac{K^{\alpha\beta}_{\alpha'\beta'}}{2}\sum\limits_{ij} \langle j |  [\cH,I^\alpha ]|i \rangle \langle i | [\cH, I^{\alpha'} ]|j\rangle/\sum\limits_{i} E_i^2 \\
+			&=&-\frac{K^{\alpha\beta}_{\alpha'\beta'}}{2}Tr\big[  [\cH,I^\alpha ][\cH,I^{\alpha'}]\big]/Tr[\cH^2]
+\eea
+
+For the unperturbed nuclear Hamiltonian $\cH_0 = \gamma \hbar H I^z$, so $Tr[\cH^2] = (\gamma \hbar H)^2 Tr[I^{z2}]$, and using the commutator $[I^i,I^j]=i\epsilon_{ijk}I^k$, and product $I^aI^b = i\sum\limits_c \epsilon_{abc} I^c + \delta_{ab}\cI$ we see that $\alpha=\alpha'$ %we get $Tr[[\cH,I^\alpha ]^2] = -(\gamma \hbar H)^2 (Tr[I^{x2}]+ Tr[I^{y2}])]$. Since $Tr[I^{\alpha 2}]$ is the same for all $x,y,z$ components we arrive at the 
+\bea
+\frac{1}{T_1} &=&K^{\alpha\beta}_{\alpha\beta'} \\
+&=& 2T \int d\vR d\vq  \,\, C^{\alpha\beta}_{\alpha\beta' }(\vq,\vR) \frac{Im[\chi^{\beta\beta'}(\vq,\vR,\omega)]}{\omega}\bigg|_{\omega\rightarrow 0} \\
+&=& \int d\vR d\vq  \,\, C^{\alpha\beta}_{\alpha\beta' }(\vq,\vR) \cS^{\beta\beta'}(\vq,\vR,\omega)\bigg|_{\omega\rightarrow 0}
+\eea
+
+Having proceeded thus far with a general spin structure, we now focus on only the diagonal contributions from the hyperfine interaction $C^{\alpha\beta}_{\alpha\beta'} = C^\alpha\delta_{\alpha\beta}\delta_{\alpha\beta'}$, and now 
+\bea
+1/T_1 &=& \int d\vR d\vq  \,\, C^{\alpha}(\vq,\vR) \cS^{\alpha}(\vq,\vR,\omega)\bigg|_{\omega\rightarrow 0}
+\eea
+
+Another limit to consider is if the hyperfine interaction is purely S wave so that $C^{\alpha\beta}_{\alpha'\beta'}(\vr,\vR) = C^{\alpha\beta}_{\alpha'\beta'}\delta(\vr)\delta(\vR)$, and in this case we can easily find $W_{ij}$
+
+\bea
+W_{ij} &=& \langle j |  I^\alpha |i \rangle \langle i |  I^{\alpha'} |j\rangle C^{\alpha\beta}_{\alpha'\beta'}\sigma^\beta_{\mu\nu}\sigma^{\beta'}_{\mu'\nu'}\int\limits_{-\infty}^\infty d\tau \bigg\langle \Psi_{\mu}^\dagger(\tau)\Psi_{\nu}(\tau)\Psi_{\mu'}^\dagger\Psi_{\nu'} \bigg\rangle e^{i\omega \tau}
+\eea
+
+In the case of a normal metal we can write the electron wave functions as block waves $\Psi_{\mu}(\vx,t) = \sum\limits_{\vk}\phi_{\vk\mu}(\vr) \hat{\psi}_{\vk\mu} e^{-iE_{\vk} t}$, $\phi_{\vk\mu}(0)=\phi_{\vk\mu}$
+\bea
+W_{ij} &=& \langle j |  I^\alpha |i \rangle \langle i |  I^{\alpha'} |j\rangle C^{\alpha\beta}_{\alpha'\beta'}\sigma^\beta_{\mu\nu}\sigma^{\beta'}_{\mu'\nu'}\phi^*_{\vk\mu}\phi_{\vp\nu} \phi^*_{\vk'\mu'}\phi_{\vp'\nu'}\int\limits_{-\infty}^\infty d\tau \bigg\langle \hat{\psi}_{\vk\mu}^\dagger\hat{\psi}_{\vp\nu}\hat{\psi}_{\vk'\mu'}^\dagger\hat{\psi}_{\vp'\nu'} \bigg\rangle e^{i(\omega + E_{\vk\mu} - E_{\vp\nu}) \tau}
+\eea
+The trace can be done using Wicks Theorem, noting that the first term $\big\langle \hat{\psi}_{\vk\mu}^\dagger\hat{\psi}_{\vp\nu}\big\rangle\big\langle\hat{\psi}_{\vk'\mu'}^\dagger\hat{\psi}_{\vp'\nu'} \big\rangle$ vanishes, because it requires $\delta_{\vk\vp}\delta_{\mu\nu}$ from the trace which leads to $\delta(\omega)$ from the time integration, and $\omega=0$ corresponds to no nuclear transition (i=j). Therefore,
+\bea
+W_{ij} &=& \langle j |  I^\alpha |i \rangle \langle i |  I^{\alpha'} |j\rangle C^{\alpha\beta}_{\alpha'\beta'}\sum\limits_{\vk\vp\mu\nu}\sigma^\beta_{\mu\nu}\sigma^{\beta'}_{\nu\mu}|\phi_{\vk\mu}|^2|\phi_{\vp\nu}|^2 f_{\vk\mu}(1-f_{\vp\nu}) \delta(\omega + E_{\vk\mu} - E_{\vp\nu})
+\eea
+
+If instead, the electron states are superconducting then the electron operator is written in the Bogoliubov transformation
+\bea
+\Psi_{\mu}(\vx,t) = \sum\limits_{\vn} u_{\vn\mu\nu}(\vx) \hat{\gamma}_{\vn\nu}(t) + v^*_{\vn\mu\nu}(\vx) \hat{\gamma}_{\vn\nu}^\dagger(t)
+\eea 
+
+\bea
+\bigg\langle \Psi_{\alpha}^\dagger(\tau)\Psi_{\beta}(\tau)\Psi_{\alpha'}^\dagger\Psi_{\beta'} \bigg\rangle = -\big\langle \Psi_{\alpha}^\dagger(t)\Psi_{\alpha'}^\dagger\rangle\langle \Psi_{\beta}(t)\Psi_{\beta'} \big\rangle + \big\langle \Psi_{\alpha}^\dagger(t)\Psi_{\beta'}\rangle\langle \Psi_{\beta}(t)\Psi_{\alpha'}^\dagger \big\rangle \\
+ = -\big\langle \bigg(u_{\vn\alpha\mu}^* \hat{\gamma}^\dagger_{\vn\mu}(t) + v_{\vn\alpha\mu} \hat{\gamma}_{\vn\mu}(t)\bigg)
+                \bigg(u_{\vn'\alpha'\mu'}^* \hat{\gamma}^\dagger_{\vn'\mu'} + v_{\vn'\alpha'\mu'} \hat{\gamma}_{\vn'\mu'}\bigg)\rangle \\
+ \times\langle  \bigg(u_{\vm\beta\nu} \hat{\gamma}_{\vm\nu}(t) + v^*_{\vm\beta\nu} \hat{\gamma}^\dagger_{\vm\nu}(t)\bigg)
+                \bigg(u_{\vm'\beta'\nu'} \hat{\gamma}_{\vm'\nu'} +v^*_{\vm'\beta'\nu'} \hat{\gamma}^\dagger_{\vm'\nu'}\bigg) \big\rangle \\
+ +  \big\langle \bigg(u_{\vn\alpha\mu}^* \hat{\gamma}^\dagger_{\vn\mu}(t) + v_{\vn\alpha\mu} \hat{\gamma}_{\vn\mu}(t)\bigg)
+                \bigg(u_{\vm'\beta'\nu'} \hat{\gamma}_{\vm'\nu'} + v^*_{\vm'\beta'\nu'} \hat{\gamma}^\dagger_{\vm'\nu'}\bigg)\rangle \\
+ \times\langle  \bigg(u_{\vm\beta\nu} \hat{\gamma}_{\vm\nu}(t) + v^*_{\vm\beta\nu} \hat{\gamma}^\dagger_{\vm\nu}(t)\bigg)
+ 				\bigg(u_{\vn'\alpha'\mu'}^* \hat{\gamma}^\dagger_{\vn'\mu'} + v_{\vn'\alpha'\mu'} \hat{\gamma}_{\vn'\mu'}\bigg)
+                 \big\rangle
+\eea
+Now we can group Fermi function combinations
+\bea  
+  &=& f_{\vn\mu}(1-f_{\vm\nu})e^{i(E_{\vn\mu}-E_{\vm\nu})t}\big(-u_{\vn\alpha\mu}^*v_{\vn\alpha'\mu}u_{\vm\beta\nu}v^*_{\vm\beta'\nu} + u_{\vn\alpha\mu}^*u_{\vn\beta'\mu}u_{\vm\beta\nu}u^*_{\vm\alpha'\nu}\big) \\
+  &&+ (1-f_{\vn\mu})f_{\vm\nu}e^{-i(E_{\vn\mu}-E_{\vm\nu})t}\big(-v_{\vn\alpha\mu}u_{\vn\alpha'\mu}^*v^*_{\vm\beta\nu}u_{\vm\beta'\nu} + v_{\vn\alpha\mu}v_{\vn\beta'\mu}^*v_{\vm\beta\nu}^*v_{\vm\alpha'\nu}\big)  \\
+  &&+ f_{\vn\mu}f_{\vm\nu}e^{i(E_{\vn\mu}+E_{\vm\nu})t}\big(-u_{\vn\alpha\mu}^*v_{\vn\alpha'\mu}v^*_{\vm\beta\nu}v_{\vm\beta'\nu} + u_{\vn\alpha\mu}^*u_{\vn\beta'\mu}v^*_{\vm\beta\nu}v_{\vm\alpha'\nu}\big)  \\
+  &&+ (1-f_{\vn\mu})(1-f_{\vm\nu})e^{-i(E_{\vn\mu}+E_{\vm\nu})t}\big(-v_{\vn\alpha\mu}u^*_{\vn\alpha'\mu}u_{\vm\beta\nu}v^*_{\vm\beta'\nu} + v_{\vn\alpha\mu}v^*_{\vn\beta'\mu}u_{\vm\beta\nu}u^*_{\vm\alpha'\nu}\big)
+\eea
+
+Using the relation for negative energies ($E_{n\mu}=\rightarrow -E_{n\mu}$, $(u_{\vn\alpha\beta},v_{\vn\alpha\beta})\rightarrow (v^*_{\vn\alpha\beta},u^*_{\vn\alpha\beta})$) it is possible to show that all the above contributions are the same
+
+\bea  
+  &=& 4f_{\vn\mu}(1-f_{\vm\nu})e^{i(E_{\vn\mu}-E_{\vm\nu})t}\big(-u_{\vn\alpha\mu}^*v_{\vn\alpha'\mu}u_{\vm\beta\nu}v^*_{\vm\beta'\nu} + u_{\vn\alpha\mu}^*u_{\vn\beta'\mu}u_{\vm\beta\nu}u^*_{\vm\alpha'\nu}\big)\\
+   &=& 4f_{\vn\alpha}(1-f_{\vm\beta})e^{i(E_{\vn\alpha}-E_{\vm\beta})t}\big(-\sigma(\alpha)\sigma(\beta)\delta_{\alpha'\bar{\alpha}} \delta_{\beta'\bar{\beta}}u_{\vn}^*v_{\vn}u_{\vm}v^*_{\vm} + \delta_{\beta'\alpha}\delta_{\beta\alpha'} u_{\vn}^*u_{\vn}u_{\vm}u^*_{\vm}\big)
+\eea
+
+In a singlet superconductor the amplitudes are known $u_{\vn\alpha\beta} = u_{vn}\delta_{\alpha\beta}$, $v_{\vn\alpha\beta} = -v_{\vn}\sigma(\alpha)\delta_{\alpha\bar{\beta}}$
+
+\bea
+W_{ij} &=& 4\langle j |  I^\alpha |i \rangle \langle i |  I^{\alpha'} |j\rangle C^{\alpha\beta}_{\alpha'\beta'}\sum\limits_{\vn\vm\mu\nu}\sigma^\beta_{\mu\nu}f_{\vn\mu}(1-f_{\vm\nu})\big(-\sigma(\mu)\sigma(\nu)\sigma^{\beta'}_{\bmu\bnu}u_{\vn}^*v_{\vn}u_{\vm}v^*_{\vm} + \sigma^{\beta'}_{\nu\mu} |u_{\vn}|^2|u_{\vm}|^2\big) \delta(\omega + E_{\vn\mu} - E_{\vm\nu})
+\eea
+
+If there is no magnetic field the spin sums can be evaluated easily for a diagonal $\beta = \beta'$ elements ($\beta\neq\beta'$ is zero ?), and from BCS we know that $u_{\vn}V^*_{\vn} = \Delta/(2E_{\vn})$
+\bea
+W_{ij} &=& 8\langle j |  I^\alpha |i \rangle \langle i |  I^{\alpha'} |j\rangle C^{\alpha\beta}_{\alpha'\beta'}\sum\limits_{\vn\vm}f_{\vn}(1-f_{\vm})\big(|\Delta|^2/(4E_{\vn}E_{\vm}) + |u_{\vn}|^2|u_{\vm}|^2\big) \delta(\omega + E_{\vn\mu} - E_{\vm\nu})
+\eea
+
+From BCS we also know that 
+\bea
+|u_{\vn}|^2|u_{\vm}|^2 = \frac{1}{4}(1+\xi_{\vn}/E_{\vn})(1+\xi_{\vm}/E_{\vm}) = \frac{1}{4}(1+\xi_{\vn}/E_{\vn}+\xi_{\vm}/E_{\vm} + \xi_{\vn}\xi_{\vm}/(E_{\vn}E_{\vm}))
+\eea
+Near the Fermi surface there will be both particles ($\xi>0$) and holes ($\xi<0$) which both have the same total energy $E=\sqrt{\xi^2 + \Delta^2}$. Therefore the last three terms above do not contribute to the total integration and can be removed. The final result is 
+\bea
+W_{ij} &=& 2\langle j |  I^\alpha |i \rangle \langle i |  I^{\alpha'} |j\rangle C^{\alpha\beta}_{\alpha'\beta'}\sum\limits_{\vn\vm}f_{\vn}(1-f_{\vm})\big(|\Delta|^2/(E_{\vn}E_{\vm}) + 1 \big) \delta(\omega + E_{\vn\mu} - E_{\vm\nu})
+\eea
+\end{document}

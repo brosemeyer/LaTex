@@ -1,0 +1,143 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{bookmath}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\title{HW 10: Physics 545}
+\author{Ben Rosemeyer}
+
+\begin{document}
+
+\maketitle
+
+\section*{1}
+The total entropy is the sum of the phonons + rotons. 
+The distribution of the rotons with spin degeneracy $g_r$ is $n_{\vp} \approx g_r \xi e^{-\beta\frac{(p-p_0)^2}{2m}}$, with $\xi = e^{-\beta\Delta}$. We are assuming the temperature is small compared to the energy gap, $\beta\Delta >> 1$, $\xi << 1$, and $\beta = 1/T$. The entropy of the rotons bosons is:
+\bea
+S_r &=& \frac{g_r}{(2\pi\hbar)^3}\int d^3\vp \quad (1+n_{\vk})ln(1+n_{\vk}) - n_{\vk} ln(n_{\vk}) \\
+	& =& \frac{4g_r\pi}{(2\pi\hbar)^3}\int d p \quad p^2\bigg[(1+\xi e^{-\beta\frac{(p-p_0)^2}{2m}})ln(1+\xi e^{-\beta\frac{(p-p_0)^2}{2m}}) \\
+	& &\hspace{1in} - \xi e^{-\beta\frac{(p-p_0)^2}{2m}} \bigg(ln(\xi) -\beta\frac{(p-p_0)^2}{2m} \bigg)\bigg] \\
+	& \approx& \frac{4g_r\pi\xi}{(2\pi\hbar)^3}\int d p \quad  p^2\,\, e^{-\beta\frac{(p-p_0)^2}{2m}} \bigg(\beta\Delta +\beta\frac{(p-p_0)^2}{2m} \bigg)
+\eea
+
+And the first term in the integral can be discarded in the low temperature expansion $1+\xi e^{-\beta\frac{(p-p_0)^2}{2m}}\approx 1$ because the gaussian is always less than 1.
+
+We make the substitution $x = (p-p_0)/c$, $c = \sqrt{2mT} $
+\bea
+S_r & \approx& \frac{4g_r\pi\xi c}{(2\pi\hbar)^3 T}\int\limits_{-p_0/c}^\infty d x \quad  (cx+p_0)^2\,\, e^{-x^2} \bigg(\Delta + x^2T  \bigg) \\
+& \approx & \frac{4g_r\pi\xi c}{(2\pi\hbar)^3 T}\int\limits_{-p_0/c}^\infty d x \quad \bigg(c^2Tx^4 + 2TCp_0 x^3 (\Delta c^2 + T p_0^2)x^2+2cp_0\Delta x+p_0^2\Delta\bigg) \,\, e^{-x^2} 
+\eea
+
+Now, we keep only the lowest order in $T$ (noting that $c\propto\sqrt{T}$) and extending the lower bound $-\frac{p_0}{\sqrt{2mT}}\rightarrow-\infty$.
+
+\bea
+S_r & \approx & \frac{g_r p_0^2\Delta}{\hbar^3}\sqrt{\frac{m}{2\pi^3 T}}e^{-\Delta/T}
+\eea
+
+The phonon contribution can be calculated similarly using the phonon distribution to be $n_\vp = (e^{\beta u p} -1)^{-1}$:
+
+\bea
+S_p &=& \frac{g_p}{(2\pi\hbar)^3}\int d^3\vp \quad (1+n_{\vk})ln(1+n_{\vk}) - n_{\vk} ln(n_{\vk}) \\
+	& =& \frac{4g_r\pi}{(2\pi\hbar)^3}\int d p \quad p^2(e^{\beta u p} - 1)^{-1}\bigg[e^{\beta u p}\bigg(\beta u p - ln ( e^{\beta u p}+1) \bigg) \\
+	& &\hspace{2in} +   ln(e^{\beta u p} - 1)\bigg] \\
+	& =& \frac{4g_r\pi}{(2\pi\hbar)^3}\int d p \quad \beta u p ^3e^{\beta u p} (e^{\beta u p} - 1)^{-1} - p^2ln(e^{\beta u p} - 1)
+\eea
+
+The change of variables is to $x= a p$, $a = \beta u = u/T$
+\bea
+S_p & =& \frac{4g_r\pi}{a(2\pi\hbar)^3}\int d x \quad x^3 e^{x} (e^{x} - 1)^{-1} - x^2 ln(e^{x} - 1) \\
+S_p & =& \frac{4g_r\pi}{a^3(2\pi\hbar)^3}\bigg[- \frac{x^3}{3} ln(e^{x} - 1)\bigg|_0^\infty + \frac{4}{3}\int d x \quad x^3 e^{x} (e^{x} - 1)^{-1} \bigg] \\
+S_p & =& \frac{2g_r\pi^2 T^3}{45 u^3 \hbar^3}
+\eea
+
+Mathematica gives result of the integral in brackets to be $4\pi^4/45$. 
+
+Becuase the entropy is an additive property, the total phonon-roton entropy is $S_{tot} = S_p+S_r$:
+\bea
+S_{tot} = \frac{2g_r\pi^2 T^3}{45 u^3 \hbar^3} + \frac{g_r p_0^2\Delta}{\hbar^3}\sqrt{\frac{m}{2\pi^3 T}}e^{-\Delta/T}
+\eea
+
+The heat capacity is $C_v = T\frac{\partial S}{\partial T}$
+\bea
+C_v =  \frac{6g_r\pi^2 T^3}{45 u^3 \hbar^3} + \frac{g_r p_0^2\Delta}{\hbar^3}\sqrt{\frac{m}{2\pi^3}}\bigg[-\frac{1}{2}T^{-3/2} + \Delta T^{-5/2} \bigg]e^{-\Delta/T}
+\eea
+
+
+For the density of the normal component, we use the expression from class:
+
+
+For the phonon distribution:
+\bea
+\rho^{phon}_n = \frac{4\pi}{3(2\pi\hbar)^3}\int dp\quad p^4 \bigg(-\frac{\partial	n}{\partial \epsilon}  \bigg) \\
+\rho_n = -\frac{4\pi}{3u(2\pi\hbar)^3}\int dp \quad p^4 \bigg(\frac{\partial	n_p}{\partial p}  \bigg) \\
+\rho_n = \frac{16\pi}{3u(2\pi\hbar)^3} \int dp \quad p^3 n_p \\
+\rho_n = \frac{16\pi}{3ua^4(2\pi\hbar)^3} \int dp \quad \frac{x^3}{e^{x}-1} \\
+\rho_n = \frac{2\pi^2 T^4}{45u^5\hbar^3}  \\
+\eea
+And we have used integration by parts in the last step. The integral is the DEBYE INTEGRAL$=\pi^4/15$.
+
+And for the roton distribution, using the same substitutions as for the roton entropy:
+\bea
+\rho_n = \frac{4\pi\beta\xi}{3(2\pi\hbar)^3}\int dp\quad p^4 e^{-\beta(p-p_0)^2/2m} \\
+\rho_n = \frac{4\pi\beta\xi c}{3(2\pi\hbar)^3}\int\limits_{-p_0/c}^\infty dx\quad (cx+p_0)^4 e^{-x^2} \\
+\rho_n \approx \frac{4\pi\beta\xi c}{3(2\pi\hbar)^3}\int\limits_{-\infty}^\infty dx\quad \bigg(c^4x^4 + 4p_0c^3x^3 + 6p_0^2c^2x^2+ 4p_0^3cx +p_0^4\bigg) e^{-x^2}
+\eea
+
+Again, we use the low temperature limit to extend the lower limit $-p_0/c \rightarrow \infty$ and we keep only the lowest order in T which is the last term in the brackets:
+\bea
+\rho^{rot}_n \approx \frac{p_0^4}{6\hbar^3}\sqrt{\frac{2m}{\pi^3 T}} e^{-\beta\Delta}
+\eea
+
+\section*{2a}
+The energy of a single vortex is given by $E_v = \frac{1}{2}\int d^3\vr \rho_s \vv_s^2$. We can write this as the energy per length along the cylinder $\epsilon_v$
+\bea
+\epsilon_v = \frac{\rho_s}{2}\int dr d\phi \quad r \Theta(r-r_c)^2 \Gamma_n^2/r^2 \\
+\epsilon_v = \rho_s \Gamma_n^2\pi \int dr  \quad  \Theta(r-r_c)^2 /r \\
+\epsilon_v = \rho_s \Gamma_n^2\pi \bigg[ln(r)\bigg]_{r_c}^R \\
+\epsilon_v = \pi\rho_s \bigg(\frac{\hbar n}{m}\bigg)^2\, ln(R/r_c)
+\eea
+
+and we use $\Gamma_n = \frac{\hbar}{m} n$ and $\vv_s =\frac{\Gamma}{r}\hat{r}$.
+
+The superfluid momentum is $\vp_s = m\vv_s = \frac{\hbar n}{r}\hat{\phi}$, and angular momentum is $\vL = \vr \times \vp$. The total angular momentum of the vortex is:
+\bea
+\vL_s = \int d^3\vr\quad \vr \times \vp \\
+\vL_s = \int dr d\theta dz \quad r((r\hbar n/r )\hat{z} - (z\hbar n/r )\hat{r}) \\
+\eea
+
+the $\hat{r}$ term integrates to 0, and the $\hat{z}$ part we write as angular momentum per length $\vl_s$:
+
+\bea
+\vl_s = \pi \hbar n (R^2-r_c^2) \hat{z}
+\eea
+
+The critical frequency $\omega_c$ is when $\epsilon_s = |\vl_s|\omega_c$:
+\be
+\omega_c = \rho_s \bigg(\frac{\hbar n}{m^2}\bigg)\, \frac{ln(R/r_c)}{R^2 - r_c^2}
+\ee
+
+\section*{2b}
+The circulation along a circle of radius r inside the star is:
+\bea
+2\pi\Gamma_r &=& \int_C \vv_s \cdot  d\vl = \int \int \vec{\nabla}\times\vv_s \cdot d\vs \\
+ &=& 2\pi\Gamma_s  N(r)
+\eea
+
+$\Gamma_s = \hbar/m$ is the single quantized circulation of one vortex and $m$ is the mass of the condensate particles (probably neutrons i guess...)
+
+$N(r) = \pi r^2 n_v $ is the number of vortices contained in the circle of radius r with $n_v$ the area density of vortices which is constant.
+
+The average velocity of this circulation is $\vv_s = \frac{\Gamma_r}{r} \hat{\phi}$, and the angular momentum associated with this circulation of all the particles with total mass $M$ is:
+\bea
+\vL = M \Gamma_r \hat{z} =  2\pi^2\hbar n_v r^2 \frac{M}{m} \hat{z}
+\eea
+
+Extending the radius of the circle to the edge of the sphere $r=R$, and assuming the mass $M=M_{star}$. Then we can equate this angular momentum with that of the spinning sphere of mass $M$ and frequency $\Omega$, $\vL = \frac{2}{5}MR^2\Omega\hat{z}$
+
+\bea
+n_v = \frac{m\Omega}{5\pi^2\hbar}
+\eea
+\end{document}
+

@@ -1,0 +1,110 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{bookmath}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\title{HW 8: Physics 545}
+\author{Ben Rosemeyer, Andrew Hammer}
+
+\begin{document}
+
+\maketitle
+
+\section*{1}
+The imaginary part of the dielectric in RPA is $\epsilon''= -\frac{4\pi e^2}{q^2}\chi''(\vq,\omega)$ which requres the imaginary part of the susceptibility($''$ denotes imaginary part and $'$ denotes real part). For the distribution function we use Maxwell Boltzman $n_{\vp} = e^{-\beta(\epsilon_{\vp} - \mu)}$, $\beta = (k_B T)^{-1}$:
+\bea
+\chi''(\vq,\omega) = -\pi\sum\limits_{\vp} (n_{\vp-\vq/2} - n_{\vp + \vq/2}) \, \delta(\hbar\omega + \epsilon_{\vp-\vq/2} - \epsilon_{\vp + \vq/2}) \\
+ = -\frac{4\pi^2 e^{-\beta(q^2/8m - \mu)}}{(2\pi\hbar)^3}\int\limits_{-1}^1 dx \int\limits_0^\infty dp\, p^2 e^{-\beta p^2/2m} sinh\bigg(\frac{\beta q p x}{2m}\bigg) \delta(\hbar\omega- \frac{pqx}{m}) \\
+  = -\frac{4\pi^2 m e^{-\beta(q^2/8m - \mu)}}{(2\pi\hbar)^3 q}sinh\bigg(\frac{\beta \hbar \omega}{2}\bigg) \int\limits_0^\infty dp\, p e^{-\beta p^2/2m}  \\
+    = -\frac{4\pi^2 m^2 e^{-\beta(q^2/8m - \mu)}}{(2\pi\hbar)^3 \beta q}sinh\bigg(\frac{\beta \hbar \omega}{2}\bigg)
+\eea
+
+Now we wish to use convenient dimensionless variables to plot with. $\Omega = \beta\hbar\omega$, $Q = \sqrt{\frac{\beta}{8m}} q$
+\bea
+\chi''(Q,\Omega) &=& -\bigg[\frac{4\pi^2 m^{3/2} e^{\beta\mu}}{(2\pi\hbar)^3 \sqrt{8\beta}}\bigg]\frac{e^{-Q^2}}{Q} sinh\bigg(\frac{\Omega}{2}\bigg) \\
+&=& -C(T,\mu,m)\frac{e^{-Q^2}}{Q} sinh\bigg(\frac{\Omega}{2}\bigg)
+\eea
+
+The Q and $\Omega$ free term $C(T,\mu,m)$ is the amplitude and could also be plotted vs T and $\mu$.
+
+Setting $\hbar = 1$, the imaginary part of the dielectric is:
+\bea
+\epsilon''(Q,\Omega) &=& \frac{4\pi e^2}{8mQ^2\beta} \bigg[\frac{4\pi^2 m^{3/2} e^{\beta\mu}}{(2\pi)^3 \sqrt{8\beta}}\bigg]\frac{e^{-Q^2}}{Q} sinh\bigg(\frac{\Omega}{2}\bigg) \\
+&=& \bigg[\frac{e^2m^{1/2} e^{\beta\mu}}{8\sqrt{2} \beta^{3/2}}\bigg]\frac{e^{-Q^2}}{Q^3} sinh\bigg(\frac{\Omega}{2}\bigg) \\
+\eea
+The problem asks to plot:
+\bea
+\omega\epsilon''(Q,\Omega) &=& \bigg[\frac{e^2m^{1/2} e^{\beta\mu}}{8\sqrt{2} \beta^{5/2}}\bigg]\frac{e^{-Q^2}}{Q^3} \Omega sinh\bigg(\frac{\Omega}{2}\bigg)
+\eea
+
+\section*{2a}
+{\bf REAL PART}
+We wish to find $\epsilon(\vq,\omega) = 1-\frac{4\pi e^2}{q^2}\chi(\vq,\omega)$ and therefore must compute the susceptibility by shifting the origin to the center of the two Fermi Surfaces:
+\bea
+\chi(\vq,\omega) &=& \sum\limits_{\vp}\frac{n_{\vp-\vq/2} - n_{\vp + \vq/2}}{\hbar\omega + \epsilon_{\vp-\vq/2} - \epsilon_{\vp + \vq/2}} \\
+&=& \int\limits_0^{k_f} dk \int\limits_0^{2\pi} d\theta \frac{k}{\hbar\omega - \frac{q^2}{2m} - \frac{kq}{m}cos(\theta)} - \frac{k}{\hbar\omega + \frac{q^2}{2m} - \frac{kq}{m}cos(\theta)} \\
+&=& \frac{m}{q}\int\limits_0^{k_f} dk \int\limits_0^{2\pi} d\theta \frac{k}{\lambda_- - kcos(\theta)} - \frac{k}{\lambda_+ - kcos(\theta)} 
+\eea
+
+Where we defined $\lambda_\pm = \hbar\omega m/q \pm \frac{q}{2}$. To do the $\theta$ integral we can use complex definition $z = e^{i\theta}$ to get a contour integral around the unit circle.
+
+\bea
+&=& -\frac{im}{q}\int\limits_0^{k_f} dk \quad k \int\limits_C dz \frac{1}{\lambda_- z - \frac{k}{2}(z^2+1)} - \frac{1}{\lambda_+ z - \frac{k}{2}(z^2+1)} \\
+&=& \frac{2im}{q}\int\limits_0^{k_f} dk  \int\limits_C dz \frac{1}{-(2\lambda_-/k) z + z^2+1} - \frac{1}{-(2\lambda_+/k) z + z^2+1} \\
+&=& \frac{2im}{q}\int\limits_0^{k_f} dk  \int\limits_C dz \frac{1}{(z-z_{--})(z-z_{-+})} - \frac{1}{(z-z_{+-})(z-z_{++})}
+\eea
+
+Where $z_{s\pm} = (\lambda_s/k) \pm \sqrt{(\lambda_s/k)^2 - 1}$ \\
+
+And we require $|z_{s\pm}|<1$ in order for the pole to be inside the unit circle contour. 
+
+\bea
+&=& -\frac{4\pi m}{q}\int\limits_0^{k_f} dk  \bigg[ \frac{1}{2\sqrt{(\lambda_-/k)^2 - 1}}\quad |z_{-+}|<1 \\
+&& \quad\quad\quad - \frac{1}{2\sqrt{(\lambda_-/k)^2 - 1}}\quad |z_{--}|<1 \\
+&& \quad\quad\quad - \frac{1}{2\sqrt{(\lambda_+/k)^2 - 1}}\quad |z_{++}|<1 \\
+&& \quad\quad\quad + \frac{1}{2\sqrt{(\lambda_+/k)^2 - 1}}\quad |z_{+-}|<1 \bigg]
+\eea
+
+
+Turning back to the integral, we do the k bit:
+\bea
+&=&\frac{2\pi m}{q}  \bigg[ -|\lambda_-| + \sqrt{\lambda_-^2 - k_f^2}\quad |z_{-+}|<1 \\
+&& \quad\quad\quad + |\lambda_-| - \sqrt{\lambda_-^2 - k_f^2}\quad |z_{--}|<1 \\
+&& \quad\quad\quad - |\lambda_+| - \sqrt{\lambda_+^2 - k_f^2}\quad |z_{++}|<1 \\
+&& \quad\quad\quad + |\lambda_+| + \sqrt{\lambda_+^2 - k_f^2}\quad |z_{+-}|<1 \bigg]
+\eea
+
+Now it is a matter of exactly when to keep the various residues above according to the magnitude of $|z_{s\pm}|$ and I leave that to the experimentalist to interpret HAHA!!!!
+
+I'd plot with reduced units $Q = q/k_f$, $\hbar\omega/\epsilon_f$...
+
+
+It is important to remember that we are considering retarded interactions so $\omega \rightarrow \omega + i\eta/\hbar$. After taylor expanding for small $\eta$, the condition $|z_{s\pm}|<1$ for $Re(\lambda'_s/k)^2 < 1$ becomes
+\\
+
+$|z_{s\pm}|^2 \approx 1 \pm C \eta$, $(\lambda'_s/k)^2 < 1$
+
+Where C is some constant depending on $lambda$ which doesn't matter, the main point here is to see that only the $minus$ roots are inside of the contour in this case
+
+The other case for $Re(\lambda'_s/k_f)^2 > 1$ results in the following inequality:
+\be
+-k_f<\lambda \pm \sqrt{\lambda^2 - k_f^2} < k_f
+\ee
+and we take the "+" root if $\lambda_\pm<-k_f$ and "-" root if $\lambda_\pm<k_f$
+
+\section*{2b}
+{\bf Imaginary part}
+\bea
+\chi''(\vq,\omega) &=& -\frac{\pi}{(2\pi\hbar)^2} \int d\theta dp \quad p (n_{\vp-\vq/2} - n_{\vp + \vq/2}) \, \delta(\hbar\omega + \epsilon_{\vp-\vq/2} - \epsilon_{\vp + \vq/2}) \\
+&=& -\frac{\pi}{(2\pi\hbar)^2} \int d\theta dk \quad k (\delta(\hbar\omega -q^2/2m - kq cos(\theta)/m) \\
+&&\hspace{1.5in} - \delta(\hbar\omega + q^2/2m - kq cos(\theta)/m)) \\
+&=& -\frac{\pi}{(2\pi\hbar)^2} \int d\theta \quad \frac{m}{qcos(\theta)} \bigg(k_-^*\quad\quad if\,\, k_-^*<k_f \\
+	&& \hspace{1.6in} - k_+^* \quad\quad if\,\, k_+^*<k_f \bigg)
+\eea
+Where $k_\pm^* = \frac{m}{qcos(\theta)}(\hbar\omega \pm q^2/2m)$. 
+
+Again, I leave this to the experimentalists to interpret so on to the next calculation!
+
+\end{document}

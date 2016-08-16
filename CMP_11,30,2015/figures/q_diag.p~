@@ -1,0 +1,35 @@
+reset
+unset multiplot
+set term postscript color enhanced eps font "Helvetica" 30
+
+set key noautotitle
+set output 'q_diag.eps'
+
+set xrange[-pi/2:pi/2]
+set yrange[-1:1]
+unset xtics
+unset ytics
+unset xlabel
+unset ylabel
+unset border	
+set multi
+set arrow from 0,1.1 to pi/2,1.1 nohead lc rgb 'blue' lw 3
+set arrow from 0,1.05 to 0,1.15 nohead lc rgb 'blue' lw 3
+set arrow from pi/2,1.05 to pi/2,1.15 nohead lc rgb 'blue' lw 3
+set label '2{/Symbol p}/|q|' at 0.4,1.02 tc rgb 'blue' lw 3 font ",40"
+
+set arrow from 0,0 to 0,0.95 lw 5 lc rgb 'red'
+set arrow from pi/4,0 to pi/4,-0.95 lw 5 lc rgb 'red'
+set arrow from 2*pi/4,0 to 2*pi/4,0.95 lw 5 lc rgb 'red'
+set arrow from 3*pi/4,0 to 3*pi/4,-0.95 lw 5 lc rgb 'red'
+set arrow from pi,0 to pi,0.95 lw 5 lc rgb 'red'
+
+set arrow from -pi/4,0 to -pi/4,-0.95 lw 5 lc rgb 'red'
+set arrow from -2*pi/4,0 to -2*pi/4,0.95 lw 5 lc rgb 'red'
+set arrow from -3*pi/4,0 to -3*pi/4,-0.95 lw 5 lc rgb 'red'
+set arrow from -pi,0 to -pi,0.95 lw 5 lc rgb 'red'
+plot cos(x*4) lc rgb 'black' lw 3
+plot 0 lc rgb 'green' lt 2  lw 2
+
+unset multi
+unset output

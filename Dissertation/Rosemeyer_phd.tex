@@ -1,0 +1,124 @@
+%% MSUDOC.CLS JUST NEEDS TO BE IN THE SAME FOLDER AS THIS MASTER LEVEL FILE
+\documentclass[final,dissertation]{msudoc} 
+\usepackage{color,graphicx}
+\usepackage{amssymb,amsmath,eurosym,psfrag} 
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{feynmp-auto}
+%%%%%%%%%%%%
+\usepackage{bookmath} % definitions and shortcuts
+
+\newcommand{\relt}{$T_1^{-1}$}
+\newcommand{\reltt}{$(TT_1)^{-1}$}
+\newcommand{\cecoin}{$CeCoIn_5$}
+\newcommand{\kbtf}{$\kappa$-(BEDT-TTF)$_2$Cu(NCS)$_2$}
+\newcommand{\figref}[1]{Figure \ref{#1}}
+\newcommand{\Frac}[2]{\frac{\raisebox{-0.5ex}{\ensuremath{#1}}}{#2}}
+\newcommand{\partials}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\Matrix}[1]{\mathbb{#1}}
+\newcommand{\tothe}[1]{\ensuremath{^{\hbox{\scriptsize #1}}}}
+\newcommand{\order}[1]{\ensuremath{\mathcal{O}(#1)}}
+\newcommand\arcsec{\mbox{$^{\prime\prime}$}}%
+\newcommand\arcdeg{\mbox{$^\circ$}}%
+\newcommand\arcmin{\mbox{$^\prime$}}%
+\newcommand{\csum}{\ensuremath{\textsf{c}\hspace{-0.75em}\sum}}
+\newcommand{\fnc}[1]{\textsf{#1}} % use sans-serif for function/procedure names
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+%\input{/home/tarrl/work/bib/journal_names.tex}
+
+
+%%% FRONT MATTER DATA FIELDS
+\title{Magnetic Consequences of Unconventional and Non-Uniform Superconductors}
+\author{Benjamin Micheal Rosemeyer}
+\authorshort{B. M.~Rosemeyer}
+\degree{Doctor of Philosophy}
+\department{Physics}
+\submissiondate{2016}
+\copyrightyear{2016}
+
+\chair{Dr.~Anton B. Vorontsov}
+\head{Dr.~Yves Idzerda}
+\dean{Dr. ~Karlene A. Hoo}
+
+
+%\nofiles % SEE README.TXT FOR INFO ON THIS AND THE FOLLOWING LINES
+
+%%% ADD THE FOLLOWING TO APPROPRIATE POSITION OF .TOC, .LOT, .LOF FILES: 
+% \par \par \vfil \penalty -\@M \write \m@ne {}\vbox {}\penalty -\@Mi \par \hskip 1em\relax \hfill TABLE OF CONTENTS -- CONTINUED \hfill \hskip 1em\relax \hskip 1em\relax \vspace {.2in} \hskip 1em\relax \par 
+
+%%% MUST ALSO ADD IN THE FIGURE/PAGE HEADINGS FOR THE SECOND PAGE OF .LOT & .LOF FILES:
+% \noindent
+%  {Figure}\hfill{Page}
+%  \par
+%  \vspace{7.5\p@}
+%
+% \par \par \vfil \penalty -\@M \write \m@ne {}\vbox {}\penalty -\@Mi \par \hskip 1em\relax \hfill LIST OF FIGURES -- CONTINUED \hfill \hskip 1em\relax \hskip 1em\relax \vspace {.2in} \hskip 1em\relax \par 
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------------------
+% Front matter
+%----------------------------------------------------------------------------------------------------
+\frontmatter
+\maketitlepage
+\makecopyrightpage
+\makeapprovalpage
+\makepermissionpage
+
+\begin{dedication}
+%  \vspace{4cm}
+  \begin{verse}
+    I dedicate this dissertation to Mumbo Jumbo
+  \end{verse}
+\end{dedication}
+
+\begin{preface}
+
+	stuff about funding and how people love funding science
+	
+\end{preface}
+
+\begin{acknowledgements}
+
+  herp derp
+
+\end{acknowledgements}
+
+\maketableofcontents
+\makelistoftables
+\makelistoffigures
+
+\begin{abstract}
+  
+In this thesis I am presenting a theoretical study of the magnetic affects brought on by unconventional and non-uniform superconductivity. Recent experimental evidence with heavy fermion materials, organic compounds, high $T_c$ cuprates, iron superconductors and layered materials have exposed new frontiers for understanding how magnetic structures interact with the superconducting Cooper pairs. These new phenomenon could bring about exciting devices that can manipulate magnetic domains using super-currents and bring about a revolution in computing hardware. We consider the magnetic susceptibility, $\chi$ of electrons below the superconducting transition temperature $T_c$ and use it to calculate the spin-lattice relaxation rate \relt. Unconventional superconductors which can have increased spin susceptibility compared to the normal state in a high applied field at low temperature due to low energy Zeeman shifted quasiparticles. This affect is found to be small, on the order of $\Delta/\epsilon_f\approx 1\%$, and we use symmetry arguments to establish favorable ordering wave vectors. A much larger increase in susceptibility occurs in non-uniform superconductors near a domain wall with sign changing order parameter $\pm\Delta$. We show that the Andreev bound states associated with a domain wall are responsible for the increase and that the relaxation rate substantially exceeds the normal Korringa limit. The temperature and field behavior near a domain wall shows there is strong competition between thermal smearing of the distribution function and the Zeeman shifted bound states near zero energy. Near the upper critical field $H_{c2}$ there is a re-emergent enhancement of \relt.
+  
+\end{abstract}
+
+\mainmatter
+
+%% HERE IS WHERE YOU INCLUDE YOUR ChapterX.tex files
+\include{Chapter1}
+\include{Chapter2}
+\include{Chapter3}
+\include{Chapter4}
+\include{Chapter5}
+
+\backmatter
+
+%% I HAD NO APPENDICES.  YOU'RE ON YOUR OWN FOR THAT.  THEY ARE SET UP IN MSUDOC.CLS, THOUGH I'M NOT SURE IF THE FORMAT IS EXACTLY CORRECT.
+
+\bibliographystyle{apsrev}
+{
+  \singlespace
+  \addcontentsline{toc}{chapter}{REFERENCES CITED}
+  \bibliography{/home/ben/School_5_15_2015/MyBib/mybib} % my master bibtex file.
+}
+
+%% NOW WE FINALLY END.
+\end{document}
+
+%% THE END. (IS NEAR.  (IT CAME AND WENT ALREADY; YOU MISSED IT.)).

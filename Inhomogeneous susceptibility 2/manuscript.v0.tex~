@@ -1,0 +1,293 @@
+\documentclass[aps,prl,twocolumn,showpacs,amsmath,amssymb]{revtex4-1}
+%\documentclass[aps,prl,twocolumn,showpacs,preprintnumbers,amsmath,amssymb,citeautoscript]{revtex4-1}
+%\documentclass[prl,showpacs,amssymb,amsmath,twocolumn]{revtex4-1}
+%%%%%%%%%%%%
+\usepackage{bookmath} % definitions and shortcuts
+%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{color}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\cecoin}{CeCoIn$_5$} 
+\def\opp#1{{\overline{ #1}}}
+
+
+\bibliographystyle{apsrev4-1}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+\begin{document}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+\title{Electronic Spin Susceptibility Near Superconductoring Domain Wall}
+
+\author{Benjamin~M.~Rosemeyer}
+\author{Anton~B.~Vorontsov}
+
+\affiliation{Department of Physics, Montana State University, Montana 59717, USA}
+
+\date{\today}
+
+\begin{abstract}
+%
+We calculate the wave-vector dependent electronic spin susceptibility 
+$\chi_{\alpha\beta}(\vq, \vR)$ 
+around a Superconductor-Normal metal interface at zero temperature. 
+We consider 1D free electrons subject to a BCS type Hamiltonian with a step function profile for $\Delta(\vR) = sgn(x)\Delta_0$.
+%
+\end{abstract} 
+
+\pacs{74.20.Rp,74.25.Ha,74.70.Tx} 
+
+\maketitle
+
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section*{Introduction}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section*{Equations}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%
+Our model is described by a Hamiltonian with two parts. A homogeneous normal part $\cH_{0}$, and an inhomogeneous superconducting part $\cH_{1}$ which we write in mean field.
+\be\label{eq:modelH} 
+\begin{split}
+\cH_{0} = \sum\limits_\alpha\int dx \psi_\alpha^\dagger(x) \bigg[\frac{-\hbar^2}{2m}\nabla^2 - \mu\bigg]\psi_\alpha(x) \\
+\cH_1 = \int dx dx' \bigg[ \Delta(x,x') \psi_{\uparrow}^\dag(x) \psi_{\downarrow}^\dag(x') + h.c. \bigg]
+\end{split}
+\ee
+
+and susceptibility is a two particle correlation function~\cite{mahan}: 
+\be
+\label{eq:susdef}
+\chi_{\alpha\beta}(\vx,\vx', t)= \frac{i \mu_\sm{B}^2}{\hbar} 
+\langle [ S_\alpha(\vx,t), S_\beta(\vx',0) ] \theta(t) \rangle_0 
+\ee
+
+where 
+$\vS(\vx,t) = \sum_{\mu \nu} \psi^\dag_\mu(\vx,t) \, \vsigma_{\mu\nu} \, \psi_{\nu}(\vx,t)$%,  
+% $\psi_{\nu}(\vx,t) = \sum_\mu c_{\mu \nu} (t) \varphi_{\mu\nu}(\vx)$, 
+% $c_{\mu \nu} (t) = e^{i\cH_0 t} c_{\mu \mu} e ^{-i \cH_0 t}$, $\varphi_{\mu\nu} = e^{i\mu_{\nu}\cdot\vx}$; 
+% subscript $0$ indicates the average over ensemble (\ref{eq:modelH}).
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section*{Derivation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%
+We wish to compute the steady state, position (\vR) and vector (\vq) dependent susceptibility $\chi_{\alpha\beta}(\vR,\vq)$ from $\chi_{\alpha\beta}(\vx,\vx',t)$. The vector bit will be the fourier transform of the relative position $\vq \leftarrow FT \rightarrow \vr = \vx - \vx'$, and the position is the center of mass coordinate $\vR = (\vx + \vx')/2$.
+
+We proceed by using the Bogoliubov transformation which diagnolizes the hamiltonian, producing energies $\epsilon_\lambda$:
+\bea
+\psi_\mu(\vx,\vt) = \sum\limits_\lambda u_\lambda(\vx)\gamma_{\lambda\mu}(t) + (i\sigma_2)_{\mu\nu}v_\lambda(\vx)^*\gamma_{\lambda\nu}(t)^\dagger \\
+\eea
+(here $\{\epsilon_\lambda\}$ are the eigenvalues of the Hamiltonian upon using this transformation) 
+which results in new quasiparticle spectrum 
+$
+\cH_0 = \sum_{\lambda \mu} \epsilon_{\lambda \mu} \gamma^\dag_{\lambda \mu} \gamma_{\lambda \mu} \,,
+$ 
+with 
+$
+\epsilon_{\lambda\mu} =\epsilon_\lambda
+$
+Here it is important to note that $u(\vx)_\lambda$, $v(\vx)_\lambda$ are no longer plane-wave solutions as in the case for homogeneous superconductivity, but can be themselves expanded as plane-waves $u(\vx)_\lambda = \sum\limits_\vk u_{\vk,\lambda} e^{i\vk\vx}$. For energies $\epsilon_\lambda >> \Delta_0$ the $u_{\vk,\lambda}$ behave like dirac delta functions ($u_{\vk,\lambda} \rightarrow \delta(\vk-\vk_\lambda)$, $|\vk_\lambda| = \sqrt{1\pm\sqrt{\epsilon_\lambda^2 - \Delta^2}}$) to recover the normal dispersion relation and density of states.
+
+It is only energies near $\Delta_0$ which are modified. These modifications are generally known and the Andreev Approximation method works well to find these wave functions.
+$u_{\lambda} \propto e^{i\vp_f + i \kappa \vx}$, $\kappa = \frac{1}{v_f}\sqrt{\epsilon_\lambda - \Delta_0}$
+
+It is also convenient to define the products of u/v's and gammas in the following way:
+\bea
+\Gamma_{u\lambda} = u(\vx)_{\lambda}\gamma_{\lambda\mu} \\
+\Gamma_{v\lambda} = (i\sigma_2)_{\mu\nu}v(\vx)_{\lambda}^*\gamma^\dagger_{\lambda\nu}
+\eea
+
+OK! Now we can plug these things into \ref{eq:susdef}:
+\bea
+\chi_{\alpha\beta}(\vx,\vx', t)= \frac{i \mu_\sm{B}^2}{\hbar} \sum_{\mu\mu'\nu\nu'}\vsigma^\alpha_{\mu\nu}\vsigma^\beta_{\mu'\nu'}  \\
+\langle [ \psi^\dag_\mu(\vx,t) \, \psi_{\nu}(\vx,t), 
+          \psi^\dag_{\mu'}(\vx',0) \, \psi_{\nu'}(\vx',0) ] \theta(t) \rangle_0
+\eea
+
+The correlations evaluate according to Wicks Theorem:
+
+\begin{align*}
+<[\psi^\dagger_\mu \psi_\nu,\psi^\dagger_{\mu'} \psi_{\nu'}]>=<\psi^\dagger_\mu \psi_\nu\psi^\dagger_{\mu'} \psi_{\nu'}>-<\psi^\dagger_{\mu'} \psi_{\nu'}\psi^\dagger_\mu \psi_\nu> \\
+=<\psi^\dagger_\mu\psi_\nu><\psi^\dagger_{\mu'}\psi_{\nu'}>-<\psi^\dagger_\mu\psi^\dagger_{\mu'}><\psi_\nu\psi_{\nu'}> \\ 
++<\psi^\dagger_\mu\psi_{\nu'}><\psi_\nu\psi^\dagger_{\mu'}>-<\psi^\dagger_{\mu'}\psi_{\nu'}><\psi^\dagger_\mu\psi_\nu> \\ 
++<\psi^\dagger_{\mu'}\psi^\dagger_\mu><\psi_{\nu'}\psi_\nu>-<\psi^\dagger_{\mu'}\psi_\nu><\psi_{\nu'}\psi^\dagger_\mu> \\
+=-<\psi^\dagger_\mu\psi^\dagger_{\mu'}><\psi_\nu\psi_{\nu'}>+<\psi^\dagger_\mu\psi_{\nu'}><\psi_\nu\psi^\dagger_{\mu'}> \\ 
++<\psi^\dagger_{\mu'}\psi^\dagger_\mu><\psi_{\nu'}\psi_\nu>-<\psi^\dagger_{\mu'}\psi_\nu><\psi_{\nu'}\psi^\dagger_\mu> \\
+\end{align*}
+
+At this point we can see that what's left is only inner products of primed ($\vx'$, or coordinate 2) with unprimed ($\vx$, or coordinate 1) operators.
+
+now we insert the sum over momentums which defines the $\psi$ operators.
+\begin{align*}
+&\frac{i\mu_B^2}{\hbar}\sum\limits_{\mu\nu\mu'\nu'}\theta(t)\sigma^\alpha_{\mu\nu}\sigma^\beta_{\mu\nu}  \\
+\big[-&<(\Gamma_{u\mu}+\Gamma_{v\mu})^\dagger(\Gamma_{u\mu'}+\Gamma_{v\mu'})^\dagger> \\
+  &<(\Gamma_{u\nu}+\Gamma_{v\nu})(\Gamma_{u\nu'}+\Gamma_{v\nu'})>  \\
++&<(\Gamma_{u\mu}+\Gamma_{v\mu})^\dagger(\Gamma_{u\nu'}+\Gamma_{v\nu'})> \\
+  &<(\Gamma_{u\nu}+\Gamma_{v\nu})(\Gamma_{u\mu'}+\Gamma_{v\mu'})^\dagger>  \\
++&<(\Gamma_{u\mu'}+\Gamma_{v\mu'})^\dagger(\Gamma_{u\mu}+\Gamma_{v\mu})^\dagger> \\
+  &<(\Gamma_{u\nu'}+\Gamma_{v\nu'})(\Gamma_{u\nu}+\Gamma_{v\nu})>  \\
+-&<(\Gamma_{u\mu'}+\Gamma_{v\mu'})^\dagger(\Gamma_{u\nu}+\Gamma_{v\nu})> \\
+  &<(\Gamma_{u\nu'}+\Gamma_{v\nu'})(\Gamma_{u\mu}+\Gamma_{v\mu})^\dagger>\big]
+\end{align*}
+
+
+To compute these inner products we use the definition of $\Gamma$'s (and $\gamma$'s $<\gamma^\dagger_{\mu}\gamma_{\nu}> = \delta_{\mu\nu}f(\epsilon_{\mu})e^{-i\omega_\mu t}$). From these, we find that the only non-vanishing inner products are:
+
+\begin{align*}
+<\Gamma_{u\mu}^\dagger\Gamma_{u\nu'}> = \delta_{\mu\nu'}u_{\mu}^* \, u_{\mu} \, f(\epsilon_{\mu})e^{-i\omega_{\mu} t} \\
+<\Gamma_{u\mu}^\dagger\Gamma_{v\nu'}^\dagger> = (i\sigma_2)_{\nu'\mu} \, u_{\mu}^* \, v_{-\mu} \, f(\epsilon_{\mu})e^{-i\omega_{\mu} t} \\
+<\Gamma_{v\mu}\Gamma_{u\nu'}> = (i\sigma_2)_{\mu\nu'} \, v_{\mu}^* \, u_{-\mu} \, f(\epsilon_{-\mu}) e^{-i\omega_{-\mu} t}\\
+<\Gamma_{v\mu}\Gamma_{v\nu'}^\dagger> = \delta_{\mu\nu'} \, v_{\mu}^* \, v_{\mu} \, f(\epsilon_{-\mu})e^{-i\omega_{-\mu} t} \\
+\end{align*}
+
+
+\begin{align*}
+&\frac{i\mu_B^2}{\hbar}\sum\limits_{\mu\nu\mu'\nu'}\theta(t)\sigma^\alpha_{\mu\nu}\sigma^\beta_{\mu\nu}  \\
+\big[-&(<\Gamma_{u\mu}^\dagger\Gamma_{v\mu'}^\dagger> + <\Gamma_{v\mu}^\dagger\Gamma_{u\mu'}^\dagger>) \\
+  &(<\Gamma_{v\nu}\Gamma_{u\nu'}> + <\Gamma_{u\nu}\Gamma_{v\nu'}>)  \\
++&(<\Gamma_{u\mu}^\dagger\Gamma_{u\nu'}> + <\Gamma_{v\mu}^\dagger\Gamma_{v\nu'}>) \\
+  &(<\Gamma_{v\nu}\Gamma_{v\mu'}^\dagger> + <\Gamma_{u\nu}\Gamma_{u\mu'}^\dagger>)  \\
++&(<\Gamma_{u\mu'}^\dagger\Gamma_{v\mu}^\dagger> + <\Gamma_{v\mu'}^\dagger\Gamma_{u\mu}^\dagger>) \\
+  &(<\Gamma_{v\nu'}\Gamma_{u\nu}> + <\Gamma_{u\nu'}\Gamma_{v\nu}>)  \\
+-&(<\Gamma_{u\mu'}^\dagger\Gamma_{u\nu}> + <\Gamma_{v\mu'}^\dagger\Gamma_{v\nu}>) \\
+  &(<\Gamma_{v\nu'}\Gamma_{v\mu}^\dagger> + <\Gamma_{u\nu'}\Gamma_{u\mu}^\dagger>) \big]
+\end{align*}
+
+
+\begin{widetext}
+\begin{align*}
+\frac{i\mu_B^2}{\hbar}\sum\limits_{\mu\nu}\theta(t)\sigma^\alpha_{\mu\nu}\sigma^\beta_{\mu\nu} \bigg[
++&\delta_{\mu\nu'}\delta_{\nu\mu'}\bigg[(u_{\mu}^*(\vx) \, u_{\mu}(\vx') \, f_{\mu}e^{i\omega_{\mu} t} + v_{\mu}(\vx) \, v_{\mu}^*(\vx') \, (1-f_{-\mu})e^{-i\omega_{-\mu} t}) \\
+&( v_{\nu}^*(\vx) \, v_{\nu}(\vx') \, f_{-\nu}e^{i\omega_{-\nu} t} + u_{\nu}(\vx) \, u_{\nu}^*(\vx') \, (1-f_{\nu})e^{-i\omega_{\nu} t})  \\
+&-(u_{\nu}^*(\vx') \, u_{\nu}(\vx) \, f_{\nu}e^{-i\omega_{\nu} t} + v_{\nu}(\vx') \, v_{\nu}^*(\vx) \, (1-f_{-\nu})e^{i\omega_{-\nu} t}) \\
+&(v_{\mu}^*(\vx') \, v_{\mu}(\vx) \, f_{-\mu}e^{-i\omega_{-\mu} t} + u_{\mu}(\vx') \, u_{\mu}^*(\vx) \, (1-f_{\mu})e^{i\omega_{\mu} t}) \bigg] \\
++&(i\sigma_2)_{\mu\mu'}(i\sigma_2)_{\nu'\nu}\bigg[(u_{-\mu}^*(\vx') \, v_{\mu}(\vx) \, f_{-\mu}e^{-i\omega_{-\mu} t} - v_{-\mu}(\vx') \,u_{\mu}^*(\vx) \, (1-f_{\mu})e^{i\omega_{\mu} t}) \\
+&(v_{-\nu}^*(\vx') \, u_{\nu}(\vx) \, f_{\nu} e^{-i\omega_{\nu} t} - u_{-\nu}(\vx') \, v_{\nu}^*(\vx) \, (1-f_{-\nu}) e^{i\omega_{-\nu} t}) \\
+&-(u_{\mu}^*(\vx) \, v_{-\mu}(\vx') \, f_{\mu}e^{i\omega_{\mu} t} - v_{\mu}(\vx) \, u_{-\mu}^*(\vx') \, (1-f_{-\mu})e^{-i\omega_{-\mu} t})  \\
+&(v_{\nu}^*(\vx) \, u_{-\nu}(\vx') \, f_{-\nu} e^{i\omega_{-\nu} t} -  u_{\nu}(\vx) \, v_{-\nu}^*(\vx') \, (1-f_{\nu}) e^{-i\omega_{\nu} t})\bigg]
+\end{align*}
+\end{widetext}
+
+Additionally, we consider the two tensor components which are perpendicular to ($\alpha\beta = xx$ or $yy$) and parallel to ($\alpha\beta = zz$) the applied field $\vH = H_0\hat{z}$. In either case all the spin coefficients evaluate to $+1$, the only difference is in the spin pairing. xx pairs opposite spins ($\nu=-\mu$) and zz pairs like spins ($\nu=\mu$).
+
+\begin{widetext}
+\begin{align*}
+\frac{i\mu_B^2}{\hbar}\theta(t)\sum\limits_{\mu\nu}
+&(u_{\mu}^*(\vx) \, u_{\mu}(\vx') \, f_{\mu}e^{i\omega_{\mu} t} + v_{\mu}(\vx) \, v_{\mu}^*(\vx') \, (1-f_{-\mu})e^{-i\omega_{-\mu} t}) \\
+&( v_{\nu}^*(\vx) \, v_{\nu}(\vx') \, f_{-\nu}e^{i\omega_{-\nu} t} + u_{\nu}(\vx) \, u_{\nu}^*(\vx') \, (1-f_{\nu})e^{-i\omega_{\nu} t})  \\
+-&(u_{\nu}^*(\vx') \, u_{\nu}(\vx) \, f_{\nu}e^{-i\omega_{\nu} t} + v_{\nu}(\vx') \, v_{\nu}^*(\vx) \, (1-f_{-\nu})e^{i\omega_{-\nu} t}) \\
+&(v_{\mu}^*(\vx') \, v_{\mu}(\vx) \, f_{-\mu}e^{-i\omega_{-\mu} t} + u_{\mu}(\vx') \, u_{\mu}^*(\vx) \, (1-f_{\mu})e^{i\omega_{\mu} t})  \\
++&(u_{-\mu}^*(\vx') \, v_{\mu}(\vx) \, f_{-\mu}e^{-i\omega_{-\mu} t} - v_{-\mu}(\vx') \,u_{\mu}^*(\vx) \, (1-f_{\mu})e^{i\omega_{\mu} t}) \\
+&(v_{-\nu}^*(\vx') \, u_{\nu}(\vx) \, f_{\nu} e^{-i\omega_{\nu} t} - u_{-\nu}(\vx') \, v_{\nu}^*(\vx) \, (1-f_{-\nu}) e^{i\omega_{-\nu} t}) \\
+-&(u_{\mu}^*(\vx) \, v_{-\mu}(\vx') \, f_{\mu}e^{i\omega_{\mu} t} - v_{\mu}(\vx) \, u_{-\mu}^*(\vx') \, (1-f_{-\mu})e^{-i\omega_{-\mu} t})  \\
+&(v_{\nu}^*(\vx) \, u_{-\nu}(\vx') \, f_{-\nu} e^{i\omega_{-\nu} t} -  u_{\nu}(\vx) \, v_{-\nu}^*(\vx') \, (1-f_{\nu}) e^{-i\omega_{\nu} t})
+\end{align*}
+\end{widetext}
+
+\begin{widetext}
+\begin{align*}
+\frac{i\mu_B^2}{\hbar}\sum\limits_{\mu\nu}\theta(t) \bigg[
+&-u_{\mu1}^* \, u_{\mu2} \, v_{\nu1}^* \, v_{\nu2} \, (1-f_{-\nu1}-f_{\mu1})e^{i(\omega_{\mu1} +\omega_{-\nu1}) t} \\
+&+u_{\mu1}^* \, u_{\mu2} \, u_{\nu1} \, u_{\nu2}^* \, (f_{\mu1} - f_{\nu1})e^{i(\omega_{\mu1} - \omega_{\nu1}) t} \\
+&+v_{\mu1} \, v_{\mu2}^* \,v_{\nu1}^* \, v_{\nu2} \, (f_{-\nu1} - f_{-\mu1})e^{i(\omega_{-\nu1}-\omega_{-\mu1}) t} \\
+&+v_{\mu1} \, v_{\mu2}^* \,u_{\nu1} \, u_{\nu2}^*\, (1-f_{\nu1}-f_{-\mu1})e^{-i(\omega_{\nu1}+\omega_{-\mu1}) t} \\
+&-u_{-\mu2}^* \, v_{\mu1} \, v_{-\nu2}^* \, u_{\nu1} \, (1-f_{\nu1}-f_{-\mu1})e^{-i(\omega_{-\mu1}+\omega_{\nu1}) t}\\
+&+ u_{-\mu2}^* \, v_{\mu1} \,v_{\nu1}^* \, u_{-\nu2} \, (f_{-\nu1}- f_{-\mu1})e^{i(\omega_{-\nu1}-\omega_{-\mu1}) t} \\
+&+u_{\mu1}^* \, v_{-\mu2} \, v_{-\nu2}^* \, u_{\nu1} \, (f_{\mu1}-f_{\nu1})e^{i(\omega_{\mu1}-\omega_{\nu1}) t} \\
+&+u_{\mu1}^* \, v_{-\mu2} \, v_{\nu1}^* \, u_{-\nu2} \, (1-f_{-\nu1}-f_{\mu1})e^{i(\omega_{\mu1}+\omega_{-\nu1}) t} \bigg]
+\end{align*}
+\end{widetext}
+
+At this point we are ready to go to a steady state solution by integrating out the time
+\be
+\chi =\lim_{\eta \to 0^+}\int\limits_0^\infty \chi(t) e^{-\eta t} dt
+\ee
+
+\begin{widetext}
+\begin{align*}
+\frac{\mu_B^2}{\hbar}\sum\limits_{\mu\nu}\theta(t) \bigg[
+&-u_{\mu}^*(\vx) \, u_{\mu}(\vx') \, v_{\nu}^*(\vx) \, v_{\nu}(\vx') \, \frac{1-f_{-\nu}-f_{\mu}}{\omega_{\mu} +\omega_{-\nu}+i\eta} \\
+&+u_{\mu}^*(\vx) \, u_{\mu}(\vx') \, u_{\nu}(\vx) \, u_{\nu}(\vx')^* \, \frac{f_{\mu} - f_{\nu}}{\omega_{\mu} - \omega_{\nu}+i\eta} \\
+&+v_{\mu}(\vx) \, v_{\mu}^*(\vx') \,v_{\nu}^*(\vx) \, v_{\nu}(\vx') \, \frac{f_{-\nu} - f_{-\mu}}{\omega_{-\nu}-\omega_{-\mu}+i\eta} \\
+&+v_{\mu}(\vx) \, v_{\mu}^*(\vx') \,u_{\nu}(\vx) \, u_{\nu}(\vx')^*\, \frac{1-f_{\nu}-f_{-\mu}}{\omega_{\nu}+\omega_{-\mu}-i\eta} \\
+&-u_{-\mu}^*(\vx') \, v_{\mu}(\vx) \, v_{-\nu}^*(\vx') \, u_{\nu}(\vx) \, \frac{1-f_{\nu}-f_{-\mu}}{\omega_{-\mu}+\omega_{\nu}-i\eta}\\
+&+ u_{-\mu}^*(\vx') \, v_{\mu}(\vx) \,v_{\nu}^*(\vx) \, u_{-\nu}(\vx') \, \frac{f_{-\nu}- f_{-\mu}}{\omega_{-\nu}-\omega_{-\mu}+i\eta} \\
+&+u_{\mu}^*(\vx) \, v_{-\mu}(\vx') \, v_{-\nu}^*(\vx') \, u_{\nu}(\vx) \, \frac{f_{\mu}-f_{\nu}}{\omega_{\mu}-\omega_{\nu}+i\eta} \\
+&+u_{\mu}^*(\vx) \, v_{-\mu}(\vx') \, v_{\nu}^*(\vx) \, u_{-\nu}(\vx') \, \frac{1-f_{-\nu}-f_{\mu}}{\omega_{\mu}+\omega_{-\nu}+i\eta} \bigg] 
+\end{align*}
+\end{widetext}
+
+Next we can see that for S and D-wave cases, there is $\pm$ symmetry for momentums and we can write all momentums as positive (NOTE: this would not be ok for P-wave superconductors). We will also switch some of the spin indicies around ($\mu \leftrightarrow -\mu$, $\nu \leftrightarrow -\nu$), which we can do becuase we are summing all $\mu$ and $\nu$ anyway. In addition, we restrict ourselves to the real part of the susceptibility by taking $\eta=0^+$. 
+
+
+
+\begin{widetext}
+\begin{align*}
+&\frac{\mu_B^2}{\hbar}\sum\limits_{\mu\nu\mu\nu}   \\
+\bigg[
+-&u_{\mu}^*(\vx) \, u_{\mu}(\vx') \, v_{\nu}^*(\vx) \, v_{\nu}(\vx') - u_{\mu}^*(\vx') \, v_{-\mu}(\vx) \, v_{\nu}^*(\vx') \, u_{-\nu}(\vx) \\
++& v_{-\mu}(\vx) \, v_{-\mu}^*(\vx') \,u_{-\nu}(\vx) \, u_{-\nu}(\vx')^*+u_{\mu}^*(\vx) \, v_{-\mu}(\vx') \, v_{\nu}^*(\vx) \, u_{-\nu}(\vx') \bigg] \frac{1-f_{-\nu}-f_{\mu}}{\omega_{\mu} +\omega_{-\nu}} \\
+\\
++\bigg[ &u_{\mu}^*(\vx) \, u_{\mu}(\vx') \, u_{\nu}(\vx) \, u_{\nu}(\vx')^* + v_{-\mu}(\vx) \, v_{-\mu}^*(\vx') \,v_{-\nu}^*(\vx) \, v_{-\nu}(\vx') \\
++ & u_{\mu}^*(\vx') \, v_{-\mu}(\vx) \,v_{-\nu}^*(\vx) \, u_{\nu}(\vx')+u_{\mu}^*(\vx) \, v_{-\mu}(\vx') \, v_{-\nu}^*(\vx') \, u_{\nu}(\vx) \bigg]\frac{f_{\mu} - f_{\nu}}{\omega_{\mu} - \omega_{\nu}}
+\end{align*}
+\end{widetext}
+
+Now we can deal with the spacial dependence of the u/v's.
+To simplify further we can pick the center of mass frame in which to calculate (ie $\vR = (\vx + \vx')/2 = 0$) so that the coordinates $\vx = \vr/2$ and $\vx' = -\vr/2$ where $\vr = \vx-\vx'$ is the relative coordinate. In doing this, we will vary the position of the interface relative to the center of mass without loss of generality. The result is:
+
+
+Where now $\pm\nu1$ is a coordinate for momentum $\nu$ and spin $\pm \mu$. It's also important to notice that now the u's and v's now depend on $\pm \vr/2$ as well. (coordinates $\mu1$ and $\nu1$ are momentums at $\vr/2$ for energies $\epsilon_{\mu1}$ and $\epsilon_{\nu1}$ respectively, coordinates $\mu2$ and $\nu2$ are momentums at $-\vr/2$ for energies $\epsilon_{\mu1}$ and $\epsilon_{\nu1}$ respectively.
+
+
+
+\begin{widetext}
+\begin{align*}
+&\frac{\mu_B^2}{\hbar}\sum\limits_{\mu\nu\mu\nu}   \\
+&\bigg[(u_{\mu1} \, v_{\mu2} \, v_{\nu1} \, u_{\nu2}-u_{\mu1} \, u_{\mu2} \, v_{\nu1} \, v_{\nu2})e^{i(-\mu1\vr/2-\mu2\vr/2-\nu1\vr/2-\nu2\vr/2)}\\
+& + (u_{\mu2} \, v_{\mu1} \, v_{\nu2} \, u_{\nu1}- v_{\mu1} \, v_{\mu2} \,u_{\nu1} \, u_{\nu2} )e^{i(\mu1\vr/2+\mu2\vr/2+\nu1\vr/2+\nu2\vr/2)}\bigg] \frac{1-f_{-\nu1}-f_{\mu1}}{\omega_{\mu1} +\omega_{-\nu1}} \\
+\\
+&+\bigg[(u_{\mu1} \, u_{\mu2} \, u_{\nu1} \, u_{\nu2}+ u_{\mu1} \, v_{\mu2} \, v_{\nu2} \, u_{\nu1})e^{i(-\mu1\vr/2-\mu2\vr/2+\nu1\vr/2+\nu2\vr/2)} \\
+& + (v_{\mu1} \, v_{\mu2} \,v_{\nu1} \, v_{\nu2} +u_{\mu2} \, v_{\mu1} \,v_{\nu1} \, u_{\nu2})e^{i(\mu1\vr/2+\mu2\vr/2-\nu1\vr/2-\nu2\vr/2)} \bigg]\frac{f_{\mu1} - f_{\nu1}}{\omega_{\mu1} - \omega_{\nu1}}
+\end{align*}
+\end{widetext}
+
+The final simplification is made by assuming that the variation of the order parameter is only in the $\hat{x}$ direction and that the $\hat{y}$ direction is homogeneous. We can thereby easily fourier transform the y component to arrive at assuming that $\mu1=\mu2$ and $\nu1=\nu2$ when integrating only $\vr_y$:
+
+\begin{widetext}
+\begin{align*}
+&\chi(\vr_x,q_y,\vR=0) = \frac{\mu_B^2}{\hbar}\sum\limits_{\mu\nu_x\mu}   \\
+&\bigg[(u_{\mu1} \, v_{\mu2} \, v_{\nu1} \, u_{\nu2}-u_{\mu1} \, u_{\mu2} \, v_{\nu1} \, v_{\nu2})e^{i(-\mu1_x\vr_x/2-\mu2_x\vr_x/2-\nu1_x\vr_x/2-\nu2_x\vr_x/2)}\bigg|_{-\mu1_y-\nu1_y-q_y=0}\\
+& + (u_{\mu2} \, v_{\mu1} \, v_{\nu2} \, u_{\nu1}- v_{\mu1} \, v_{\mu2} \,u_{\nu1} \, u_{\nu2} )e^{i(\mu1_x\vr_x/2+\mu2_x\vr_x/2+\nu1_x\vr_x/2+\nu2_x\vr_x/2)}\bigg|_{\mu1_y+\nu1_y-q_y=0}\bigg] \frac{1-f_{-\nu1}-f_{\mu1}}{\omega_{\mu1} +\omega_{-\nu1}} \\
+\\
+&+\bigg[(u_{\mu1} \, u_{\mu2} \, u_{\nu1} \, u_{\nu2}+ u_{\mu1} \, v_{\mu2} \, v_{\nu2} \, u_{\nu1})e^{i(-\mu1_x\vr_x/2-\mu2_x\vr_x/2+\nu1_x\vr_x/2+\nu2_x\vr_x/2)}\bigg|_{-\mu1_y+\nu1_y-q_y=0} \\
+& + (v_{\mu1} \, v_{\mu2} \,v_{\nu1} \, v_{\nu2} +u_{\mu2} \, v_{\mu1} \,v_{\nu1} \, u_{\nu2})e^{i(\mu1_x\vr_x/2+\mu2_x\vr_x/2-\nu1_x\vr_x/2-\nu2_x\vr_x/2)}\bigg|_{\mu1_y-\nu1_y-q_y=0} \bigg]\frac{f_{\mu1} - f_{\nu1}}{\omega_{\mu1} - \omega_{\nu1}}
+\end{align*}
+\end{widetext}
+
+To find the Fourier Transform wrt the x coordinate we can use a fast fourier transform from the spacial domain $x\in[-L:L]$ to momentum space $q_x\in[-n\pi:n\pi]$ using $2N+1$ points ($N=nL$):
+\be
+\chi(\vq) = \sum\limits_{i=1}^{2*N+1}e^{-iq_x\vr_x(i)}\chi(\vr_x(i),q_y,\vR=0)
+\ee
+
+NOTE: currently I am only looking at the real part of $\chi(\vr,\vR=0)$, so the exponentials turn into cosines and I have $\pm$ symmetry for $x$ and my FT looks like
+
+\be
+\chi(\vq) = \sum\limits_{i=1}^{N+1}\cos(q_x\vr_x(i))\chi(\vr_x(i),q_y,\vR=0)
+\ee
+
+ %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\bibliography{mybib}
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+\end{document}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%

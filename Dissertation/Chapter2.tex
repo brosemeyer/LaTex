@@ -1,0 +1,780 @@
+\chapter{\label{ch:2}Theory Background}
+
+\section{\label{ch:2.1}Mysteries of Superconductivity}
+The microscopic theory of superconductivity was a mystery for over 50 years after its discovery. Many great physicists of those days attempted, but ultimately, the theory by Bardeen, Cooper and Schriefer (BCS theory) has prevailed.
+
+BCS theory is a triumph of modern condensed matter theory and has found uses in superfluids, particle-physics and astrophysics. Its true appeal is not from  its ability to explain the mechanism of superconductivity, but how simply it is able to do so, requiring only a single effective attraction between two electrons.
+
+\subsection{\label{ch:2.1.1}Attractive Electron Hamiltonian}
+The formation of superconducting Cooper pairs originates from an effective attraction of electrons. In many conventionally superconductors, this effective interaction is mediated by phonon motion of the positively charged ions. The basis of the phonon mechanism relies on the relative rate of ion motion to be much smaller than the electrons. In this way, one electron can move to a position and polarize the ions around it, creating a net positive charge. The electron continues its motion out of this area and another is drawn into the positively charged lattice distortion which remains after the first electron left.
+
+This type of interaction is said to be retarded in time, the second electron ``interacts'' \emph{after} the first has left, because of this both electrons can occupy the same spatial position and avoid each other in time. The alternative to this is an interaction when the electrons avoid each other in space rather than time (eg electrons which are localized to lattice cites and interact via some longer range force). This mechanism is often anisotropic due to the underlying crystal lattice, and called unconventional.
+
+Regardless of the details, the first-order term which appears in the Hamiltonian for electrons is written in equation (\ref{eq:Hsc:ch2}), and the Feynman diagram in (\ref{fey1:ch2}).
+
+\be
+\label{eq:Hsc:ch2}
+{\bf \cH }	^{sc} = \frac{1}{2}\int d\vx d\vx' V_{\alpha\beta ;\gamma\delta}(\vx,\vx') \psi^\dagger_\alpha(\vx') \psi^\dagger_\beta(\vx)  \psi_\gamma(\vx) \psi_\delta(\vx')
+\ee
+\vspace{0.2 cm}
+\be
+\begin{fmffile}{fey1}
+\begin{fmfgraph*}(130,60)
+\label{fey1:ch2}
+\fmfpen{thick}
+\fmfleft{i1,i2}
+\fmfright{o1,o2}
+\fmflabel{$\psi_\gamma(\vx)$}{i1}
+\fmflabel{$\psi_\beta^\dagger(\vx)$}{i2}
+\fmflabel{$\psi_\delta(\vx')$}{o1}
+\fmflabel{$\psi_\alpha^\dagger(\vx')$}{o2}
+\fmflabel{$\vx$}{v1}
+\fmflabel{$\vx'$}{v2}
+\fmf{fermion}{i1,v1,i2}
+\fmf{fermion}{o1,v2,o2}
+\fmf{photon,label=$V_{\alpha\beta ;\gamma\delta}(\vx,,\vx')$}{v1,v2}
+\end{fmfgraph*}
+\end{fmffile}
+\ee
+
+$V_{\alpha\beta ;\gamma\delta}(\vx,,\vx')$ is the matrix element for the scattering
+
+\be
+V_{\alpha\beta ;\gamma\delta}(\vx,\vx') = \langle \vx',\alpha;\vx,\beta  |\hat{V}| \vx',\delta ;\vx,\gamma \rangle
+\ee
+
+$\hat{V}$ is an operator describing an effective electron-electron interaction which is attractive in a small energy range near the Fermi energy. Leon Cooper \citep{PhysRev.104.1189} was the first to show that this can lead to bound pairs of electrons and that the elementary excitations may be due to these pairs and not increasing the kinetic energy.
+
+From a many-particle perspective the interaction described in equation (\ref{eq:Hsc:ch2}) and (\ref{fey1:ch2}) is not the whole story and one must include all the possible Feynman diagrams which include $V$. Including \emph{all} such diagrams is not a tractable problem by todays methods, but David Thouless \citep{Thouless1960553} did show that inclusion of all ladder diagrams (see diagrams \ref{fey2:ch2}-\ref{fey4:ch2}) still yields an instability of the Fermi surface toward Cooper pairing below $T_c$.
+
+\bea
+\label{fey2:ch2}
+\begin{fmffile}{box0}
+\begin{fmfgraph}(45,25)
+\fmfbottom{i1,o1}
+\fmftop{i2,o2}
+\fmf{fermion}{i1,v1,o1}
+\fmf{fermion}{i2,v2,o2}
+\fmf{dbl_wiggly,tension=0}{v1,v2}
+\end{fmfgraph}
+\end{fmffile}
+&\genfrac{}{}{0pt}{}{=}{}&
+\begin{fmffile}{box1}
+\begin{fmfgraph}(45,25)
+\fmfbottom{i1,o1}
+\fmftop{i2,o2}
+\fmf{fermion}{i1,v1,o1}
+\fmf{fermion}{i2,v2,o2}
+\fmf{photon,tension=0}{v1,v2}
+\end{fmfgraph}
+\end{fmffile}
+\genfrac{}{}{0pt}{}{+}{}
+\begin{fmffile}{box2}
+\begin{fmfgraph}(70,25)
+\fmfbottom{i1,d1,o1}
+\fmftop{i2,d2,o2}
+\fmf{fermion}{i1,v1,v2,o1}
+\fmf{fermion}{i2,v3,v4,o2}
+\fmf{photon,tension=0}{v1,v3}
+\fmf{photon,tension=0}{v2,v4}
+\end{fmfgraph}
+\end{fmffile}
+\genfrac{}{}{0pt}{}{+}{}
+\begin{fmffile}{box3}
+\begin{fmfgraph}(70*4/3,25)
+\fmfbottom{i1,d1,o1}
+\fmftop{i2,d2,o2}
+\fmf{fermion}{i1,v1,v2,v3,o1}
+\fmf{fermion}{i2,v4,v5,v6,o2}
+\fmf{photon,tension=0}{v1,v4}
+\fmf{photon,tension=0}{v2,v5}
+\fmf{photon,tension=0}{v3,v6}
+\end{fmfgraph}
+\end{fmffile}
+\genfrac{}{}{0pt}{}{+\,\,\,...}{}    \\
+&\genfrac{}{}{0pt}{}{=}{}&
+\begin{fmffile}{box1}
+\begin{fmfgraph}(45,25)
+\fmfbottom{i1,o1}
+\fmftop{i2,o2}
+\fmf{fermion}{i1,v1,o1}
+\fmf{fermion}{i2,v2,o2}
+\fmf{photon,tension=0}{v1,v2}
+\end{fmfgraph}
+\end{fmffile}
+\genfrac{}{}{0pt}{}{\bigg[}{}
+\genfrac{}{}{0pt}{}{1\,\,\, +}{}
+\begin{fmffile}{box1}
+\begin{fmfgraph}(45,25)
+\fmfbottom{i1,o1}
+\fmftop{i2,o2}
+\fmf{fermion}{i1,v1,o1}
+\fmf{fermion}{i2,v2,o2}
+\fmf{photon,tension=0}{v1,v2}
+\end{fmfgraph}
+\end{fmffile}
+\genfrac{}{}{0pt}{}{+}{}
+\begin{fmffile}{box2}
+\begin{fmfgraph}(70,25)
+\fmfbottom{i1,d1,o1}
+\fmftop{i2,d2,o2}
+\fmf{fermion}{i1,v1,v2,o1}
+\fmf{fermion}{i2,v3,v4,o2}
+\fmf{photon,tension=0}{v1,v3}
+\fmf{photon,tension=0}{v2,v4}
+\end{fmfgraph}
+\end{fmffile}
+\genfrac{}{}{0pt}{}{+\,\,...}{} \genfrac{}{}{0pt}{}{\bigg]}{} \\
+\label{fey4:ch2}
+&\genfrac{}{}{0pt}{}{=}{}&
+\begin{fmffile}{box1}
+\begin{fmfgraph}(45,25)
+\fmfbottom{i1,o1}
+\fmftop{i2,o2}
+\fmf{fermion}{i1,v1,o1}
+\fmf{fermion}{i2,v2,o2}
+\fmf{photon,tension=0}{v1,v2}
+\end{fmfgraph}
+\end{fmffile}
+\genfrac{}{}{0pt}{}{\bigg[}{}
+\genfrac{}{}{0pt}{}{1\,\,\, +}{}
+\begin{fmffile}{box0}
+\begin{fmfgraph}(45,25)
+\fmfbottom{i1,o1}
+\fmftop{i2,o2}
+\fmf{fermion}{i1,v1,o1}
+\fmf{fermion}{i2,v2,o2}
+\fmf{dbl_wiggly,tension=0}{v1,v2}
+\end{fmfgraph}
+\end{fmffile} \genfrac{}{}{0pt}{}{\bigg]}{}
+\eea
+
+The equation implied by the above diagrams is very similar to the RPA approximation and Dyson equation for self energy.
+\be
+\label{eq:sc_sus:ch2}
+\chi^\Delta(T) = \frac{\chi_0^\Delta(T)}{1-\chi_0^\Delta(T)}
+\ee
+Where $\chi^\Delta(T)$ is the ``pairing'' susceptibility and $\chi_0^\Delta(T)$ is the ``bare pairing'' susceptibility. The divergence of the pairing susceptibility results in bulk superconductivity and occurs when $\chi_0^\Delta(T) = 1$. The critical temperature found using this method is identical to the BCS theory, and establishes a link between BCS and perturbation theory.
+
+
+
+
+\subsection{\label{ch:2.1.2}Mean Field Hamiltonian}
+In the original BCS paper \citep{PhysRev.108.1175}, Bardeen, Cooper and Schriefer realized that the elementary excitations of conventional superconductors are the formation/destruction of electron pairs with opposite momentum ($c^\dagger_{-\vk\downarrow}c^\dagger_{\vk\uparrow}$, or $c_{-\vk\downarrow}c_{\vk\uparrow}$). For this reason, many microscopic theories of superconductivity proceed by using a mean field approximation to equation (\ref{eq:Hsc:ch2}).
+
+These paired excitations form a coherent state, which is not a eigenstate of the particle number. Therefore, we define the anomalous average
+
+\be
+\label{eq:cooper_av:ch2}
+F_{\alpha\beta}(\vx,\vx') = \langle \psi_\alpha(\vx)\psi_\beta(\vx') \rangle \neq 0
+\ee
+
+It is used to define the mean field order parameter, which we refer to as the superconducting order parameter or gap energy. The spin bit of the matrix element for the interaction can be separated from the spatial bit by writing $V_{\alpha\beta;\gamma\delta}(\vx,\vx') = g^\dagger_{\alpha\beta} g_{\gamma\delta} V_g(\vx,\vx')$, where $g_{\alpha\beta}$ is the spin structure of the interaction, and $V_g(\vx,\vx')$ is real and describes the spatial form for a given spin structure $g$. The order parameter is then defined as $\Delta_{\beta\alpha}(\vx,\vx') = g^\dagger_{\alpha\beta}\Delta_g(\vx,\vx')$, where 
+
+\be
+\label{eq:op_def:ch2}
+\Delta_g(\vx,\vx') = -\sum\limits_{\gamma\delta} g_{\gamma\delta}V_g(\vx,\vx') F_{\gamma\delta}(\vx,\vx')
+\ee
+
+The overall minus sign is included to cancel the sign of $V_g(\vx,\vx')$ which will be minus for attraction. Equation (\ref{eq:op_def:ch2}) is known as the \emph{Self Consistent} equation which determine the order parameter, and we will consider it in detail in \S \ref{ch:2.2.4}.
+
+We proceed by writing the pairs of operators in equation (\ref{eq:Hsc:ch2}) as
+\be
+\psi_\gamma(\vx) \psi_\delta(\vx') = \langle \psi_\gamma(\vx) \psi_\delta(\vx') \rangle + \big[\psi_\gamma(\vx) \psi_\delta(\vx') - \langle \psi_\gamma(\vx) \psi_\delta(\vx')\rangle\big]
+\ee
+and neglect all terms which are second order in the bracketed term. The mean field Hamiltonian is
+
+\be
+\label{eq:HscMF:ch2}
+\cH^{sc} = \frac{1}{2}\int d\vx d\vx' \bigg[\Delta_{\alpha\beta}(\vx,\vx') \psi^\dagger_\alpha(\vx) \psi^\dagger_\beta(\vx') + H.C. - |\Delta_g(\vx,\vx')|^2/V_g(\vx,\vx')\bigg]
+\ee
+
+And $H.C.$ denotes the Hermitian conjugate of the previous term.
+
+The term which is independent of the operators in equation (\ref{eq:HscMF:ch2}) contributes only to the ground state energy and we will address it later in \S \ref{ch:2.2.4}.
+
+The terms which are bilinear in the field operators will determine the basis in which we can write the Hamiltonian in matrix form (neglecting the ground state contribution)
+
+\be
+\cH^{sc} = \int d\vx d\vx' \Psi^\dagger \hat{\cH}^{sc}  \Psi
+\ee
+
+After considering the form of equation (\ref{eq:HscMF:ch2}), it becomes clear that the correct basis is
+
+\be
+\label{eq:Ax_basis:ch2}
+\Psi = \left( \begin{array}{c}
+\psi_{\uparrow}(\vx) \\
+\psi_{\downarrow}(\vx) \\ 
+\psi^\dagger_{\uparrow}(\vx') \\
+\psi^\dagger_{\downarrow}(\vx') 
+\end{array} \right)
+\ee 
+with the corresponding matrix
+\be
+\label{eq:Hx_mat_sc:ch2}
+\hat{\cH}^{sc} = \frac{1}{2}\left( \begin{array}{cc}
+{\bf 0} & \hat{\Delta}(\vx,\vx')  \\
+\hat{\Delta}^\dagger(\vx,\vx') & {\bf 0}  \end{array} \right)
+\ee
+And the entries in $\hat{\cH}^{sc}$ are all 2$\times$ 2 block matrices.
+
+\section{\label{ch:2.2}Uniform State}
+\subsection{\label{ch:2.2.1}Hamiltonian}
+The formulation in \S \ref{ch:2.1.2} is a very general approach, and we wish to further enlighten our understanding by considering the uniform state where the attractive interaction between electrons is only a function of the relative position $V_g(\vx,\vx') = V_g(\vr)$ ($\vr = \vx-\vx'$ center of mass $\vR = (\vx + \vx')/2$) of the two (similarly, $\Delta(\vx,\vx') = \Delta(\vr)$) . The field operators can then be written in second quantized form, using plane-wave states $\psi_\alpha(\vx) = \sum_{\vk} a_{\vk\alpha} e^{i\vk\cdot\vx}$, and the bilinear terms in equation (\ref{eq:HscMF:ch2}) become
+
+\be
+\label{eq:H_unif:ch2}
+\cH^{sc} = \frac{1}{2}\sum\limits_{\vk\alpha} \bigg[\Delta_{\alpha\beta}(\vk)a^\dagger_{\vk\alpha} a^\dagger_{-\vk\beta} + H.C.\bigg]
+\ee
+
+$\Delta_{\alpha\beta}(\vk)$ is the relative coordinate Fourier Transform of the order parameter, and the matrix representation is $\cH^{sc} = \sum\limits_{\vk}A_{\vk}^\dagger \hat{\cH}^{sc} A_{\vk}$ with 
+
+\be
+\label{eq:A_basis:ch2}
+A_{\vk} = \left( \begin{array}{c}
+a_{\vk\uparrow} \\
+a_{\vk\downarrow}  \\ 
+a^\dagger_{-\vk\uparrow} \\
+a^\dagger_{-\vk\downarrow} 
+\end{array} \right)
+\ee
+and corresponding matrix
+\be
+\label{eq:H_mat_sc:ch2}
+\hat{\cH}^{sc}_{\vk} = \frac{1}{2}\left( \begin{array}{cc}
+{\bf 0} & \hat{\Delta}(\vk)  \\
+\hat{\Delta}^\dagger(\vk) & {\bf 0}  \end{array} \right)
+\ee
+Where the entries are again 2$\times$2 matrices.
+
+In the simple uniform example with a Zeeman field, the normal excitation energies of the electrons will be $\xi_{\vk\alpha\beta} = \xi_{\vk} - \mu_B(\vsigma\cdot \vH)_{\alpha\beta}$, with $m^*$ being the effective electron mass, $\mu_B$ the Bohr magneton, and $\vH$ the applied field. $\vsigma$ is a three vector composed of the Pauli spin matrices $\vsigma=(\sigma^x, \sigma^y, \sigma^z)$, and $\mu$ is the chemical potential. $\xi_{\vk}$ is the normal excitation energy, which for now we use the free electron result $\xi_{\vk} = \frac{\vk^2}{2m^*} - \mu$, but can easily be generalized to a tight-binding model or other crystallographic energy dispersion.  The basis in eq (\ref{eq:A_basis:ch2}) includes both $\pm\vk$, and requires the introduction of an extra term into $\cH^0$ to bring it into matrix form
+
+\bea
+\cH^0 &=& \frac{1}{2}\sum_{\vk\alpha\beta} \xi_{\vk\alpha\beta} a_{\vk\alpha}^\dagger a_{\vk\beta} + \xi_{-\vk\alpha\beta} a_{-\vk\alpha\beta}^\dagger a_{-\vk\alpha\beta} \\
+ &=& \frac{1}{2}\sum_{\vk\alpha\beta} \xi_{\vk\alpha\beta} a_{\vk\alpha}^\dagger a_{\vk\beta} + \xi_{-\vk\alpha\beta} (1- a_{-\vk\alpha\beta}a_{-\vk\alpha\beta}^\dagger)
+\eea
+
+Where we have made use of the Fermionic commutation relations for the $a_{-\vk}$ operators so there is an extra term in $\cH^0$ which is independent of the operators and contributes only to the ground state energy. Omitting this term, the matrix form of $\cH^0$ is
+\be
+\label{eq:H_mat_0:ch2}
+\hat{\cH}^0 = \frac{1}{2}\left( \begin{array}{cc}
+\hat{\xi}_{\vk} & {\bf 0}  \\
+{\bf 0} & -\hat{\xi}^T_{\vk} \end{array} \right)
+\ee
+
+$\hat{\cI}$ is the 2$\times$2 identity matrix and we have made use of the symmetry $\hat{\xi}_{\vk} = \hat{\xi}_{-\vk}$
+
+
+\subsection{\label{ch:2.2.2}Bogoliubov-de Genne Equations}
+
+After finding the matrix form of the uniform Hamiltonian ($\cH = \cH^0 + \cH^{sc}$), we are left to diagonalize it and find the eigenvalues/eigenvectors which describe the excitation spectrum. The method we follow was pioneered by Bogoliubov and de-Genne \citep{gen66} and has far reaching applications in other fields of physics. The notation here follows closely to \citep{theory_usc}. 
+
+The starting point is to realize that the basis for superconductivity involves both creation \emph{and} annihilation operators (\ref{eq:A_basis:ch2}), therefore we introduce new operators $\gamma$ which are linear combinations of creations and annihilations. 
+
+\be
+a_{\vk\alpha} = \hat{u}_{\vk\alpha\alpha'} \gamma_{\vk\alpha'} + \hat{v}^*_{-\vk\alpha\alpha'} \gamma^\dagger_{-\vk\alpha'}
+\ee
+
+And we can write the transformation of our basis $A_{\vk}$ into the new basis $\Gamma_{\vk}$ using a more compact matrix form $A_{\vk} = U_{\vk} \Gamma_{\vk}$ with 
+
+\be
+U_{\vk} = \left( \begin{array}{cc}
+\hat{u}_{\vk} & \hat{v}^*_{-\vk}  \\
+\hat{v}_{\vk} & \hat{u}^*_{-\vk}
+\end{array} \right)
+\ee
+and the new basis is
+
+\be
+\Gamma_{\vk} =
+\left( \begin{array}{c}
+\gamma_{\vk\uparrow} \\
+\gamma_{\vk\downarrow} \\
+\gamma^\dagger_{-\vk\uparrow} \\
+\gamma^\dagger_{-\vk\downarrow} 
+ \end{array} \right)
+\ee
+
+The transformation must also be unitary, which requires the condition $U_{\vk}U_{\vk}^\dagger = \cI$.
+
+Inserting this into the Schrödinger equation, and requiring it to be in diagonal form results in the Bogoliubov-de Genne equations for the amplitudes $\hat{u}_{\vk}$ and $\hat{v}_{\vk}$.
+
+\be
+\hat{E}_{\vk} = U_{\vk}^\dagger \hat{\cH}_{\vk} U_{\vk} =\frac{1}{2} \left( \begin{array}{cccc}
+E_{\vk\uparrow} & 0 & 0 & 0  \\
+0 & E_{\vk\downarrow} & 0 & 0  \\
+0 & 0 & -E_{-\vk\uparrow} & 0  \\
+0 & 0 & 0 & -E_{-\vk\downarrow}
+\end{array} \right)
+\ee
+
+Where $\hat{E}_{\vk}$ is a diagonal matrix whose entries are the excitation energies. Another way to study these equations is as a set of eigenvalue equations.
+\be
+\label{eq:bdg_mat:ch2}
+\frac{1}{2}E_{\vk\sigma}\left( \begin{array}{cccc}
+u_{\vk\uparrow\sigma}  \\
+u_{\vk\downarrow\sigma}  \\
+v_{\vk\uparrow\sigma}  \\
+v_{\vk\downarrow\sigma} 
+\end{array} \right) = \hat{\cH}\left( \begin{array}{cccc}
+u_{\vk\uparrow\sigma}  \\
+u_{\vk\downarrow\sigma}  \\
+v_{\vk\uparrow\sigma}  \\
+v_{\vk\downarrow\sigma} 
+\end{array} \right)
+\ee
+
+These are the spin generalized Bogoliubov de-Gennes equations and the solutions give the excitation spectrum of the superconductor. We have written only the $+E_{\vk\sigma}$ eigenvalue equations, and note that the negative solutions correspond to the eigenvectors where $u_{\vk\alpha\beta}\rightarrow v^*_{-\vk\alpha\beta}$ and $v_{\vk\alpha\beta}\rightarrow u^*_{-\vk\alpha\beta}$.
+
+\subsection{\label{ch:2.2.3}Spin Structure}
+
+To proceed we must note the spin form of the order parameter $\hat{\Delta}(\vk)$ (The spin structure of $\hat{\Delta}$ is identical to the interaction $\hat{V}$). Owing to the quantum mechanical nature of the interaction, we know that the spin pairing state must be either a singlet with zero total spin ($S=0$)
+
+\be
+[|\uparrow\downarrow\rangle - |\downarrow\uparrow\rangle]/\sqrt{2}
+\ee
+or a triplet with total spin of one ($S=1$)
+
+\be
+\begin{split}
+|\uparrow\uparrow\rangle \\
+|\downarrow\downarrow\rangle \\
+[|\uparrow\downarrow\rangle + |\downarrow\uparrow\rangle]/\sqrt{2}
+\end{split}
+\ee
+
+The singlet spin state is antisymmetric, and proportional to the second Pauli matrix. We define $\hat{\Delta}(\vk) = \Delta(\vk)(i\sigma^y)$, where $\Delta(\vk)$ is an even function of $\vk$ to preserve the total antisymmetric form required for a two fermion correlation.
+
+The triplet state is a bit more complicated and we will follow the notation of \citep{PhysRev.131.1553}. The three states are spin symmetric, and can be generated with the following product of $\vsigma (i\sigma^y)$, where $\vsigma=(\sigma^x, \sigma^y, \sigma^z)$ is a three vector whose entries are the Pauli matrices. A given interaction will choose a single linear combination of these states and we can define a complex vector $\vd(\vk)$ such that $\hat{\Delta}(\vk) = \vd(\vk)\cdot\vsigma(i\sigma^y)$, and $\vd(\vk)$ is antisymmetric to maintain the total antisymmetry of $\hat{\Delta}(\vk)$.
+
+If there is only superconductivity in the singlet channel ($\vd(\vk) = 0$), then the Bogoliubov-de Gennes equations can be written in a rotated frame such that the Zeeman field is only along $\hat{z}$ ($\hat{\xi}_{\vk\alpha\beta} = \xi_{\vk}\hat{\cI} - \sigma^z_{\alpha\beta}$). In this case the equations decouple into two independent equations 
+
+\be
+\label{eq:bdg1:ch2}
+E_{\vk\sigma}\left( \begin{array}{cc}
+u_{\vk\uparrow\sigma}  \\
+v_{\vk\downarrow\sigma} 
+\end{array} \right) = \left( \begin{array}{cc}
+\xi_{\vk} - \sigma_{\sigma\sigma}^z\mu_B H & \Delta_{\vk}  \\
+\Delta^*_{\vk}  & -\xi_{\vk}-\sigma_{\sigma\sigma}^z\mu_B H
+\end{array} \right)\left( \begin{array}{cc}
+u_{\vk\uparrow\sigma}  \\
+v_{\vk\downarrow\sigma} 
+\end{array} \right)
+\ee
+\be
+\label{eq:bdg2:ch2}
+E_{\vk\sigma}\left( \begin{array}{cc}
+u_{\vk\downarrow\sigma}  \\
+v_{\vk\uparrow\sigma} 
+\end{array} \right) = \left( \begin{array}{cc}
+\xi_{\vk} + \sigma_{\sigma\sigma}^z\mu_B H & -\Delta_{\vk}  \\
+-\Delta^*_{\vk}  & -\xi_{\vk}+\sigma_{\sigma\sigma}^z\mu_B H
+\end{array} \right)\left( \begin{array}{cc}
+u_{\vk\downarrow\sigma}  \\
+v_{\vk\uparrow\sigma} 
+\end{array} \right)
+\ee
+
+The spectrum can easily be determined from these equations, of which we choose equation (\ref{eq:bdg1:ch2}) for $\sigma=1=\uparrow$ and (\ref{eq:bdg2:ch2}) for $\sigma=-1=\downarrow$ we have
+
+\bea
+E_{\vk\sigma} = \sqrt{\xi_{\vk}^2 + |\Delta(\vk)|^2} -\mu_B H\sigma^z_{\sigma\sigma} \\
+\hat{u_{\vk}} = \cI e^{i\phi_{\vk}/2}\sqrt{\frac{1}{2} + \frac{\xi_{\vk}}{2E_{\vk0}}} \\
+\hat{v_{\vk}} = -(i\sigma^y)e^{-i\phi_{\vk}/2}\sqrt{\frac{1}{2} - \frac{\xi_{\vk}}{2E_{\vk0}}}
+\eea
+
+Where $\phi_{\vk}$ is the phase of the order parameter and $E_{\vk0} = \sqrt{\xi_{\vk}^2 + |\Delta_{\vk}|^2}$. It is important to note that the amplitudes $u_{\vk}$ and $v_{\vk}$ are independent of the Zeeman field $\hat{u_{\vk}} = u_{\vk}\hat{\cI}$, $\hat{v_{\vk}} = -v_{\vk}(i\sigma_y)$
+
+The solutions to the eigenvectors can be written in a more compact way by defining $\chi_{\vk} = cosh^{-1}(E_{\vk0}/\Delta_{\vk})$.
+
+\bea
+u_{\vk} = \sqrt{\frac{|\Delta_{\vk}|}{2E_{\vk0}}}e^{i\phi_{\vk}/2 + \chi_{\vk}/2} \\
+v_{\vk} = \sqrt{\frac{|\Delta_{\vk}|}{2E_{\vk0}}}e^{-i\phi_{\vk}/2 - \chi_{\vk}/2}
+\eea
+
+For a pure triplet superconductor the solutions to equation (\ref{eq:bdg_mat:ch2}) are also well known to theorists \citep{theory_usc} CITE POWELL THESIS. However, the goals of this thesis are centered on the singlet case and it's propensity for magnetisation, and we omit the solutions for triplet pairing.
+
+The diagonal Hamiltonian can now be expressed in the following way
+\bea
+\cH &=& \frac{1}{2}\sum_{\vk\sigma} E_{\vk\sigma} \gamma^\dagger_{\vk\sigma}\gamma_{\vk\sigma} - E_{-\vk\sigma} \gamma_{-\vk\sigma}\gamma^\dagger_{-\vk\sigma} \\
+&=& \frac{1}{2}\sum_{\vk\sigma} E_{\vk\sigma} \gamma^\dagger_{\vk\sigma}\gamma_{\vk\sigma} - E_{-\vk\sigma} (1- \gamma^\dagger_{-\vk\sigma}\gamma_{-\vk\sigma}) \\
+&=& \sum_{\vk\sigma} E_{\vk\sigma} \gamma^\dagger_{\vk\sigma}\gamma_{\vk\sigma} - \frac{E_{\vk\sigma}}{2}
+\eea
+Were we have used the Fermionic commutation relations for $\gamma$'s and the even parity of $\gamma$ operators and $E_{\vk\sigma}$.
+
+\subsection{\label{ch:2.2.4}Singlet Order Parameter (2D)}
+
+The uniform self consistent equation  for a singlet is best written for the relative coordinate Fourier transform of the order parameter
+
+\be
+\label{eq:sc_uni:ch2}
+\Delta_g(\vp) = -\sum\limits_{\vk}\sum\limits_{\gamma\delta} g_{\gamma\delta} v_g(\vp-\vk) \langle a_{\vk\gamma} a_{-\vk\delta} \rangle
+\ee
+
+Where $ v_g(\vp-\vk) = \int d\vr  V_g(\vr)e^{-i(\vp-\vk)\vr}$. We require the interaction to be symmetric for $\vp \leftrightarrow \vk$ so we can use a product of basis functions of the irreducible symmetry group(s) of the system $Y_{lm}(\hat{\vq})$.
+
+\be
+v_g(\vp-\vk) = \sum_{l} \sum_{m=1}^{Dim[l]} v_{gl}(\vp,\vk) Y_{lm}(\hat{\vp}) Y^*_{lm}(\hat{\vk})
+\ee
+
+The weight, $v_{gl}(\vp,\vk)$ associated with each basis choice is most often assumed to be a constant for all pairs for which both are within an energy cut-off $\epsilon_c$ of the Fermi surface, $v_{gl}(\vp,\vk) = v_{gl}\theta(\epsilon_c - |\xi_\vp|)\theta(\epsilon_c - |\xi_\vk|)$, and $v_{gl} < 0$. Inserting this into equation (\ref{eq:sc_uni:ch2}) we have 
+\be
+\Delta_{glm} = |v_{gl}|\sum\limits_{\vk\gamma\delta\,\, |\xi_{\vk}|<\epsilon_c} g_{\gamma\delta} Y_{lm}^*(\hat{\vk}) \langle a_{\vk\gamma} a_{-\vk\delta} \rangle
+\ee
+
+and the total gap is $\Delta_g(\vp) = \sum\limits_{lm} \Delta_{glm}Y_{lm}(\hat{\vp})\theta(\epsilon_c - |\xi_\vp|)$.
+
+We are interested in finding the amplitude, $\Delta_{glm}$ for the first two allowed symmetry groups, $l$. In the uniform singlet case, the antisymmetric spin structure demands a symmetric momentum state (see \S \ref{ch:2.2.3}), therefore the first two symmetry groups are $l=0$ and $l=2$.
+
+Generally, the choice of basis functions is dictated by the symmetry of the crystal. Much effort is currently being spent researching various forms of the interaction which include linear combinations of basis with singlet or triplet order parameters (CITE). In a two dimensional model the $m$ modes of the symmetry group are all degenerate, and we can write the first two basis functions
+
+\be
+\label{eq:l_basis:ch2}
+\begin{split}
+Y_{0}(\hat{\vk}) = 1 \\
+Y_{2}(\hat{\vk}) = \sqrt{2}\cos(2\theta_{\hat{\vk}})
+\end{split}
+\ee
+
+The self consistent equation is 
+
+\be
+\label{eq:sc_uni0:ch2}
+\frac{1}{|v_{gl}|} = \sum\limits_{\alpha\vk |\xi_{\vk}|<\epsilon_c}   \frac{|Y_l(\hat{\vk})|^2}{2E_{\vk 0}}\tanh(\beta E_{\vk \alpha}/2)
+\ee
+
+Where $\beta = (k_BT)^{-1}$ and we have used the Fermi distribution for the new $\gamma$ quasi-particles, $F_{\vk\sigma} = \langle \gamma^\dagger_{\vk\sigma} \gamma_{\vk\sigma}\rangle = (e^{\beta E_{\vk\sigma}}+1)^{-1}$.
+
+Equation (\ref{eq:sc_uni0:ch2}) must be satisfied for all temperature and fields where $\Delta_{gl} \neq 0$. For $H \rightarrow 0$ and $T \rightarrow 0$ we postulate that the order parameter reaches its limiting value $\Delta_{gl}\rightarrow \Delta_0$. The limiting self consistent equation is then
+
+\be
+\frac{1}{|v_{gl}|} = \int\limits_0^{2\pi} \frac{d\theta}{2\pi} \int\limits_{-\epsilon_c}^{\epsilon_c}d\xi \frac{|Y_l(\theta)|^2 N(\xi)}{\sqrt{\xi^2 + |\Delta_0 Y_{l}(\theta)|^2}}
+\ee 
+
+The sum over momentum states is now an integral $\bigg(\sum_{\vk} \rightarrow \int\limits_0^{2\pi}\frac{d\theta}{2\pi} \int\limits_{-\mu}^\infty N(\xi)d\xi\bigg)$ and $N(\xi)$ is the density of states. In two dimensions $N(\xi) = N_f$ is a constant.
+
+The other limit we can consider is when the temperature is increased to the critical temperature, when superconductivity is destroyed $T\rightarrow T_c$, $\Delta_{gl}\rightarrow 0$, and $H=0$. 
+
+\be
+\frac{1}{|v_{gl}|} = \int\limits_{-\epsilon_c}^{\epsilon_c}d\xi \frac{N(\xi)\tanh(\beta_c |\xi|/2)}{|\xi|}
+\ee 
+
+Where we have used the basis normalization condition $\int\limits_0^{2\pi} |Y_l(\theta)|^2 \frac{d\theta}{2\pi} = 1$. 
+
+The critical temperature equation is independent of the choice of basis and can be integrated by parts. 
+\be
+\label{eq:sc_tc:ch2}
+\frac{1}{|v_{gl}|} = 2N_f\bigg[\ln(\beta_c\epsilon_c/2)\tanh(\beta_c\epsilon_c/2) - \int\limits_{0}^{\beta_c\epsilon_c/2}dx\,\, \ln(x)\sech^2(x)\bigg]
+\ee  
+
+For the $l=0,2$ basis functions in (\ref{eq:l_basis:ch2}) the zero temperature equation can be found
+
+\be
+\label{eq:sc_0:ch2}
+\quad \frac{1}{|v_{gl}|} = 2N_f \int\limits_0^{2\pi} \frac{d\theta}{2\pi} |Y_l(\theta)|^2\sinh^{-1}\bigg(\frac{\epsilon_c}{|\Delta_0 Y_l(\theta)|}\bigg)
+\ee
+
+Equations (\ref{eq:sc_0:ch2}) and (\ref{eq:sc_tc:ch2}) are often interpreted using the ``Weak Coupling'' limit when the energy cut-off is assumed to be much larger than the zero temperature order parameter ($\epsilon_c >> |\Delta_0|$) \emph{and} the critical temperature ($\epsilon_c >> k_B T_c$). Specifically, in (\ref{eq:sc_tc:ch2}) we use the asymptotic expansion $\tanh(\beta_c\epsilon_c/2) \approx 1$, and extend the limit of the integral $\beta_c\epsilon_c/2\rightarrow\infty$ and use its analytic form $\int\limits_0^\infty dx\, ln(x) \sech^2(x)=\ln(\frac{\pi}{4}e^{-\gamma})$.
+
+\be
+\label{eq:sc_tc0:ch2}
+\frac{1}{|v_{gl}|} \approx 2N_f \ln\bigg(\frac{2\beta_c\epsilon_c e^{\gamma}}{\pi}\bigg)
+\ee  
+
+For equations (\ref{eq:sc_0:ch2}), the asymptotic expansion is $\sinh^{-1}(x) \approx \ln (2x)$, and the solution to the $l=2$ integral is $\int\limits_0^{2\pi} \frac{d\theta}{\pi} \cos^2(2\theta) \ln(a/|cos(2\theta)|) =  \ln\big( 2 a e^{-1/2}\big)$
+
+
+\be
+\label{eq:sc_0wc:ch2}
+\begin{split}
+l=0:\quad \frac{1}{|v_{gl}|} \approx 2N_f \ln(2\epsilon_c/|\Delta_0|)
+\\
+l=2:\quad \frac{1}{|v_{gl}|} \approx 2N_f \ln\bigg( \frac{2\sqrt{2}\epsilon_c e^{-1/2}}{|\Delta_0|}\bigg)
+\end{split}
+\ee
+
+Where $\gamma \approx 0.577216$ is Eulers constant. By relating $1/|v_{gl}|$ in these equations we arrive at the well known results for the ratio of $\Delta_0/T_c$
+\bea
+l=0\quad \frac{\Delta_0}{T_c} \approx 1.764 \\
+l=2\quad \frac{\sqrt{2}\Delta_0}{T_c} \approx 2.140
+\eea
+
+\subsection{\label{ch:2.2.5}Free Energy}
+The diagonalization process described in \S \ref{ch:2.2.1} - \S \ref{ch:2.2.3} results in terms which only contribute to the ground state energy. The 
+\be
+E_{gs} = \frac{|\Delta_{gl}|^2}{2|v_{gl}|} + \frac{1}{2}\sum_{\vk\sigma} \xi_{\vk\sigma}- E_{\vk\sigma}
+\ee
+
+The spin summation is degenerate, and the integral term is
+\be
+\sum_{\vk} \xi_{\vk 0}- E_{\vk 0} =E^0_{gs}  + 2N_f\int \frac{d\theta}{2\pi}\int\limits_{0}^{\epsilon_c}d\xi\,\,|\xi|- \sqrt{\xi^2 + |\Delta_{\vk}|^2}
+\ee
+
+Where $E^0_{gs}=-N_f \mu^2$ is the normal zero temperature ground state energy. We note that $\int \sqrt{x^2 + 1} = \frac{1}{2}\big(x\sqrt{1+x^2} + \sinh^{-1}(x)\big)$, and in the weak coupling limit the ground state energy is.
+
+\be
+E_{gs} =E^0_{gs}  - \frac{N_f |\Delta_{gl}|^2}{2}
+\ee
+
+Although the ground state energy appears to be independent of temperature and field, there is implicit dependence of $\Delta_{gl}$ on $T$, and $H$ through the self consistent equation (\ref{eq:sc_uni0:ch2}).
+
+In the absence of pressure and volume changes between the normal and superconducting states, the correct free energy is the Helmholtz Free Energy
+
+\be
+A = -k_B T \ln(\cZ)
+\ee
+
+Where $\cZ = Tr \big[ e^{-\beta\hat{\cH}}\big] = \sum\limits_i e^{-\beta E_i}$ is the grand thermodynamic partition function. The trace is over \emph{macrostates} of the system. For a superconductor, the energy is $E_i =E_{gs} + \sum\limits_{\vk\alpha} n^i_{\vk\alpha} E_{\vk\alpha}$. $n^i_{\vk\alpha} = \{0,1\}$ is the occupation number of the particle state $\vk,\alpha$ in microstate $i$
+
+\bea
+A^{sc} = E_{gs} -k_B T\sum\limits_{\vk\alpha} \ln\big[e^{-\beta E_{\vk\alpha}} + 1 \big]
+\eea
+
+The normal Free Energy is well know $A^N = -k_B T\sum\limits_{\vk\alpha} \ln \big[e^{-\beta\xi_{\vk\alpha}} + 1\big]$. The Free Energy difference is
+
+\be
+\Delta A = A^{sc} - A^N = \frac{|\Delta_{gl}|^2}{2|v_gl|} - k_B T \sum\limits_{\vk\alpha}\ln \bigg[\frac{cosh(\beta E_{\vk\alpha}/2)}{cosh(\beta \xi_{\vk\alpha}/2)} \bigg]
+\ee
+
+The zero temperature S-wave case can be done analytically, and one finds that the critical field when superconductivity is no longer favourable occurs at $H_{cp} = \Delta_0/\sqrt{2}$, and it is a first order phase transition (ie there is a finite $\Delta_{gl}$ at $H_{cp}$). For D-wave the zero temperature critical field $H_{cp} \approx 0.56 \Delta_0$, is determined numerically, and is also a first order phase transition.
+
+At finite temperature the critical field $H_{cp}(T)$ is monotonically decreasing and reaches zero at the critical temperature, ($H_{cp}(T_c) = 0$. For temperatures near zero the transition remains first order, but eventually crosses over to second order near $T_c$. The transition from first to second order is characteristic of Pauli limited superconductors and differentiates them from other materials whose upper critical field is due to a different mechanism
+
+\section{\label{ch:2.3}Electricity and Magnetism in Superconductors}
+\subsection{\label{ch:2.3.1}London Equations}
+\subsection{\label{ch:2.3.2}Type I vs Type II Superconductors}
+\subsection{\label{ch:2.3.3}Vortex State}
+
+\section{\label{ch:2.4}Non-uniform Superconductivity}
+
+\subsection{\label{ch:2.4.1}FFLO}
+The advances in the theory of superconductivity came about quickly after BCS theory was established. One main tenant of uniform BCS theory is the pairing of opposite momentum states so the total momentum of the Cooper pair is \emph{zero}. This scenario arises as a result of writing the order parameter as only a function of the relative coordinate ($\Delta(\vx,\vx') = \Delta(\vr)$). If one considers an order parameter with a center of mass dependence $\Delta(\vx,\vx') = \sum\limits_{\vp,\vQ} \Delta(\vp,\vQ)e^{i\vp\vr+i\vQ\vR}$, then the pairs will acquire a momentum $\vQ$. We can therefore write the singlet self consistent equation (\ref{eq:sc_uni:ch2})
+
+\be
+\label{eq:fflo_sc:ch2}
+\Delta(\vp,\vQ) = - \sum\limits_{\vk\gamma\delta} g_{\gamma\delta} v(\vp-\vk) \langle a_{\vk\gamma} a_{-\vk+\vQ \delta} \rangle
+\ee
+
+The interaction itself does not require a center of mass dependence, and we can treat $v(\vp-\vk)$ as in \S \ref{ch:2.2.4}. We note that the new pairing state \emph{does} require a change in basis from (\ref{eq:A_basis:ch2})
+
+\be
+A_{\vk} \rightarrow \left( \begin{array}{c}
+a_{\vk\uparrow} \\
+a_{\vk\downarrow}  \\ 
+a^\dagger_{-\vk+\vQ\uparrow} \\
+a^\dagger_{-\vk+\vQ\downarrow} 
+\end{array} \right)
+\ee
+
+The above equation(s) specifies the FFLO self consistent condition, but does not provide any information about the free energy of the non-uniform state. For a complete analysis of the non-uniform problem, the free energy of the normal, uniform and FFLO states must be compared after solving the self consistent equation (\ref{eq:fflo_sc:ch2}). This problem was solved independently by two groups, \citep{PhysRev.135.A550} and \citep{larkin1965inhomogeneous}. What they found was that a strong spin-exchange field near $\Delta_0/\sqrt{2}$ results in the non-uniform state being energetically preferred.
+
+In the review paper, \citep{RevModPhys.76.263}, they outline a single $\vQ$ model, with an S-wave gap, the critical values of the exchange field $h$ at $T=0$ are $h_1 = 0.615$ for FF and $h_1 = 0.71$ for LO, and $h_2 = 0.754$. For $h_1 < h < h_2$ the value of $\\vQ|$ which minimizes the energy is $|\vQ| = 1.1997 h/|\vv_F|$. The two dimensional D-wave case is addressed by \citep{PhysRevB.72.184501}, and they also find that the FFLO state is favourable near $H_{cp}$.
+
+
+\subsection{\label{ch:2.4.2}The Domain Wall}
+The FFLO state has received a great deal of attention from the theory community, but has yet to be experimentally confirmed. However, it is obvious that non-uniform superconductivity must exist near a surface where $\Delta \rightarrow 0$, or at an interface of two superconductors with different order parameters $\Delta_1$ and $\Delta_2$. 
+
+The approach to these problems can not be so simple as the single $\vQ$ FFLO state, and requires a more general dependence of the order parameter into relative and CoM coordinates $\Delta(\vx,\vx') = G(\vr)F(\vR)$. Using the Ginzburg-Landau free energy, and their approach to second order phase transitions, one finds that
+
+\be
+F(\vR) \propto \tanh\big( \frac{x}{\sqrt{2}\xi_c}\big)
+\ee
+
+Where $\xi_c = \frac{v_f}{2\pi T_c}$ is the superconducting coherence length, and we used boundary conditions $F(0)=0$, $F(\infty) = 1$. 
+
+The approach of this thesis is from the microscopic theory of the Hamiltonian.
+
+\bea
+\label{eq:H_norm:ch2}
+\cH_{sc} = \int d\vx d\vx'\,\,\Psi^\dagger \bigg[\hat{\cH^{0}} + \hat{\cH^{sc}} \bigg]\Psi \\
+\hat{\cH^0} = \left( \begin{array}{cc}
+		\hat{\xi} & 0 \\
+		0 & -\hat{\xi}^\dagger
+		\end{array}\right)
+\eea
+$\Psi$ and $\cH^{sc}$ where defined in \S (\ref{ch:2.1}) (see equations (\ref{eq:Ax_basis:ch2}) and (\ref{eq:Hx_mat_sc:ch2})). The normal contribution is $\hat{\xi} = -\cI\big(\frac{\nabla^2}{2m^*} - \mu\big) - \mu_B (\vsigma\cdot\vH)$. 
+
+Once again, the generalized Bogoliubov transformation brings about the eigen-equations for the spectrum. For the singlet channel
+
+\bea
+\label{eq:bdg_inhomo:ch2}
+E_{n\mu} u_{n\mu}(\vx) = \hat{\xi}_{\mu\mu} u_{n\mu}(\vx) + \int d\vx'\,\Delta(\vx,\vx') v_{n\bar{\mu}}(\vx') \\
+E_{n\mu} v_{n\bar{mu}}(\vx) = -\hat{\xi}^*_{\mu\mu}v_{n\bar{\mu}}(\vx) + \int d\vx'\,\Delta^*(\vx,\vx') u_{n\mu}(\vx')
+\eea
+
+The amplitudes $u_{n\mu}(\vx)$ and $v_{n\mu}(\vx)$ are now functions of $\vx$ and they are no longer plane waves as in the uniform case. There are many ways to solve the inhomogeneous BdG equations numerically, including finite difference, Chebyshev polynomial expansion, or using quasi-classical techniques. 
+
+Here we present another alternative which is the Fast Fourier Transform. We make this choice of basis functions because they are eigenfunctions of the homogeneous system (see \S \ref{ch:2.2}) and $\cH^0$. The amplitudes are
+
+\bea
+u_{n\mu} = \sum\limits_{\vk} U_{n\vk\mu} e^{i\vk\vx} \\
+v_{n\mu} = \sum\limits_{\vk} V_{n\vk\mu} e^{i\vk\vx}
+\eea
+
+The BdG equations are now
+\be
+\label{eq:BdG_mat}
+\epsilon_{p\lambda}\left( \begin{array}{cc}
+. \\
+U_{kp\lambda\mu}  \\ 
+. \\ \hline
+. \\
+V_{kp\lambda\bmu} \\
+. \\ 
+\end{array} \right)
+=\left( \begin{array}{ccc|ccc}
+. & 0 & 0 &  &  &  \\
+0 & \xi_{kp\mu} & 0 & & \Delta_{pkk'} & \\
+0 & 0 & . &  &  &  \\ \hline
+ &  &  & . & 0 & 0 \\
+ & \Delta^*_{pk'k} & & 0 & -\xi_{kp\bmu} & 0  \\
+ &  &  & 0 & 0 & .  \\  \end{array} \right)
+ \left( \begin{array}{cc}
+. \\
+U_{kp\lambda\mu}  \\ 
+. \\ \hline
+. \\
+V_{kp\lambda\bmu} \\
+. \\ 
+\end{array} \right)
+\ee
+
+
+\subsection{\label{ch:2.4.3}Andreev Approximation}
+
+As seen in the previous sections, the non-uniform BdG equations (\ref{eq:bdg_inhomo:ch2}) reduce to plane wave solutions in the uniform limit. Furthermore, the order parameter $\Delta$ is only non-zero for a narrow energy range near the Fermi energy $\epsilon_f$, and any deviations from the ground state are contained in this regions of energy states. 
+
+These facts led Alexander Andreev to propose an approximate method to finding the BdG amplitudes for inhomogeneous systems in which the amplitudes are the product of a fast oscillating bit $e^{i\vk\vx}$, $|\vk| = k_f$ and a slowly varying bit $\tu(\vx)$ ($\tv(\vx)$). His original application was for the vortex state, but has since found more applications in layered materials.  
+
+\bea
+u_{\vn}(\vx) = \tu_n(\vx) e^{i\vk\vx} \\
+v_{\vn}(\vx) = \tv_n(\vx) e^{i\vk\vx}
+\eea
+
+These are the \emph{n}th solution along trajectory $\vk$, and $\vn={n,\vk}$
+
+Using the approximation $\nabla^2 \tu(\vx) << \vk_f\nabla \tu(\vx)$, the normal Hamiltonian bit of the BdG equations becomes. (The spin form of $\tu$ and $\tv$ remains the same as \S \ref{ch:2.2.3})
+
+\be
+\label{eq:BdG_mat_andreev}
+\epsilon_{\vn\mu}\left( \begin{array}{cc}
+\tu_{\vn}  \\ 
+\tv_{\vn}
+\end{array} \right)
+=\left( \begin{array}{cc}
+-i\vv_f\cdot\nabla - \sigma(\mu)h & \Delta g_{\hat{\vk}}F(\vx)  \\
+\Delta g_{\hat{\vk}}^*F^*(\vx)  & i\vv_f\cdot\nabla  + \sigma(\bmu)h
+\end{array} \right)
+ \left( \begin{array}{cc}
+\tu_{\vn}  \\ 
+\tv_{\vn}
+\end{array} \right)
+\ee
+
+The off-diagonal part $\Delta g_{\hat{\vk}}F(\vx)$ is found by assuming an interaction of the form $V(\vr) \propto G(\phi)\frac{1}{a} \delta(r-a)$, where $\vr = (r,\phi)$ is the relative coordinate of the Cooper pair. $\Delta$ is found self consistently, and the parameter $a$ is the characteristic distance on which the attractive interaction takes place, we further assume that this distance is much smaller than the variations in $\tu$($\tv$), $a << |\nabla (\tu,\tv)|^{-1}$. With this choice, $\tu(\vx+a\hat{r}) \approx \tu(\vx)$, and similarly for $\tv$.
+
+Transformed interaction is
+
+\be
+g_{\hat{\vk}} = \int\limits_0^{2\pi} d\phi \,\, G(\phi) e^{i k_f a cos(\phi - \theta_{\hat{\vk}})}
+\ee
+
+Where $G(\phi)$ is the interaction as a function of real space angle. As we can see, the spacing $a$ is required for unconventional superconductivity ($g_{\hat{\vk}} \neq Constant$).
+
+The simplest case for the profile $F(\vx)$ is a step function in one dimension ($\hat{x}$) and constant in the other(s). The translational invariance in the directions parallel to the wall leads to solutions which are $\propto e^{i\vk_{\parallel}\vx}$. 
+
+For a step-wise function $F(x)$, it is more convenient to use the homogeneous solution obtained in \S \ref{ch:2.2.1}-\ref{ch:2.2.3} and matching boundary conditions. The solutions of (\ref{eq:BdG_mat_andreev}) are equivalent to Taylor expanding the homogeneous solutions for quasi-particles which are near the Fermi surface ($E_{\vn} << \epsilon_f$) in a direction perpendicular to the wall, and allowing for the existence of evinescent wave solutions ($Im(\vk\cdot\hat{x})\neq 0$).
+
+The momentum of a superconducting quasi-particle is
+\be
+\label{eq:qp_momentum}
+\vk^2 = k_f^2\pm \frac{1}{v_f}\sqrt{E_{\vn}^2-\Delta_{\vk}^2} 
+\ee
+
+When $E_{\vn}^2 >\Delta_{\vk}^2$ $\vk$ is real, and the solutions are plane wave. However, $\vk$ becomes complex for $E_{\vn}^2<\Delta_{\vk}^2$. As noted before, the parallel components are not affected by the inhomogeneity, so the imaginary part must be entirely in the $\hat{x}$ coordinate, $\vk = \vk_{\parallel} + (k_{\pm} + iq_{\pm})\hat{x}$. The result is equations for the real and imaginary parts of (\ref{eq:qp_momentum})
+\bea
+&\approx& \bigg(\sqrt{k_f^2-\vk_{\parallel}^2} \pm \frac{1}{v_f}\sqrt{\frac{E_{\vn}^2-|\Delta_{\vk}|^2}{1-(\vk_{\parallel}/k_f)^2}}\bigg) \\
+&=&\bigg(k_f\cos(\theta) \pm \frac{\sqrt{E_{\vn}^2-|\Delta_{\vk}|^2}}{v_f \cos(\theta)}\bigg)
+\eea
+
+The $+$ solutions are ``particles'' and the $-$  are ``holes''. $\vk_{\parallel}$ is assumed to be real, and we require $|\vk_{\parallel} + Re[k_{\pm}]\hat{x}| = k_f$, so $\sqrt{k_f^2 - \vk_{\parallel}^2} = k_f\cos(\theta)$.
+
+The amplitude solutions in a superconducting region $F(\vx) = 1$ are
+
+\bea
+u_{\vn}(\vx) = \sqrt{\frac{|\Delta_{\vk}|}{2E_{\vn}}}e^{i\phi_\vk/2 + \chi_{\vn}/2} \, \exp  [i(\vk_{\parallel}\vx + k_{\pm} x)] \\
+v_{\vn}(\vx)  = \sqrt{\frac{|\Delta_{\vk}|}{2E_{\vn}}}e^{-i\phi_\vk/2 - \chi_{\vn}/2} \, \exp  [i(\vk_{\parallel}\vx + k_{\pm} x)]
+\eea
+
+
+\section{\label{ch:2.5}Coexistence and Linear Response}
+The idea and connotation of a coexistent superconducting and magnetic state must be established before extending further into the theory. In \S \ref{ch:2.3} we established the basic picture of how supercurrents in type II materials create flux quanta. In a most general sense, this is a coexistent state, and we have seen how the profile of $B(r)$ field extends into the bulk SC. However, the "magnetism" in type II SC is by no means a bulk phenomenon, and strictly a result of orbital motion of the Cooper pairs.
+
+A true magnetisation would be from the electron (or ion) spins aligning in some coherent way. The electron magnetization is
+
+\be
+\vM(\vx) = \mu_B\langle \vS(\vx) \rangle
+\ee
+
+The average spin is $\langle \vS(\vx) \rangle = \frac{1}{2}\int d\vx\, \psi^\dagger(\vx) \vsigma \psi(\vx)$. 
+
+In principle, two spin projections ($(\alpha, \beta) = x,y,z$), at points $\vx$ and $\vx'$ can interact with each other via an exchange potential $J_{\alpha\beta}(\vx,\vx')\in \cR$. The contribution to the Hamiltonian from such a process is
+
+\bea
+\cH_{exh} &=& \frac{1}{2}\sum_{\alpha\beta}\int d\vx d\vx' J_{\alpha\beta}(\vx,\vx') S_\alpha(\vx) S_\beta(\vx') \\
+& = & \frac{1}{2}\sum_{\alpha\beta}\int d\vx d\vx' \sigma^\alpha_{ss'}\sigma^\beta_{tt'} J_{\alpha\beta}(\vx,\vx') \psi^\dagger_s(\vx)\psi_{s'}(\vx) \psi^\dagger_t(\vx')\psi_{t'}(\vx')
+\eea
+
+Generally, $J_{\alpha\beta}(\vx,\vx')$ should have subscripts $s,s',t,t'$ as well, which we have suppress in the notation.
+
+In the homogeneous case, the field operators can be written as a plane wave expansion ($\psi_s(\vx) = \sum\limits_{\vk} a_{\vk s} e^{i\vk\vx}$), and the interaction potential is only a function of the relative coordinate ($J_{\alpha\beta}(\vx,\vx') = J_{\alpha\beta}(\vx-\vx')$).  Under such conditions the Hamiltonian becomes
+
+\be
+\label{eq:uniform_exchange}
+\cH_{exh} =  \frac{1}{2}\sum_{\alpha\beta}\sigma^\alpha_{ss'}\sigma^\beta_{tt'}\sum_{\vq,\vk,\vp}  J_{\alpha\beta}(\vq) a^\dagger_{\vk+\vq, s}a_{\vk,s'} a^\dagger_{\vp,t}a_{\vp+\vq,t'}\delta(s+t -(s'+t'))
+\ee
+
+The delta function is assumed as the dependence of $J_{\alpha\beta}$ on the individual spin indices and guarantees spin conservation in the interaction. There is no need to make such assumptions about momentum conservation because it is naturally satisfied for plane waves. The total momentum entering and leaving is $\vk + \vp + \vq$. 
+
+The mean field approximation of equation (\ref{eq:uniform_exchange}) is
+
+\be
+\cH_{exh} =  \frac{1}{2}\sum_{\alpha\beta}\sigma^\alpha_{ss'}\sigma^\beta_{tt'}\sum_{\vq,\vk} \bigg[m_{\alpha\beta, ss'}(\vq) a^\dagger_{\vk,t}a_{\vk+\vq,t'}  + m^*_{\alpha\beta, t't}(\vq)a^\dagger_{\vk+\vq, s}a_{\vk,s'}\bigg]\delta(s+t -(s'+t')) + C
+\ee
+
+and 
+\be
+m_{\alpha\beta, ss'}(\vq) = \sum_{\vk}J_{\alpha\beta}(\vq)\langle a^\dagger_{\vk+\vq, s}a_{\vk,s'} \rangle
+\ee
+
+As in all mean field theories, there is a constant $C$, which is independent of the field operators and contributes to the free energy only.
+
+\subsection{\label{ch:2.5.1}Coexistent Theories}
+
+Early theories concerning coexistence of magnetism and homogeneous superconductivity began to surface in the early 1980s ( see \citep{doi:10.1143/JPSJ.50.2195} and \citep{raey}) as the first unconventional materials were experimentally analysed. At that time the unconventional nature (anisotropic/nodal gap) of the materials was not fully understood. Even so, the founders of the early theories did know that the magnetic interactions must be favoured for a certain region on the fermi surface, characterised by a ``nesting wave vector''. It later became obvious that this preferential treatment for the nesting wave vector is a result of nodal regions of the superconducting order parameter. 
+
+More recent theories make use of this development, confirming that nesting wave vectors which are near nodal regions of the order parameter have a higher tendency toward antiferromagnetic ordering. The quasi-particles which are near these nodal regions have a near normal dispersion, and the density of states along that direction has a very small gap. As a result, they display paramagnetic behavior, and self consistent coexistence solution to the Hamiltonian.
+\be
+\cH = \cH_0 + \cH_{sc} + \cH_{exh}
+\ee
+
+The FFLO state has also attracted a lot of attention as being a candidate for coexistence. An FFLO in which there are nodal regions of the order parameter in real space can exhibit coexistent phenomenon driven by the near nodal quasi-particles.
+
+All together, a rich variety of magnetic order can arise from systems that have nodes of the order parameter. One goal of this thesis is to highlights some of these when considering systems which have gap nodes in both real space (FFLO/inhomogeneous SC) and momentum space (unconventional/anisotropic). 
+
+\subsection{\label{ch:2.5.2}Spin-Susceptibility}
+The inclusion of mean field exchange energy (\ref{eq:uniform_exchange}) is necessary to capture a true phase transition into a new coexistent state, but definitely not the only way to characterize a system with magnetic interactions. 
+
+Instead of searching for a self consistent solution, one can use linear response theory to find the susceptibility toward magnetic order. Linear response theory has been an extremely useful tool in condensed matter theory, and together with the random phase approximation (RPA, see \S \ref{ch:2.5.3}) can effectively predict an instability into a magnetised state.
+
+\subsection{\label{ch:2.5.3}Random Phase Approximation}
+\subsection{\label{ch:2.5.4}Spin-Lattice Relaxation}
+
+\section{\label{ch:2.6}Experimental Techniques}
+\subsection{\label{ch:2.6.1}Raman scattering}
+\subsection{\label{ch:2.6.2}Nuclear Magnetic Resonance}
+\subsection{\label{ch:2.6.3}Specific Heat}
+\subsection{\label{ch:2.6.4}ARPES}
+

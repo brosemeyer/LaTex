@@ -1,0 +1,213 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{bookmath}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\title{HW 12: Physics 545}
+\author{Ben Rosemeyer}
+
+\begin{document}
+
+\maketitle
+
+\section*{1a}
+FIGURE ATTACHED
+
+The density of states $D(\epsilon)$ for this 2D dispersion of graphene is:
+\bea
+D(\epsilon) &=& \sum\limits_{\vk s}\delta(\epsilon - \epsilon_{\vk s}) \\
+ &=& 2\pi V/(2\pi\hbar)^2\int dk \quad k(\delta(\epsilon - v_f k) +\delta(\epsilon + v_f k) ) \\
+  &=& D_0 |\epsilon|
+\eea
+with $D_0 = \frac{V}{2\pi\hbar^2v_f^2}$, and we note that it is independent of spin $s$
+
+Also, it's kind of "gapped" in that there are no states at zero energy.
+
+\section*{1b}
+At zero temperature, with $\mu(0)=0$, the contribution to number of electrons is only from $s=-1$ because the Fermi distribution function $f_{\vk 1}=0$ and $f_{\vk -1}=1$
+\bea
+N_0 &= & D_0\int\limits_{0}^\infty d\epsilon \quad \epsilon
+\eea
+The above is divergent, but we can still compare with the electron number for finite temperature:
+
+\bea
+N(T) &=&\sum_{\vk s} (e^{\beta (\epsilon_{\vk s}-\mu)} + 1)^{-1} \\
+ &=& D_0\int\limits_{-\infty}^\infty d\epsilon \quad |\epsilon| (e^{\beta (\epsilon-\mu)} + 1)^{-1} \\
+  &=& D_0\int\limits_0^\infty d\epsilon \quad \epsilon \bigg[1 + (e^{\beta (\epsilon-\mu)} + 1)^{-1} - (e^{\beta (\epsilon+\mu)} + 1)^{-1}\bigg] \\
+  &=& N_0 + D_0\int\limits_0^\infty d\epsilon \quad \epsilon \bigg[(e^{\beta (\epsilon-\mu)} + 1)^{-1} - (e^{\beta (\epsilon+\mu)} + 1)^{-1}\bigg] \\
+  &= & N_0 + D_0 \bigg[\int\limits_{-\mu}^\mu dx \quad \frac{x+\mu}{e^{\beta x} + 1} + 2\mu \int\limits_{\mu}^\infty dx \quad \frac{1}{e^{\beta x} + 1}\bigg]
+\eea
+
+For conservation of particles we require $N(T) = N_0$. Therefore, the term in brackets (8) must be zero, so $\mu = 0$
+
+\section*{1c}
+To calculate the specific heat we use the form $C = \frac{dU}{dT}$, U is the internal energy.
+
+\bea
+ U &=& D_0\int\limits_{-\infty}^\infty d\epsilon \quad|\epsilon|\epsilon f(\epsilon) \\
+&=& D_0\int\limits_{0}^\infty d\epsilon \quad \epsilon^2( f(\epsilon) -f(-\epsilon)) \\ 
+&=& D_0\int\limits_0^\infty d\epsilon \quad\epsilon^2\,\,(2f(\epsilon)-1) \\
+&=& 2 T^3 D_0\int\limits_0^\infty dx \quad \frac{x^2}{e^x+1} - D_0\int\limits_0^\infty d\epsilon \quad\epsilon^2
+\eea
+The second term is the ground state energy $E_0$ and does not contribute to the specific heat because there is no temperature dependence there.
+
+The integral in the first term can be found in tables and the result is
+\be
+\delta U = 3 T^3 D_0\zeta(3) + E_0
+\ee
+
+\be
+C = 9 T^2 D_0\zeta(3)
+\ee
+
+\section*{2}
+The equation for minimum of energy is:
+\be
+\frac{\partial F}{\partial \veta} = 0=\sum\limits_{i=1,2} \alpha \eta_i + \beta_1 (\veta\cdot\veta^*)\eta_i + \beta_2(\veta\cdot\veta)\eta^*_i + \beta_3 |\eta_i|^2\eta_i
+\ee
+
+for the 4 orientation cases to consider we can write the above as a function of magnitude $\eta_{01}$, $\eta_{10}$, $\eta_{11}$, $\eta_{1i}$, noting that $\eta_{01}$ and  $\eta_{10}$ are the same. 
+
+\bea
+0 =  \alpha \eta_{10} + \beta_1 |\eta_{10}|^2\eta_{10} + \beta_2 \eta_{10}^2 \eta^*_{10} + \beta_3 |\eta_{10}|^2\eta_{10} \\
+\Rightarrow |\eta_{10}|^2 = \frac{-\alpha}{\beta_1 + \beta_2 + \beta_3}
+\eea
+
+\bea
+0 =  \alpha \eta_{11} + 2\beta_1 |\eta_{11}|^2\eta_{11} + 2\beta_2 \eta_{11}^2 \eta^*_{11} + \beta_3 |\eta_{10}|^2\eta_{11} \\
+\Rightarrow |\eta_{11}|^2 = \frac{-\alpha}{2\beta_1 + 2\beta_2 + \beta_3}
+\eea
+
+\bea
+0 =  \alpha \eta_{1i} + 2\beta_1 |\eta_{1i}|^2\eta_{1i} + \beta_3 |\eta_{1i}|^2\eta_{1i} \\
+\Rightarrow |\eta_{1i}|^2 = \frac{-\alpha}{2\beta_1  + \beta_3}
+\eea
+
+The free energy of these states is:
+
+\bea
+F[\eta_{10}] = \frac{-\alpha^2/(2\beta_1)}{1 + \beta_2/\beta_1 + \beta_3/\beta_1}
+\eea
+
+\bea
+F[\eta_{11}] = \frac{-\alpha^2/(\beta_1)}{2 + 2\beta_2/\beta_1 + \beta_3/\beta_1}
+\eea
+
+\bea
+F[\eta_{1i}] = \frac{-\alpha^2/(\beta_1)}{2  + \beta_3/\beta_1}
+\eea
+
+For each possible value of $x=\beta_2/\beta_1$ and $y=\beta_3/\beta1$ the system will choose the state with lowest free energy. The conditions on this choice are
+{\bf choose 10 over 11}: $y<0$ \\
+{\bf choose 10 over 1i}: $y<-2x$ \\
+{\bf choose 11 over 1i}: $x<0$ \\
+The regions are mapped out in the figure
+
+\section*{3a}
+The diagonalized Hamiltonian is:
+\be
+\cH = \sum_{\vk,s}E_{\vk s}b_{\vk s}^\dagger b_{-\vk s}
+\ee
+and the $b$ operators are defined through the Bogolioubov transformation:
+\bea
+a_{\vk s} = u_{\vk} b_{\vk s} - (i\sigma_y)_{ss'} v_{\vk} b_{-\vk s'}
+\eea
+which results in the Bogolioubov-de Gennes equations
+\bea
+E_{\vk s}\left(
+\begin{array}{cc}
+ u_{\vk} \\ v_{\vk} 
+\end{array}
+\right) = \left(
+\begin{array}{cc}
+\xi_{\vk}  & \Delta^*\\ \Delta & \xi_{\vk \bar{s}}  
+\end{array}
+\right)
+\left(
+\begin{array}{cc}
+ u_{vk} \\ v_{\vk} 
+\end{array}
+\right)
+\eea
+
+In the above definition for $b$ operators I omitted spin indices on the amplitudes in anticipation of the final result which is
+\bea
+u_{\vk} = \sqrt{\frac{\Delta}{E}} e^{\theta_E/2} \\
+v_{\vk} = \sqrt{\frac{\Delta}{E}} e^{-\theta_E/2}
+\eea
+The eigenvalues are
+\be
+E_{\vk s} = \sqrt{\xi_{\vk}^2 + |\Delta|^2} - \mu_B H s
+\ee
+
+with $\theta_E = cosh^{-1}(E/\Delta)$.
+\section*{3b}
+
+After using the form of $a$ operators in terms of the diagonal $b$'s, the spin magnetisation reduces to
+\be
+M = \mu_B \sum\limits_{\vk} f_{\vk \uparrow} - f_{\vk \downarrow} 
+\ee
+where $f_{\vk s}=(e^{\beta E_{\vk s}} +1)^{-1}$ and $\beta = 1/T$. This is good! 
+
+We can preform the sum over states by using the density of states for a superconductor $N = N_0|E|/\sqrt{E^2 - \Delta^2}$ and $N_0$ is the normal DOS at the Fermi level.
+
+\bea
+M &=& \mu_B N_0 \int\limits_{\Delta}^\infty dE \frac{E}{\sqrt{E^2-\Delta^2}}( f_{\vk \uparrow} - f_{\vk \downarrow}) 
+\eea
+
+The linear response to a field will be $M_{lr} = \chi(T) H$ and we can Taylor expand the Fermi functions in H $f_{\vk s}\approx f_{\vk} + \frac{s\beta}{4cosh^2(\beta E/2)} H $ to get the desired result
+\bea
+\chi(T) &=& (1/2)\mu_B N_0\beta \int\limits_{\Delta}^\infty dE \frac{E}{\sqrt{E^2-\Delta^2}}\frac{1}{cosh^2(\beta E/2)} \\
+	 &=& (1/2)\mu_B N_0 \int\limits_{\beta\Delta}^\infty dx \frac{x}{\sqrt{x^2-(\beta\Delta)^2}}\frac{1}{cosh^2(x/2)} \\
+	 &=& (1/2)\mu_B N_0 \int\limits_{\beta\Delta}^\infty dx \sqrt{x^2-(\beta\Delta)^2}\frac{tanh(x/2)}{cosh^2(x/2)}
+\eea
+and we integrated by parts in the last step
+\section*{3c}
+The two limits of interest are $\beta \Delta >> 1$, and $\Delta=\Delta_0=constant$ for low temperature and $\beta \Delta << 1$ for near $T_c$ when self consistent solution $\Delta(T)$ is first appearing as a second order phase transition. The limit near $T_c$ would not apply if it was a first order transition.
+
+{\bf $\beta \Delta_0 >> 1$, Low Temperature}\\
+The low T limit allows write $tanh(x/2) \approx 1$ and $cosh(x/2)\approx \frac{1}{2} e^{x/2}$
+\bea
+	\chi(T) &=& 2\mu_B N_0 \int\limits_{\beta\Delta}^\infty dx \sqrt{x^2-(\beta\Delta)^2}e^{-x} \\
+	 &=& 2\mu_B N_0 (\beta\Delta)^2 \int\limits_1^\infty dy \sqrt{y^2-1}e^{-\beta\Delta y}
+\eea
+
+The integral is equivalent to the $n=1$ modified Bessel function of the second kind.
+\be 
+K_1(z) = z \int\limits_1^\infty dy \sqrt{y^2-1}e^{-z y}
+\ee
+\bea
+	\chi(T)&=& 2\mu_B N_0 \frac{\Delta_0}{T} K_1(\Delta_0/T)
+\eea
+
+{\bf $\beta \Delta << 1$, Near $T_c$}
+Here we employ Leibniz rule to Taylor expand the integral 
+\bea
+\int\limits_{\beta\Delta}^\infty dx \sqrt{x^2-(\beta\Delta)^2}\frac{tanh(x/2)}{cosh^2(x/2)}
+&\approx & \int\limits_0^\infty dx \quad x\frac{tanh(x/2)}{cosh^2(x/2)} \\
+&-& (\beta\Delta)^2/2\int\limits_0^\infty dx \frac{1}{x}\frac{tanh(x/2)}{cosh^2(x/2)}
+\eea
+
+The first integral is easy and evaluates to $2$.
+
+The second integral is not easy, but mathematica can do it and the result is $-28\zeta'(-2)\approx .852557$. At this point we can also use the limiting expression for $\Delta(T)$ near $T_c$  which was written in class.
+\be
+\Delta(T) = \sqrt{\frac{2}{7|\zeta'(-2)|}}T_c\sqrt{1-T/T_c}
+\ee
+Now we can finally write the two limits using normal state susceptibility $\chi_N=\mu_B N_0$
+\bea
+	\frac{\chi^{T_c}(T)}{\chi_N} &=& 1 - 2\frac{1-T/T_c}{(T/T_c)^2}
+\eea
+\bea
+	\frac{\chi^{0}(T)}{\chi_N}&=& 2\frac{\Delta_0}{T} K_1(\Delta_0/T)
+\eea
+
+The zero temperature expansion is a very slow growing function of T, and plots show that $\frac{\chi^{0}(T)}{\chi_0} < 0.04$ for $T<0.2\Delta_0$. This is expected from the form of the magnetisation in the beginning of part 3b combined with the gapped density of states.
+
+Near $T_c$ the normal state $\chi_N$ is recovered and the temperature dependence of the decrease in $\chi$ is due to the onset of the order parameter $\Delta(T)$. Looking at plots, one can see that the $\chi$ is quickly reduced to near zero for $T/T_c \approx 0.75$
+
+FIGURES ATTACHED
+\end{document}
+

@@ -1,0 +1,59 @@
+1) 	-My talk is about the electronic spin susceptibility in pauli limited superconductors.
+
+
+2)	-Our motivation for this calculation comes from the abundance of new compounds that show superconductivity and magnetism to be close neighbors.
+	-In particular, the heavy fermion material CeCoIn_5 has a phase where antiferromagnetism and superconductivity coexist. Called "Q-pahse"
+
+3)	-Many theories have been proposed to explain the Q-phase, but none fully describe the new state.
+	-We take a simple approach by calculating the electron spin susceptibility to first order in the superconducting state and comparing it to the normal state.
+	-We find the antiferromagnetic susceptibility to increase over the normal state, leading to the possibility magnetic instability which depends on the presences of cooper pairs.(like the Q-phase)
+
+4)	-First we calculate the normal state value
+	-For 0 field the susceptibility reduces to the static Lindhard function.
+	-The summation over phase space at low temperatures is limited to the cross hatched region in the figure(inside the fermi surface, excluding intersections)
+	-For q=2k_f, the surfaces are tangent and there is a notable change in the phase space sum which depends on the dimensionality of interest
+	-In what follows we will restrict ourselves to a 2D model which is consistent with CeCoIn_5 which has a quasi cylindrical fermi surface.
+
+5)	-Under an applied field and additional spin sum becomes important. (neglect orbital effects)
+	-perp pairs opposite spins so the paired surfaces are tangent for the same q which is given here
+	-The parallel however, pairs equal spins so the spin down surfaces become tangent before the spin up giving rise to a double drop off in 2D (double divergent 1d, double 2nd derive discont. 3d)
+
+6)	-Here is the general first order expansion of susceptibility
+	-To calculate the superconducting state susceptibility we preform a Bogoliubov transformation to get the resulting formulas
+	-The resulting q profile is very similar to the normal state for zero field and temp for q>sqrt(delta/E_f)
+	-When q is large enough to split the surfaces such that the overlap of superconducting influence (green) is small compared to the region of summation (crossed)
+	-At small q the summation region is dominated by sc influence
+	-At 0 q the surfaces are fully degenerate and gapped density of states leads to 0 susceptibility
+
+7)	-Using this reasoning along with our numerical results we see that the simplest and most enlightening quantity is actually delta chi
+	-It is strongly peaked near the intersections of the fermi surfaces which allows us to use adaptive integration to get accurate results
+
+8)	-Our next task was to find the q which maximizes delta chi and therefore chi sc
+	-analysis of our numerical results along with theoretical considerations led us to the following condition (zeeman=sc gap)
+	-If the zeeman term is sufficient to callapse the sc gap then regions of enhanced DoS near the fermi level are accessable
+	-There are several orientations of q which may satisfy this, however, our results indicate that for perp case q is along the nodal directions
+	-while for the parallel case q is slightly off nodal and actually has a doubly peaked nature for chi sc at low temperatures due overlap of the delta chi peak and the first drop off in the normal state susceptibility
+
+9)	-Now we must ask ourself how the maximum in delta chi relates to the maximum in chi sc
+	-Here we have plots of all three quantities of interest at two different temperatures
+	-As you can see, the perp component is well behaved because the peak of delta chi occurs away from the drop off which doesn't change much from 2kf
+	-However, the parallel component delta chi peaks just past the normal state drop off giving the possibility of two peaks for the sc suceptibility
+	-At low temp delta chi increases rapidly at the same point as the drop off in the normal state, thus overcoming the drop off to put the sc peak at the spot as the delta chi peak
+	-As temp is increased the delta chi peak is smoothed out such that it is no longer able to overcome the drop off in the normal state.
+
+	-NOTE: chi normal is for T=0! it may be that the drop off will smooth out at higher temp as well, thus no double peak problem
+
+
+10)	-To fully understand the structure of superconducting susceptibility we find the maximum chi sc for low temperatures and fields near Hc2 for a D-wave superconductor
+	-Here you a qualitative picture of the phase diagram for CeCoIn_5
+	-The insets are contours of the parallel and perp superconducting susceptibility enhancment as a fraction of the normal state
+	-both components show increases on the order of delta/E_f
+	-The contours represent possible divergent sc susceptibility (depending on the interaction term J)
+
+11)	-In conclusion I'd like to begin by saying that this is a very simple approach when compared to many of the other theories on the Q-phase
+	-Our results indicate that, materials which have strong AFM interactions in the normal state near q=2kf may become magnetically ordered in the high field low temperature limit when in the superconducting state
+	-With respect to the Q-phase, we see enhancement in both parallel and perp components. Experiments show m perp H which could be reconciled in this model by tuning interaction term J for different orientations
+	-One interesting possibility coming from these results is that one may be able to measure the gap symmetry with respect to the lattice (q vector is along nodes for perp)
+	-finally, I do have to mention that the ideal q which maximizes the susceptibility is a slowly decreasing function of field for both components. This disagrees with experiment which shows a slight increase in q with field. 
+
+	-With that I'd like to thank all of you for attending. and thank my advisor Anton Vorontsov who couldn't be here today, but will be arriving latter in the week.
