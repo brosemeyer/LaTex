@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.8)  14 AUG 2016 12:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.8)  15 AUG 2016 18:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**manuscript_v6.tex
-(./manuscript_v6.tex
+**manuscript.tex
+(./manuscript.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 3 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/revtex/revtex4-1.cls
@@ -236,8 +236,8 @@ Class revtex4-1 Info: cite was not loaded (OK!) on input line 25.
 Class revtex4-1 Info: mcite was not loaded (OK!) on input line 25.
 Class revtex4-1 Info: multicol was not loaded (OK!) on input line 25.
 
-(./manuscript_v6.aux)
-\openout1 = `manuscript_v6.aux'.
+(./manuscript.aux)
+\openout1 = `manuscript.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
@@ -316,44 +316,44 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-\openout3 = `manuscript_v6Notes.bib'.
+\openout3 = `manuscriptNotes.bib'.
 
 
 
-LaTeX Warning: Command \r invalid in math mode on input line 171.
+LaTeX Warning: Command \r invalid in math mode on input line 130.
 
 
-LaTeX Warning: Command \r invalid in math mode on input line 171.
+LaTeX Warning: Command \r invalid in math mode on input line 130.
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 <./Fig1.png, id=23, 1355.0625pt x 1017.8025pt>
 File: ./Fig1.png Graphic file (type png)
  <use ./Fig1.png>
-Package pdftex.def Info: ./Fig1.png used on input line 260.
+Package pdftex.def Info: ./Fig1.png used on input line 201.
 (pdftex.def)             Requested size: 284.57152pt x 213.74483pt.
 
-Overfull \hbox (38.57152pt too wide) in paragraph at lines 260--261
+Overfull \hbox (38.57152pt too wide) in paragraph at lines 201--202
  [][] 
  []
 
 [2 <./Fig1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 444--450
+Underfull \hbox (badness 10000) in paragraph at lines 382--388
 []\OT1/cmr/m/n/10 Using equa-tions (10[]) for the am-pli-tudes,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 444--450
+Underfull \hbox (badness 10000) in paragraph at lines 382--388
 \OT1/cmr/m/n/10 (7[]) be-comes a ma-trix eigen-value equa-tion for
  []
 
 
-Underfull \hbox (badness 6428) in paragraph at lines 444--450
+Underfull \hbox (badness 6428) in paragraph at lines 382--388
 \OML/cmm/m/it/10 ^^O[]$\OT1/cmr/m/n/10 , where the $2\OML/cmm/m/it/10 N$ \OT1/c
 mr/m/n/10 Fourier co-ef-fi-cients, $[] =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 444--450
+Underfull \hbox (badness 10000) in paragraph at lines 382--388
 \OT1/cmr/m/n/10 ([](\OML/cmm/m/it/10 k[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  []
 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :::[]\OT
 1/cmr/m/n/10 (\OML/cmm/m/it/10 k[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; []\OT1/cm
@@ -368,7 +368,7 @@ Package revsymb Warning: Command \mathbb undefined:
 please specify the amsfonts or amssymb option!.
 
 
-Underfull \hbox (badness 1394) in paragraph at lines 580--586
+Underfull \hbox (badness 1394) in paragraph at lines 518--524
 \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 =^^Y\OT1/cmr/m/n/10 )\OM
 L/cmm/m/it/10 Im \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 G[]\OT1/cmr/m/n/10 (\OML/cmm
 /m/it/10 ^^O; \OT1/cmr/bx/n/10 x\OT1/cmr/m/n/10 )]$ where $\OML/cmm/m/it/10 G[]
@@ -379,52 +379,51 @@ the re-tarded
 [4] <./Fig2.png, id=42, 3713.875pt x 1544.77126pt>
 File: ./Fig2.png Graphic file (type png)
  <use ./Fig2.png>
-Package pdftex.def Info: ./Fig2.png used on input line 619.
+Package pdftex.def Info: ./Fig2.png used on input line 560.
 (pdftex.def)             Requested size: 519.93896pt x 216.2665pt.
 
-Overfull \hbox (9.93896pt too wide) in paragraph at lines 619--620
+Overfull \hbox (9.93896pt too wide) in paragraph at lines 560--561
  [][] 
  []
 
 [5] <./Fig3.png, id=47, 2609.75pt x 1756.5625pt>
 File: ./Fig3.png Graphic file (type png)
  <use ./Fig3.png>
-Package pdftex.def Info: ./Fig3.png used on input line 861.
+Package pdftex.def Info: ./Fig3.png used on input line 793.
 (pdftex.def)             Requested size: 260.99028pt x 175.66653pt.
 
-Overfull \hbox (14.99028pt too wide) in paragraph at lines 861--862
+Overfull \hbox (14.99028pt too wide) in paragraph at lines 793--794
  [][] 
  []
 
 [6 <./Fig2.png>]
 
 LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 900.
+ on input line 824.
 
-<./Fig4a.png, id=52, 1204.5pt x 842.14626pt>
+<./Fig4a.png, id=52, 1159.33125pt x 842.14626pt>
 File: ./Fig4a.png Graphic file (type png)
  <use ./Fig4a.png>
-Package pdftex.def Info: ./Fig4a.png used on input line 905.
-(pdftex.def)             Requested size: 240.89574pt x 168.42627pt.
+Package pdftex.def Info: ./Fig4a.png used on input line 829.
+(pdftex.def)             Requested size: 231.86214pt x 168.42627pt.
 
-<./Fig4b.png, id=53, 1204.5pt x 842.14626pt>
+<./Fig4b.png, id=53, 1323.94624pt x 842.14626pt>
 File: ./Fig4b.png Graphic file (type png)
  <use ./Fig4b.png>
-Package pdftex.def Info: ./Fig4b.png used on input line 909.
-(pdftex.def)             Requested size: 240.89574pt x 168.42627pt.
+Package pdftex.def Info: ./Fig4b.png used on input line 833.
+(pdftex.def)             Requested size: 264.78456pt x 168.42627pt.
 
 <./Fig5.png, id=54, 1003.75pt x 702.625pt>
 File: ./Fig5.png Graphic file (type png)
  <use ./Fig5.png>
-Package pdftex.def Info: ./Fig5.png used on input line 926.
+Package pdftex.def Info: ./Fig5.png used on input line 850.
 (pdftex.def)             Requested size: 250.93689pt x 175.6558pt.
 
-Overfull \hbox (4.93689pt too wide) in paragraph at lines 926--927
+Overfull \hbox (4.93689pt too wide) in paragraph at lines 850--851
  [][] 
  []
 
-[7 <./Fig3.png>] [8 <./Fig4a.png> <./Fig4b.png> <./Fig5.png>]
-(./manuscript_v6.bbl
+[7 <./Fig3.png>] [8 <./Fig4a.png> <./Fig4b.png> <./Fig5.png>] (./manuscript.bbl
 Missing character: There is no Ã in font cmr9!
 Missing character: There is no ¤ in font cmr9!
 
@@ -452,42 +451,42 @@ Underfull \hbox (badness 4872) in paragraph at lines 127--139
  \OT1/cmr/m/n/9 N. Egeten-meyer, C. Nie-der-mayer, A. D. Bianchi,
  []
 
-[9]) [10] (./manuscript_v6.aux) ) 
+[9]) [10] (./manuscript.aux) ) 
 Here is how much of TeX's memory you used:
  5528 strings out of 495017
- 74213 string characters out of 6181022
+ 74177 string characters out of 6181022
  171301 words of memory out of 5000000
  8671 multiletter control sequences out of 15000+600000
  12486 words of font info for 44 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,20n,47p,1497b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmti9.pfb>
-Output written on manuscript_v6.pdf (10 pages, 2030054 bytes).
+ 38i,20n,47p,1477b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
+7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mti9.pfb>
+Output written on manuscript.pdf (10 pages, 2033388 bytes).
 PDF statistics:
  159 PDF objects out of 1000 (max. 8388607)
  106 compressed objects within 2 object streams

@@ -1,16 +1,16 @@
 This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: manuscript_v6.aux
+The top-level auxiliary file: manuscript.aux
 The style file: apsrev-noURL.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Database file #1: manuscript_v6Notes.bib
+Database file #1: manuscriptNotes.bib
 Database file #2: ./mybib.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--can't use both author and editor fields in nmr_abragam
 You've used 41 entries,
             3368 wiz_defined-function locations,
-            1471 strings with 20015 characters,
+            1471 strings with 20006 characters,
 and the built_in function-call counts, 31312 in all, are:
 = -- 1745
 > -- 1161
