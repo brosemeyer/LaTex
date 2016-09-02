@@ -193,32 +193,6 @@
   \textbf{\bibinfo{volume}{23}}, \bibinfo{pages}{094219}
   (\bibinfo{year}{2011}).
 
-\bibitem[{\citenamefont{Zhou et~al.}(2013)\citenamefont{Zhou, Misra, Neto,
-  Aynajian, Baumbach, Thompson, Bauer, and Yazdani}}]{Zhou:2013dq}
-\bibinfo{author}{\bibfnamefont{B.~B.} \bibnamefont{Zhou}},
-  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Misra}},
-  \bibinfo{author}{\bibfnamefont{E.~H. d.~S.} \bibnamefont{Neto}},
-  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Aynajian}},
-  \bibinfo{author}{\bibfnamefont{R.~E.} \bibnamefont{Baumbach}},
-  \bibinfo{author}{\bibfnamefont{J.~D.} \bibnamefont{Thompson}},
-  \bibinfo{author}{\bibfnamefont{E.~D.} \bibnamefont{Bauer}}, \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Yazdani}},
-  \bibinfo{journal}{Nature Physics} \textbf{\bibinfo{volume}{9}},
-  \bibinfo{pages}{474} (\bibinfo{year}{2013}).
-
-\bibitem[{\citenamefont{Allan et~al.}(2013)\citenamefont{Allan, Massee, Morr,
-  Dyke, Rost, Mackenzie, Petrovic, and Davis}}]{Allan2013_stm115}
-\bibinfo{author}{\bibfnamefont{M.~P.} \bibnamefont{Allan}},
-  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Massee}},
-  \bibinfo{author}{\bibfnamefont{D.~K.} \bibnamefont{Morr}},
-  \bibinfo{author}{\bibfnamefont{J.~V.} \bibnamefont{Dyke}},
-  \bibinfo{author}{\bibfnamefont{A.~W.} \bibnamefont{Rost}},
-  \bibinfo{author}{\bibfnamefont{A.~P.} \bibnamefont{Mackenzie}},
-  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Petrovic}}, \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{J.~C.} \bibnamefont{Davis}},
-  \bibinfo{journal}{Nature Physics} \textbf{\bibinfo{volume}{9}},
-  \bibinfo{pages}{468} (\bibinfo{year}{2013}).
-
 \bibitem[{\citenamefont{Takigawa et~al.}(1999)\citenamefont{Takigawa, Ichioka,
   and Machida}}]{Takigawa1999}
 \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Takigawa}},
@@ -335,6 +309,32 @@
 \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Korringa}},
   \bibinfo{journal}{Physica} \textbf{\bibinfo{volume}{16}}, \bibinfo{pages}{601
   } (\bibinfo{year}{1950}), ISSN \bibinfo{issn}{0031-8914}.
+
+\bibitem[{\citenamefont{Zhou et~al.}(2013)\citenamefont{Zhou, Misra, Neto,
+  Aynajian, Baumbach, Thompson, Bauer, and Yazdani}}]{Zhou:2013dq}
+\bibinfo{author}{\bibfnamefont{B.~B.} \bibnamefont{Zhou}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Misra}},
+  \bibinfo{author}{\bibfnamefont{E.~H. d.~S.} \bibnamefont{Neto}},
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Aynajian}},
+  \bibinfo{author}{\bibfnamefont{R.~E.} \bibnamefont{Baumbach}},
+  \bibinfo{author}{\bibfnamefont{J.~D.} \bibnamefont{Thompson}},
+  \bibinfo{author}{\bibfnamefont{E.~D.} \bibnamefont{Bauer}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Yazdani}},
+  \bibinfo{journal}{Nature Physics} \textbf{\bibinfo{volume}{9}},
+  \bibinfo{pages}{474} (\bibinfo{year}{2013}).
+
+\bibitem[{\citenamefont{Allan et~al.}(2013)\citenamefont{Allan, Massee, Morr,
+  Dyke, Rost, Mackenzie, Petrovic, and Davis}}]{Allan2013_stm115}
+\bibinfo{author}{\bibfnamefont{M.~P.} \bibnamefont{Allan}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Massee}},
+  \bibinfo{author}{\bibfnamefont{D.~K.} \bibnamefont{Morr}},
+  \bibinfo{author}{\bibfnamefont{J.~V.} \bibnamefont{Dyke}},
+  \bibinfo{author}{\bibfnamefont{A.~W.} \bibnamefont{Rost}},
+  \bibinfo{author}{\bibfnamefont{A.~P.} \bibnamefont{Mackenzie}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Petrovic}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.~C.} \bibnamefont{Davis}},
+  \bibinfo{journal}{Nature Physics} \textbf{\bibinfo{volume}{9}},
+  \bibinfo{pages}{468} (\bibinfo{year}{2013}).
 
 \bibitem[{\citenamefont{Martin and Annett}(1998)}]{PhysRevB.57.8709}
 \bibinfo{author}{\bibfnamefont{A.~M.} \bibnamefont{Martin}} \bibnamefont{and}

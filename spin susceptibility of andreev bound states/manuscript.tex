@@ -35,7 +35,7 @@
 
 \begin{abstract}
 %
-We calcuate electronic spin susceptibility and spin-lattice relaxation rate 
+We calculate electronic spin susceptibility and spin-lattice relaxation rate 
 in singlet superconductor near a pairbreaking surface, or in a domain wall of the order parameter. 
 We directly link presence of high-density Andreev bound states in the inhomogeneous region, combined with coherence factors, 
 to enhancement of the susceptibility above the normal state's value for certain $\vq$ vectors.  
@@ -46,7 +46,7 @@ and \emph{across} domain wall in $D$-wave (nodes along the wall).
 %\blue{with nodes along the wall, and \emph{along} domain wall when the maximum gap is along the domain wall}.  
 These features are destroyed by applying moderate Zeeman field that splits the zero-energy peak. 
 We solve Bogoliubov-de Gennes equations in momentum space and 
-our results deviate from the lattice models investigated previously. 
+discuss deviation of our results from the lattice models investigated previously. 
 %the DW and we use the Andreev approximation to find a phase relation between two bound states connected by a wave vector
 %$\vq$, that when satisfied, can lead to enhancement of the susceptibility above the normal metal value. 
 Large enhancement of the spin-lattice relaxation rate $T_1^{-1}$ at the domain wall 
@@ -56,7 +56,10 @@ and is in good agreement with recent experiment in organic superconductor \kbtf.
 %We consider singlet superconductors with S or $D$-wave pairing and solve the at various temperature and Zeeman field.  
 \end{abstract} 
 
-%\pacs{74.20.Rp,74.25.Ha}
+%\pacs{}
+% 74.45.+c	Proximity effects; Andreev reflection; SN and SNS junctions
+% 74.25.Ha	Magnetic properties including vortex structures and related phenomena
+% 74.81.-g	Inhomogeneous superconductors and superconducting systems, including electronic inhomogeneities
 
 \maketitle
 
@@ -100,7 +103,7 @@ in organic superconductor \kbtf, indeed explained by Andreev bound states at FFL
 
 Previous investigations of how nonuniform FFLO order parameter (OP) 
 structures influence magnetic properties used quasiclassical techniques,
-and real-space lattice Hamiltonians. 
+and real-space lattice models. 
 The quasiclassical calculations\cite{Burkhardt1994,Vorontsov:2006fc} 
 show about 10\% enhancement of uniform 
 magnetization inside FFLO domains at high fields where the FFLO phase appears. 
@@ -117,17 +120,13 @@ field.\cite{Marcin2009}
 %\Delta$, but this exceeds the Pauli Hc2.\cite{Marcin2009}  
 %Orientation of FFLO planes was assumed to be normal to the applied magnetic field, 
 %and independent of the underlying OP nodal structure, as compared with results\cite{Vorontsov2005fflo}. 
-The antiferromagnetic vector $\vq$ was found mostly to point along the FFLO
+The incommensurate part of antiferromagnetic vector $\vq$ was found mostly to point along the FFLO
 planes (i.e. $\vq \perp \vq_{FFLO}$),\cite{Yanase2009,Yanase2009abs} 
 independent of whether the planes were oriented along nodes or
 antinodes of the $D_{x^2-y^2}$ order parameter. 
 $\vq$ across FFLO planes was not favored, except in the case of
 atomic-scale {FFLO} oscillations.\cite{Marcin2009,Yanase2011}
-This result might be related to the small size of the lattice grid, typically around $40\times40$ sites, 
-which forces use of comparable length scales $q_{FFLO} \sim q \sim k_f$, 
-but not directly applicable to superconductors with $ q_{FFLO} \sim 1/\xi_c \ll k_f$ 
-(e.g. STM measurements\cite{Zhou:2013dq,Allan2013_stm115} in \cecoin\ give 
-$\xi_c \sim 60 \AA$, $k_f \sim (\pi/4.6) \AA^{-1}$ and $k_f \xi_c \approx 40$).
+In general, $q_{FFLO} \sim q \sim k_f$ in lattice models. 
 The spatially-averaged approach\cite{Marcin2009} has also only considered
 small-period modulations of the order parameter. 
 In Ref.~\onlinecite{Yanase2009abs} 
@@ -205,7 +204,7 @@ invariance along $y$. Inset shows relative orientation of the domain wall plane
 and internal symmetry of the order parameter, $S$ (red) or $D$-wave (blue). 
 (b) The normalized local density of states $N(\epsilon,x)/N_f$ for $S$-wave domain wall, and  
 (c) the same for $D$-wave with nodes $\parallel x$. The zero-energy states appear at the domain wall. 
-We use $\Delta_0=0.05\epsilon_f$ throughout the paper.  
+We use $\Delta_0=0.05\epsilon_f$ throughout the paper that results in $\xi_c k_f \sim 12$.  
 %Parameters are: $\Delta_0=0.05\epsilon_f$, $k_BT=\mu_B H=0.05\Delta_0$, $\omega'' = \Delta_0/100$.  
 } 
 \end{figure}
@@ -250,7 +249,7 @@ $V(\vx-\vx')$ is the effective attractive interaction %between the electrons whi
 that leads to superconductivity, with the cut-off energy $\Lambda$.
 %and only affects electrons which are below the energy cut-off $\Lambda$.
 
-Since we expect presense of degenerate zero-energy states we need to define 
+Since we expect presence of degenerate zero-energy states we need to define 
 Bogoliubov-Valatin canonical transformation with some care.\cite{MEschrig2015}
 We take 
 \bea
@@ -847,7 +846,7 @@ In bulk $S$-wave one can see a Hebel-Schlicter peak that is suppressed for field
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
-\includegraphics[scale=0.25]{./Fig5} 
+\includegraphics[scale=0.25]{./Fig5_NoArrow} 
 \caption{\label{fig:rel_trans}
 Splitting of the energy states by Zeeman magnetic field. The bound states contribute to the relaxation rate 
 $T_1^{-1}$ at the domain wall either at small fields, where transitions between spin-flipped bound states are allowed, 
@@ -931,28 +930,50 @@ $$
 \chi^{RPA}(\vR,\vq) = \frac{ \chi_\perp(\vR,\vq)}{1 - J_\vq \, \chi_\perp(\vR,\vq) }
 $$
 for antiferromagnetic ordering vector $\vq$ ($q \sim k_f$), given sufficiently 
-large exchange interaction $J_\vq$. This supports previous results of interplay between FFLO-type  
-superconducting order parameter and the antiferromagnetic order in lattice models.\cite{Yanase2009abs,Marcin2009}
-However, our weak-coupling approach with a single domain wall leads to results that differ 
-considerably from the lattice models which used $q_{FFLO} \sim 1/\xi_c \sim q \sim k_f$. 
-
+large exchange interaction $J_\vq$. 
 We find that the direction of the SDW modulation vector depends on the symmetry of 
-the order parameter and the relative orientation of the domain wall and the nodes. 
+the order parameter and orientation of its nodes relative to the domain wall. 
 For $S$-wave gap, $\vq$ is along the domain wall (i.e. $\vq \perp \vq_{FFLO}$), 
-while for $D$-wave with nodes along the domain wall $\vq$-vector points across it.
+while for $D$-wave -- with nodes along the domain wall -- the $\vq$-vector points across domain wall. 
 The susceptibility enhancement is related to the increased correlations between 
 bound states. 
 These correlations disappear with magnetic field and temperature, something that was not seen in lattice models. 
 
-Applying our results to the \cecoin\ discussion, we can say that the scenario of FFLO-induced magnetism 
-is unlikely. First, the Q-phase appears in high magnetic fields\cite{cecoin5_Kenzelmann, cecoin5_Kenzelmann2} 
+Our weak-coupling model does not support scenario of FFLO-induced magnetism in \cecoin. 
+First, the Q-phase appears in high magnetic fields\cite{cecoin5_Kenzelmann, cecoin5_Kenzelmann2} 
 where we find bound state enhancement effects are wiped out. 
-This high-field phase is rather more consistent with behavior of susceptibility in uniform state.\cite{sc_afm_kato,Rosemeyer2014} 
 Moreover, even if the enhancement of susceptibility survives the field, 
 from our calculation the direction of the SDW modulation is expected to be along the field 
 (assuming $\vq_{FFLO} || nodes || \vH$), inconsistent with observations.\cite{Gerber2014}
+This, however, has to be verified further, since in our model we do not use the material-specific anisotropic Fermi 
+surface. The nesting properties of the Fermi surface are important for obtaining correct SDW vectors and 
+instability conditions. 
+On the other hand, some features of the high-field phase are rather more consistent with 
+behavior of uniform state susceptibility,\cite{sc_afm_kato,Rosemeyer2014} 
+and are independent of the exact shape of the Fermi surface. 
+%
+Direct comparison of our free-electron model with lattice models\cite{Yanase2009abs,Marcin2009} is also difficult, for the 
+same reason of having quite different initial electronic energy dispersions. 
+While both approaches give effective attraction between FFLO-type  
+superconducting order and the antiferromagnetic order, the directions of emergent SDW vectors 
+are not in complete alignment. 
+Another difference between the models could be related  
+to the small size of the lattice grid, typically around $40\times40$ sites, 
+which forces use of length scales $q_{FFLO} \sim 1/\xi_c \sim q \sim k_f$ 
+(for comparison, we use $\xi_c k_f \sim 12$, and STM measurements\cite{Zhou:2013dq,Allan2013_stm115} in \cecoin\ give 
+$\xi_c \sim 60 \AA$, $k_f \sim (\pi/4.6) \AA^{-1}$ and $k_f \xi_c \approx 40$).
+This all calls for future more detailed investigation of emergent magnetic properties in nonuniform superconductors, 
+that would clarify effects of the order parameter symmetry, spatial modulations, realistic 
+Fermi surface anisotropy and field's orientation. 
 
-On the other hand, in nonuniform superconductor we find an increase of the spin-lattice relaxation rate $T_1^{-1}$ 
+
+
+
+
+
+
+
+Finally, in nonuniform superconductor we find an increase of the spin-lattice relaxation rate $T_1^{-1}$ 
 over the Korringa limit. This enhancement mostly appears due to transitions 
 between Andreev bound states and the propagating continuum states that can occur in high fields, 
 $\mu_B H = 0.5 \Delta$, close to the Pauli limiting field in $D$-wave $\mu_B H_P = 0.55 \Delta_0$. 

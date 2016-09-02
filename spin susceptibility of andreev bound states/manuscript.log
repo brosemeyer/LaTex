@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.8)  15 AUG 2016 18:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.8)  2 SEP 2016 15:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -319,41 +319,35 @@ Package caption Info: End \AtBeginDocument code.
 \openout3 = `manuscriptNotes.bib'.
 
 
-
-LaTeX Warning: Command \r invalid in math mode on input line 130.
-
-
-LaTeX Warning: Command \r invalid in math mode on input line 130.
-
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 <./Fig1.png, id=23, 1355.0625pt x 1017.8025pt>
 File: ./Fig1.png Graphic file (type png)
  <use ./Fig1.png>
-Package pdftex.def Info: ./Fig1.png used on input line 201.
+Package pdftex.def Info: ./Fig1.png used on input line 200.
 (pdftex.def)             Requested size: 284.57152pt x 213.74483pt.
 
-Overfull \hbox (38.57152pt too wide) in paragraph at lines 201--202
+Overfull \hbox (38.57152pt too wide) in paragraph at lines 200--201
  [][] 
  []
 
 [2 <./Fig1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 382--388
+Underfull \hbox (badness 10000) in paragraph at lines 381--387
 []\OT1/cmr/m/n/10 Using equa-tions (10[]) for the am-pli-tudes,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--388
+Underfull \hbox (badness 10000) in paragraph at lines 381--387
 \OT1/cmr/m/n/10 (7[]) be-comes a ma-trix eigen-value equa-tion for
  []
 
 
-Underfull \hbox (badness 6428) in paragraph at lines 382--388
+Underfull \hbox (badness 6428) in paragraph at lines 381--387
 \OML/cmm/m/it/10 ^^O[]$\OT1/cmr/m/n/10 , where the $2\OML/cmm/m/it/10 N$ \OT1/c
 mr/m/n/10 Fourier co-ef-fi-cients, $[] =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--388
+Underfull \hbox (badness 10000) in paragraph at lines 381--387
 \OT1/cmr/m/n/10 ([](\OML/cmm/m/it/10 k[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  []
 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :::[]\OT
 1/cmr/m/n/10 (\OML/cmm/m/it/10 k[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; []\OT1/cm
@@ -368,7 +362,7 @@ Package revsymb Warning: Command \mathbb undefined:
 please specify the amsfonts or amssymb option!.
 
 
-Underfull \hbox (badness 1394) in paragraph at lines 518--524
+Underfull \hbox (badness 1394) in paragraph at lines 517--523
 \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 =^^Y\OT1/cmr/m/n/10 )\OM
 L/cmm/m/it/10 Im \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 G[]\OT1/cmr/m/n/10 (\OML/cmm
 /m/it/10 ^^O; \OT1/cmr/bx/n/10 x\OT1/cmr/m/n/10 )]$ where $\OML/cmm/m/it/10 G[]
@@ -379,51 +373,58 @@ the re-tarded
 [4] <./Fig2.png, id=42, 3713.875pt x 1544.77126pt>
 File: ./Fig2.png Graphic file (type png)
  <use ./Fig2.png>
-Package pdftex.def Info: ./Fig2.png used on input line 560.
+Package pdftex.def Info: ./Fig2.png used on input line 559.
 (pdftex.def)             Requested size: 519.93896pt x 216.2665pt.
 
-Overfull \hbox (9.93896pt too wide) in paragraph at lines 560--561
+Overfull \hbox (9.93896pt too wide) in paragraph at lines 559--560
  [][] 
  []
 
 [5] <./Fig3.png, id=47, 2609.75pt x 1756.5625pt>
 File: ./Fig3.png Graphic file (type png)
  <use ./Fig3.png>
-Package pdftex.def Info: ./Fig3.png used on input line 793.
+Package pdftex.def Info: ./Fig3.png used on input line 792.
 (pdftex.def)             Requested size: 260.99028pt x 175.66653pt.
 
-Overfull \hbox (14.99028pt too wide) in paragraph at lines 793--794
+Overfull \hbox (14.99028pt too wide) in paragraph at lines 792--793
  [][] 
  []
 
 [6 <./Fig2.png>]
 
 LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 824.
+ on input line 823.
 
 <./Fig4a.png, id=52, 1159.33125pt x 842.14626pt>
 File: ./Fig4a.png Graphic file (type png)
  <use ./Fig4a.png>
-Package pdftex.def Info: ./Fig4a.png used on input line 829.
+Package pdftex.def Info: ./Fig4a.png used on input line 828.
 (pdftex.def)             Requested size: 231.86214pt x 168.42627pt.
 
 <./Fig4b.png, id=53, 1323.94624pt x 842.14626pt>
 File: ./Fig4b.png Graphic file (type png)
  <use ./Fig4b.png>
-Package pdftex.def Info: ./Fig4b.png used on input line 833.
+Package pdftex.def Info: ./Fig4b.png used on input line 832.
 (pdftex.def)             Requested size: 264.78456pt x 168.42627pt.
 
-<./Fig5.png, id=54, 1003.75pt x 702.625pt>
-File: ./Fig5.png Graphic file (type png)
- <use ./Fig5.png>
-Package pdftex.def Info: ./Fig5.png used on input line 850.
+<./Fig5_NoArrow.png, id=54, 1003.75pt x 702.625pt>
+File: ./Fig5_NoArrow.png Graphic file (type png)
+ <use ./Fig5_NoArrow.png>
+Package pdftex.def Info: ./Fig5_NoArrow.png used on input line 849.
 (pdftex.def)             Requested size: 250.93689pt x 175.6558pt.
 
-Overfull \hbox (4.93689pt too wide) in paragraph at lines 850--851
+Overfull \hbox (4.93689pt too wide) in paragraph at lines 849--850
  [][] 
  []
 
-[7 <./Fig3.png>] [8 <./Fig4a.png> <./Fig4b.png> <./Fig5.png>] (./manuscript.bbl
+
+LaTeX Warning: Command \r invalid in math mode on input line 964.
+
+
+LaTeX Warning: Command \r invalid in math mode on input line 964.
+
+[7 <./Fig3.png>] [8 <./Fig4a.png> <./Fig4b.png> <./Fig5_NoArrow.png>]
+(./manuscript.bbl
 Missing character: There is no Ã in font cmr9!
 Missing character: There is no ¤ in font cmr9!
 
@@ -453,10 +454,10 @@ Underfull \hbox (badness 4872) in paragraph at lines 127--139
 
 [9]) [10] (./manuscript.aux) ) 
 Here is how much of TeX's memory you used:
- 5528 strings out of 495017
- 74177 string characters out of 6181022
- 171301 words of memory out of 5000000
- 8671 multiletter control sequences out of 15000+600000
+ 5529 strings out of 495017
+ 74227 string characters out of 6181022
+ 173301 words of memory out of 5000000
+ 8672 multiletter control sequences out of 15000+600000
  12486 words of font info for 44 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,20n,47p,1477b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -486,7 +487,7 @@ public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mti9.pfb>
-Output written on manuscript.pdf (10 pages, 2033388 bytes).
+Output written on manuscript.pdf (10 pages, 2021963 bytes).
 PDF statistics:
  159 PDF objects out of 1000 (max. 8388607)
  106 compressed objects within 2 object streams
