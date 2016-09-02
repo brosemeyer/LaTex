@@ -1,1 +1,5 @@
 mybib.bib.bak
+*.aux
+*.blg
+*.log
+*.synctex.gz
